@@ -308,10 +308,10 @@
     <div class="mobile-menu md:hidden bg-white border-t">
       <ul class="py-4 px-6 space-y-3">
         <li><a href="#home" class="block hover:text-blue-800">Home</a></li>
+        <li><a href="#about" class="block hover:text-blue-800">About</a></li>
         <li><a href="#features" class="block hover:text-blue-800">Features</a></li>
         <li><a href="#screenshots" class="block hover:text-blue-800">Screenshots</a></li>
-        <li><a href="#about" class="block hover:text-blue-800">About</a></li>
-        <li><a href="#contact" class="block hover:text-blue-800">Contact</a></li>
+        <!-- <li><a href="#contact" class="block hover:text-blue-800">Contact</a></li> -->
       </ul>
     </div>
   </header>
@@ -324,10 +324,10 @@
         Invoiso helps you create professional invoices, manage clients, and track payments — all offline, for Windows and Linux.
       </p>
       <div class="flex flex-col md:flex-row justify-center gap-5">
-        <a href="#" class="btn-primary font-semibold px-8 py-4 rounded-lg shadow-lg inline-flex items-center justify-center gap-3">
+        <a href="https://drive.google.com/file/d/1djohy1Pl37i2byISSBjxaILFE0yutqU1/view?usp=sharing" class="btn-primary font-semibold px-8 py-4 rounded-lg shadow-lg inline-flex items-center justify-center gap-3">
           <i class="fas fa-download download-icon"></i> Download for Windows
         </a>
-        <a href="#" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3">
+        <a href="https://drive.google.com/file/d/18Zw0blc5BFIz_H6h61uON9NMr1jdD4NZ/view?usp=sharing" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3">
           <i class="fas fa-download download-icon"></i> Download for Linux
         </a>
       </div>
@@ -387,27 +387,48 @@
   <section id="screenshots" class="py-24 bg-white">
     <div class="container mx-auto px-6 text-center">
       <h3 class="section-title text-4xl font-bold mb-8 primary-text">App Screenshots</h3>
-      <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Explore the intuitive interface designed for seamless invoice management</p>
-
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Explore the intuitive interface designed for seamless invoice management</p>
+      <div class="text-gray-800 mb-6 max-w-2xl font-bold mx-auto primary-text text-2xl" id="custom-bottom-text"></div>
       <!-- Swiper Container -->
       <div class="swiper screenshots-swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="assets/images/1.png" alt="Invoice Dashboard" />
+          <div class="swiper-slide" data-custom-text="Invoice Login Page">
+            <img src="assets/images/login.png" alt="Invoice Login" loading="lazy" />
           </div>
-          <div class="swiper-slide">
-            <img src="assets/images/2.png" alt="Create Invoice" />
+          <div class="swiper-slide" data-custom-text="Invoice Dashboard Page" >
+            <img src="assets/images/dashboard.png" alt="Invoice Dashboard" loading="lazy"/>
           </div>
-          <div class="swiper-slide">
-            <img src="assets/images/3.png" alt="Customer Management" />
+          <div class="swiper-slide" data-custom-text="Create Invoice Page">
+            <img src="assets/images/create_invoice.png" alt="Create Invoice" loading="lazy"/>
           </div>
-        </div>
+          <div class="swiper-slide" data-custom-text="Sample Invoice Pdf">
+            <img src="assets/images/invoice_pdf.png" alt="Invoice Pdf" loading="lazy"/>
+          </div>
+          <div class="swiper-slide" data-custom-text="Customer Management Page">
+            <img src="assets/images/customer.png" alt="Customer Management" loading="lazy" />
+          </div>
+          <div class="swiper-slide" data-custom-text="Product Management Page">
+            <img src="assets/images/product.png" alt="Product Management" loading="lazy"/>
+          </div>
+          <div class="swiper-slide" data-custom-text="User Management Page">
+            <img src="assets/images/users.png" alt="User Management" loading="lazy" />
+          </div>
+          <div class="swiper-slide" data-custom-text="Edit Your Organization Data">
+            <img src="assets/images/company.png" alt="Edit Your Organization Data" loading="lazy" />
+          </div>
+          <div class="swiper-slide" data-custom-text="Backup Your Data">
+            <img src="assets/images/backup.png" alt="Backup Your Data" loading="lazy" />
+          </div>
 
+          
+        </div>
+        
         <!-- Navigation buttons -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <!-- Pagination dots -->
         <div class="swiper-pagination"></div>
+      
       </div>
     </div>
   </section>
@@ -478,7 +499,22 @@
           },
         },
       });
+
+      const customBottomTextElement = document.getElementById('custom-bottom-text');
+
+    swiper.on('slideChange', function () {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        const customText = activeSlide.dataset.customText;
+        customBottomTextElement.textContent = customText;
     });
+
+    // Initialize with the text of the first slide
+    const initialSlide = swiper.slides[swiper.activeIndex];
+    customBottomTextElement.textContent = initialSlide.dataset.customText;
+
+    });
+
+    
     
     // Mobile menu toggle
     function toggleMenu() {
