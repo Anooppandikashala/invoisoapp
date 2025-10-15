@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Invoiso — Simple offline invoicing system for Windows and Linux." />
-  <title>Invoiso | Simple Offline Invoicing</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+      content="Invoiso — Simple offline invoicing system for Windows and Linux." />
+    <title>Invoiso | Simple Offline Invoicing</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
     html {
       scroll-behavior: smooth;
     }
@@ -255,6 +260,64 @@
     footer a:hover {
       color: #60a5fa;
     }
+
+    .preview-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 30px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 46, 120, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1000;
+}
+
+.nav-btn:hover {
+  background: rgba(0, 46, 120, 0.9);
+}
+
+.nav-btn.prev {
+  left: 40px;
+}
+
+.nav-btn.next {
+  right: 40px;
+}
     
     @media (max-width: 768px) {
       .hamburger {
@@ -282,159 +345,229 @@
       }
     }
   </style>
-</head>
+  </head>
 
-<body class="font-sans text-gray-800">
-
-  <!-- Navbar -->
-  <header class="navbar bg-white shadow-md fixed w-full z-50">
-    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-2xl font-bold primary-text tracking-tight">Invoiso</h1>
-      <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
-        <li><a href="#home" class="hover:text-blue-800 transition">Home</a></li>
-        <li><a href="#features" class="hover:text-blue-800 transition">Features</a></li>
-        <li><a href="#about" class="hover:text-blue-800 transition">About</a></li>
-        <li><a href="#screenshots" class="hover:text-blue-800 transition">Screenshots</a></li>
-        <!-- <li><a href="#contact" class="hover:text-blue-800 transition">Contact</a></li> -->
-      </ul>
-      <!-- Mobile menu button -->
-      <button class="md:hidden hamburger text-gray-700" onclick="toggleMenu()">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-    <!-- Mobile menu -->
-    <div class="mobile-menu md:hidden bg-white border-t">
-      <ul class="py-4 px-6 space-y-3">
-        <li><a href="#home" class="block hover:text-blue-800">Home</a></li>
-        <li><a href="#about" class="block hover:text-blue-800">About</a></li>
-        <li><a href="#features" class="block hover:text-blue-800">Features</a></li>
-        <li><a href="#screenshots" class="block hover:text-blue-800">Screenshots</a></li>
-        <!-- <li><a href="#contact" class="block hover:text-blue-800">Contact</a></li> -->
-      </ul>
+  <body class="font-sans text-gray-800">
+    <!-- Image Preview Modal -->
+    <!--  <div id="imgModal" class="modal">-->
+    <!--    <span class="close" id="closeModal">&times;</span>-->
+    <!--    <img class="modal-content" id="modalImage" alt="Full View">-->
+    <!--  </div>-->
+    <!-- 🔍 Image Preview Modal -->
+    <div id="imagePreview" class="preview-modal">
+      <span class="close-btn" onclick="closePreview()">×</span>
+      <button class="nav-btn prev" onclick="changeImage(-1)">&#10094;</button>
+      <img id="previewImg" src alt="Preview">
+      <button class="nav-btn next" onclick="changeImage(1)">&#10095;</button>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="pt-32 pb-24 hero-gradient text-white text-center relative">
-    <div class="container mx-auto px-6 relative z-10">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Simple. Fast. Offline.</h2>
-      <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95 leading-relaxed">
-        Invoiso helps you create professional invoices, manage clients, and track payments — all offline, for Windows and Linux.
-      </p>
-      <div class="flex flex-col md:flex-row justify-center gap-5">
-        <a href="https://drive.google.com/file/d/1djohy1Pl37i2byISSBjxaILFE0yutqU1/view?usp=sharing" class="btn-primary font-semibold px-8 py-4 rounded-lg shadow-lg inline-flex items-center justify-center gap-3">
-          <i class="fas fa-download download-icon"></i> Download for Windows
-        </a>
-        <a href="https://drive.google.com/file/d/18Zw0blc5BFIz_H6h61uON9NMr1jdD4NZ/view?usp=sharing" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3">
-          <i class="fas fa-download download-icon"></i> Download for Linux
-        </a>
+    <!-- Navbar -->
+    <header class="navbar bg-white shadow-md fixed w-full z-50">
+      <nav
+        class="container mx-auto flex justify-between items-center py-4 px-6">
+        <h1 class="text-2xl font-bold primary-text tracking-tight">Invoiso</h1>
+        <ul class="hidden md:flex space-x-8 text-gray-700 font-medium">
+          <li><a href="#home"
+              class="hover:text-blue-800 transition">Home</a></li>
+          <li><a href="#features"
+              class="hover:text-blue-800 transition">Features</a></li>
+          <li><a href="#about"
+              class="hover:text-blue-800 transition">About</a></li>
+          <li><a href="#screenshots"
+              class="hover:text-blue-800 transition">Screenshots</a></li>
+          <!-- <li><a href="#contact" class="hover:text-blue-800 transition">Contact</a></li> -->
+        </ul>
+        <!-- Mobile menu button -->
+        <button class="md:hidden hamburger text-gray-700"
+          onclick="toggleMenu()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </nav>
+      <!-- Mobile menu -->
+      <div class="mobile-menu md:hidden bg-white border-t">
+        <ul class="py-4 px-6 space-y-3">
+          <li><a href="#home" class="block hover:text-blue-800">Home</a></li>
+          <li><a href="#about" class="block hover:text-blue-800">About</a></li>
+          <li><a href="#features"
+              class="block hover:text-blue-800">Features</a></li>
+          <li><a href="#screenshots"
+              class="block hover:text-blue-800">Screenshots</a></li>
+          <!-- <li><a href="#contact" class="block hover:text-blue-800">Contact</a></li> -->
+        </ul>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Features Section -->
-  <section id="features" class="py-24 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="section-title text-4xl font-bold mb-16 primary-text">Key Features</h3>
-      <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        
-        <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
-          <div class="text-5xl mb-5">
-            <i class="fas fa-lock text-blue-600"></i>
-          </div>
-          <h4 class="text-2xl font-bold mb-4 primary-text">Offline & Secure</h4>
-          <p class="text-gray-600 leading-relaxed">All data stays on your device — no cloud, no worries. Complete privacy and security.</p>
+    <!-- Hero Section -->
+    <section id="home"
+      class="pt-32 pb-24 hero-gradient text-white text-center relative">
+      <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Simple.
+          Fast. Offline.</h2>
+        <p
+          class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95 leading-relaxed">
+          Invoiso helps you create professional invoices, manage clients, and
+          track payments — all offline, for Windows and Linux.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-5">
+          <a href
+            class="btn-primary font-semibold px-8 py-4 rounded-lg shadow-lg inline-flex items-center justify-center gap-3">
+            <i class="fas fa-download download-icon"></i> Download for Windows
+          </a>
+          <a href
+            class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3">
+            <i class="fas fa-download download-icon"></i> Download for Linux
+          </a>
         </div>
-        
-        <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
-          <div class="text-5xl mb-5">
-            <i class="fas fa-file-invoice text-green-600"></i>
-          </div>
-          <h4 class="text-2xl font-bold mb-4 primary-text">Smart Invoice Management</h4>
-          <p class="text-gray-600 leading-relaxed">Create, edit, and export invoices as PDFs effortlessly with professional templates.</p>
-        </div>
-        
-        <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
-          <div class="text-5xl mb-5">
-            <i class="fas fa-users text-purple-600"></i>
-          </div>
-          <h4 class="text-2xl font-bold mb-4 primary-text">Customer & Product Tracking</h4>
-          <p class="text-gray-600 leading-relaxed">Store client and product info with built-in search, sort, and filtering capabilities.</p>
-        </div>
-
-        
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-6 text-center max-w-4xl">
-      <h3 class="section-title text-4xl font-bold mb-10 primary-text">About Invoiso</h3>
-      <p class="text-lg mb-6 text-gray-700 leading-relaxed">
-        Invoiso is a cross-platform desktop invoicing application built for simplicity and speed.  
-        Designed for freelancers and small businesses, it allows you to manage customers, products, and invoices seamlessly — even without internet access.
-      </p>
-      <p class="text-lg text-gray-700 leading-relaxed">
-        Available for <strong class="primary-text">Windows</strong> and <strong class="primary-text">Linux</strong>, Invoiso helps you stay productive wherever you work.
-      </p>
-    </div>
-  </section>
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="section-title text-4xl font-bold mb-16 primary-text">Key
+          Features</h3>
+        <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-  <!-- Screenshots Section -->
-  <section id="screenshots" class="py-24 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="section-title text-4xl font-bold mb-8 primary-text">App Screenshots</h3>
-      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Explore the intuitive interface designed for seamless invoice management</p>
-      <div class="text-gray-800 mb-6 max-w-2xl font-bold mx-auto primary-text text-2xl" id="custom-bottom-text"></div>
-      <!-- Swiper Container -->
-      <div class="swiper screenshots-swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" data-custom-text="Invoice Login Page">
-            <img src="assets/images/login.png" alt="Invoice Login" loading="lazy" />
-          </div>
-          <div class="swiper-slide" data-custom-text="Invoice Dashboard Page" >
-            <img src="assets/images/dashboard.png" alt="Invoice Dashboard" loading="lazy"/>
-          </div>
-          <div class="swiper-slide" data-custom-text="Create Invoice Page">
-            <img src="assets/images/create_invoice.png" alt="Create Invoice" loading="lazy"/>
-          </div>
-          <div class="swiper-slide" data-custom-text="Sample Invoice Pdf">
-            <img src="assets/images/invoice_pdf.png" alt="Invoice Pdf" loading="lazy"/>
-          </div>
-          <div class="swiper-slide" data-custom-text="Customer Management Page">
-            <img src="assets/images/customer.png" alt="Customer Management" loading="lazy" />
-          </div>
-          <div class="swiper-slide" data-custom-text="Product Management Page">
-            <img src="assets/images/product.png" alt="Product Management" loading="lazy"/>
-          </div>
-          <div class="swiper-slide" data-custom-text="User Management Page">
-            <img src="assets/images/users.png" alt="User Management" loading="lazy" />
-          </div>
-          <div class="swiper-slide" data-custom-text="Edit Your Organization Data">
-            <img src="assets/images/company.png" alt="Edit Your Organization Data" loading="lazy" />
-          </div>
-          <div class="swiper-slide" data-custom-text="Backup Your Data">
-            <img src="assets/images/backup.png" alt="Backup Your Data" loading="lazy" />
+          <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
+            <div class="text-5xl mb-5">
+              <i class="fas fa-lock text-blue-600"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 primary-text">Offline &
+              Secure</h4>
+            <p class="text-gray-600 leading-relaxed">All data stays on your
+              device — no cloud, no worries. Complete privacy and security.</p>
           </div>
 
-          
+          <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
+            <div class="text-5xl mb-5">
+              <i class="fas fa-file-invoice text-green-600"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 primary-text">Smart Invoice
+              Management</h4>
+            <p class="text-gray-600 leading-relaxed">Create, edit, and export
+              invoices as PDFs effortlessly with professional templates.</p>
+          </div>
+
+          <div class="feature-card bg-white p-10 rounded-2xl shadow-lg">
+            <div class="text-5xl mb-5">
+              <i class="fas fa-users text-purple-600"></i>
+            </div>
+            <h4 class="text-2xl font-bold mb-4 primary-text">Customer & Product
+              Tracking</h4>
+            <p class="text-gray-600 leading-relaxed">Store client and product
+              info with built-in search, sort, and filtering capabilities.</p>
+          </div>
+
         </div>
-        
-        <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Pagination dots -->
-        <div class="swiper-pagination"></div>
-      
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <!-- <section id="contact" class="py-24 bg-white">
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-6 text-center max-w-4xl">
+        <h3 class="section-title text-4xl font-bold mb-10 primary-text">About
+          Invoiso</h3>
+        <p class="text-lg mb-6 text-gray-700 leading-relaxed">
+          Invoiso is a cross-platform desktop invoicing application built for
+          simplicity and speed.
+          Designed for freelancers and small businesses, it allows you to manage
+          customers, products, and invoices seamlessly — even without internet
+          access.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Available for <strong class="primary-text">Windows</strong> and
+          <strong class="primary-text">Linux</strong>, Invoiso helps you stay
+          productive wherever you work.
+        </p>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="py-24 bg-white">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="section-title text-4xl font-bold mb-8 primary-text">App
+          Screenshots</h3>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Explore the intuitive
+          interface designed for seamless invoice management</p>
+        <div
+          class="text-gray-800 mb-6 max-w-2xl font-bold mx-auto primary-text text-2xl"
+          id="custom-bottom-text"></div>
+        <!-- Swiper Container -->
+        <div class="swiper screenshots-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" data-custom-text="Invoice Login Page">
+              <img src="assets/images/sc1.png" alt="Invoice Login"
+                loading="lazy" onclick="openPreview(0)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Invoice Dashboard Page">
+              <img src="assets/images/sc2.png" alt="Invoice Dashboard"
+                loading="lazy" onclick="openPreview(1)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Create Invoice Page">
+              <img src="assets/images/sc4.png" alt="Create Invoice"
+                loading="lazy" onclick="openPreview(2)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Edit Your Invoice">
+              <img src="assets/images/sc14.png" alt="Edit Invoice"
+                loading="lazy" onclick="openPreview(3)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Invoice Listing Page">
+              <img src="assets/images/sc5.png" alt="Invoice Listing"
+                loading="lazy" onclick="openPreview(4)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Sample Invoice Pdf">
+              <img src="assets/images/sc15.png" alt="Invoice Pdf" loading="lazy"
+                onclick="openPreview(5)" />
+            </div>
+            <div class="swiper-slide"
+              data-custom-text="Customer Management Page">
+              <img src="assets/images/sc6.png" alt="Customer Management"
+                loading="lazy" onclick="openPreview(6)" />
+            </div>
+            <div class="swiper-slide"
+              data-custom-text="Product Management Page">
+              <img src="assets/images/sc7.png" alt="Product Management"
+                loading="lazy" onclick="openPreview(7)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="User Management Page">
+              <img src="assets/images/sc10.png" alt="User Management"
+                loading="lazy" onclick="openPreview(8)" />
+            </div>
+            <div class="swiper-slide"
+              data-custom-text="Edit Your Organization Data">
+              <img src="assets/images/sc8.png" alt="Edit Your Organization Data"
+                loading="lazy" onclick="openPreview(9)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Invoice Templates">
+              <img src="assets/images/sc11.png" alt="Invoice Templates"
+                loading="lazy" onclick="openPreview(10)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="Backup Your Data">
+              <img src="assets/images/sc9.png" alt="Backup Your Data"
+                loading="lazy" onclick="openPreview(11)" />
+            </div>
+            <div class="swiper-slide" data-custom-text="About Invoiso">
+              <img src="assets/images/sc12.png" alt="About Invoiso"
+                loading="lazy" onclick="openPreview(12)" />
+            </div>
+
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- Pagination dots -->
+          <div class="swiper-pagination"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- <section id="contact" class="py-24 bg-white">
     <div class="container mx-auto px-6 text-center max-w-2xl">
       <h3 class="section-title text-4xl font-bold mb-10 primary-text">Get in Touch</h3>
       <p class="mb-10 text-lg text-gray-700">Have feedback or questions? We'd love to hear from you.</p>
@@ -447,18 +580,22 @@
     </div>
   </section> -->
 
-  <!-- Footer -->
-  <footer class="primary-bg text-white text-center py-8">
-    <p class="text-lg mb-4">© 2025 Invoiso. All rights reserved.</p>
-    <div class="mt-3 space-x-6 text-base">
-      <a href="#" class="hover:underline"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#" class="hover:underline"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="mailto:support@invoiso.com" class="hover:underline"><i class="fas fa-envelope"></i> Email</a>
-    </div>
-  </footer>
-  
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
+    <!-- Footer -->
+    <footer class="primary-bg text-white text-center py-8">
+      <p class="text-lg mb-4">© 2025 Invoiso. All rights reserved.</p>
+      <div class="mt-3 space-x-6 text-base">
+        <a href="#" class="hover:underline"><i class="fab fa-github"></i>
+          GitHub</a>
+        <a href="#" class="hover:underline"><i class="fab fa-youtube"></i>
+          YouTube</a>
+        <a href="mailto:support@invoiso.com" class="hover:underline"><i
+            class="fas fa-envelope"></i> Email</a>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
     // Initialize Swiper after DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       var swiper = new Swiper('.screenshots-swiper', {
@@ -538,7 +675,31 @@
         document.querySelector('.mobile-menu').classList.remove('active');
       });
     });
+
+    let currentImage = 0;
+    const images = document.querySelectorAll('.swiper-wrapper img');
+    const previewModal = document.getElementById('imagePreview');
+    const previewImg = document.getElementById('previewImg');
+    previewModal.style.display = 'none';
+
+    function openPreview(index) {
+      console.log("In preview");
+      previewModal.style.display = 'flex';
+      console.log(images);
+      currentImage = index;
+      previewImg.src = images[index].src;
+      
+    }
+
+    function closePreview() {
+      previewModal.style.display = 'none';
+    }
+
+    function changeImage(direction) {
+      currentImage = (currentImage + direction + images.length) % images.length;
+      previewImg.src = images[currentImage].src;
+    }
   </script>
 
-</body>
+  </body>
 </html>
