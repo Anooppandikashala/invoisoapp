@@ -452,6 +452,97 @@ footer a:hover {
 }
 
 /* =============================================
+   FAQ Accordion (native <details>/<summary>)
+   ============================================= */
+
+.faq-item {
+    background: white;
+    border: 1px solid rgba(0, 46, 120, 0.12);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 6px 24px rgba(0, 46, 120, 0.12);
+}
+
+.faq-item[open] {
+    border-color: rgba(0, 46, 120, 0.25);
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 28px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1f2937;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Remove default marker in all browsers */
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::marker { display: none; }
+
+.faq-question:hover {
+    background: rgba(0, 46, 120, 0.03);
+    color: #002E78;
+}
+
+.faq-item[open] .faq-question {
+    color: #002E78;
+    border-bottom: 1px solid rgba(0, 46, 120, 0.1);
+}
+
+.faq-chevron {
+    color: #002E78;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 20px 28px 24px;
+    color: #4b5563;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.faq-answer a {
+    color: #002E78;
+    text-decoration: underline;
+}
+
+.faq-answer p {
+    text-align: start;
+}
+
+.faq-answer a:hover {
+    color: #0047ab;
+}
+
+@media (max-width: 640px) {
+    .faq-question {
+        padding: 18px 20px;
+        font-size: 0.95rem;
+    }
+
+    .faq-answer {
+        padding: 16px 20px 20px;
+    }
+}
+
+/* =============================================
    Changelog Accordion
    ============================================= */
 

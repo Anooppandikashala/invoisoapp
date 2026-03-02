@@ -4,32 +4,38 @@
     <!-- Basic Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Invoiso — Simple, fast, and offline invoicing software for Windows and Linux. Create professional invoices effortlessly with no internet required." />
-    <meta name="keywords" content="invoice software, invoice generator, offline invoicing, billing software, invoicing app, Linux invoice app, Windows invoicing app, Invoiso" />
+    <meta name="description" content="Invoiso — Free offline invoicing software for Windows and Linux. Create professional PDF invoices, manage clients and products, all without internet. No subscription, no cloud." />
+    <meta name="keywords" content="invoice software, free invoice generator, offline invoicing, billing software, PDF invoicing, Linux invoice app, Windows invoice app, open source invoicing, small business invoicing, Invoiso" />
     <meta name="author" content="Invoiso" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Title -->
-    <title>Invoiso | Simple Offline Invoicing for Windows & Linux</title>
+    <title>Invoiso — Free Offline Invoice Software for Windows & Linux</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://anooppandikashala.github.io/invoisoapp/" />
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#3b82f6" />
+    <meta name="theme-color" content="#002E78" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Invoiso — Simple Offline Invoicing for Windows & Linux" />
-    <meta property="og:description" content="Create invoices easily, without the internet. Lightweight and powerful offline invoicing app for Windows and Linux." />
+    <meta property="og:title" content="Invoiso — Free Offline Invoice Software for Windows & Linux" />
+    <meta property="og:description" content="Create professional PDF invoices, manage clients and products — all offline. Free, open source, no subscription. Available for Windows and Linux." />
     <meta property="og:image" content="https://anooppandikashala.github.io/invoisoapp/assets/images/invoiso-banner.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Invoiso — Offline Invoicing Software for Windows and Linux" />
     <meta property="og:url" content="https://anooppandikashala.github.io/invoisoapp/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Invoiso" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Invoiso — Simple Offline Invoicing" />
-    <meta name="twitter:description" content="Simple and fast offline invoicing software for Windows & Linux." />
+    <meta name="twitter:title" content="Invoiso — Free Offline Invoice Software for Windows & Linux" />
+    <meta name="twitter:description" content="Create professional PDF invoices offline. Free, open source, no subscription. Available for Windows and Linux." />
     <meta name="twitter:image" content="https://anooppandikashala.github.io/invoisoapp/assets/images/invoiso-banner.webp" />
+    <meta name="twitter:image:alt" content="Invoiso — Offline Invoicing Software" />
 
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
@@ -49,7 +55,18 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Structured Data -->
+    <!-- Structured Data: Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Invoiso",
+      "url": "https://anooppandikashala.github.io/invoisoapp/",
+      "description": "Free offline invoice software for Windows and Linux"
+    }
+    </script>
+
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -57,11 +74,23 @@
       "name": "Invoiso",
       "operatingSystem": "Windows, Linux",
       "applicationCategory": "BusinessApplication",
-      "description": "Simple and fast offline invoicing software for Windows and Linux desktops. Manage customers, products, and invoices without internet access.",
+      "description": "Free and offline invoicing software for Windows and Linux. Create professional PDF invoices, manage customers and products without internet access.",
       "softwareVersion": "2.0.5",
+      "releaseNotes": "https://anooppandikashala.github.io/invoisoapp/changelog.html",
+      "license": "https://github.com/Anooppandikashala/invoiso/blob/main/LICENSE",
+      "featureList": [
+        "100% offline — no internet required",
+        "PDF invoice generation",
+        "Multiple invoice templates (Classic, Modern, Minimal)",
+        "Customer management",
+        "Product management",
+        "Multi-currency support",
+        "Data backup and restore",
+        "No subscription or fees"
+      ],
       "author": {
         "@type": "Person",
-        "name": "Anoop P"
+        "name": "Anoop Pandikashala"
       },
       "image": "https://anooppandikashala.github.io/invoisoapp/assets/images/invoiso-banner.webp",
       "url": "https://anooppandikashala.github.io/invoisoapp/",
@@ -71,6 +100,64 @@
         "price": "0",
         "priceCurrency": "USD"
       }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Invoiso completely free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — Invoiso is 100% free and open source. There are no subscriptions, no hidden fees, and no premium tiers. Download it, use it indefinitely, and contribute on GitHub."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Invoiso work without an internet connection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Invoiso is designed to work entirely offline. All data — customers, products, and invoices — is stored locally on your device. No internet connection is needed at any point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which operating systems does Invoiso support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Invoiso is available for Windows and Linux. Download the latest installer for your platform from the GitHub Releases page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export invoices as PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Invoiso generates professional PDF invoices with a single click. Choose from Classic, Modern, or Minimal templates and add your company logo and branding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my business data safe with Invoiso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your data never leaves your device. Invoiso stores everything in a local database — no cloud sync, no remote servers. A built-in backup feature keeps your data portable and safe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Invoiso support multiple currencies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Invoiso supports multiple currencies including USD, EUR, GBP, INR, JPY, AED, SGD, AUD, CAD, and JMD, configurable from the invoice settings."
+          }
+        }
+      ]
     }
     </script>
   </head>
@@ -100,6 +187,7 @@
           <li><a href="#features" class="hover:text-blue-800 transition-colors duration-300">Features</a></li>
           <li><a href="#about" class="hover:text-blue-800 transition-colors duration-300">About</a></li>
           <li><a href="#screenshots" class="hover:text-blue-800 transition-colors duration-300">Screenshots</a></li>
+          <li><a href="#faq" class="hover:text-blue-800 transition-colors duration-300">FAQ</a></li>
           <li><a href="changelog.html" class="hover:text-blue-800 transition-colors duration-300">Changelog</a></li>
           <li><a href="#contact" class="hover:text-blue-800 transition-colors duration-300">Contact</a></li>
         </ul>
@@ -123,6 +211,7 @@
           <li><a href="#features" class="block hover:text-blue-800 py-2 transition-colors">Features</a></li>
           <li><a href="#about" class="block hover:text-blue-800 py-2 transition-colors">About</a></li>
           <li><a href="#screenshots" class="block hover:text-blue-800 py-2 transition-colors">Screenshots</a></li>
+          <li><a href="#faq" class="block hover:text-blue-800 py-2 transition-colors">FAQ</a></li>
           <li><a href="changelog.html" class="block hover:text-blue-800 py-2 transition-colors">Changelog</a></li>
           <li><a href="#contact" class="block hover:text-blue-800 py-2 transition-colors">Contact</a></li>
         </ul>
@@ -260,6 +349,80 @@
         </div>
       </section>
 
+      
+
+      <!-- FAQ Section -->
+      <section id="faq" class="py-32 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+          <h2 class="section-title text-4xl font-bold mb-4 primary-text">Frequently Asked Questions</h2>
+          <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Everything you need to know about Invoiso</p>
+
+          <div class="space-y-3">
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Is Invoiso completely free?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes — Invoiso is 100% free and open source. There are no subscriptions, no hidden fees, and no premium tiers. Download it, use it indefinitely, and contribute on <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Does Invoiso work without an internet connection?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Absolutely. Invoiso is designed to work entirely offline. All your data — customers, products, and invoices — is stored locally on your device. No internet connection is required at any point.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Which operating systems does Invoiso support?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Invoiso is available for <strong>Windows</strong> and <strong>Linux</strong>. Download the latest installer for your platform from the <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a>.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Can I export invoices as PDF?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. Invoiso lets you generate professional PDF invoices with a single click. Choose from three templates — Classic, Modern, and Minimal — and add your company logo and branding.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Is my business data safe with Invoiso?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Your data never leaves your device. Invoiso stores everything in a local database — no cloud sync, no remote servers. You are in full control, with a built-in backup feature to keep your data portable and protected.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Does Invoiso support multiple currencies?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. Invoiso supports multiple currencies including USD, EUR, GBP, INR, JPY, AED, SGD, AUD, CAD, and JMD. You can set your preferred currency in the invoice settings.</p>
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section id="contact" class="py-32 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
         <div class="absolute inset-0 opacity-5" aria-hidden="true">
@@ -268,7 +431,7 @@
         </div>
         <div class="container mx-auto px-6 text-center max-w-5xl relative z-10">
           <h2 class="section-title text-4xl font-bold mb-8 primary-text">Get in Touch</h2>
-          <p class="mb-16 text-xl text-gray-600">Have questions or feedback? Reach out through any of these channels</p>
+          <p class="mb-16 text-xl text-gray-600">Still have questions? Reach out directly</p>
 
           <div class="max-w-sm mx-auto">
             <a href="mailto:anooppkrishnan96@gmail.com" class="feature-card bg-white p-10 rounded-3xl shadow-xl group block">
@@ -290,6 +453,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
@@ -298,6 +462,9 @@
         <div class="flex flex-wrap justify-center gap-8 text-lg mb-8">
           <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="hover:underline">
             <i class="fab fa-github mr-2" aria-hidden="true"></i>GitHub
+          </a>
+          <a href="changelog.html" class="hover:underline">
+            <i class="fas fa-list-alt mr-2" aria-hidden="true"></i>Changelog
           </a>
           <a href="mailto:anooppkrishnan96@gmail.com" class="hover:underline">
             <i class="fas fa-envelope mr-2" aria-hidden="true"></i>Email
