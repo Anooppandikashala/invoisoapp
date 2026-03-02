@@ -742,3 +742,29 @@ footer a:hover {
         padding: 16px 18px 20px;
     }
 }
+
+/* =============================================
+   Buy Me a Coffee Button
+   ============================================= */
+
+.bmc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFDD00;
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(255, 221, 0, 0.4);
+}
+
+.bmc-btn:hover {
+    background: #f5d400;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 221, 0, 0.5);
+    color: #1a1a1a;
+}
