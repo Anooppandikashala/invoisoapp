@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://anooppandikashala.github.io/invoisoapp/download.html" />
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#002E78" />
+    <meta name="theme-color" content="#06080f" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Download Invoiso — Free Offline Invoice Software" />
@@ -51,15 +51,21 @@
     <link rel="stylesheet" href="style.css" />
 
     <style>
-      /* ── Release card (shared) ── */
+      /* ── Release card ── */
       .release-card {
-        background: white;
-        border: 1px solid rgba(0, 46, 120, 0.12);
+        background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-        transition: box-shadow 0.3s ease;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.4);
         margin-bottom: 24px;
+        transition: border-color 0.3s ease;
+      }
+
+      .release-card:hover {
+        border-color: rgba(79,142,247,0.2);
       }
 
       .release-header {
@@ -69,8 +75,8 @@
         flex-wrap: wrap;
         gap: 12px;
         padding: 22px 28px;
-        border-bottom: 1px solid rgba(0, 46, 120, 0.08);
-        background: rgba(0, 46, 120, 0.02);
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.02);
       }
 
       .release-header-left {
@@ -83,12 +89,12 @@
       .release-title {
         font-weight: 700;
         font-size: 1.05rem;
-        color: #1f2937;
+        color: var(--text);
       }
 
       .release-date {
         font-size: 0.875rem;
-        color: #6b7280;
+        color: var(--text-muted);
         white-space: nowrap;
       }
 
@@ -100,7 +106,7 @@
       }
 
       .latest-downloads {
-        border-right: 1px solid rgba(0, 46, 120, 0.08);
+        border-right: 1px solid var(--border);
         padding-bottom: 20px;
       }
 
@@ -115,13 +121,13 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.07em;
-        color: #6b7280;
+        color: var(--text-muted);
         margin-bottom: 16px;
       }
 
-      /* Release notes content (reused from changelog) */
+      /* Release notes content */
       .notes-content {
-        color: #374151;
+        color: var(--text);
         font-size: 0.9rem;
         line-height: 1.75;
         flex: 1;
@@ -130,7 +136,7 @@
       .notes-content .cl-heading {
         font-weight: 700;
         font-size: 0.85rem;
-        color: #002E78;
+        color: var(--primary);
         margin: 12px 0 6px;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -159,13 +165,13 @@
         content: '•';
         position: absolute;
         left: 5px;
-        color: #002E78;
+        color: var(--primary);
         font-weight: bold;
       }
 
       .notes-content .cl-code {
-        background: rgba(0, 46, 120, 0.08);
-        color: #002E78;
+        background: rgba(79,142,247,0.15);
+        color: var(--primary);
         padding: 1px 5px;
         border-radius: 4px;
         font-family: monospace;
@@ -185,8 +191,8 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.07em;
-        color: #6b7280;
-        padding: 20px 20px 8px;
+        color: var(--text-muted);
+        padding: 14px 20px 8px;
       }
 
       .asset-btn {
@@ -195,20 +201,20 @@
         gap: 12px;
         padding: 14px 16px;
         border-radius: 12px;
-        border: 1.5px solid rgba(0, 46, 120, 0.15);
-        background: white;
+        border: 1.5px solid var(--border);
+        background: rgba(255,255,255,0.03);
         text-decoration: none;
-        color: #1f2937;
+        color: var(--text-muted);
         transition: all 0.25s ease;
         min-width: 0;
       }
 
       .asset-btn:hover {
-        border-color: #002E78;
-        background: rgba(0, 46, 120, 0.04);
+        border-color: var(--primary);
+        background: rgba(79,142,247,0.08);
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 46, 120, 0.12);
-        color: #002E78;
+        box-shadow: 0 6px 20px rgba(79,142,247,0.15), 0 0 0 1px rgba(79,142,247,0.1);
+        color: var(--primary);
       }
 
       .asset-icon {
@@ -246,7 +252,7 @@
 
       .no-assets {
         padding: 20px;
-        color: #9ca3af;
+        color: var(--text-muted);
         font-style: italic;
         font-size: 0.95rem;
       }
@@ -257,7 +263,7 @@
         align-items: center;
         gap: 6px;
         margin-top: 20px;
-        color: #002E78;
+        color: var(--primary);
         font-weight: 600;
         font-size: 0.88rem;
         text-decoration: none;
@@ -265,7 +271,7 @@
       }
 
       .gh-link:hover {
-        color: #0047ab;
+        color: white;
         text-decoration: underline;
       }
 
@@ -277,16 +283,16 @@
         gap: 12px;
         padding: 16px 24px;
         text-decoration: none;
-        color: #374151;
-        border-bottom: 1px solid rgba(0, 46, 120, 0.07);
+        color: var(--text-muted);
+        border-bottom: 1px solid var(--border);
         transition: background 0.2s ease, color 0.2s ease;
       }
 
       .archive-row:last-child { border-bottom: none; }
 
       .archive-row:hover {
-        background: rgba(0, 46, 120, 0.03);
-        color: #002E78;
+        background: rgba(79,142,247,0.05);
+        color: var(--primary);
       }
 
       .archive-row-left {
@@ -301,7 +307,7 @@
         align-items: center;
         gap: 12px;
         flex-shrink: 0;
-        color: #6b7280;
+        color: var(--text-muted);
         font-size: 0.875rem;
       }
 
@@ -313,6 +319,65 @@
         text-overflow: ellipsis;
       }
 
+      /* ── Hero trust strip ── */
+      .hero-trust-strip {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .trust-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(79,142,247,0.2);
+        background: rgba(79,142,247,0.08);
+        color: rgba(226,232,240,0.75);
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+
+      .trust-chip i { color: var(--primary); font-size: 0.72rem; }
+
+      /* ── "View all releases" button ── */
+      .gh-all-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--text-muted);
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .gh-all-link:hover {
+        border-color: rgba(79,142,247,0.35);
+        color: var(--primary);
+        background: rgba(79,142,247,0.06);
+      }
+
+      /* ── Previous releases section label ── */
+      .archive-section-heading {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+        padding-left: 2px;
+      }
+
       /* ── Responsive ── */
       @media (max-width: 768px) {
         .latest-body {
@@ -321,7 +386,7 @@
 
         .latest-downloads {
           border-right: none;
-          border-bottom: 1px solid rgba(0, 46, 120, 0.08);
+          border-bottom: 1px solid var(--border);
         }
 
         .release-header {
@@ -353,7 +418,7 @@
     </script>
   </head>
 
-  <body class="font-sans text-gray-800">
+  <body class="font-sans">
 
     <!-- Skip Navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -361,22 +426,22 @@
     <!-- Navbar -->
     <header class="navbar fixed w-full z-50">
       <nav class="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl" aria-label="Main navigation">
-        <a href="index.html" class="flex items-center text-3xl font-bold primary-text tracking-tight" style="text-decoration:none;">
+        <a href="index.html" class="logo-link flex items-center text-3xl font-bold tracking-tight" style="text-decoration:none;">
           <img src="assets/images/logo.svg" alt="" class="w-8 h-8 mr-2" aria-hidden="true" />
           Invoiso
         </a>
-        <ul class="hidden md:flex space-x-10 text-gray-700 font-medium">
-          <li><a href="index.html#home" class="hover:text-blue-800 transition-colors duration-300">Home</a></li>
-          <li><a href="index.html#features" class="hover:text-blue-800 transition-colors duration-300">Features</a></li>
-          <li><a href="index.html#about" class="hover:text-blue-800 transition-colors duration-300">About</a></li>
-          <li><a href="index.html#screenshots" class="hover:text-blue-800 transition-colors duration-300">Screenshots</a></li>
-          <li><a href="index.html#faq" class="hover:text-blue-800 transition-colors duration-300">FAQ</a></li>
-          <li><a href="download.html" class="hover:text-blue-800 transition-colors duration-300" aria-current="page">Download</a></li>
-          <li><a href="index.html#contact" class="hover:text-blue-800 transition-colors duration-300">Contact</a></li>
+        <ul class="hidden md:flex space-x-10 font-medium">
+          <li><a href="index.html#home" class="transition-colors duration-300">Home</a></li>
+          <li><a href="index.html#features" class="transition-colors duration-300">Features</a></li>
+          <li><a href="index.html#about" class="transition-colors duration-300">About</a></li>
+          <li><a href="index.html#screenshots" class="transition-colors duration-300">Screenshots</a></li>
+          <li><a href="index.html#faq" class="transition-colors duration-300">FAQ</a></li>
+          <li><a href="download.html" class="transition-colors duration-300 primary-text" aria-current="page">Download</a></li>
+          <li><a href="index.html#contact" class="transition-colors duration-300">Contact</a></li>
         </ul>
 
         <button
-          class="md:hidden text-gray-700"
+          class="md:hidden"
           id="hamburger-btn"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
@@ -388,15 +453,15 @@
         </button>
       </nav>
 
-      <div class="mobile-menu hidden md:hidden bg-white border-t shadow-lg" id="mobile-menu">
+      <div class="mobile-menu hidden md:hidden" id="mobile-menu">
         <ul class="py-4 px-6 space-y-3">
-          <li><a href="index.html#home" class="block hover:text-blue-800 py-2 transition-colors">Home</a></li>
-          <li><a href="index.html#features" class="block hover:text-blue-800 py-2 transition-colors">Features</a></li>
-          <li><a href="index.html#about" class="block hover:text-blue-800 py-2 transition-colors">About</a></li>
-          <li><a href="index.html#screenshots" class="block hover:text-blue-800 py-2 transition-colors">Screenshots</a></li>
-          <li><a href="index.html#faq" class="block hover:text-blue-800 py-2 transition-colors">FAQ</a></li>
-          <li><a href="download.html" class="block hover:text-blue-800 py-2 transition-colors font-semibold primary-text">Download</a></li>
-          <li><a href="index.html#contact" class="block hover:text-blue-800 py-2 transition-colors">Contact</a></li>
+          <li><a href="index.html#home" class="block py-2 transition-colors">Home</a></li>
+          <li><a href="index.html#features" class="block py-2 transition-colors">Features</a></li>
+          <li><a href="index.html#about" class="block py-2 transition-colors">About</a></li>
+          <li><a href="index.html#screenshots" class="block py-2 transition-colors">Screenshots</a></li>
+          <li><a href="index.html#faq" class="block py-2 transition-colors">FAQ</a></li>
+          <li><a href="download.html" class="block py-2 transition-colors font-semibold primary-text">Download</a></li>
+          <li><a href="index.html#contact" class="block py-2 transition-colors">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -404,39 +469,46 @@
     <main id="main-content">
       <!-- Page Hero -->
       <section class="pt-40 pb-16 hero-gradient text-white text-center relative">
+        <div class="hero-noise" aria-hidden="true"></div>
         <div class="container mx-auto px-6 relative z-10">
           <div class="fade-in-up">
             <nav aria-label="Breadcrumb" class="mb-6">
-              <ol class="flex items-center justify-center gap-2 text-blue-200 text-sm font-medium">
+              <ol class="flex items-center justify-center gap-2 text-sm font-medium" style="color:rgba(79,142,247,0.7)">
                 <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
                 <li aria-hidden="true" class="opacity-50">/</li>
                 <li class="text-white" aria-current="page">Download</li>
               </ol>
             </nav>
             <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">Download Invoiso</h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90 leading-relaxed">
+            <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.85)">
               Free for Windows &amp; Linux. No account, no subscription — just download and run.
             </p>
+            <div class="hero-trust-strip">
+              <span class="trust-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Free forever</span>
+              <span class="trust-chip"><i class="fab fa-github" aria-hidden="true"></i> Open source</span>
+              <span class="trust-chip"><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works offline</span>
+              <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Content -->
-      <section class="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      <section class="py-14 releases-section">
         <div class="container mx-auto px-6 max-w-5xl">
 
           <div id="releases-list">
-            <div class="text-center text-gray-500 py-16">
-              <i class="fas fa-spinner fa-spin text-3xl mb-4 primary-text" aria-hidden="true"></i>
-              <p class="text-lg">Loading releases...</p>
+            <div class="text-center py-10" style="color:var(--text-muted)">
+              <i class="fas fa-spinner fa-spin text-2xl mb-3 primary-text" aria-hidden="true"></i>
+              <p class="text-sm">Loading releases...</p>
             </div>
           </div>
 
-          <div class="text-center mt-8">
-            <a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:underline text-lg">
+          <div class="text-center mt-10">
+            <a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer" class="gh-all-link">
               <i class="fab fa-github" aria-hidden="true"></i>
               View all releases on GitHub
+              <i class="fas fa-chevron-right" style="font-size:0.7rem;opacity:0.6" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -457,8 +529,8 @@
             <i class="fas fa-envelope mr-2" aria-hidden="true"></i>Email
           </a>
         </div>
-        <div class="border-t border-white border-opacity-20 pt-8">
-          <p class="text-lg text-blue-100">
+        <div class="border-t pt-8" style="border-color:var(--border)">
+          <p class="text-lg">
             © <span id="year"></span> Invoiso. All rights reserved.
           </p>
         </div>
@@ -578,7 +650,7 @@
           list.innerHTML = '';
 
           if (!releases.length) {
-            list.innerHTML = '<p class="text-center text-gray-500 py-8">No releases found.</p>';
+            list.innerHTML = '<p class="text-center py-8" style="color:var(--text-muted)">No releases found.</p>';
             return;
           }
 
@@ -616,7 +688,7 @@
 
           var notesHtml = latest.body
             ? simpleMarkdown(latest.body)
-            : '<p class="cl-para" style="color:#9ca3af;font-style:italic;">No release notes provided.</p>';
+            : '<p class="cl-para" style="color:var(--text-muted);font-style:italic;">No release notes provided.</p>';
 
           var latestCard = document.createElement('div');
           latestCard.className = 'release-card';
@@ -648,7 +720,7 @@
             archiveWrap.style.marginTop = '40px';
 
             var archiveHeading = document.createElement('h2');
-            archiveHeading.className = 'text-xl font-bold primary-text mb-4';
+            archiveHeading.className = 'archive-section-heading';
             archiveHeading.textContent = 'Previous Releases';
             archiveWrap.appendChild(archiveHeading);
 
@@ -679,8 +751,8 @@
         })
         .catch(function () {
           document.getElementById('releases-list').innerHTML =
-            '<p class="text-center text-gray-500 py-8">Could not load releases. ' +
-            '<a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">View on GitHub →</a></p>';
+            '<p class="text-center py-8" style="color:var(--text-muted)">Could not load releases. ' +
+            '<a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer" class="primary-text underline">View on GitHub →</a></p>';
         });
 
     });

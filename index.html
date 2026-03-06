@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://anooppandikashala.github.io/invoisoapp/" />
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#002E78" />
+    <meta name="theme-color" content="#06080f" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Invoiso — Free Offline Invoice Software for Windows & Linux" />
@@ -162,7 +162,7 @@
     </script>
   </head>
 
-  <body class="font-sans text-gray-800">
+  <body class="font-sans">
 
     <!-- Skip Navigation (accessibility) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -178,22 +178,22 @@
     <!-- Navbar -->
     <header class="navbar fixed w-full z-50">
       <nav class="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl" aria-label="Main navigation">
-        <a href="#home" class="flex items-center text-3xl font-bold primary-text tracking-tight" style="text-decoration:none;">
+        <a href="#home" class="logo-link flex items-center text-3xl font-bold tracking-tight" style="text-decoration:none;">
           <img src="assets/images/logo.svg" alt="" class="w-8 h-8 mr-2" aria-hidden="true" />
           Invoiso
         </a>
-        <ul class="hidden md:flex space-x-10 text-gray-700 font-medium">
-          <li><a href="#home" class="hover:text-blue-800 transition-colors duration-300">Home</a></li>
-          <li><a href="#features" class="hover:text-blue-800 transition-colors duration-300">Features</a></li>
-          <li><a href="#about" class="hover:text-blue-800 transition-colors duration-300">About</a></li>
-          <li><a href="#screenshots" class="hover:text-blue-800 transition-colors duration-300">Screenshots</a></li>
-          <li><a href="#faq" class="hover:text-blue-800 transition-colors duration-300">FAQ</a></li>
-          <li><a href="download.html" class="hover:text-blue-800 transition-colors duration-300">Download</a></li>
-          <li><a href="#contact" class="hover:text-blue-800 transition-colors duration-300">Contact</a></li>
+        <ul class="hidden md:flex space-x-10 font-medium">
+          <li><a href="#home" class="transition-colors duration-300">Home</a></li>
+          <li><a href="#features" class="transition-colors duration-300">Features</a></li>
+          <li><a href="#about" class="transition-colors duration-300">About</a></li>
+          <li><a href="#screenshots" class="transition-colors duration-300">Screenshots</a></li>
+          <li><a href="#faq" class="transition-colors duration-300">FAQ</a></li>
+          <li><a href="download.html" class="transition-colors duration-300">Download</a></li>
+          <li><a href="#contact" class="transition-colors duration-300">Contact</a></li>
         </ul>
 
         <button
-          class="md:hidden text-gray-700"
+          class="md:hidden"
           id="hamburger-btn"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
@@ -205,15 +205,15 @@
         </button>
       </nav>
 
-      <div class="mobile-menu hidden md:hidden bg-white border-t shadow-lg" id="mobile-menu">
+      <div class="mobile-menu hidden md:hidden" id="mobile-menu">
         <ul class="py-4 px-6 space-y-3">
-          <li><a href="#home" class="block hover:text-blue-800 py-2 transition-colors">Home</a></li>
-          <li><a href="#features" class="block hover:text-blue-800 py-2 transition-colors">Features</a></li>
-          <li><a href="#about" class="block hover:text-blue-800 py-2 transition-colors">About</a></li>
-          <li><a href="#screenshots" class="block hover:text-blue-800 py-2 transition-colors">Screenshots</a></li>
-          <li><a href="#faq" class="block hover:text-blue-800 py-2 transition-colors">FAQ</a></li>
-          <li><a href="download.html" class="block hover:text-blue-800 py-2 transition-colors">Download</a></li>
-          <li><a href="#contact" class="block hover:text-blue-800 py-2 transition-colors">Contact</a></li>
+          <li><a href="#home" class="block py-2 transition-colors">Home</a></li>
+          <li><a href="#features" class="block py-2 transition-colors">Features</a></li>
+          <li><a href="#about" class="block py-2 transition-colors">About</a></li>
+          <li><a href="#screenshots" class="block py-2 transition-colors">Screenshots</a></li>
+          <li><a href="#faq" class="block py-2 transition-colors">FAQ</a></li>
+          <li><a href="download.html" class="block py-2 transition-colors">Download</a></li>
+          <li><a href="#contact" class="block py-2 transition-colors">Contact</a></li>
         </ul>
       </div>
     </header>
@@ -221,16 +221,17 @@
     <main id="main-content">
       <!-- Hero Section -->
       <section id="home" class="pt-40 pb-24 hero-gradient text-white text-center relative flex items-center">
+        <div class="hero-noise" aria-hidden="true"></div>
         <div class="container mx-auto px-6 relative z-10">
           <div class="fade-in-up">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Simple. Fast. <span class="text-blue-200">Offline</span>.
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+              Simple. Fast. <span style="color:var(--primary)">Offline</span>.
             </h1>
-            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto opacity-95 leading-relaxed">
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.85)">
               Invoiso helps you create professional invoices, manage clients, and track payments — all offline.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-16">
-              <a href="download.html" class="btn-primary font-semibold px-8 py-4 rounded-lg shadow-2xl inline-flex items-center justify-center gap-3 text-lg">
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-6">
+              <a href="download.html" class="btn-primary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-lg">
                 <i class="fab fa-windows download-icon" aria-hidden="true"></i>
                 <i class="fab fa-linux download-icon" aria-hidden="true"></i>
                 Download
@@ -245,106 +246,139 @@
       </section>
 
       <!-- Features Section -->
-      <section id="features" class="py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-        <div class="container mx-auto px-6 text-center">
-          <h2 class="section-title text-4xl font-bold mb-8 primary-text">Key Features</h2>
-          <p class="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">Everything you need to manage your invoices professionally</p>
+      <section id="features" class="py-20 features-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">Key Features</h2>
+            <p style="color:var(--text-muted)">Everything you need to manage invoices professionally</p>
+          </div>
 
-          <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-lock text-blue-600" aria-hidden="true"></i>
+          <div class="grid md:grid-cols-2 gap-3 max-w-4xl mx-auto">
+
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(79,142,247,0.14)">
+                <i class="fas fa-lock" style="color:#4f8ef7" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Offline & Secure</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">All data stays on your device — no cloud, no worries. Complete privacy and security for your business.</p>
+              <div>
+                <h3>Offline &amp; Secure</h3>
+                <p>Your data never leaves your device. No cloud, no internet required.</p>
+              </div>
             </div>
 
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-file-invoice text-green-600" aria-hidden="true"></i>
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(16,185,129,0.14)">
+                <i class="fas fa-file-invoice" style="color:#10b981" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Smart Invoice Management</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">Create, edit, and export invoices as PDFs effortlessly with professional templates.</p>
+              <div>
+                <h3>Invoice Management</h3>
+                <p>Create, edit, and manage invoices with status tracking and history.</p>
+              </div>
             </div>
 
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-users text-purple-600" aria-hidden="true"></i>
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(249,115,22,0.14)">
+                <i class="fas fa-file-pdf" style="color:#f97316" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Customer & Product Tracking</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">Store client and product info with built-in search, sort, and filtering capabilities.</p>
+              <div>
+                <h3>Export to PDF</h3>
+                <p>Generate polished, professional PDF invoices in one click. Share-ready instantly.</p>
+              </div>
             </div>
 
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-file-pdf text-orange-600" aria-hidden="true"></i>
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(139,92,246,0.14)">
+                <i class="fas fa-users" style="color:#8b5cf6" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Export to PDF</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">Generate beautiful, professional PDF invoices with a single click. Ready to send.</p>
+              <div>
+                <h3>Client &amp; Product Tracking</h3>
+                <p>Store clients and products with built-in search, sort, and filter.</p>
+              </div>
             </div>
 
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-palette text-pink-600" aria-hidden="true"></i>
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(236,72,153,0.14)">
+                <i class="fas fa-palette" style="color:#ec4899" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Multiple Templates</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">Choose from various invoice templates or customize your own branding.</p>
+              <div>
+                <h3>Multiple Templates</h3>
+                <p>Classic, Modern, or Minimal — pick a template that fits your brand.</p>
+              </div>
             </div>
 
-            <div class="feature-card p-12 rounded-3xl shadow-xl">
-              <div class="icon-wrapper text-5xl mb-6">
-                <i class="fas fa-database text-cyan-600" aria-hidden="true"></i>
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(6,182,212,0.14)">
+                <i class="fas fa-database" style="color:#06b6d4" aria-hidden="true"></i>
               </div>
-              <h3 class="text-2xl font-bold mb-5 primary-text">Easy Backup</h3>
-              <p class="text-gray-600 text-lg leading-relaxed">Simple backup and restore functionality to keep your data safe and portable.</p>
+              <div>
+                <h3>Easy Backup</h3>
+                <p>One-click backup and restore to keep your data safe and portable.</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
       <!-- About Section -->
-      <section id="about" class="py-32 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5" aria-hidden="true">
+      <section id="about" class="py-16 about-section relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" aria-hidden="true">
           <div class="absolute top-20 left-20 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
           <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
         </div>
-        <div class="container mx-auto px-6 text-center max-w-5xl relative z-10">
-          <h2 class="section-title text-4xl font-bold mb-6 primary-text">About Invoiso</h2>
-          <div class="glass-card p-12 rounded-3xl shadow-2xl">
-            <p class="text-xl mb-8 text-gray-700 leading-relaxed">
-              Invoiso is a <strong class="primary-text">cross-platform desktop invoicing application</strong>
-              built for simplicity and speed. Designed specifically for freelancers and small businesses,
-              it allows you to manage customers, products, and invoices seamlessly — even without internet access.
-            </p>
-            <p class="text-xl text-gray-700 leading-relaxed mb-8">
-              Available for <strong class="primary-text">Windows</strong> and <strong class="primary-text">Linux</strong>, Invoiso helps you stay productive wherever you work. Your data never leaves your device, ensuring complete privacy and control.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mt-10">
-              <span class="px-6 py-3 bg-blue-100 text-blue-800 rounded-full font-semibold">Cross-Platform</span>
-              <span class="px-6 py-3 bg-green-100 text-green-800 rounded-full font-semibold">Open Source</span>
-              <span class="px-6 py-3 bg-purple-100 text-purple-800 rounded-full font-semibold">No Subscription</span>
-              <span class="px-6 py-3 bg-orange-100 text-orange-800 rounded-full font-semibold">Lightweight</span>
-            </div>
-            <div class="mt-10 pt-8 border-t border-gray-100 text-center">
-              <p class="text-gray-500 text-sm mb-4">Invoiso is free and open source — if it saves you time, consider supporting its development.</p>
-              <a href="https://buymeacoffee.com/anoopp" target="_blank" rel="noopener noreferrer" class="bmc-btn">
-                <i class="fas fa-mug-hot" aria-hidden="true"></i>
-                Buy Me a Coffee
-              </a>
+        <div class="container mx-auto px-6 max-w-5xl relative z-10">
+          <div class="text-center mb-10">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">About Invoiso</h2>
+          </div>
+          <div class="glass-card p-8 rounded-2xl">
+            <div class="about-grid">
+              <!-- Left: description + badges -->
+              <div>
+                <p class="text-base leading-relaxed mb-6" style="color:var(--text-muted)">
+                  Invoiso is a <strong style="color:var(--text)">cross-platform desktop invoicing app</strong> built for
+                  freelancers and small businesses. Manage customers, products, and invoices seamlessly — entirely offline.
+                  Your data never leaves your device, ensuring complete privacy and control.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold tag-badge">Cross-Platform</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold tag-badge-green">Open Source</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold tag-badge-violet">No Subscription</span>
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold tag-badge-orange">Lightweight</span>
+                </div>
+              </div>
+              <!-- Right: platforms + support -->
+              <div class="about-support">
+                <div class="about-platforms">
+                  <span class="about-platform-chip"><i class="fab fa-windows" aria-hidden="true"></i> Windows</span>
+                  <span class="about-platform-chip"><i class="fab fa-linux" aria-hidden="true"></i> Linux</span>
+                </div>
+                <p class="text-sm" style="color:var(--text-muted)">Free &amp; open source. If Invoiso saves you time, consider supporting its development.</p>
+                <a href="https://buymeacoffee.com/anoopp" target="_blank" rel="noopener noreferrer" class="bmc-btn" style="align-self:flex-start">
+                  <i class="fas fa-mug-hot" aria-hidden="true"></i>
+                  Buy Me a Coffee
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Screenshots Section -->
-      <section id="screenshots" class="py-32 bg-white">
+      <section id="screenshots" class="py-20 screenshots-section">
         <div class="container mx-auto px-6 text-center">
-          <h2 class="section-title text-4xl font-bold mb-4 primary-text">App Screenshots</h2>
-          <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">Explore the intuitive interface designed for seamless invoice management</p>
-          <div class="text-gray-800 mb-8 max-w-2xl font-bold mx-auto primary-text text-2xl" id="custom-bottom-text" aria-live="polite"></div>
+          <h2 class="section-title text-4xl font-bold mb-3 primary-text">App Screenshots</h2>
+          <p class="mb-8 max-w-2xl mx-auto" style="color:var(--text-muted)">Explore the intuitive interface designed for seamless invoice management</p>
+
+          <!-- Category filter chips -->
+          <div class="screenshots-chips" id="screenshots-chips" role="group" aria-label="Filter screenshots by category"></div>
+
+          <!-- Caption -->
+          <div class="screenshots-caption" aria-live="polite">
+            <span class="caption-category" id="caption-category"></span>
+            <span id="custom-bottom-text"></span>
+          </div>
 
           <noscript>
-            <p class="text-gray-500 mt-4">Please enable JavaScript to view the screenshots carousel.</p>
+            <p class="mt-4" style="color:var(--text-muted)">Please enable JavaScript to view the screenshots carousel.</p>
           </noscript>
 
           <div class="swiper screenshots-swiper" role="region" aria-label="App screenshots carousel">
@@ -356,15 +390,15 @@
         </div>
       </section>
 
-      
-
       <!-- FAQ Section -->
-      <section id="faq" class="py-32 bg-white">
-        <div class="container mx-auto px-6 max-w-4xl text-center">
-          <h2 class="section-title text-4xl font-bold mb-4 primary-text">Frequently Asked Questions</h2>
-          <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Everything you need to know about Invoiso</p>
+      <section id="faq" class="py-20 faq-section">
+        <div class="container mx-auto px-6 max-w-3xl text-center">
+          <div class="mb-10">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">Frequently Asked Questions</h2>
+            <p style="color:var(--text-muted)">Common questions about Invoiso</p>
+          </div>
 
-          <div class="space-y-3">
+          <div class="space-y-2">
 
             <details class="faq-item">
               <summary class="faq-question">
@@ -431,31 +465,41 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-32 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5" aria-hidden="true">
-          <div class="absolute top-10 left-10 w-72 h-72 bg-blue-600 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
-        </div>
-        <div class="container mx-auto px-6 text-center max-w-5xl relative z-10">
-          <h2 class="section-title text-4xl font-bold mb-8 primary-text">Get in Touch</h2>
-          <p class="mb-16 text-xl text-gray-600">Still have questions? Reach out directly</p>
-
-          <div class="max-w-sm mx-auto">
-            <a href="mailto:anooppkrishnan96@gmail.com" class="feature-card bg-white p-10 rounded-3xl shadow-xl group block">
-              <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-lg">
-                <i class="fas fa-envelope text-white text-3xl" aria-hidden="true"></i>
-              </div>
-              <h3 class="text-xl font-bold mb-4 primary-text">Email Us</h3>
-              <p class="text-gray-600 mb-3 text-lg">anooppkrishnan96@gmail.com</p>
-              <span class="text-base text-blue-600 font-semibold">Send a message →</span>
-            </a>
+      <section id="contact" class="py-16 contact-section">
+        <div class="container mx-auto px-6 max-w-lg">
+          <div class="text-center mb-8">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">Get in Touch</h2>
+            <p style="color:var(--text-muted)">Questions or feedback? We'd love to hear from you.</p>
           </div>
 
-          <div class="mt-20 p-10 glass-card rounded-3xl max-w-3xl mx-auto shadow-xl">
-            <p class="text-gray-700 text-lg leading-relaxed">
-              <i class="fas fa-info-circle text-blue-600 mr-3" aria-hidden="true"></i>
-              We typically respond within <strong class="primary-text">24-48 hours</strong>.
-              For urgent issues, please include "URGENT" in your subject line.
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="contact-links">
+              <a href="mailto:anooppkrishnan96@gmail.com" class="contact-link-row">
+                <div class="feature-icon-box" style="background:rgba(79,142,247,0.14)">
+                  <i class="fas fa-envelope" style="color:#4f8ef7" aria-hidden="true"></i>
+                </div>
+                <div style="flex:1; min-width:0">
+                  <div class="text-sm font-semibold" style="color:var(--text)">Email</div>
+                  <div class="text-sm" style="color:var(--text-muted)">anooppkrishnan96@gmail.com</div>
+                </div>
+                <i class="fas fa-arrow-right contact-arrow" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://github.com/Anooppandikashala/invoiso/issues" target="_blank" rel="noopener noreferrer" class="contact-link-row">
+                <div class="feature-icon-box" style="background:rgba(139,92,246,0.14)">
+                  <i class="fab fa-github" style="color:#8b5cf6" aria-hidden="true"></i>
+                </div>
+                <div style="flex:1; min-width:0">
+                  <div class="text-sm font-semibold" style="color:var(--text)">GitHub Issues</div>
+                  <div class="text-sm" style="color:var(--text-muted)">Report bugs or request features</div>
+                </div>
+                <i class="fas fa-arrow-right contact-arrow" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <p class="text-sm mt-5 pt-5" style="color:var(--text-muted); border-top:1px solid var(--border)">
+              <i class="fas fa-clock mr-2" style="color:var(--primary)" aria-hidden="true"></i>
+              Typically responds within <strong style="color:var(--text)">24–48 hours</strong>
             </p>
           </div>
         </div>
@@ -478,8 +522,8 @@
           </a>
         </div>
 
-        <div class="border-t border-white border-opacity-20 pt-8">
-          <p class="text-lg text-blue-100">
+        <div class="border-t pt-8" style="border-color:var(--border)">
+          <p class="text-lg">
             © <span id="year"></span> Invoiso. All rights reserved.
           </p>
         </div>
@@ -492,30 +536,30 @@
 
       // --- Screenshot data ---
       const screenshots = [
-        { src: 'login.webp',                  text: 'Invoice Login Page',               alt: 'Invoice Login' },
-        { src: 'dashboard.webp',              text: 'Invoice Dashboard Page',           alt: 'Invoice Dashboard' },
-        { src: 'new_invoice1.webp',           text: 'Create Invoice Page',              alt: 'Create Invoice' },
-        { src: 'new_invoice2.webp',           text: 'Create Invoice Page with Products',alt: 'Create Invoice with Products' },
-        { src: 'invoice_success.webp',        text: 'Create Invoice Success Page',      alt: 'Invoice Created Successfully' },
-        { src: 'invoice_details_minimal.webp',text: 'Invoice Details Minimal Page',     alt: 'Invoice Details Minimal' },
-        { src: 'edit_invoice.webp',           text: 'Edit Your Invoice',                alt: 'Edit Invoice' },
-        { src: 'edit_invoice2.webp',          text: 'Edit Your Invoice',                alt: 'Edit Invoice Step 2' },
-        { src: 'invoice_list.webp',           text: 'Invoice Listing Page',             alt: 'Invoice List' },
-        { src: 'invoice_pdf.webp',            text: 'Sample Invoice PDF',               alt: 'Invoice PDF' },
-        { src: 'customer_management.webp',    text: 'Customer Management Page',         alt: 'Customer Management' },
-        { src: 'customer_editing.webp',       text: 'Customer Editing Page',            alt: 'Edit Customer' },
-        { src: 'product_management.webp',     text: 'Product Management Page',          alt: 'Product Management' },
-        { src: 'product_edit.webp',           text: 'Product Editing Page',             alt: 'Edit Product' },
-        { src: 'user_management.webp',        text: 'User Management Page',             alt: 'User Management' },
-        { src: 'user_edit.webp',              text: 'User Editing Page',                alt: 'Edit User' },
-        { src: 'company_informations.webp',   text: 'Edit Your Organisation Data',      alt: 'Company Information' },
-        { src: 'invoice_settings.webp',       text: 'Invoice Settings',                 alt: 'Invoice Settings' },
-        { src: 'pdf_templates.webp',          text: 'Invoice Templates',                alt: 'PDF Templates' },
-        { src: 'classic_pdf_template.webp',   text: 'Classic Invoice Template',         alt: 'Classic Template' },
-        { src: 'modern_pdf_template.webp',    text: 'Modern Invoice Template',          alt: 'Modern Template' },
-        { src: 'minimal_pdf_template.webp',   text: 'Minimal Invoice Template',         alt: 'Minimal Template' },
-        { src: 'backup_management.webp',      text: 'Backup Your Data',                 alt: 'Backup Management' },
-        { src: 'application_information.webp',text: 'About Invoiso',                    alt: 'About Page' },
+        { src: 'login.webp',                  text: 'Invoice Login Page',               alt: 'Invoice Login',           category: 'Invoices' },
+        { src: 'dashboard.webp',              text: 'Invoice Dashboard Page',           alt: 'Invoice Dashboard',       category: 'Invoices' },
+        { src: 'new_invoice1.webp',           text: 'Create Invoice Page',              alt: 'Create Invoice',          category: 'Invoices' },
+        { src: 'new_invoice2.webp',           text: 'Create Invoice with Products',     alt: 'Create Invoice',          category: 'Invoices' },
+        { src: 'invoice_success.webp',        text: 'Invoice Created Successfully',     alt: 'Invoice Created',         category: 'Invoices' },
+        { src: 'invoice_details_minimal.webp',text: 'Invoice Details Page',             alt: 'Invoice Details',         category: 'Invoices' },
+        { src: 'edit_invoice.webp',           text: 'Edit Your Invoice',                alt: 'Edit Invoice',            category: 'Invoices' },
+        { src: 'edit_invoice2.webp',          text: 'Edit Invoice — Step 2',            alt: 'Edit Invoice Step 2',     category: 'Invoices' },
+        { src: 'invoice_list.webp',           text: 'Invoice Listing Page',             alt: 'Invoice List',            category: 'Invoices' },
+        { src: 'invoice_pdf.webp',            text: 'Sample Invoice PDF',               alt: 'Invoice PDF',             category: 'PDF' },
+        { src: 'pdf_templates.webp',          text: 'Invoice Templates',                alt: 'PDF Templates',           category: 'PDF' },
+        { src: 'classic_pdf_template.webp',   text: 'Classic Invoice Template',         alt: 'Classic Template',        category: 'PDF' },
+        { src: 'modern_pdf_template.webp',    text: 'Modern Invoice Template',          alt: 'Modern Template',         category: 'PDF' },
+        { src: 'minimal_pdf_template.webp',   text: 'Minimal Invoice Template',         alt: 'Minimal Template',        category: 'PDF' },
+        { src: 'customer_management.webp',    text: 'Customer Management Page',         alt: 'Customer Management',     category: 'Clients' },
+        { src: 'customer_editing.webp',       text: 'Customer Editing Page',            alt: 'Edit Customer',           category: 'Clients' },
+        { src: 'product_management.webp',     text: 'Product Management Page',          alt: 'Product Management',      category: 'Products' },
+        { src: 'product_edit.webp',           text: 'Product Editing Page',             alt: 'Edit Product',            category: 'Products' },
+        { src: 'user_management.webp',        text: 'User Management Page',             alt: 'User Management',         category: 'Settings' },
+        { src: 'user_edit.webp',              text: 'User Editing Page',                alt: 'Edit User',               category: 'Settings' },
+        { src: 'company_informations.webp',   text: 'Organisation Information',         alt: 'Company Information',     category: 'Settings' },
+        { src: 'invoice_settings.webp',       text: 'Invoice Settings',                 alt: 'Invoice Settings',        category: 'Settings' },
+        { src: 'backup_management.webp',      text: 'Backup Management',                alt: 'Backup Management',       category: 'Settings' },
+        { src: 'application_information.webp',text: 'About Invoiso',                    alt: 'About Page',              category: 'Settings' },
       ];
 
       // --- Build slides dynamically ---
@@ -569,12 +613,68 @@
         },
       });
 
-      // Caption: use realIndex to avoid loop-clone index mismatches
-      var captionEl = document.getElementById('custom-bottom-text');
-      swiper.on('slideChange', function () {
-        captionEl.textContent = screenshots[swiper.realIndex] ? screenshots[swiper.realIndex].text : '';
+      // --- Category chips ---
+      var chipCategories = [
+        { id: 'All',      icon: 'fas fa-th-large'     },
+        { id: 'Invoices', icon: 'fas fa-file-invoice'  },
+        { id: 'PDF',      icon: 'fas fa-file-pdf'     },
+        { id: 'Clients',  icon: 'fas fa-users'        },
+        { id: 'Products', icon: 'fas fa-box'          },
+        { id: 'Settings', icon: 'fas fa-cog'          },
+      ];
+
+      var chipsEl = document.getElementById('screenshots-chips');
+
+      chipCategories.forEach(function (cat) {
+        var count = cat.id === 'All'
+          ? screenshots.length
+          : screenshots.filter(function (s) { return s.category === cat.id; }).length;
+
+        var btn = document.createElement('button');
+        btn.className = 'screenshot-chip' + (cat.id === 'All' ? ' active' : '');
+        btn.dataset.category = cat.id;
+        btn.type = 'button';
+        btn.setAttribute('aria-pressed', cat.id === 'All' ? 'true' : 'false');
+        btn.innerHTML =
+          '<i class="' + cat.icon + '" aria-hidden="true"></i> ' + cat.id +
+          ' <span class="chip-count">' + count + '</span>';
+
+        btn.addEventListener('click', function () {
+          chipsEl.querySelectorAll('.screenshot-chip').forEach(function (c) {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+
+          var targetIndex = cat.id === 'All'
+            ? 0
+            : screenshots.findIndex(function (s) { return s.category === cat.id; });
+          swiper.slideToLoop(targetIndex < 0 ? 0 : targetIndex, 600);
+        });
+
+        chipsEl.appendChild(btn);
       });
-      captionEl.textContent = screenshots[0] ? screenshots[0].text : '';
+
+      // --- Caption & chip sync ---
+      var captionCatEl  = document.getElementById('caption-category');
+      var captionTextEl = document.getElementById('custom-bottom-text');
+
+      function updateCaption() {
+        var s = screenshots[swiper.realIndex];
+        if (!s) return;
+        if (captionCatEl)  captionCatEl.textContent  = s.category;
+        if (captionTextEl) captionTextEl.textContent = s.text;
+        // Sync active chip to current slide's category
+        chipsEl.querySelectorAll('.screenshot-chip').forEach(function (c) {
+          var match = c.dataset.category === s.category;
+          c.classList.toggle('active', match);
+          c.setAttribute('aria-pressed', match ? 'true' : 'false');
+        });
+      }
+
+      swiper.on('slideChange', updateCaption);
+      updateCaption();
 
       // Year
       document.getElementById('year').textContent = new Date().getFullYear();
@@ -641,6 +741,20 @@
         });
       });
 
+      // --- 3D tilt effect for feature cards ---
+      document.querySelectorAll('.feature-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect    = card.getBoundingClientRect();
+          var x       = e.clientX - rect.left;
+          var y       = e.clientY - rect.top;
+          var rotateX = ((y / rect.height) - 0.5) * -16;
+          var rotateY = ((x / rect.width)  - 0.5) *  16;
+          card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateZ(8px)';
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.transform = '';
+        });
+      });
 
     });
 
