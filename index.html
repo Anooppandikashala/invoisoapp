@@ -5,15 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Invoiso — Free offline invoicing software for Windows and Linux. Create professional PDF invoices, manage clients and products, all without internet. No subscription, no cloud." />
-    <meta name="keywords" content="invoice software, free invoice generator, offline invoicing, billing software, PDF invoicing, Linux invoice app, Windows invoice app, open source invoicing, small business invoicing, Invoiso" />
+    <meta name="keywords" content="free invoice software, offline invoice software, invoice software for freelancers, free billing software for small business, GST invoice software free, open source invoice software, invoice software no subscription, free invoice maker desktop, Linux invoice app, Windows invoice app, billing software India, UPI invoice QR code, Invoiso" />
     <meta name="author" content="Invoiso" />
     <meta name="robots" content="index, follow" />
 
     <!-- Title -->
-    <title>Invoiso — Free Offline Invoice Software for Windows & Linux</title>
+    <title>Invoiso — Free Offline Invoice Software for Freelancers | Windows & Linux</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://anooppandikashala.github.io/invoisoapp/" />
+
+    <!-- Social / authorship verification -->
+    <link rel="me" href="https://github.com/Anooppandikashala/invoiso" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#06080f" />
@@ -75,18 +78,25 @@
       "operatingSystem": "Windows, Linux",
       "applicationCategory": "BusinessApplication",
       "description": "Free and offline invoicing software for Windows and Linux. Create professional PDF invoices, manage customers and products without internet access.",
-      "softwareVersion": "2.0.5",
-      "releaseNotes": "https://anooppandikashala.github.io/invoisoapp/download.html",
+      "softwareVersion": "3.2.0",
+      "releaseNotes": "https://anooppandikashala.github.io/invoisoapp/changelog.html",
       "license": "https://github.com/Anooppandikashala/invoiso/blob/main/LICENSE",
       "featureList": [
         "100% offline — no internet required",
-        "PDF invoice generation",
+        "PDF invoice generation with one click",
         "Multiple invoice templates (Classic, Modern, Minimal)",
+        "Invoice cloning and duplicate",
+        "Bulk actions — CSV export, PDF batch export, bulk trash",
+        "UPI payment QR code on invoices",
         "Customer management",
-        "Product management",
-        "Multi-currency support",
+        "Product and inventory management",
+        "Multi-currency support (INR, USD, EUR, GBP, JPY, AED, SGD, AUD, CAD)",
+        "GST-ready invoices with GSTIN and HSN code fields",
         "Data backup and restore",
-        "No subscription or fees"
+        "CSV export",
+        "No subscription or fees — free forever",
+        "No account or registration required",
+        "Data never leaves your device"
       ],
       "author": {
         "@type": "Person",
@@ -99,7 +109,20 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [{
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Keyson" },
+        "reviewBody": "All-in-all, your app is a very fantastic piece of software! I look forward to supporting this project in the future. Well done!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }]
     }
     </script>
 
@@ -156,6 +179,62 @@
             "@type": "Answer",
             "text": "Yes. Invoiso supports multiple currencies including USD, EUR, GBP, INR, JPY, AED, SGD, AUD, CAD, and JMD, configurable from the invoice settings."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Invoiso support GST invoicing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Invoiso supports GST-ready invoices with GSTIN fields for both your company and your customers, HSN code on every product, and per-item or global tax rate configuration — making it suitable for Indian businesses filing GST returns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a UPI QR code to my invoice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Enter your UPI ID in Settings → Company Info → Payment Settings and enable the QR option. Invoiso will automatically add a scannable UPI payment QR code to every generated PDF so your clients can pay instantly via GPay, PhonePe, or Paytm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create quotations as well as invoices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. When creating a document, you can select either Invoice or Quotation as the document type. Both generate professional PDFs and are tracked separately in the invoice list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I duplicate or clone an existing invoice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every invoice has a Duplicate button. Click it, choose whether to clone as an Invoice or Quotation, and a new document opens pre-filled with the same customer, products, tax settings and notes — ready to adjust and save. This is ideal for recurring or repeat work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I add my company logo to an invoice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to Settings → Company Info, click the logo area and select a PNG or JPG image from your computer (maximum 512×512 px). The logo appears on all generated PDF invoices automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I back up my invoice data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to Settings → Backup. Invoiso lets you create a database backup file and save it anywhere on your computer. You can restore it at any time from the same screen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Invoiso available as a portable version?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Linux AppImage build is fully portable — just download the .AppImage file, mark it executable, and run it with no installation needed. The Windows installer is a standard setup file."
+          }
         }
       ]
     }
@@ -194,9 +273,10 @@
         <ul class="hidden md:flex space-x-10 font-medium">
           <li><a href="#home" class="transition-colors duration-300">Home</a></li>
           <li><a href="#features" class="transition-colors duration-300">Features</a></li>
+          <li><a href="#how-it-works" class="transition-colors duration-300">How It Works</a></li>
           <li><a href="#about" class="transition-colors duration-300">About</a></li>
           <li><a href="#screenshots" class="transition-colors duration-300">Screenshots</a></li>
-          <li><a href="#faq" class="transition-colors duration-300">FAQ</a></li>
+          <li><a href="faq.html" class="transition-colors duration-300">FAQ</a></li>
           <li><a href="download.html" class="transition-colors duration-300">Download</a></li>
           <li><a href="#contact" class="transition-colors duration-300">Contact</a></li>
         </ul>
@@ -218,9 +298,10 @@
         <ul class="py-4 px-6 space-y-3">
           <li><a href="#home" class="block py-2 transition-colors">Home</a></li>
           <li><a href="#features" class="block py-2 transition-colors">Features</a></li>
+          <li><a href="#how-it-works" class="block py-2 transition-colors">How It Works</a></li>
           <li><a href="#about" class="block py-2 transition-colors">About</a></li>
           <li><a href="#screenshots" class="block py-2 transition-colors">Screenshots</a></li>
-          <li><a href="#faq" class="block py-2 transition-colors">FAQ</a></li>
+          <li><a href="faq.html" class="block py-2 transition-colors">FAQ</a></li>
           <li><a href="download.html" class="block py-2 transition-colors">Download</a></li>
           <li><a href="#contact" class="block py-2 transition-colors">Contact</a></li>
         </ul>
@@ -233,11 +314,14 @@
         <div class="hero-noise" aria-hidden="true"></div>
         <div class="container mx-auto px-6 relative z-10">
           <div class="fade-in-up">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Simple. Fast. <span style="color:var(--primary)">Offline</span>.
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+              Free Offline Invoice Software<br/>for <span style="color:var(--primary)">Windows &amp; Linux</span>
             </h1>
-            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.85)">
-              Invoiso helps you create professional invoices, manage clients, and track payments — all offline.
+            <p class="text-lg md:text-xl mb-4 max-w-2xl mx-auto leading-relaxed font-semibold" style="color:rgba(226,232,240,0.65)">
+              Simple. Fast. Offline.
+            </p>
+            <p class="text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.80)">
+              Create professional PDF invoices, manage clients and products, and run your billing entirely offline — no subscription, no cloud, no account needed.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-6 mb-6">
               <a href="download.html" class="btn-primary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-lg">
@@ -332,7 +416,103 @@
               <span class="trust-chip"><i class="fab fa-github" aria-hidden="true"></i> Open source</span>
               <span class="trust-chip"><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works offline</span>
               <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
+              <span class="trust-chip"><i class="fas fa-file-invoice" aria-hidden="true"></i> GST ready</span>
+              <span class="trust-chip"><i class="fas fa-qrcode" aria-hidden="true"></i> UPI QR support</span>
             </div>
+      </section>
+
+      <!-- Who Is This For Section -->
+      <section id="who" class="py-20 features-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-10">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">Who Is Invoiso For?</h2>
+            <p style="color:var(--text-muted)">Built for anyone who needs professional invoicing without the complexity or cost</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-3 max-w-4xl mx-auto">
+
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(79,142,247,0.14)">
+                <i class="fas fa-laptop-code" style="color:#4f8ef7" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3>Freelancers</h3>
+                <p>Send professional invoices to clients without paying a monthly fee. All your client data stays private on your own machine — no cloud storage.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(16,185,129,0.14)">
+                <i class="fas fa-store" style="color:#10b981" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3>Small Businesses</h3>
+                <p>Manage customers, products, and billing in one place. Works even when your internet is down or unreliable.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(249,115,22,0.14)">
+                <i class="fas fa-briefcase" style="color:#f97316" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3>Consultants</h3>
+                <p>Track multiple clients and generate branded PDF invoices in seconds. Duplicate recurring invoices with one click for repeat projects.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box" style="background:rgba(139,92,246,0.14)">
+                <i class="fas fa-shopping-bag" style="color:#8b5cf6" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3>Shop Owners</h3>
+                <p>Offline billing that works without the internet. Add a UPI QR code to every invoice so customers can pay instantly via GPay or PhonePe.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="py-20 about-section relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">How It Works</h2>
+            <p style="color:var(--text-muted)">Get started in minutes — no account, no setup, no internet required</p>
+          </div>
+          <div class="grid md:grid-cols-4 gap-6 text-center">
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="text-3xl mb-4" style="color:var(--primary)"><i class="fas fa-download" aria-hidden="true"></i></div>
+              <div class="text-xs font-bold mb-2 tracking-widest" style="color:var(--primary)">STEP 1</div>
+              <h3 class="font-bold mb-2 text-base" style="color:var(--text)">Download &amp; Install</h3>
+              <p class="text-sm" style="color:var(--text-muted)">Install Invoiso on Windows or Linux. No account or registration required.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="text-3xl mb-4" style="color:var(--primary)"><i class="fas fa-building" aria-hidden="true"></i></div>
+              <div class="text-xs font-bold mb-2 tracking-widest" style="color:var(--primary)">STEP 2</div>
+              <h3 class="font-bold mb-2 text-base" style="color:var(--text)">Set Up Your Company</h3>
+              <p class="text-sm" style="color:var(--text-muted)">Enter your business name, logo, GSTIN, and UPI ID in settings. Takes under a minute.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="text-3xl mb-4" style="color:var(--primary)"><i class="fas fa-file-invoice" aria-hidden="true"></i></div>
+              <div class="text-xs font-bold mb-2 tracking-widest" style="color:var(--primary)">STEP 3</div>
+              <h3 class="font-bold mb-2 text-base" style="color:var(--text)">Create an Invoice</h3>
+              <p class="text-sm" style="color:var(--text-muted)">Select a customer, add products, configure tax, and choose a PDF template.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="text-3xl mb-4" style="color:var(--primary)"><i class="fas fa-share-alt" aria-hidden="true"></i></div>
+              <div class="text-xs font-bold mb-2 tracking-widest" style="color:var(--primary)">STEP 4</div>
+              <h3 class="font-bold mb-2 text-base" style="color:var(--text)">Export &amp; Share</h3>
+              <p class="text-sm" style="color:var(--text-muted)">Export a professional PDF with one click and send it to your client instantly.</p>
+            </div>
+
+          </div>
+        </div>
       </section>
 
       <!-- About Section -->
@@ -394,7 +574,12 @@
           </div>
 
           <noscript>
-            <p class="mt-4" style="color:var(--text-muted)">Please enable JavaScript to view the screenshots carousel.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:24px;">
+              <img src="assets/images/screenshots/dashboard.webp" alt="Invoiso dashboard showing total revenue, recent invoices and business overview" width="1280" height="800" style="width:100%;border-radius:8px;" />
+              <img src="assets/images/screenshots/new_invoice1.webp" alt="Create a new invoice in Invoiso — select customer, add products and set tax rate" width="1280" height="800" style="width:100%;border-radius:8px;" />
+              <img src="assets/images/screenshots/invoice_pdf.webp" alt="Professional PDF invoice generated by Invoiso with company logo and item breakdown" width="1280" height="800" style="width:100%;border-radius:8px;" />
+              <img src="assets/images/screenshots/classic_pdf_template.webp" alt="Classic PDF invoice template with branded header — Invoiso" width="1280" height="800" style="width:100%;border-radius:8px;" />
+            </div>
           </noscript>
 
           <div class="swiper screenshots-swiper" role="region" aria-label="App screenshots carousel">
@@ -406,12 +591,89 @@
         </div>
       </section>
 
-      <!-- FAQ Section -->
+      <!-- Comparison Section -->
+      <section id="comparison" class="py-20 features-section">
+        <div class="container mx-auto px-6 max-w-5xl">
+          <div class="text-center mb-10">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">Why Choose Invoiso?</h2>
+            <p style="color:var(--text-muted)">How Invoiso compares to popular cloud-based invoicing tools</p>
+          </div>
+          <div class="glass-card rounded-2xl overflow-hidden">
+            <div class="overflow-x-auto">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                <thead>
+                  <tr style="background:var(--primary)">
+                    <th style="padding:14px 20px;text-align:left;color:#fff;font-weight:600;">Feature</th>
+                    <th style="padding:14px 20px;text-align:center;color:#fff;font-weight:700;">Invoiso</th>
+                    <th style="padding:14px 20px;text-align:center;color:rgba(255,255,255,0.75);font-weight:600;">Zoho Invoice</th>
+                    <th style="padding:14px 20px;text-align:center;color:rgba(255,255,255,0.75);font-weight:600;">Wave</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border)">
+                    <td style="padding:13px 20px;color:var(--text)">Price</td>
+                    <td style="padding:13px 20px;text-align:center;font-weight:700;color:#10b981">Free forever</td>
+                    <td style="padding:13px 20px;text-align:center;color:var(--text-muted)">Limited free tier</td>
+                    <td style="padding:13px 20px;text-align:center;color:var(--text-muted)">Free (paid add-ons)</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)">
+                    <td style="padding:13px 20px;color:var(--text)">Works offline</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border)">
+                    <td style="padding:13px 20px;color:var(--text)">No account required</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)">
+                    <td style="padding:13px 20px;color:var(--text)">Data stays on your device</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border)">
+                    <td style="padding:13px 20px;color:var(--text)">Linux desktop support</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)">
+                    <td style="padding:13px 20px;color:var(--text)">UPI QR code on invoice</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border)">
+                    <td style="padding:13px 20px;color:var(--text)">Open source</td>
+                    <td style="padding:13px 20px;text-align:center;color:#10b981;font-size:18px" aria-label="Yes">✓</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                    <td style="padding:13px 20px;text-align:center;color:#ef4444;font-size:18px" aria-label="No">✗</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:13px 20px;color:var(--text)">PDF invoice templates</td>
+                    <td style="padding:13px 20px;text-align:center;color:var(--text)">3 (Classic, Modern, Minimal)</td>
+                    <td style="padding:13px 20px;text-align:center;color:var(--text-muted)">Multiple</td>
+                    <td style="padding:13px 20px;text-align:center;color:var(--text-muted)">Limited</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs p-4" style="color:var(--text-muted);border-top:1px solid var(--border)">
+              Comparison based on publicly available information as of March 2026. Features may vary by plan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Teaser Section -->
       <section id="faq" class="py-20 faq-section">
         <div class="container mx-auto px-6 max-w-3xl text-center">
           <div class="mb-10">
             <h2 class="section-title text-4xl font-bold mb-3 primary-text">Frequently Asked Questions</h2>
-            <p style="color:var(--text-muted)">Common questions about Invoiso</p>
+            <p style="color:var(--text-muted)">Quick answers to the most common questions</p>
           </div>
 
           <div class="space-y-2">
@@ -422,7 +684,7 @@
                 <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                <p>Yes — Invoiso is 100% free and open source. There are no subscriptions, no hidden fees, and no premium tiers. Download it, use it indefinitely, and contribute on <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+                <p>Yes — Invoiso is 100% free and open source. No subscriptions, no hidden fees, no premium tiers. Download it and use it indefinitely.</p>
               </div>
             </details>
 
@@ -432,51 +694,49 @@
                 <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                <p>Absolutely. Invoiso is designed to work entirely offline. All your data — customers, products, and invoices — is stored locally on your device. No internet connection is required at any point.</p>
+                <p>Absolutely. All your data — customers, products, and invoices — is stored locally on your device. No internet connection is ever required.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                Which operating systems does Invoiso support?
+                Does Invoiso support GST invoicing and UPI QR codes?
                 <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                <p>Invoiso is available for <strong>Windows</strong> and <strong>Linux</strong>. Download the latest installer for your platform from the <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" target="_blank" rel="noopener noreferrer">GitHub Releases page</a>.</p>
+                <p>Yes to both. Invoiso supports GSTIN fields, HSN codes, and per-item tax rates for GST-ready invoices. You can also add a UPI payment QR code to every PDF — customers can scan and pay via GPay, PhonePe, or Paytm instantly.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                Can I export invoices as PDF?
+                Is my data safe? Can I back it up?
                 <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                <p>Yes. Invoiso lets you generate professional PDF invoices with a single click. Choose from three templates — Classic, Modern, and Minimal — and add your company logo and branding.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Is my business data safe with Invoiso?
-                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
-              </summary>
-              <div class="faq-answer">
-                <p>Your data never leaves your device. Invoiso stores everything in a local database — no cloud sync, no remote servers. You are in full control, with a built-in backup feature to keep your data portable and protected.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Does Invoiso support multiple currencies?
-                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
-              </summary>
-              <div class="faq-answer">
-                <p>Yes. Invoiso supports multiple currencies including USD, EUR, GBP, INR, JPY, AED, SGD, AUD, CAD, and JMD. You can set your preferred currency in the invoice settings.</p>
+                <p>Your data never leaves your device — no cloud, no remote servers. Use <strong>Settings → Backup</strong> to export a database file you can restore at any time.</p>
               </div>
             </details>
 
           </div>
+
+          <div class="mt-10">
+            <a href="faq.html" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-base">
+              <i class="fas fa-circle-question" aria-hidden="true"></i>
+              View All FAQs
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="py-20 testimonials-section">
+        <div class="container mx-auto px-6">
+          <div class="text-center mb-12">
+            <h2 class="section-title text-4xl font-bold mb-3 primary-text">What People Say</h2>
+            <p style="color:var(--text-muted)">Real feedback from real users</p>
+          </div>
+          <div class="testimonials-grid" id="testimonials-grid"></div>
         </div>
       </section>
 
@@ -548,34 +808,83 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
+    // --- Testimonials data ---
+    // To add a new review, just push another object into this array.
+    var testimonials = [
+      /* Uncomment after client approval:
+      {
+        name: 'Keyson',
+        location: 'Jamaica',
+        text: 'All-in-all, your app is a very fantastic piece of software! I look forward to supporting this project in the future, where you can probably add more features or what not! Well done bro! 👏 👏👏',
+        stars: 5,
+      },
+      */
+    ];
+
+    (function buildTestimonials() {
+      // Hide the entire section when there are no reviews
+      if (testimonials.length === 0) {
+        var section = document.getElementById('testimonials');
+        if (section) section.style.display = 'none';
+        return;
+      }
+
+      var grid = document.getElementById('testimonials-grid');
+      if (!grid) return;
+      if (testimonials.length === 1) grid.classList.add('single');
+      else if (testimonials.length === 2) grid.classList.add('double');
+      testimonials.forEach(function (t) {
+        var initials = t.name.split(' ').map(function (w) { return w[0]; }).join('').toUpperCase().slice(0, 2);
+        var starsHtml = '';
+        for (var i = 0; i < 5; i++) {
+          starsHtml += i < t.stars
+            ? '<i class="fas fa-star" aria-hidden="true"></i>'
+            : '<i class="far fa-star" aria-hidden="true"></i>';
+        }
+        var card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML =
+          '<div class="testimonial-header">' +
+            '<div class="testimonial-stars" aria-label="' + t.stars + ' out of 5 stars">' + starsHtml + '</div>' +
+            '<div class="testimonial-meta">' +
+              '<span class="testimonial-name">' + t.name + '</span>' +
+              '<span>, </span>' +
+              '<span class="testimonial-location">' + t.location + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<p class="testimonial-text">' + t.text + '</p>';
+        grid.appendChild(card);
+      });
+    })();
+
     document.addEventListener('DOMContentLoaded', function () {
 
       // --- Screenshot data ---
       const screenshots = [
-        { src: 'login.webp',                  text: 'Invoice Login Page',               alt: 'Invoice Login',           category: 'Invoices' },
-        { src: 'dashboard.webp',              text: 'Invoice Dashboard Page',           alt: 'Invoice Dashboard',       category: 'Invoices' },
-        { src: 'new_invoice1.webp',           text: 'Create Invoice Page',              alt: 'Create Invoice',          category: 'Invoices' },
-        { src: 'new_invoice2.webp',           text: 'Create Invoice with Products',     alt: 'Create Invoice',          category: 'Invoices' },
-        { src: 'invoice_success.webp',        text: 'Invoice Created Successfully',     alt: 'Invoice Created',         category: 'Invoices' },
-        { src: 'invoice_details_minimal.webp',text: 'Invoice Details Page',             alt: 'Invoice Details',         category: 'Invoices' },
-        { src: 'edit_invoice.webp',           text: 'Edit Your Invoice',                alt: 'Edit Invoice',            category: 'Invoices' },
-        { src: 'edit_invoice2.webp',          text: 'Edit Invoice — Step 2',            alt: 'Edit Invoice Step 2',     category: 'Invoices' },
-        { src: 'invoice_list.webp',           text: 'Invoice Listing Page',             alt: 'Invoice List',            category: 'Invoices' },
-        { src: 'invoice_pdf.webp',            text: 'Sample Invoice PDF',               alt: 'Invoice PDF',             category: 'PDF' },
-        { src: 'pdf_templates.webp',          text: 'Invoice Templates',                alt: 'PDF Templates',           category: 'PDF' },
-        { src: 'classic_pdf_template.webp',   text: 'Classic Invoice Template',         alt: 'Classic Template',        category: 'PDF' },
-        { src: 'modern_pdf_template.webp',    text: 'Modern Invoice Template',          alt: 'Modern Template',         category: 'PDF' },
-        { src: 'minimal_pdf_template.webp',   text: 'Minimal Invoice Template',         alt: 'Minimal Template',        category: 'PDF' },
-        { src: 'customer_management.webp',    text: 'Customer Management Page',         alt: 'Customer Management',     category: 'Clients' },
-        { src: 'customer_editing.webp',       text: 'Customer Editing Page',            alt: 'Edit Customer',           category: 'Clients' },
-        { src: 'product_management.webp',     text: 'Product Management Page',          alt: 'Product Management',      category: 'Products' },
-        { src: 'product_edit.webp',           text: 'Product Editing Page',             alt: 'Edit Product',            category: 'Products' },
-        { src: 'user_management.webp',        text: 'User Management Page',             alt: 'User Management',         category: 'Settings' },
-        { src: 'user_edit.webp',              text: 'User Editing Page',                alt: 'Edit User',               category: 'Settings' },
-        { src: 'company_informations.webp',   text: 'Organisation Information',         alt: 'Company Information',     category: 'Settings' },
-        { src: 'invoice_settings.webp',       text: 'Invoice Settings',                 alt: 'Invoice Settings',        category: 'Settings' },
-        { src: 'backup_management.webp',      text: 'Backup Management',                alt: 'Backup Management',       category: 'Settings' },
-        { src: 'application_information.webp',text: 'About Invoiso',                    alt: 'About Page',              category: 'Settings' },
+        { src: 'login.webp',                  text: 'Invoice Login Page',               alt: 'Invoiso login screen — secure desktop invoicing app for Windows and Linux',                            category: 'Invoices' },
+        { src: 'dashboard.webp',              text: 'Invoice Dashboard Page',           alt: 'Invoiso dashboard showing total revenue, invoice count, and recent invoices overview',                    category: 'Invoices' },
+        { src: 'new_invoice1.webp',           text: 'Create Invoice Page',              alt: 'Create a new invoice in Invoiso — select customer, add products, apply tax rate',                        category: 'Invoices' },
+        { src: 'new_invoice2.webp',           text: 'Create Invoice with Products',     alt: 'Invoiso invoice creation screen with products and line items added',                                      category: 'Invoices' },
+        { src: 'invoice_success.webp',        text: 'Invoice Created Successfully',     alt: 'Invoice created successfully in Invoiso — ready to preview, print or export as PDF',                    category: 'Invoices' },
+        { src: 'invoice_details_minimal.webp',text: 'Invoice Details Page',             alt: 'Invoice details view in Invoiso showing customer info, line items and total amount due',                 category: 'Invoices' },
+        { src: 'edit_invoice.webp',           text: 'Edit Your Invoice',                alt: 'Edit an existing invoice in Invoiso — update customer, products and tax settings',                       category: 'Invoices' },
+        { src: 'edit_invoice2.webp',          text: 'Edit Invoice — Step 2',            alt: 'Invoiso invoice editing screen showing updated items and recalculated totals',                            category: 'Invoices' },
+        { src: 'invoice_list.webp',           text: 'Invoice Listing Page',             alt: 'Invoice management list in Invoiso showing all invoices with search, filter and bulk actions',           category: 'Invoices' },
+        { src: 'invoice_pdf.webp',            text: 'Sample Invoice PDF',               alt: 'Professional PDF invoice generated by Invoiso with company logo, itemised list and total amount',        category: 'PDF' },
+        { src: 'pdf_templates.webp',          text: 'Invoice Templates',                alt: 'Invoiso PDF template selection — Classic, Modern and Minimal invoice templates side by side',            category: 'PDF' },
+        { src: 'classic_pdf_template.webp',   text: 'Classic Invoice Template',         alt: 'Classic PDF invoice template with branded company header and itemised table — Invoiso',                  category: 'PDF' },
+        { src: 'modern_pdf_template.webp',    text: 'Modern Invoice Template',          alt: 'Modern PDF invoice template with blue header block and professional layout — Invoiso',                   category: 'PDF' },
+        { src: 'minimal_pdf_template.webp',   text: 'Minimal Invoice Template',         alt: 'Minimal PDF invoice template — clean, simple and distraction-free design — Invoiso',                    category: 'PDF' },
+        { src: 'customer_management.webp',    text: 'Customer Management Page',         alt: 'Customer management screen in Invoiso showing client list with search, sort and edit options',           category: 'Clients' },
+        { src: 'customer_editing.webp',       text: 'Customer Editing Page',            alt: 'Edit customer details in Invoiso — name, email, phone, address and GSTIN fields',                       category: 'Clients' },
+        { src: 'product_management.webp',     text: 'Product Management Page',          alt: 'Product management screen in Invoiso showing items with price, stock and HSN code',                     category: 'Products' },
+        { src: 'product_edit.webp',           text: 'Product Editing Page',             alt: 'Edit product in Invoiso — set name, price, stock, HSN code and tax rate',                               category: 'Products' },
+        { src: 'user_management.webp',        text: 'User Management Page',             alt: 'User management screen in Invoiso — add and manage app users with role-based access',                    category: 'Settings' },
+        { src: 'user_edit.webp',              text: 'User Editing Page',                alt: 'Edit user account details in Invoiso — username, password and user type',                                category: 'Settings' },
+        { src: 'company_informations.webp',   text: 'Organisation Information',         alt: 'Company information settings in Invoiso — name, address, phone, email, GSTIN and logo',                 category: 'Settings' },
+        { src: 'invoice_settings.webp',       text: 'Invoice Settings',                 alt: 'Invoice settings screen in Invoiso — configure prefix, currency, tax and UPI QR code',                  category: 'Settings' },
+        { src: 'backup_management.webp',      text: 'Backup Management',                alt: 'Backup and restore screen in Invoiso — one-click database backup to keep your data safe',               category: 'Settings' },
+        { src: 'application_information.webp',text: 'About Invoiso',                    alt: 'About Invoiso screen — version, developer info and open source license details',                         category: 'Settings' },
       ];
 
       // --- Build slides dynamically ---

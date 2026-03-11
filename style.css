@@ -1055,6 +1055,112 @@ body {
 }
 
 /* =============================================
+   Testimonials
+   ============================================= */
+.testimonials-section { background: var(--surface); }
+
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 4px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(79,142,247,0.3) transparent;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 5px;
+}
+
+.testimonials-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: rgba(79,142,247,0.3);
+    border-radius: 999px;
+}
+
+.testimonial-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: left;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+}
+
+.testimonials-grid.single .testimonial-card {
+    flex: 0 1 600px;
+    width: 100%;
+}
+
+.testimonials-grid.double .testimonial-card {
+    flex: 1 1 320px;
+    max-width: 600px;
+}
+
+.testimonial-card:hover {
+    border-color: rgba(79,142,247,0.28);
+    box-shadow: 0 8px 30px rgba(79,142,247,0.1);
+    transform: translateY(-3px);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 3px;
+}
+
+.testimonial-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.testimonial-stars i {
+    color: #f59e0b;
+    font-size: 0.82rem;
+}
+
+.testimonial-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.testimonial-text::before {
+    content: '\201C';
+    font-size: 1.4rem;
+    color: var(--primary);
+    opacity: 0.5;
+    font-family: Georgia, serif;
+    margin-right: 2px;
+    vertical-align: -2px;
+}
+
+.testimonial-name {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* =============================================
    Footer
    ============================================= */
 footer {
