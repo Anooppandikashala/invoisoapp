@@ -4,13 +4,13 @@
     <!-- Basic Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Invoiso changelog and monthly updates — every new feature, improvement, and bug fix across all versions of the free offline invoice software for Windows and Linux." />
-    <meta name="keywords" content="Invoiso updates, Invoiso changelog, invoice software updates, what's new Invoiso, release notes Invoiso" />
+    <meta name="description" content="Invoiso monthly updates — every new feature, improvement, and bug fix across all versions of the free offline invoice software for Windows and Linux." />
+    <meta name="keywords" content="Invoiso updates, invoice software updates, what's new Invoiso, release notes Invoiso" />
     <meta name="author" content="Invoiso" />
     <meta name="robots" content="index, follow" />
 
     <!-- Title -->
-    <title>What's New — Invoiso Changelog & Monthly Updates</title>
+    <title>Updates — Invoiso</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://anooppandikashala.github.io/invoisoapp/changelog.html" />
@@ -19,7 +19,7 @@
     <meta name="theme-color" content="#06080f" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="What's New in Invoiso — Changelog & Updates" />
+    <meta property="og:title" content="Updates — Invoiso" />
     <meta property="og:description" content="Every feature, fix, and improvement in Invoiso — the free offline invoice software for Windows and Linux. All in one place." />
     <meta property="og:image" content="https://anooppandikashala.github.io/invoisoapp/assets/images/invoiso-banner.webp" />
     <meta property="og:url" content="https://anooppandikashala.github.io/invoisoapp/changelog.html" />
@@ -29,7 +29,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="What's New in Invoiso — Changelog & Updates" />
+    <meta name="twitter:title" content="Updates — Invoiso" />
     <meta name="twitter:description" content="Every feature, fix, and improvement in Invoiso. Free offline invoice software for Windows and Linux." />
     <meta name="twitter:image" content="https://anooppandikashala.github.io/invoisoapp/assets/images/invoiso-banner.webp" />
 
@@ -369,9 +369,9 @@
                 <li class="text-white" aria-current="page">Updates</li>
               </ol>
             </nav>
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">What's New in Invoiso</h1>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">Invoiso Updates</h1>
             <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.85)">
-              Every feature, fix, and improvement — all in one place.
+              A monthly roundup of new features, improvements, and fixes — everything that changed, in a nutshell.
             </p>
             <div class="hero-trust-strip">
               <span class="trust-chip"><i class="fas fa-sync" aria-hidden="true"></i> Updated regularly</span>
@@ -386,26 +386,49 @@
       <section class="py-20" style="background: var(--bg);">
         <div class="container mx-auto px-6 max-w-4xl">
 
+          <!-- Current version card (fetched from GitHub) -->
+          <div id="latest-version-card" class="release-card fade-in-up" style="margin-bottom: 24px;">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="release-card-header">
+              <div class="release-card-header-left">
+                <span class="version-badge" id="lv-badge">
+                  <i class="fas fa-tag" aria-hidden="true"></i>
+                  <span id="lv-tag">—</span>
+                </span>
+                <span class="latest-badge">
+                  <i class="fas fa-circle" style="font-size:0.5em;" aria-hidden="true"></i>
+                  Current
+                </span>
+              </div>
+              <span class="release-date" id="lv-date" style="color:var(--text-muted);font-size:0.85rem;">
+                <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Fetching…
+              </span>
+            </div>
+            <div style="padding: 12px 16px 4px;">
+              <a id="lv-link" href="https://github.com/Anooppandikashala/invoiso/releases/latest" target="_blank" rel="noopener noreferrer"
+                style="font-size:0.9rem; color:var(--primary); text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                View release on GitHub
+                <i class="fas fa-external-link-alt" style="font-size:0.75em;" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
           <div class="timeline">
 
-            <!-- v3.4.2 -->
+            <!-- March 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
 
               <div class="release-card-header">
                 <div class="release-card-header-left">
                   <span class="version-badge">
-                    <i class="fas fa-tag" aria-hidden="true"></i>
-                    v3.4.2
-                  </span>
-                  <span class="latest-badge">
-                    <i class="fas fa-circle" style="font-size:0.5em;" aria-hidden="true"></i>
-                    Latest
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    March 2026
                   </span>
                 </div>
                 <span class="release-date">
-                  <i class="far fa-calendar-alt" aria-hidden="true"></i>
-                  March 2026
+                  v3.4.2
                 </span>
               </div>
 
@@ -417,15 +440,16 @@
                     <span class="icon-wrap icon-features"><i class="fas fa-sparkles" aria-hidden="true"></i></span>
                     <span class="title-features">New Features</span>
                   </div>
-                  <ul class="cl-list" aria-label="New features in v3.4.2">
+                  <ul class="cl-list" aria-label="New features in March 2026">
                     <li><span><strong>Multi-Currency Support</strong> — INR, USD, EUR, GBP, JPY, AED, SGD, AUD, CAD, JMD</span></li>
                     <li><span><strong>Per-Item Tax Rates</strong> — Set different tax rates per line item</span></li>
+                    <li><span><strong>Multiple UPI Accounts</strong> — Manage multiple UPI payment accounts; choose which appears on each invoice PDF</span></li>
                     <li><span><strong>UPI Payment QR Code</strong> — Scannable QR code auto-appears on PDF invoices</span></li>
+                    <li><span><strong>GST Field Preference</strong> — Toggle GST/GSTIN fields on or off globally from Invoice Settings</span></li>
                     <li><span><strong>Invoice Cloning / Duplicate</strong> — Duplicate any invoice instantly</span></li>
                     <li><span><strong>Bulk Actions</strong> — Select multiple invoices for batch operations</span></li>
                     <li><span><strong>Payment Tracking &amp; Receipts</strong> — Track paid/partial/unpaid; generate PDF receipts</span></li>
                     <li><span><strong>Role-Based Access Control</strong> — Admin and standard user roles</span></li>
-                    <li><span><strong>Invoice Type Indicator</strong> — Visible directly on invoice list and dashboard</span></li>
                   </ul>
                 </div>
 
@@ -435,17 +459,17 @@
                     <span class="icon-wrap icon-platform"><i class="fab fa-linux" aria-hidden="true"></i></span>
                     <span class="title-platform">Platform Support</span>
                   </div>
-                  <ul class="cl-list" aria-label="Platform support in v3.4.2">
+                  <ul class="cl-list" aria-label="Platform support in March 2026">
                     <li><span><strong>Ubuntu 24.04 LTS</strong> — Now officially supported; builds tested and verified</span></li>
                   </ul>
 
-                  <!-- UI Improvements (stacked under platform on wide layout) -->
+                  <!-- UI Improvements -->
                   <div class="cl-section" style="margin-top: 24px;">
                     <div class="cl-section-title">
                       <span class="icon-wrap icon-ui"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
                       <span class="title-ui">UI &amp; UX Improvements</span>
                     </div>
-                    <ul class="cl-list" aria-label="UI improvements in v3.4.2">
+                    <ul class="cl-list" aria-label="UI improvements in March 2026">
                       <li><span>Redesigned <strong>PDF Settings</strong>, <strong>Company Info</strong>, and <strong>Software Info</strong> screens</span></li>
                       <li><span>Search fields no longer lose focus when typing fast</span></li>
                     </ul>
@@ -458,17 +482,18 @@
                     <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
                     <span class="title-fixes">Bug Fixes</span>
                   </div>
-                  <ul class="cl-list" aria-label="Bug fixes in v3.4.2" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                  <ul class="cl-list" aria-label="Bug fixes in March 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
                     <li><span>Fixed Rupees symbol rendering incorrectly in PDF</span></li>
                     <li><span>Fixed database connection lost after backup restore</span></li>
                     <li><span>Fixed window resizing issues on Linux</span></li>
                     <li><span>Fixed Windows app icon — all sizes (16, 32, 48, 256px)</span></li>
+                    <li><span>Fixed dashboard layout issue in the recent invoices section</span></li>
                   </ul>
                 </div>
 
               </div>
             </div>
-            <!-- / v3.4.2 -->
+            <!-- / March 2026 -->
 
           </div>
           <!-- / timeline -->
@@ -526,6 +551,23 @@
       }, { passive: true });
 
     });
+    </script>
+
+    <script>
+      // Fetch latest release from GitHub and populate the current version card
+      fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases/latest')
+        .then(function (res) { if (!res.ok) throw new Error(); return res.json(); })
+        .then(function (release) {
+          document.getElementById('lv-tag').textContent = release.tag_name;
+          var d = new Date(release.published_at);
+          document.getElementById('lv-date').innerHTML =
+            '<i class="far fa-calendar-alt" aria-hidden="true"></i> ' +
+            d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          document.getElementById('lv-link').href = release.html_url;
+        })
+        .catch(function () {
+          document.getElementById('lv-date').textContent = 'Could not fetch version';
+        });
     </script>
 
   </body>
