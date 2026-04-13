@@ -54,3 +54,7 @@ dist/
 myapp_1.0.0/
 appimage-build/
 *screenshots2/
+
+# Node / Tailwind build
+node_modules/
+tailwind-input.css
