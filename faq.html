@@ -178,13 +178,23 @@
     }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D7RSN6EGR6"></script>
+    <!-- Google Analytics: deferred until browser is idle -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-D7RSN6EGR6');
+      (function() {
+        function loadGA() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-D7RSN6EGR6';
+          document.head.appendChild(s);
+        }
+        'requestIdleCallback' in window
+          ? requestIdleCallback(loadGA, { timeout: 4000 })
+          : window.addEventListener('load', function() { setTimeout(loadGA, 1000); });
+      })();
     </script>
   </head>
 
