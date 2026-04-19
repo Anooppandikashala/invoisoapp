@@ -3,15 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Free online invoice maker — create and download professional PDF invoices instantly. No sign-up, no storage, no data sent anywhere." />
+  <meta name="description" content="Free online invoice maker — fill in your details and download a professional PDF invoice instantly. No sign-up, no account, no data stored. Supports GST, multi-currency, and custom items." />
+  <meta name="keywords" content="free invoice maker, online invoice generator, create invoice online, PDF invoice, GST invoice, free invoice template" />
   <meta name="robots" content="index, follow" />
-  <title>Free Online Invoice Maker — Invoiso</title>
+  <title>Free Online Invoice Maker — Create PDF Invoices Instantly | Invoiso</title>
   <link rel="canonical" href="https://invoiso.co.in/invoice-maker.html" />
   <meta name="theme-color" content="#06080f" />
-  <meta property="og:title" content="Free Online Invoice Maker — Invoiso" />
-  <meta property="og:description" content="Create and download professional PDF invoices instantly. No sign-up required, nothing stored." />
+  <meta property="og:title" content="Free Online Invoice Maker — Create PDF Invoices Instantly" />
+  <meta property="og:description" content="Create and download professional PDF invoices instantly. No sign-up required, nothing stored. Supports GST, multi-currency, and custom line items." />
   <meta property="og:url" content="https://invoiso.co.in/invoice-maker.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Online Invoice Maker — Invoiso" />
+  <meta name="twitter:description" content="Create and download professional PDF invoices instantly. No sign-up, no data stored." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Invoiso — Free Online Invoice Maker",
+    "url": "https://invoiso.co.in/invoice-maker.html",
+    "description": "Create and download professional PDF invoices instantly. No sign-up required, no data stored. Supports GST, multi-currency, and custom line items.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Instant PDF download",
+      "GST and tax support",
+      "Multi-currency (INR, USD, EUR, GBP and more)",
+      "No sign-up or account required",
+      "All data stays in your browser",
+      "Quotation and invoice templates",
+      "Per-item and global tax modes"
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Invoiso",
+      "url": "https://invoiso.co.in"
+    }
+  }
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,529 +62,7 @@
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
 
-  <style>
-    :root {
-      --form-bg: #0d1526;
-      --card-bg: rgba(255,255,255,0.05);
-      --card-border: rgba(255,255,255,0.10);
-      --input-bg: rgba(255,255,255,0.06);
-      --input-border: rgba(255,255,255,0.14);
-      --input-focus: #4f8ef7;
-      --label: #94a3b8;
-      --text: #e2e8f0;
-      --text-muted: #64748b;
-      --primary: #4f8ef7;
-      --primary-dim: rgba(79,142,247,0.15);
-      --danger: #ef4444;
-      --danger-dim: rgba(239,68,68,0.12);
-      --success: #22c55e;
-      --success-dim: rgba(34,197,94,0.12);
-      --teal: #14b8a6;
-      --teal-dim: rgba(20,184,166,0.12);
-      --radius: 10px;
-      --radius-sm: 6px;
-    }
-
-    body { font-family: 'Inter', sans-serif; background: #06080f; color: var(--text); }
-
-    /* ── Tool layout ─────────────────────────────── */
-    .tool-wrap {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 16px;
-      padding: 16px 20px 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    @media (max-width: 900px) {
-      .tool-wrap { grid-template-columns: 1fr; }
-    }
-
-    /* ── Sticky sidebar (desktop only) ──────────── */
-    @media (min-width: 901px) {
-      .sidebar-col { position: sticky; top: 80px; align-self: start; }
-    }
-
-    /* ── Invoice Details + Bill To equal-height row ── */
-    .header-cards-row {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 12px;
-      align-items: stretch;
-    }
-    .header-cards-row > .card { display: flex; flex-direction: column; height: 100%; flex-grow: 1; }
-    @media (max-width: 600px) {
-      .header-cards-row { grid-template-columns: 1fr; }
-    }
-
-
-    /* ── Cards ───────────────────────────────────── */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-    .card-header i { color: var(--primary); font-size: 15px; }
-    .card-header .badge {
-      margin-left: auto;
-      background: var(--primary);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 20px;
-    }
-
-    /* ── Form inputs ─────────────────────────────── */
-    .form-group { margin-bottom: 10px; }
-    .form-group label {
-      display: block;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--label);
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .form-row { display: grid; gap: 10px; }
-    .form-row.cols-2 { grid-template-columns: 1fr 1fr; }
-    .form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-    @media (max-width: 700px) {
-      .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
-    }
-
-    input[type="text"],
-    input[type="number"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="date"],
-    select,
-    textarea {
-      width: 100%;
-      background: var(--input-bg);
-      border: 1px solid var(--input-border);
-      border-radius: var(--radius-sm);
-      color: var(--text);
-      font-size: 13px;
-      font-family: inherit;
-      padding: 8px 10px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--input-focus);
-      box-shadow: 0 0 0 3px rgba(79,142,247,0.15);
-    }
-    input::placeholder, textarea::placeholder { color: var(--text-muted); }
-    select option { background: #0d1526; color: var(--text); }
-    textarea { resize: vertical; min-height: 72px; }
-
-    /* ── Buttons ─────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 18px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.18s, transform 0.12s;
-      font-family: inherit;
-    }
-    .btn:hover { opacity: 0.88; }
-    .btn:active { transform: scale(0.97); }
-    .btn-primary { background: var(--primary); color: #fff; width: 100%; justify-content: center; padding: 10px; }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--card-border);
-      color: var(--text);
-    }
-    .btn-danger { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(239,68,68,0.25); }
-    .btn-success { background: var(--success); color: #fff; font-size: 14px; padding: 12px 28px; }
-    .btn-purple { background: #7c3aed; color: #fff; font-size: 14px; padding: 12px 28px; }
-    .btn-sm { padding: 5px 10px; font-size: 12px; }
-    .btn-icon {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px 6px;
-      border-radius: 4px;
-      transition: background 0.15s;
-      color: var(--text-muted);
-    }
-    .btn-icon:hover { background: rgba(255,255,255,0.08); color: var(--danger); }
-
-    /* ── Toggle / switch ─────────────────────────── */
-    .toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .toggle-row label { font-size: 13px; color: var(--text); margin-bottom: 0; }
-    .switch { position: relative; display: inline-block; width: 36px; height: 20px; flex-shrink: 0; }
-    .switch input { opacity: 0; width: 0; height: 0; }
-    .slider {
-      position: absolute; inset: 0;
-      background: rgba(255,255,255,0.15);
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .slider:before {
-      content: '';
-      position: absolute;
-      left: 3px; top: 3px;
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: #fff;
-      transition: transform 0.2s;
-    }
-    input:checked + .slider { background: var(--primary); }
-    input:checked + .slider:before { transform: translateX(16px); }
-
-    /* ── Segmented control ───────────────────────── */
-    .seg-ctrl { display: flex; border: 1px solid var(--input-border); border-radius: var(--radius-sm); overflow: hidden; }
-    .seg-ctrl button {
-      flex: 1;
-      padding: 7px 4px;
-      font-size: 12px;
-      font-weight: 600;
-      font-family: inherit;
-      background: transparent;
-      color: var(--text-muted);
-      border: none;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
-    .seg-ctrl button.active { background: var(--primary); color: #fff; }
-
-    /* ── Invoice items list ──────────────────────── */
-    .items-list { min-height: 120px; }
-    .item-row {
-      display: grid;
-      grid-template-columns: 28px 1fr 70px 90px 80px 70px 90px auto;
-      gap: 6px;
-      align-items: center;
-      padding: 8px 10px;
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--card-border);
-      margin-bottom: 6px;
-    }
-    .item-nums-group { display: contents; }
-    .item-footer-row { display: contents; }
-    .item-actions { display: flex; gap: 2px; }
-    @media (max-width: 900px) {
-      .item-row { display: flex; flex-direction: column; gap: 0; padding: 12px; }
-      .item-num { display: none; }
-      .item-nums-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 8px; width: 100%; }
-      .item-footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; width: 100%; }
-      .item-field { text-align: left; }
-      .item-field span { text-align: left; }
-      .item-total { font-size: 15px; }
-    }
-    .item-num {
-      width: 28px; height: 28px;
-      background: var(--primary-dim);
-      color: var(--primary);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700;
-    }
-    .item-name { font-weight: 600; font-size: 13px; }
-    .item-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-    .type-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 1px 6px;
-      border-radius: 4px;
-    }
-    .type-product { background: rgba(99,102,241,0.15); color: #818cf8; }
-    .type-service { background: rgba(168,85,247,0.15); color: #c084fc; }
-    .item-field { font-size: 13px; text-align: right; }
-    .item-field span { display: block; font-size: 10px; color: var(--text-muted); text-align: right; }
-    .item-total { font-weight: 700; font-size: 14px; color: var(--success); text-align: right; }
-
-    .empty-state {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 40px 20px;
-      color: var(--text-muted);
-    }
-    .empty-state i { font-size: 48px; opacity: 0.3; }
-
-    /* ── Totals panel ────────────────────────────── */
-    .totals-section {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      margin-top: 12px;
-    }
-    @media (max-width: 700px) { .totals-section { grid-template-columns: 1fr; } }
-    .totals-panel {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-sm);
-      padding: 14px 18px;
-      min-width: 320px;
-    }
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      padding: 4px 0;
-      color: var(--text-muted);
-    }
-    .total-row.grand {
-      color: var(--success);
-      font-size: 18px;
-      font-weight: 700;
-      border-top: 1px solid var(--card-border);
-      margin-top: 8px;
-      padding-top: 12px;
-    }
-    .total-row.grand .total-val { color: var(--success); }
-    .total-val { font-weight: 600; color: var(--text); }
-
-    /* ── Additional costs ────────────────────────── */
-    .extra-costs {
-      background: var(--teal-dim);
-      border: 1px solid rgba(20,184,166,0.2);
-      border-radius: var(--radius-sm);
-      margin-top: 10px;
-      overflow: hidden;
-    }
-    .extra-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--teal);
-      user-select: none;
-    }
-    .extra-header i { font-size: 14px; }
-    .extra-header .ec-badge {
-      background: var(--teal);
-      color: #fff;
-      font-size: 10px;
-      padding: 1px 6px;
-      border-radius: 10px;
-    }
-    .extra-header .chevron { margin-left: auto; transition: transform 0.2s; }
-    .extra-header.open .chevron { transform: rotate(180deg); }
-    .extra-body { padding: 10px 14px 12px; border-top: 1px solid rgba(20,184,166,0.2); }
-    .extra-row {
-      display: grid;
-      grid-template-columns: 1fr 120px 32px;
-      gap: 6px;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    /* ── Action bar ──────────────────────────────── */
-    .action-bar {
-      display: flex;
-      gap: 12px;
-      justify-content:space-around;
-      padding: 16px 0 0;
-      flex-wrap: wrap;
-    }
-    .action-bar .btn { font-size: 14px; padding: 12px 28px; }
-
-    /* ── Hero banner ─────────────────────────────── */
-    .tool-hero {
-      padding: 100px 20px 24px;
-      text-align: center;
-    }
-    .tool-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-    .tool-hero p { color: var(--text-muted); font-size: 14px; }
-    .tool-hero .notice {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      background: var(--success-dim);
-      color: var(--success);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(34,197,94,0.25);
-    }
-
-    /* ── Divider ─────────────────────────────────── */
-    .divider { border: none; border-top: 1px solid var(--card-border); margin: 12px 0; }
-
-    /* ── Section title ───────────────────────────── */
-    .section-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .section-meta .flex-1 { flex: 1; }
-
-    /* Invoice number display */
-    .inv-number {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    /* ── Scroll area for items ───────────────────── */
-    .items-scroll { max-height: 320px; overflow-y: auto; padding-right: 4px; }
-    .items-scroll::-webkit-scrollbar { width: 4px; }
-    .items-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
-
-    /* Print override */
-    @media print { .no-print { display: none !important; } }
-
-    /* ── Welcome modal ───────────────────────────── */
-    #welcome-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(6, 8, 15, 0.92);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .welcome-box {
-      background: #0d1526;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 40px 36px;
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
-    }
-    .welcome-box .logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .welcome-box h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .welcome-box p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-    }
-    .welcome-choices {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 480px) { .welcome-choices { grid-template-columns: 1fr; } }
-    .choice-card {
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 24px 16px;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s, transform 0.15s;
-      background: rgba(255,255,255,0.03);
-      user-select: none;
-    }
-    .choice-card:hover {
-      border-color: var(--primary);
-      background: var(--primary-dim);
-      transform: translateY(-2px);
-    }
-    .choice-card:active { transform: scale(0.97); }
-    .choice-card .choice-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-    .choice-card.new .choice-icon { color: var(--success); }
-    .choice-card.import .choice-icon { color: var(--primary); }
-    .choice-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
-    .choice-card p { font-size: 12px; color: var(--text-muted); margin-bottom: 0; }
-
-    /* ── Add Item Dialog ─────────────────────────── */
-    .dialog-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 9998;
-      background: rgba(6, 8, 15, 0.92);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s;
-    }
-    .dialog-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .dialog-box {
-      background: var(--form-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 18px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
-      transform: translateY(20px);
-      transition: transform 0.2s;
-    }
-    .dialog-overlay.open .dialog-box {
-      transform: translateY(0);
-    }
-    .dialog-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-    .dialog-header h3 { margin-bottom: 0; display: flex; align-items: center; gap: 8px; }
-    .dialog-header i { color: var(--primary); font-size: 15px; }
-    .dialog-body {
-      max-height: 70vh; /* Limit height for scrollable content */
-      overflow-y: auto;
-      padding-right: 5px; /* Space for scrollbar */
-    }
-
-    .add-item-mobile-btn { display: flex !important; }
-    @media (min-width: 901px) {
-      .add-item-mobile-btn { width: auto !important; padding: 7px 16px !important; font-size: 13px !important; align-self: flex-start; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles-invoice-maker.css" />
 </head>
 <body>
 
@@ -555,7 +73,7 @@
       <img src="assets/images/logo.svg" alt="" style="width:32px;height:32px;" />
       <span style="font-size:1.4rem;font-weight:700;color:var(--primary);">Invoiso</span>
     </div>
-    <h1>Invoice Maker</h1>
+    <p class="welcome-title">Invoice Maker</p>
     <p>Start a new invoice or continue from a previously exported JSON file.</p>
     <input type="file" id="welcome-json-input" accept=".json" style="display:none;" onchange="handleWelcomeImport(this)" />
     <div class="welcome-choices">
@@ -577,7 +95,7 @@
 <header class="navbar fixed w-full z-50">
   <nav class="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl" aria-label="Main navigation">
     <a href="index.html" class="logo-link flex items-center text-3xl font-bold tracking-tight" style="text-decoration:none;">
-      <img src="assets/images/logo.svg" alt="" class="w-8 h-8 mr-2" aria-hidden="true" />
+      <img src="assets/images/logo.svg" alt="Invoiso logo" class="w-8 h-8 mr-2" />
       <span class="logo-text-accent">Invoiso</span>
     </a>
     <ul class="hidden md:flex space-x-10 font-medium">
@@ -605,6 +123,7 @@
   </div>
 </header>
 
+<main id="main-content">
 <!-- ── Hero ─────────────────────────────────────────── -->
 <div class="tool-hero">
   <h1>Free Online <span style="color:var(--primary)">Invoice Maker</span></h1>
@@ -867,7 +386,45 @@
 <!-- END TOOL WRAP -->
 
 <!-- ── Footer ────────────────────────────────────────── -->
-<footer class="text-white text-center py-12 relative" style="margin-top:40px;">
+</main>
+
+<!-- ── SEO Content ──────────────────────────────────── -->
+<section aria-label="About this tool" style="background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.07); padding:48px 24px;">
+  <div style="max-width:860px; margin:0 auto;">
+    <h2 style="font-size:1.4rem; font-weight:700; color:#e2e8f0; margin-bottom:12px;">How to Create a Free Invoice Online</h2>
+    <p style="color:#94a3b8; line-height:1.75; margin-bottom:24px;">Using Invoiso's free invoice maker is simple. Fill in your business details, add your client's information, and add line items for your products or services. Set the tax rate — either a global GST/VAT percentage or per-item rates — then click <strong style="color:#e2e8f0;">Download PDF</strong> to get a professional invoice in seconds. No account needed, no data ever leaves your browser.</p>
+    <h2 style="font-size:1.4rem; font-weight:700; color:#e2e8f0; margin-bottom:12px;">Why Use This Invoice Maker?</h2>
+    <ul style="color:#94a3b8; line-height:1.9; margin-bottom:24px; padding-left:20px;">
+      <li><strong style="color:#e2e8f0;">Completely free</strong> — no subscription, no watermark, no hidden fees</li>
+      <li><strong style="color:#e2e8f0;">Privacy-first</strong> — all invoice data stays in your browser; nothing is sent to any server</li>
+      <li><strong style="color:#e2e8f0;">GST &amp; tax support</strong> — add global tax rates or set tax per line item</li>
+      <li><strong style="color:#e2e8f0;">Multi-currency</strong> — INR, USD, EUR, GBP, AED, and more</li>
+      <li><strong style="color:#e2e8f0;">Instant PDF</strong> — download a clean, professional invoice PDF in one click</li>
+      <li><strong style="color:#e2e8f0;">Save &amp; resume</strong> — export your invoice as JSON and import it later to continue editing</li>
+    </ul>
+    <h2 style="font-size:1.4rem; font-weight:700; color:#e2e8f0; margin-bottom:12px;">Frequently Asked Questions</h2>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div>
+        <h3 style="font-size:1rem; font-weight:600; color:#e2e8f0; margin-bottom:4px;">Is this invoice maker really free?</h3>
+        <p style="color:#94a3b8; line-height:1.7; margin:0;">Yes — completely free, no sign-up, no subscription. Just create and download.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; font-weight:600; color:#e2e8f0; margin-bottom:4px;">Does it support GST invoices?</h3>
+        <p style="color:#94a3b8; line-height:1.7; margin:0;">Yes. You can add your GSTIN, set a global tax rate or per-item tax percentages, and the totals will calculate automatically.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; font-weight:600; color:#e2e8f0; margin-bottom:4px;">Is my invoice data stored anywhere?</h3>
+        <p style="color:#94a3b8; line-height:1.7; margin:0;">No. All data is processed entirely in your browser. Nothing is sent to any server. Use the JSON export to save your work locally.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; font-weight:600; color:#e2e8f0; margin-bottom:4px;">Can I create invoices in currencies other than INR?</h3>
+        <p style="color:#94a3b8; line-height:1.7; margin:0;">Yes — choose from INR, USD, EUR, GBP, JPY, AED, SGD, AUD, and CAD using the currency selector in the Settings panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-white text-center py-12 relative" style="margin-top:0;">
   <div class="container mx-auto px-6">
     <div class="flex flex-wrap justify-center gap-8 text-lg mb-8">
       <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="hover:underline">
@@ -950,7 +507,7 @@
    ════════════════════════════════════════════════════ */
 const state = {
   docType: 'Invoice',
-  currency: { code: 'INR', symbol: '₹', pdfSym: 'INR ' },
+  currency: { code: 'INR', symbol: '₹', pdfSym: 'Rs. ' },
   taxEnabled: true,
   taxMode: 'global',
   globalTaxRate: 18,
@@ -962,7 +519,7 @@ const state = {
 
 // PDF-safe symbol map (jsPDF standard fonts don't support all Unicode)
 const PDF_SYM = {
-  'INR': 'INR ', 'USD': '$', 'EUR': 'EUR ', 'GBP': 'GBP ',
+  'INR': 'Rs. ', 'USD': '$', 'EUR': 'EUR ', 'GBP': 'GBP ',
   'JPY': 'JPY ', 'AED': 'AED ', 'SGD': 'S$ ', 'AUD': 'A$ ', 'CAD': 'C$ ',
 };
 
@@ -1341,6 +898,7 @@ function buildPDF() {
   let y = 14;
 
   // ── Header band ──
+  /*
   doc.setFillColor(79, 142, 247);
   doc.rect(0, 0, PW, 14, 'F');
   doc.setFontSize(8);
@@ -1349,6 +907,7 @@ function buildPDF() {
   doc.text(docType, PW - MR, 9, { align: 'right' });
 
   y = 20;
+  */
 
   // ── From (left) ──
   doc.setFontSize(14);
@@ -1430,17 +989,17 @@ function buildPDF() {
     columnStyles: {
       0: { cellWidth: 8, halign: 'center' },
       1: { cellWidth: 'auto' },
-      2: { cellWidth: 20, halign: 'center' },
-      3: { cellWidth: 14, halign: 'right' },
-      4: { cellWidth: 26, halign: 'right' },
-      5: { cellWidth: 22, halign: 'right' },
-      6: { cellWidth: 26, halign: 'right', fontStyle: 'bold' },
+      2: { cellWidth: 25, halign: 'left' },
+      3: { cellWidth: 15, halign: 'left' },
+      4: { cellWidth: 25, halign: 'left' },
+      5: { cellWidth: 20, halign: 'left' },
+      6: { cellWidth: 30, halign: 'right', fontStyle: 'bold' },
     },
     margin: { left: ML, right: MR },
     tableWidth: MW,
   });
 
-  y = doc.lastAutoTable.finalY + 6;
+  y = doc.lastAutoTable.finalY + 10;
 
   // ── Totals (right-aligned block) ──
   const totBlockX = PW - MR - 70;
@@ -1472,7 +1031,7 @@ function buildPDF() {
   // Grand total
   doc.setDrawColor(220, 228, 240);
   doc.line(totBlockX, y - 1, PW - MR, y - 1);
-  y += 3;
+  y += 6;
   doc.setFontSize(12);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(34, 197, 94);
