@@ -1609,4 +1609,83 @@ footer a:hover {
         width: 100%;
         justify-content: center;
     }
-}
+    }
+
+    @media (max-width: 900px) {
+      .item-row {
+        grid-template-columns: 1fr; /* Stack all items */
+        gap: 8px;
+        padding: 12px;
+        border: 1px solid var(--card-border);
+        margin-bottom: 8px;
+      }
+      .item-num { display: none; }
+
+      /* Style for the name/sub details */
+      .item-row > div:nth-child(2) { /* This is the div containing item-name and item-sub */
+        margin-bottom: 8px;
+      }
+      .item-name {
+        font-weight: 600;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+      .item-sub {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      /* Container for financial details */
+      /* This will be a new grid within the stacked item-row */
+      .item-row .item-field:nth-of-type(1) { /* Target the first item-field (Qty) */
+        grid-column: 1 / 2;
+      }
+      .item-row .item-field:nth-of-type(2) { /* Target the second item-field (Unit Price) */
+        grid-column: 2 / 3;
+      }
+      .item-row .item-field:nth-of-type(3) { /* Target the third item-field (Discount) */
+        grid-column: 1 / 2;
+      }
+      .item-row .item-field:nth-of-type(4) { /* Target the fourth item-field (Tax) */
+        grid-column: 2 / 3;
+      }
+
+      .item-row .item-field, .item-row .item-total {
+        display: flex;
+        flex-direction: column; /* Stack label and value */
+        align-items: flex-start; /* Align to left */
+        width: 100%;
+        padding: 4px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .item-row .item-field:nth-of-type(2), .item-row .item-field:nth-of-type(4) {
+        border-left: 1px solid rgba(255,255,255,0.05); /* Add a vertical separator */
+        padding-left: 8px;
+      }
+      .item-row .item-field:last-of-type {
+        border-bottom: none; /* No separator for the last field */
+      }
+      .item-row .item-total {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--success);
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid var(--card-border); /* Separator before total */
+        grid-column: 1 / -1; /* Span full width */
+      }
+
+      .item-row .item-field span, .item-row .item-total span { /* Labels */
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-left: 0;
+        margin-bottom: 2px;
+      }
+
+      /* Remove button */
+      .item-row > button {
+        margin-top: 8px;
+        align-self: flex-end;
+        grid-column: 1 / -1; /* Span full width */
+      }
+    }

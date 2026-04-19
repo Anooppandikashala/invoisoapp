@@ -295,7 +295,7 @@
       border: 1px solid var(--card-border);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
-      min-width: 220px;
+      min-width: 320px;
     }
     .total-row {
       display: flex;
@@ -358,7 +358,7 @@
     .action-bar {
       display: flex;
       gap: 12px;
-      justify-content: flex-end;
+      justify-content:space-around;
       padding: 16px 0 0;
       flex-wrap: wrap;
     }
@@ -538,7 +538,10 @@
       .add-item-mobile-btn { display: flex !important; } /* Show mobile button */
     }
     @media (min-width: 901px) {
-      .sidebar-col #add-item-card { display: block !important; } /* Show original card on desktop */
+      .sidebar-col #add-item-card {
+        margin-top: 12px !important;
+        display: block !important; 
+      } /* Show original card on desktop */
       .add-item-mobile-btn { display: none !important; } /* Hide mobile button */
       #add-item-dialog { display: none !important; } /* Hide dialog on desktop */
     }
@@ -943,7 +946,7 @@
     <div class="dialog-body">
       <div class="form-group">
         <label>Description *</label>
-        <input type="text" id="item-name" placeholder="Product or service name" />
+        <input type="text" id="item-name-mobile" placeholder="Product or service name" />
       </div>
       <div class="form-group">
         <label>Type</label>
@@ -955,26 +958,26 @@
       <div class="form-row cols-2">
         <div class="form-group">
           <label>Qty</label>
-          <input type="number" id="item-qty" value="1" min="0.01" step="0.01" />
+          <input type="number" id="item-qty-mobile" value="1" min="0.01" step="0.01" />
         </div>
         <div class="form-group">
           <label>Unit Price</label>
-          <input type="number" id="item-price" value="0" min="0" step="0.01" placeholder="0.00" />
+          <input type="number" id="item-price-mobile" value="0" min="0" step="0.01" placeholder="0.00" />
         </div>
       </div>
       <div class="form-row cols-2">
         <div class="form-group">
           <label>Discount</label>
-          <input type="number" id="item-discount" value="0" min="0" step="0.01" placeholder="0.00" />
+          <input type="number" id="item-discount-mobile" value="0" min="0" step="0.01" placeholder="0.00" />
         </div>
         <div class="form-group">
           <label>Tax % (per item)</label>
-          <input type="number" id="item-tax" value="0" min="0" max="100" step="0.1" placeholder="0" />
+          <input type="number" id="item-tax-mobile" value="0" min="0" max="100" step="0.1" placeholder="0" />
         </div>
       </div>
       <div class="form-group">
         <label>HSN / SAC Code</label>
-        <input type="text" id="item-hsn" placeholder="Optional" />
+        <input type="text" id="item-hsn-mobile" placeholder="Optional" />
       </div>
       <button class="btn btn-primary" onclick="addItemAndCloseDialog()">
         <i class="fas fa-plus"></i> Add to Invoice
@@ -1084,12 +1087,12 @@ function openAddItemDialog() {
   const dialog = document.getElementById('add-item-dialog');
   dialog.classList.add('open');
   // Reset form fields when opening the dialog
-  document.getElementById('item-name').value = '';
-  document.getElementById('item-qty').value = '1';
-  document.getElementById('item-price').value = '0';
-  document.getElementById('item-discount').value = '0';
-  document.getElementById('item-tax').value = '0';
-  document.getElementById('item-hsn').value = '';
+  document.getElementById('item-name-mobile').value = ''; // <-- Changed ID here
+  document.getElementById('item-qty-mobile').value = '1';
+  document.getElementById('item-price-mobile').value = '0';
+  document.getElementById('item-discount-mobile').value = '0';
+  document.getElementById('item-tax-mobile').value = '0';
+  document.getElementById('item-hsn-mobile').value = '';
   // Ensure product is selected by default
   document.querySelectorAll('#item-type-ctrl button').forEach(b => {
     b.classList.toggle('active', b.dataset.val === 'product');
@@ -1103,7 +1106,7 @@ function closeAddItemDialog() {
 }
 
 function addItemAndCloseDialog() {
-  addItem(); // Call the existing addItem function
+  addItemMobile();
   closeAddItemDialog(); // Close the dialog after adding the item
 }
 
@@ -1170,14 +1173,30 @@ function toggleExtraCosts() {
    ITEMS
    ════════════════════════════════════════════════════ */
 function addItem() {
-  const name = document.getElementById('item-name').value.trim();
+  let nameInputId;
+  // Determine which item name input to use based on screen width
+  if (window.innerWidth <= 900) { // Mobile view
+    nameInputId = 'item-name-mobile';
+  } else { // Desktop view
+    nameInputId = 'item-name';
+  }
+
+  const nameInput = document.getElementById(nameInputId);
+  const name = nameInput ? nameInput.value.trim() : '';
   if (!name) { alert('Please enter an item description.'); return; }
 
-  const qty = parseFloat(document.getElementById('item-qty').value) || 1;
-  const price = parseFloat(document.getElementById('item-price').value) || 0;
-  const discount = parseFloat(document.getElementById('item-discount').value) || 0;
-  const taxPct = parseFloat(document.getElementById('item-tax').value) || 0;
-  const hsn = document.getElementById('item-hsn').value.trim();
+  // Other inputs use the same IDs for both desktop and mobile
+  const qtyInput = document.getElementById('item-qty');
+  const priceInput = document.getElementById('item-price');
+  const discountInput = document.getElementById('item-discount');
+  const taxInput = document.getElementById('item-tax');
+  const hsnInput = document.getElementById('item-hsn');
+
+  const qty = parseFloat(qtyInput.value) || 1;
+  const price = parseFloat(priceInput.value) || 0;
+  const discount = parseFloat(discountInput.value) || 0;
+  const taxPct = parseFloat(taxInput.value) || 0;
+  const hsn = hsnInput.value.trim();
   const type = state.itemType;
 
   const lineTotal = (price * qty) - discount;
@@ -1185,12 +1204,48 @@ function addItem() {
   state.items.push(item);
 
   // Clear inputs
-  document.getElementById('item-name').value = '';
-  document.getElementById('item-qty').value = '1';
-  document.getElementById('item-price').value = '0';
-  document.getElementById('item-discount').value = '0';
-  document.getElementById('item-tax').value = '0';
-  document.getElementById('item-hsn').value = '';
+  nameInput.value = '';
+  qtyInput.value = '1';
+  priceInput.value = '0';
+  discountInput.value = '0';
+  taxInput.value = '0';
+  hsnInput.value = '';
+
+  renderItems();
+  updateTotals();
+}
+
+function addItemMobile() {
+  
+  const nameInput = document.getElementById('item-name-mobile');
+  const name = nameInput ? nameInput.value.trim() : '';
+  if (!name) { alert('Please enter an item description.'); return; }
+
+  // Other inputs use the same IDs for both desktop and mobile
+  const qtyInput = document.getElementById('item-qty-mobile');
+  const priceInput = document.getElementById('item-price-mobile');
+  const discountInput = document.getElementById('item-discount-mobile');
+  const taxInput = document.getElementById('item-tax-mobile');
+  const hsnInput = document.getElementById('item-hsn-mobile');
+
+  const qty = parseFloat(qtyInput.value) || 1;
+  const price = parseFloat(priceInput.value) || 0;
+  const discount = parseFloat(discountInput.value) || 0;
+  const taxPct = parseFloat(taxInput.value) || 0;
+  const hsn = hsnInput.value.trim();
+  const type = state.itemType;
+
+  const lineTotal = (price * qty) - discount;
+  const item = { id: Date.now(), name, type, qty, price, discount, taxPct, hsn, total: Math.max(0, lineTotal) };
+  state.items.push(item);
+
+  // Clear inputs
+  nameInput.value = '';
+  qtyInput.value = '1';
+  priceInput.value = '0';
+  discountInput.value = '0';
+  taxInput.value = '0';
+  hsnInput.value = '';
 
   renderItems();
   updateTotals();
@@ -1204,19 +1259,26 @@ function removeItem(id) {
 
 function renderItems() {
   const list = document.getElementById('items-list');
-  const empty = document.getElementById('empty-state');
   const countEl = document.getElementById('items-count');
   const sym = state.currency.symbol;
 
   countEl.textContent = state.items.length + (state.items.length === 1 ? ' item' : ' items');
 
   if (state.items.length === 0) {
-    list.innerHTML = '';
-    list.appendChild(empty);
-    empty.style.display = 'flex';
+    if (list) list.style.display = 'none'; // Hide the list of items
+    const empty = document.getElementById('empty-state'); // Re-query empty-state here
+    if (empty) {
+      empty.style.display = 'flex'; // Show the empty state
+    } else {
+      console.error("The 'empty-state' element was not found in the DOM.");
+    }
     return;
   }
-  empty.style.display = 'none';
+
+  // If there are items, show the list and hide the empty state
+  if (list) list.style.display = ''; // Show the list
+  const empty = document.getElementById('empty-state'); // Ensure empty is checked here too
+  if (empty) empty.style.display = 'none'; // Hide the empty state
 
   list.innerHTML = state.items.map((item, i) => {
     const typeTag = `<span class="type-tag type-${item.type}">${item.type === 'service' ? 'Service' : 'Product'}</span>`;
