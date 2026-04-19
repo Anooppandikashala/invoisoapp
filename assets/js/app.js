@@ -315,3 +315,17 @@ window.addEventListener('scroll', function () {
   }, { rootMargin: '-40% 0px -50% 0px' });
   sections.forEach(function (s) { observer.observe(s); });
 })();
+
+// ─── Nav link click tracking ──────────────────────────────────────────────────
+(function trackNavClicks() {
+  var links = document.querySelectorAll('.navbar a');
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (typeof gtag !== 'function') return;
+      gtag('event', 'nav_click', {
+        link_text: a.textContent.trim(),
+        link_url: a.getAttribute('href'),
+      });
+    });
+  });
+})();
