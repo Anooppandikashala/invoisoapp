@@ -235,7 +235,7 @@
     .items-list { min-height: 120px; }
     .item-row {
       display: grid;
-      grid-template-columns: 28px 1fr 70px 90px 80px 70px 90px 36px;
+      grid-template-columns: 28px 1fr 70px 90px 80px 70px 90px auto;
       gap: 6px;
       align-items: center;
       padding: 8px 10px;
@@ -244,9 +244,17 @@
       border: 1px solid var(--card-border);
       margin-bottom: 6px;
     }
+    .item-nums-group { display: contents; }
+    .item-footer-row { display: contents; }
+    .item-actions { display: flex; gap: 2px; }
     @media (max-width: 900px) {
-      .item-row { grid-template-columns: 1fr; gap: 4px; padding: 12px; }
+      .item-row { display: flex; flex-direction: column; gap: 0; padding: 12px; }
       .item-num { display: none; }
+      .item-nums-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 8px; width: 100%; }
+      .item-footer-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; width: 100%; }
+      .item-field { text-align: left; }
+      .item-field span { text-align: left; }
+      .item-total { font-size: 15px; }
     }
     .item-num {
       width: 28px; height: 28px;
@@ -532,18 +540,9 @@
       padding-right: 5px; /* Space for scrollbar */
     }
 
-    /* Responsive visibility */
-    @media (max-width: 900px) {
-      .sidebar-col #add-item-card { display: none !important; } /* Hide original card on mobile */
-      .add-item-mobile-btn { display: flex !important; } /* Show mobile button */
-    }
+    .add-item-mobile-btn { display: flex !important; }
     @media (min-width: 901px) {
-      .sidebar-col #add-item-card {
-        margin-top: 12px !important;
-        display: block !important; 
-      } /* Show original card on desktop */
-      .add-item-mobile-btn { display: none !important; } /* Hide mobile button */
-      #add-item-dialog { display: none !important; } /* Hide dialog on desktop */
+      .add-item-mobile-btn { width: auto !important; padding: 7px 16px !important; font-size: 13px !important; align-self: flex-start; }
     }
   </style>
 </head>
@@ -645,48 +644,41 @@
       </div>
     </div>
 
-    <!-- Add Item -->
-    <div class="card" id="add-item-card">
-      <div class="card-header"><i class="fas fa-cart-plus"></i> Add Item</div>
-      <div class="form-group">
-        <label>Description *</label>
-        <input type="text" id="item-name" placeholder="Product or service name" />
+    <!-- Your Business Details -->
+    <div class="card" style="margin-top:12px;">
+      <div class="card-header">
+        <i class="fas fa-building"></i> Your Business Details
       </div>
-      <div class="form-group">
-        <label>Type</label>
-        <div class="seg-ctrl" id="item-type-ctrl">
-          <button class="active" data-val="product" onclick="setItemType(this)">Product</button>
-          <button data-val="service" onclick="setItemType(this)">Service</button>
-        </div>
-      </div>
-      <div class="form-row cols-2">
+      <div id="from-body">
         <div class="form-group">
-          <label>Qty</label>
-          <input type="number" id="item-qty" value="1" min="0.01" step="0.01" />
-        </div>
+            <label>Business / Your Name *</label>
+            <input type="text" id="from-name" placeholder="Your company name" />
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" id="from-address" placeholder="Street, City, State" />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="from-phone" placeholder="+91 xxxxx xxxxx" />
+          </div>
         <div class="form-group">
-          <label>Unit Price</label>
-          <input type="number" id="item-price" value="0" min="0" step="0.01" placeholder="0.00" />
-        </div>
+            <label>Email</label>
+            <input type="email" id="from-email" placeholder="you@business.com" />
+          </div>
+          <div class="form-group">
+            <label>GSTIN / Tax No.</label>
+            <input type="text" id="from-gstin" placeholder="Optional" />
+          </div>
+          <div class="form-group">
+            <label>Website</label>
+            <input type="text" id="from-website" placeholder="www.yourbusiness.com" />
+          </div>
       </div>
-      <div class="form-row cols-2">
-        <div class="form-group">
-          <label>Discount</label>
-          <input type="number" id="item-discount" value="0" min="0" step="0.01" placeholder="0.00" />
-        </div>
-        <div class="form-group">
-          <label>Tax % (per item)</label>
-          <input type="number" id="item-tax" value="0" min="0" max="100" step="0.1" placeholder="0" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>HSN / SAC Code</label>
-        <input type="text" id="item-hsn" placeholder="Optional" />
-      </div>
-      <button class="btn btn-primary" onclick="addItem()">
-        <i class="fas fa-plus"></i> Add to Invoice
-      </button>
     </div>
+
+
+
 
   </div>
   <!-- END SIDEBAR -->
@@ -752,45 +744,6 @@
     </div>
     <!-- END Row 1 -->
 
-    <!-- Your Business Details (collapsible) -->
-    <div class="card" style="margin-top:12px;">
-      <div class="card-header" id="from-toggle" style="cursor:pointer; margin-bottom:0;" onclick="toggleFrom()">
-        <i class="fas fa-building"></i> Your Business Details
-        <span style="margin-left:auto; font-size:11px; color:var(--text-muted);" id="from-toggle-hint">Click to expand</span>
-        <i class="fas fa-chevron-down" id="from-chevron" style="margin-left:8px; font-size:12px; color:var(--text-muted); transition:transform 0.2s;"></i>
-      </div>
-      <div id="from-body" style="display:none; margin-top:14px;">
-        <div class="form-row cols-3">
-          <div class="form-group">
-            <label>Business / Your Name *</label>
-            <input type="text" id="from-name" placeholder="Your company name" />
-          </div>
-          <div class="form-group">
-            <label>Address</label>
-            <input type="text" id="from-address" placeholder="Street, City, State" />
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" id="from-phone" placeholder="+91 xxxxx xxxxx" />
-          </div>
-        </div>
-        <div class="form-row cols-3">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="from-email" placeholder="you@business.com" />
-          </div>
-          <div class="form-group">
-            <label>GSTIN / Tax No.</label>
-            <input type="text" id="from-gstin" placeholder="Optional" />
-          </div>
-          <div class="form-group">
-            <label>Website</label>
-            <input type="text" id="from-website" placeholder="www.yourbusiness.com" />
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Invoice Items card -->
     <div class="card" id="invoice-items-card" style="margin-top:12px;">
       <div class="card-header">
@@ -805,7 +758,7 @@
           <div class="empty-state" id="empty-state">
             <i class="fas fa-cart-shopping"></i>
             <div>No items added yet</div>
-            <div style="font-size:12px;">Add products from the left panel</div>
+            <div style="font-size:12px;">Use the "Add Item" button below</div>
           </div>
         </div>
       </div>
@@ -940,7 +893,7 @@
 <div id="add-item-dialog" class="dialog-overlay">
   <div class="dialog-box">
     <div class="dialog-header">
-      <h3><i class="fas fa-cart-plus"></i> Add Item</h3>
+      <h3 id="dialog-title"><i class="fas fa-cart-plus"></i> Add Item</h3>
       <button class="btn-icon" onclick="closeAddItemDialog()"><i class="fas fa-times"></i></button>
     </div>
     <div class="dialog-body">
@@ -950,7 +903,7 @@
       </div>
       <div class="form-group">
         <label>Type</label>
-        <div class="seg-ctrl" id="item-type-ctrl">
+        <div class="seg-ctrl" id="item-type-ctrl-mobile">
           <button class="active" data-val="product" onclick="setItemType(this)">Product</button>
           <button data-val="service" onclick="setItemType(this)">Service</button>
         </div>
@@ -979,7 +932,7 @@
         <label>HSN / SAC Code</label>
         <input type="text" id="item-hsn-mobile" placeholder="Optional" />
       </div>
-      <button class="btn btn-primary" onclick="addItemAndCloseDialog()">
+      <button class="btn btn-primary" id="dialog-submit-btn" onclick="addItemAndCloseDialog()">
         <i class="fas fa-plus"></i> Add to Invoice
       </button>
     </div>
@@ -1004,6 +957,7 @@ const state = {
   items: [],
   extraCosts: [],
   itemType: 'product',
+  editingId: null,
 };
 
 // PDF-safe symbol map (jsPDF standard fonts don't support all Unicode)
@@ -1084,20 +1038,39 @@ function handleWelcomeImport(input) {
    DIALOG FUNCTIONS
    ════════════════════════════════════════════════════ */
 function openAddItemDialog() {
-  const dialog = document.getElementById('add-item-dialog');
-  dialog.classList.add('open');
-  // Reset form fields when opening the dialog
-  document.getElementById('item-name-mobile').value = ''; // <-- Changed ID here
+  state.editingId = null;
+  document.getElementById('dialog-title').innerHTML = '<i class="fas fa-cart-plus"></i> Add Item';
+  document.getElementById('dialog-submit-btn').innerHTML = '<i class="fas fa-plus"></i> Add to Invoice';
+  document.getElementById('item-name-mobile').value = '';
   document.getElementById('item-qty-mobile').value = '1';
   document.getElementById('item-price-mobile').value = '0';
   document.getElementById('item-discount-mobile').value = '0';
   document.getElementById('item-tax-mobile').value = '0';
   document.getElementById('item-hsn-mobile').value = '';
-  // Ensure product is selected by default
-  document.querySelectorAll('#item-type-ctrl button').forEach(b => {
+  document.querySelectorAll('#item-type-ctrl-mobile button').forEach(b => {
     b.classList.toggle('active', b.dataset.val === 'product');
   });
   state.itemType = 'product';
+  document.getElementById('add-item-dialog').classList.add('open');
+}
+
+function openEditDialog(id) {
+  const item = state.items.find(i => i.id === id);
+  if (!item) return;
+  state.editingId = id;
+  document.getElementById('dialog-title').innerHTML = '<i class="fas fa-pen"></i> Edit Item';
+  document.getElementById('dialog-submit-btn').innerHTML = '<i class="fas fa-check"></i> Update Item';
+  document.getElementById('item-name-mobile').value = item.name;
+  document.getElementById('item-qty-mobile').value = item.qty;
+  document.getElementById('item-price-mobile').value = item.price;
+  document.getElementById('item-discount-mobile').value = item.discount;
+  document.getElementById('item-tax-mobile').value = item.taxPct;
+  document.getElementById('item-hsn-mobile').value = item.hsn || '';
+  document.querySelectorAll('#item-type-ctrl-mobile button').forEach(b => {
+    b.classList.toggle('active', b.dataset.val === item.type);
+  });
+  state.itemType = item.type;
+  document.getElementById('add-item-dialog').classList.add('open');
 }
 
 function closeAddItemDialog() {
@@ -1135,7 +1108,7 @@ function setCurrency(sel) {
 }
 
 function setItemType(btn) {
-  document.querySelectorAll('#item-type-ctrl button').forEach(b => b.classList.remove('active'));
+  btn.closest('.seg-ctrl').querySelectorAll('button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   state.itemType = btn.dataset.val;
 }
@@ -1151,15 +1124,6 @@ function setTaxMode(btn) {
   updateTotals();
 }
 
-function toggleFrom() {
-  const body = document.getElementById('from-body');
-  const hint = document.getElementById('from-toggle-hint');
-  const chev = document.getElementById('from-chevron');
-  const open = body.style.display === 'none';
-  body.style.display = open ? '' : 'none';
-  hint.textContent = open ? 'Click to collapse' : 'Click to expand';
-  chev.style.transform = open ? 'rotate(180deg)' : '';
-}
 
 function toggleExtraCosts() {
   const body = document.getElementById('ec-body');
@@ -1172,80 +1136,26 @@ function toggleExtraCosts() {
 /* ════════════════════════════════════════════════════
    ITEMS
    ════════════════════════════════════════════════════ */
-function addItem() {
-  let nameInputId;
-  // Determine which item name input to use based on screen width
-  if (window.innerWidth <= 900) { // Mobile view
-    nameInputId = 'item-name-mobile';
-  } else { // Desktop view
-    nameInputId = 'item-name';
-  }
-
-  const nameInput = document.getElementById(nameInputId);
-  const name = nameInput ? nameInput.value.trim() : '';
-  if (!name) { alert('Please enter an item description.'); return; }
-
-  // Other inputs use the same IDs for both desktop and mobile
-  const qtyInput = document.getElementById('item-qty');
-  const priceInput = document.getElementById('item-price');
-  const discountInput = document.getElementById('item-discount');
-  const taxInput = document.getElementById('item-tax');
-  const hsnInput = document.getElementById('item-hsn');
-
-  const qty = parseFloat(qtyInput.value) || 1;
-  const price = parseFloat(priceInput.value) || 0;
-  const discount = parseFloat(discountInput.value) || 0;
-  const taxPct = parseFloat(taxInput.value) || 0;
-  const hsn = hsnInput.value.trim();
-  const type = state.itemType;
-
-  const lineTotal = (price * qty) - discount;
-  const item = { id: Date.now(), name, type, qty, price, discount, taxPct, hsn, total: Math.max(0, lineTotal) };
-  state.items.push(item);
-
-  // Clear inputs
-  nameInput.value = '';
-  qtyInput.value = '1';
-  priceInput.value = '0';
-  discountInput.value = '0';
-  taxInput.value = '0';
-  hsnInput.value = '';
-
-  renderItems();
-  updateTotals();
-}
-
 function addItemMobile() {
-  
   const nameInput = document.getElementById('item-name-mobile');
   const name = nameInput ? nameInput.value.trim() : '';
   if (!name) { alert('Please enter an item description.'); return; }
 
-  // Other inputs use the same IDs for both desktop and mobile
-  const qtyInput = document.getElementById('item-qty-mobile');
-  const priceInput = document.getElementById('item-price-mobile');
-  const discountInput = document.getElementById('item-discount-mobile');
-  const taxInput = document.getElementById('item-tax-mobile');
-  const hsnInput = document.getElementById('item-hsn-mobile');
-
-  const qty = parseFloat(qtyInput.value) || 1;
-  const price = parseFloat(priceInput.value) || 0;
-  const discount = parseFloat(discountInput.value) || 0;
-  const taxPct = parseFloat(taxInput.value) || 0;
-  const hsn = hsnInput.value.trim();
+  const qty = parseFloat(document.getElementById('item-qty-mobile').value) || 1;
+  const price = parseFloat(document.getElementById('item-price-mobile').value) || 0;
+  const discount = parseFloat(document.getElementById('item-discount-mobile').value) || 0;
+  const taxPct = parseFloat(document.getElementById('item-tax-mobile').value) || 0;
+  const hsn = document.getElementById('item-hsn-mobile').value.trim();
   const type = state.itemType;
+  const total = Math.max(0, (price * qty) - discount);
 
-  const lineTotal = (price * qty) - discount;
-  const item = { id: Date.now(), name, type, qty, price, discount, taxPct, hsn, total: Math.max(0, lineTotal) };
-  state.items.push(item);
-
-  // Clear inputs
-  nameInput.value = '';
-  qtyInput.value = '1';
-  priceInput.value = '0';
-  discountInput.value = '0';
-  taxInput.value = '0';
-  hsnInput.value = '';
+  if (state.editingId !== null) {
+    const idx = state.items.findIndex(i => i.id === state.editingId);
+    if (idx !== -1) state.items[idx] = { id: state.editingId, name, type, qty, price, discount, taxPct, hsn, total };
+    state.editingId = null;
+  } else {
+    state.items.push({ id: Date.now(), name, type, qty, price, discount, taxPct, hsn, total });
+  }
 
   renderItems();
   updateTotals();
@@ -1264,21 +1174,15 @@ function renderItems() {
 
   countEl.textContent = state.items.length + (state.items.length === 1 ? ' item' : ' items');
 
+  const empty = document.getElementById('empty-state');
+
   if (state.items.length === 0) {
-    if (list) list.style.display = 'none'; // Hide the list of items
-    const empty = document.getElementById('empty-state'); // Re-query empty-state here
-    if (empty) {
-      empty.style.display = 'flex'; // Show the empty state
-    } else {
-      console.error("The 'empty-state' element was not found in the DOM.");
-    }
+    list.innerHTML = '';
+    if (empty) { list.appendChild(empty); empty.style.display = 'flex'; }
     return;
   }
 
-  // If there are items, show the list and hide the empty state
-  if (list) list.style.display = ''; // Show the list
-  const empty = document.getElementById('empty-state'); // Ensure empty is checked here too
-  if (empty) empty.style.display = 'none'; // Hide the empty state
+  if (empty) empty.style.display = 'none';
 
   list.innerHTML = state.items.map((item, i) => {
     const typeTag = `<span class="type-tag type-${item.type}">${item.type === 'service' ? 'Service' : 'Product'}</span>`;
@@ -1289,12 +1193,19 @@ function renderItems() {
           <div class="item-name">${escHtml(item.name)}</div>
           <div class="item-sub">${typeTag}${item.hsn ? ` &nbsp;HSN: ${escHtml(item.hsn)}` : ''}</div>
         </div>
-        <div class="item-field">${fmtNum(item.qty)}<span>Qty</span></div>
-        <div class="item-field">${sym}${fmtNum(item.price)}<span>Unit Price</span></div>
-        <div class="item-field">${sym}${fmtNum(item.discount)}<span>Discount</span></div>
-        <div class="item-field">${item.taxPct}%<span>Tax</span></div>
-        <div class="item-total">${sym}${fmtNum(item.total)}</div>
-        <button class="btn-icon" onclick="removeItem(${item.id})" title="Remove item"><i class="fas fa-trash-alt"></i></button>
+        <div class="item-nums-group">
+          <div class="item-field">${fmtNum(item.qty)}<span>Qty</span></div>
+          <div class="item-field">${sym}${fmtNum(item.price)}<span>Unit Price</span></div>
+          <div class="item-field">${sym}${fmtNum(item.discount)}<span>Discount</span></div>
+          <div class="item-field">${item.taxPct}%<span>Tax</span></div>
+        </div>
+        <div class="item-footer-row">
+          <div class="item-total">${sym}${fmtNum(item.total)}</div>
+          <div class="item-actions">
+            <button class="btn-icon" onclick="openEditDialog(${item.id})" title="Edit item" style="color:var(--primary);"><i class="fas fa-pen"></i></button>
+            <button class="btn-icon" onclick="removeItem(${item.id})" title="Remove item"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
       </div>`;
   }).join('');
 }

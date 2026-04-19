@@ -1681,11 +1681,5 @@ footer a:hover {
         margin-left: 0;
         margin-bottom: 2px;
       }
-
-      /* Remove button */
-      .item-row > button {
-        margin-top: 8px;
-        align-self: flex-end;
-        grid-column: 1 / -1; /* Span full width */
-      }
+      
     }
