@@ -787,13 +787,13 @@
             downloadsHtml += '<p class="os-section-label"><i class="fab fa-windows mr-1" aria-hidden="true"></i> Windows</p>';
             downloadsHtml += '<div class="assets-grid">' + buildAssetRows(windows) + '</div>';
           }
-          if (linux.length) {
-            downloadsHtml += '<p class="os-section-label" style="' + (windows.length ? 'padding-top:8px;' : '') + '"><i class="fab fa-linux mr-1" aria-hidden="true"></i> Linux</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(linux) + '</div>';
-          }
           if (macos.length) {
             downloadsHtml += '<p class="os-section-label" style="' + (windows.length || linux.length ? 'padding-top:8px;' : '') + '"><i class="fab fa-apple mr-1" aria-hidden="true"></i> macOS <span style="font-size:0.7em;font-weight:600;background:rgba(255,165,0,0.15);color:orange;border:1px solid orange;border-radius:4px;padding:1px 6px;vertical-align:middle;">BETA</span></p>';
             downloadsHtml += '<div class="assets-grid">' + buildAssetRows(macos) + '</div>';
+          }
+          if (linux.length) {
+            downloadsHtml += '<p class="os-section-label" style="' + (windows.length ? 'padding-top:8px;' : '') + '"><i class="fab fa-linux mr-1" aria-hidden="true"></i> Linux</p>';
+            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(linux) + '</div>';
           }
           if (other.length) {
             downloadsHtml += '<p class="os-section-label" style="' + (windows.length || linux.length || macos.length ? 'padding-top:8px;' : '') + '">Other</p>';
