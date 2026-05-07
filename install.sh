@@ -3,8 +3,8 @@
 set -e
 
 APP_NAME="Invoiso"
-REPO_OWNER="<your-user>"
-REPO_NAME="<your-repo>"
+REPO_OWNER="Anooppandikashala"
+REPO_NAME="invoiso"
 
 ARCH=$(uname -m)
 
