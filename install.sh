@@ -1,10 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 APP_NAME="Invoiso"
 REPO_OWNER="Anooppandikashala"
 REPO_NAME="invoiso"
+RELEASE_API_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest"
 
 ARCH=$(uname -m)
 
@@ -15,15 +16,39 @@ fi
 
 INSTALL_MODE="deb"
 
-if [ "$1" = "--appimage" ]; then
-    INSTALL_MODE="appimage"
-fi
+case "${1:-}" in
+    --appimage)
+        INSTALL_MODE="appimage"
+        ;;
+    --deb|"")
+        INSTALL_MODE="deb"
+        ;;
+    -h|--help)
+        echo "Usage: install.sh [--deb|--appimage]"
+        exit 0
+        ;;
+    *)
+        echo "Unknown option: $1"
+        echo "Usage: install.sh [--deb|--appimage]"
+        exit 1
+        ;;
+esac
 
 echo "Fetching latest release info..."
 
-LATEST_TAG=$(curl -s "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest" \
+if command -v curl >/dev/null 2>&1; then
+    RELEASE_INFO=$(curl -fsSL "${RELEASE_API_URL}")
+elif command -v wget >/dev/null 2>&1; then
+    RELEASE_INFO=$(wget -qO- "${RELEASE_API_URL}")
+else
+    echo "curl or wget is required to fetch release info."
+    exit 1
+fi
+
+LATEST_TAG=$(printf '%s\n' "${RELEASE_INFO}" \
     | grep '"tag_name":' \
-    | sed -E 's/.*"([^"]+)".*/\1/')
+    | head -n 1 \
+    | sed -E 's/.*"tag_name":[[:space:]]*"([^"]+)".*/\1/')
 
 if [ -z "$LATEST_TAG" ]; then
     echo "Failed to fetch latest release."
@@ -34,62 +59,48 @@ VERSION="${LATEST_TAG#v}"
 
 echo "Latest version: ${VERSION}"
 
-if ! command -v lsb_release >/dev/null 2>&1; then
-    echo "Unable to detect Linux distribution."
-    INSTALL_MODE="appimage"
-else
+OS_ID=""
+OS_VERSION=""
 
-    UBUNTU_VERSION=$(lsb_release -rs)
-
-    echo "Detected Ubuntu ${UBUNTU_VERSION}"
-
-    case "$UBUNTU_VERSION" in
-
-        22.04)
-
-            if [ "$INSTALL_MODE" = "deb" ]; then
-                FILE_NAME="Invoiso-${VERSION}-ubuntu22.deb"
-            else
-                FILE_NAME="Invoiso-${VERSION}-x86_64.AppImage"
-            fi
-            ;;
-
-        24.04)
-
-            if [ "$INSTALL_MODE" = "deb" ]; then
-                FILE_NAME="Invoiso-${VERSION}-ubuntu24.deb"
-            else
-                FILE_NAME="Invoiso-${VERSION}-ubuntu24-x86_64.AppImage"
-            fi
-            ;;
-
-        *)
-
-            echo ""
-            echo "Your Ubuntu version is not officially supported by the DEB package."
-            echo ""
-            echo "We recommend using the AppImage version instead."
-            echo ""
-
-            read -p "Continue with AppImage installation? (y/n): " CHOICE
-
-            case "$CHOICE" in
-                y|Y)
-                    INSTALL_MODE="appimage"
-
-                    FILE_NAME="Invoiso-${VERSION}-x86_64.AppImage"
-                    ;;
-                *)
-                    echo "Installation cancelled."
-                    exit 0
-                    ;;
-            esac
-            ;;
-    esac
+if [ -r /etc/os-release ]; then
+    . /etc/os-release
+    OS_ID="${ID:-}"
+    OS_VERSION="${VERSION_ID:-}"
 fi
 
-if [ "$INSTALL_MODE" = "appimage" ] && [ -z "$FILE_NAME" ]; then
-    FILE_NAME="Invoiso-${VERSION}-x86_64.AppImage"
+if [ "$INSTALL_MODE" = "deb" ]; then
+    if [ "$OS_ID" != "ubuntu" ]; then
+        echo "DEB packages are officially supported on Ubuntu 22.04 and 24.04."
+        echo "Detected ${OS_ID:-unknown} ${OS_VERSION:-unknown}; using AppImage instead."
+        INSTALL_MODE="appimage"
+    else
+        echo "Detected Ubuntu ${OS_VERSION}"
+
+        case "$OS_VERSION" in
+
+            22.04)
+                FILE_NAME="Invoiso-${VERSION}-ubuntu22.deb"
+                ;;
+
+            24.04)
+                FILE_NAME="Invoiso-${VERSION}-ubuntu24.deb"
+                ;;
+
+            *)
+                echo "Ubuntu ${OS_VERSION} is not officially supported by the DEB package."
+                echo "Using AppImage instead."
+                INSTALL_MODE="appimage"
+                ;;
+        esac
+    fi
+fi
+
+if [ "$INSTALL_MODE" = "appimage" ] && [ "${FILE_NAME:-}" = "" ]; then
+    if [ "$OS_ID" = "ubuntu" ] && [ "$OS_VERSION" = "24.04" ]; then
+        FILE_NAME="Invoiso-${VERSION}-ubuntu24-x86_64.AppImage"
+    else
+        FILE_NAME="Invoiso-${VERSION}-x86_64.AppImage"
+    fi
 fi
 
 DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${LATEST_TAG}/${FILE_NAME}"
@@ -100,19 +111,19 @@ echo ""
 echo "Downloading ${FILE_NAME}..."
 
 if command -v wget >/dev/null 2>&1; then
-    wget -O "${TEMP_FILE}" "${DOWNLOAD_URL}"
+    wget -q --show-progress -O "${TEMP_FILE}" "${DOWNLOAD_URL}"
 else
-    curl -L "${DOWNLOAD_URL}" -o "${TEMP_FILE}"
+    curl -fL "${DOWNLOAD_URL}" -o "${TEMP_FILE}"
 fi
 
 echo ""
 
-if [[ "${FILE_NAME}" == *.deb ]]; then
+if [ "${FILE_NAME##*.}" = "deb" ]; then
 
     echo "Installing DEB package..."
 
-    sudo apt update
-    sudo apt install -y "${TEMP_FILE}"
+    sudo apt-get update
+    sudo apt-get install -y "${TEMP_FILE}"
 
     echo ""
     echo "${APP_NAME} installed successfully!"
