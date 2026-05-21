@@ -228,23 +228,25 @@
 
     <!-- Navbar -->
     <header class="navbar fixed w-full z-50">
-      <nav class="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl" aria-label="Main navigation">
-        <a href="index.html" class="logo-link flex items-center text-3xl font-bold tracking-tight" style="text-decoration:none;">
-          <img src="assets/images/logo.svg" alt="" class="w-8 h-8 mr-2" aria-hidden="true" />
-          Invoiso
+      <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+        <a href="index.html" class="logo-link nav-brand" style="text-decoration:none;">
+          <span class="nav-logo-mark"><img src="assets/images/logo.svg" alt="" aria-hidden="true" /></span>
+          <span class="nav-brand-text logo-text-accent">Invoiso</span>
         </a>
-        <ul class="hidden md:flex space-x-10 font-medium">
+        <ul class="nav-links hidden md:flex">
           <li><a href="index.html" class="transition-colors duration-300">Home</a></li>
           <li><a href="index.html#features" class="transition-colors duration-300">Features</a></li>
           <li><a href="faq.html" class="transition-colors duration-300" aria-current="page">FAQ</a></li>
           <li><a href="changelog.html" class="transition-colors duration-300">Updates</a></li>
-          <li><a href="customization.html" class="nav-btn">Customization</a></li>
-          <li><a href="invoice-maker.html" class="nav-btn">Try Online</a></li>
-          <li><a href="download.html" class="nav-cta">Download</a></li>
         </ul>
+        <div class="nav-actions hidden md:flex">
+          <a href="customization.html" class="nav-btn">Customization</a>
+          <a href="invoice-maker.html" class="nav-btn">Try Online</a>
+          <a href="download.html" class="nav-cta">Download</a>
+        </div>
 
         <button
-          class="md:hidden"
+          class="mobile-menu-toggle md:hidden"
           id="hamburger-btn"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
@@ -256,20 +258,22 @@
         </button>
       </nav>
 
-            <div class="mobile-menu hidden md:hidden" id="mobile-menu">
-        <ul class="mob-nav-list">
-          <li><a href="index.html" class="mob-nav-link">Home</a></li>
-          <li><a href="index.html#features" class="mob-nav-link">Features</a></li>
-          <li><a href="faq.html" class="mob-nav-link mob-nav-active">FAQ</a></li>
-          <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
-        </ul>
-        <div class="mob-nav-ctas">
-          <a href="customization.html" class="mob-nav-btn-outline">Customization</a>
-          <a href="invoice-maker.html" class="mob-nav-btn-outline">Try Online</a>
-          <a href="download.html" class="mob-nav-btn-solid">Download</a>
+      <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+        <div class="mobile-menu-panel">
+          <ul class="mob-nav-list">
+            <li><a href="index.html" class="mob-nav-link">Home</a></li>
+            <li><a href="index.html#features" class="mob-nav-link">Features</a></li>
+            <li><a href="faq.html" class="mob-nav-link mob-nav-active">FAQ</a></li>
+            <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
+          </ul>
+          <div class="mob-nav-ctas">
+            <a href="customization.html" class="mob-nav-btn-outline">Customization</a>
+            <a href="invoice-maker.html" class="mob-nav-btn-outline">Try Online</a>
+            <a href="download.html" class="mob-nav-btn-solid">Download</a>
+          </div>
         </div>
       </div>
-      </header>
+    </header>
 
     <main id="main-content">
       <section class="pt-40 pb-24 faq-section">

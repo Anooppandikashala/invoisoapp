@@ -64,23 +64,25 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header class="navbar fixed w-full z-50">
-      <nav class="container mx-auto flex justify-between items-center py-4 px-6 max-w-7xl" aria-label="Main navigation">
-        <a href="index.html" class="logo-link flex items-center text-3xl font-bold tracking-tight" style="text-decoration:none;">
-          <img src="assets/images/logo.svg" alt="" class="w-8 h-8 mr-2" aria-hidden="true" />
-          Invoiso
+      <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+        <a href="index.html" class="logo-link nav-brand" style="text-decoration:none;">
+          <span class="nav-logo-mark"><img src="assets/images/logo.svg" alt="" aria-hidden="true" /></span>
+          <span class="nav-brand-text logo-text-accent">Invoiso</span>
         </a>
-        <ul class="hidden md:flex space-x-10 font-medium">
+        <ul class="nav-links hidden md:flex">
           <li><a href="index.html" class="transition-colors duration-300">Home</a></li>
           <li><a href="index.html#features" class="transition-colors duration-300">Features</a></li>
           <li><a href="faq.html" class="transition-colors duration-300">FAQ</a></li>
           <li><a href="changelog.html" class="transition-colors duration-300">Updates</a></li>
-          <li><a href="customization.html" class="nav-btn" aria-current="page">Customization</a></li>
-          <li><a href="invoice-maker.html" class="nav-btn">Try Online</a></li>
-          <li><a href="download.html" class="nav-cta">Download</a></li>
         </ul>
+        <div class="nav-actions hidden md:flex">
+          <a href="customization.html" class="nav-btn" aria-current="page">Customization</a>
+          <a href="invoice-maker.html" class="nav-btn">Try Online</a>
+          <a href="download.html" class="nav-cta">Download</a>
+        </div>
 
         <button
-          class="md:hidden"
+          class="mobile-menu-toggle md:hidden"
           id="hamburger-btn"
           aria-label="Toggle navigation menu"
           aria-expanded="false"
@@ -93,72 +95,133 @@
       </nav>
 
       <div class="mobile-menu hidden md:hidden" id="mobile-menu">
-        <ul class="mob-nav-list">
-          <li><a href="index.html" class="mob-nav-link">Home</a></li>
-          <li><a href="index.html#features" class="mob-nav-link">Features</a></li>
-          <li><a href="faq.html" class="mob-nav-link">FAQ</a></li>
-          <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
-        </ul>
-        <div class="mob-nav-ctas">
-          <a href="customization.html" class="mob-nav-btn-outline mob-nav-active">Customization</a>
-          <a href="invoice-maker.html" class="mob-nav-btn-outline">Try Online</a>
-          <a href="download.html" class="mob-nav-btn-solid">Download</a>
+        <div class="mobile-menu-panel">
+          <ul class="mob-nav-list">
+            <li><a href="index.html" class="mob-nav-link">Home</a></li>
+            <li><a href="index.html#features" class="mob-nav-link">Features</a></li>
+            <li><a href="faq.html" class="mob-nav-link">FAQ</a></li>
+            <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
+          </ul>
+          <div class="mob-nav-ctas">
+            <a href="customization.html" class="mob-nav-btn-outline mob-nav-active">Customization</a>
+            <a href="invoice-maker.html" class="mob-nav-btn-outline">Try Online</a>
+            <a href="download.html" class="mob-nav-btn-solid">Download</a>
+          </div>
         </div>
       </div>
     </header>
 
     <main id="main-content">
-      <section class="pt-40 pb-16 hero-gradient text-white text-center relative">
+      <section class="customization-hero hero-gradient text-white relative">
         <div class="hero-noise" aria-hidden="true"></div>
-        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
-          <nav aria-label="Breadcrumb" class="mb-8">
-            <ol class="flex justify-center items-center gap-2 text-sm" style="color:var(--text-muted)">
-              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-              <li aria-hidden="true">/</li>
-              <li class="text-white" aria-current="page">Customisation</li>
-            </ol>
-          </nav>
-          <div class="hero-badge">
-            <i class="fas fa-sliders" aria-hidden="true"></i>
-            Templates, fields, branding and industry builds
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+          <div class="customization-hero-grid">
+            <div class="customization-hero-copy">
+              <nav aria-label="Breadcrumb" class="customization-breadcrumb">
+                <ol>
+                  <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                  <li aria-hidden="true">/</li>
+                  <li class="text-white" aria-current="page">Customisation</li>
+                </ol>
+              </nav>
+
+              <div class="customization-eyebrow">
+                <i class="fas fa-sliders" aria-hidden="true"></i>
+                Templates, fields, branding and industry builds
+              </div>
+              <h1>Tell Us What You Need?</h1>
+              <p>
+                Want Invoiso to feel truly yours? Whether it's a custom invoice design, extra fields, or a fully branded experience - we'll build it for you. Share your requirements below and we'll be in touch soon.
+              </p>
+
+              <div class="customization-hero-actions">
+                <a href="#customization-request-form" class="btn-primary font-semibold px-6 py-3 rounded-lg inline-flex items-center justify-center gap-2">
+                  <i class="fas fa-pen-to-square" aria-hidden="true"></i>
+                  Start Request
+                </a>
+                <a href="mailto:anooppkrishnan96@gmail.com" class="btn-secondary font-semibold px-6 py-3 rounded-lg inline-flex items-center justify-center gap-2">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  Email First
+                </a>
+              </div>
+            </div>
+
+            <aside class="customization-hero-panel" aria-label="Customisation request process">
+              <div class="customization-paid-note">
+                <i class="fas fa-circle-info" aria-hidden="true"></i>
+                <span>Customisation work is a paid service and is not included in the free app.</span>
+              </div>
+
+              <div class="customization-process">
+                <div>
+                  <span>01</span>
+                  <strong>Share requirements</strong>
+                  <p>Tell us what you want to change or add.</p>
+                </div>
+                <div>
+                  <span>02</span>
+                  <strong>Scope review</strong>
+                  <p>We check feasibility, effort, and dependencies.</p>
+                </div>
+                <div>
+                  <span>03</span>
+                  <strong>Estimate &amp; quote</strong>
+                  <p>You get pricing before custom work starts.</p>
+                </div>
+                <div>
+                  <span>04</span>
+                  <strong>Build &amp; handover</strong>
+                  <p>We deliver the agreed customisation for your workflow.</p>
+                </div>
+              </div>
+            </aside>
           </div>
-          <h1 class="text-4xl md:text-6xl font-bold mb-5 leading-tight">Tell Us What You Need?</h1>
-          <p class="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.82)">
-            Want Invoiso to feel truly yours? Whether it's a custom invoice design, extra fields, or a fully branded experience - we'll build it for you. Share your requirements below and we'll be in touch soon.
-          </p>
-          <p class="mt-5 inline-flex items-center justify-center gap-2 p-4 rounded-lg text-sm font-semibold" style="color:#fbbf24;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.28)">
-            <i class="fas fa-circle-info" aria-hidden="true"></i>
-            Customisation work is a paid service and is not included in the free app.
-          </p>
         </div>
       </section>
 
       <section class="customization-section py-16">
-        <div class="container mx-auto px-6 max-w-5xl">
+        <div class="container mx-auto px-6 max-w-7xl">
           <div class="customization-options" aria-label="Customisation services">
-            <div class="customization-option">
+            <article class="customization-option">
               <i class="fas fa-file-invoice" aria-hidden="true"></i>
-              <span>Custom PDF Template</span>
-            </div>
-            <div class="customization-option">
+              <h2>Custom PDF Template</h2>
+              <p>Invoice layouts, branding, columns, terms, signatures, and printable formats.</p>
+            </article>
+            <article class="customization-option">
               <i class="fas fa-list-check" aria-hidden="true"></i>
-              <span>Custom Fields</span>
-            </div>
-            <div class="customization-option">
+              <h2>Custom Fields</h2>
+              <p>Add business-specific fields for invoices, customers, products, or reports.</p>
+            </article>
+            <article class="customization-option">
               <i class="fas fa-palette" aria-hidden="true"></i>
-              <span>White-label</span>
-            </div>
-            <div class="customization-option">
+              <h2>White-label</h2>
+              <p>Brand the app experience for your business, team, or client workflow.</p>
+            </article>
+            <article class="customization-option">
               <i class="fas fa-briefcase" aria-hidden="true"></i>
-              <span>Industry Build</span>
+              <h2>Industry Build</h2>
+              <p>Adapt Invoiso for service, retail, trading, repair, or specialized billing flows.</p>
+            </article>
+          </div>
+
+          <div class="customization-fit-grid">
+            <div class="customization-info-card">
+              <span class="customization-card-label">Good fit</span>
+              <h2>Best for businesses that already know their billing workflow</h2>
+              <p>Share examples, screenshots, PDF samples, field names, tax rules, or the exact manual process you want Invoiso to support.</p>
+            </div>
+            <div class="customization-info-card">
+              <span class="customization-card-label">Before you submit</span>
+              <h2>Clear requirements help us quote faster</h2>
+              <p>Include must-have changes, nice-to-have changes, preferred timeline, and whether you need template-only work or app changes too.</p>
             </div>
           </div>
 
-          <div class="customization-form-shell">
+          <div class="customization-form-shell" id="customization-request-form">
             <div class="customization-form-header">
               <div>
                 <h2>Tell Us What You Need</h2>
-                <p>We collect your email, name, service required, business name, and project details.</p>
+                <p>We collect your email, name, service required, business name, and project details. The embedded form below is unchanged.</p>
               </div>
               <a href="https://forms.gle/faifxacdBaFXuiYS9" target="_blank" rel="noopener noreferrer" class="btn-secondary font-semibold p-4 rounded-lg inline-flex items-center justify-center gap-2">
                 <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
@@ -166,7 +229,7 @@
               </a>
             </div>
             <div class="customization-form-frame">
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdctSA4Qsw86kbaHWZCI0xuGNfEqUdteZGtU-rxjFFAb0eVYw/viewform?embedded=true" title="Invoiso Customisation Request form" width="640" height="1400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdctSA4Qsw86kbaHWZCI0xuGNfEqUdteZGtU-rxjFFAb0eVYw/viewform?embedded=true" title="Invoiso Customisation Request form" width="640" height="2400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </div>
           </div>
         </div>
