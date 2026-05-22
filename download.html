@@ -1109,6 +1109,27 @@
         font-style: italic;
         margin-top: 4px;
       }
+      .welcome-star-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 14px;
+        border-radius: 8px;
+        background: rgba(79,142,247,0.1);
+        border: 1px solid rgba(79,142,247,0.25);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+      .welcome-star-btn:hover {
+        background: rgba(79,142,247,0.2);
+        border-color: rgba(79,142,247,0.45);
+        color: #fff;
+      }
+      .welcome-star-btn .fa-star { color: #fbbf24; }
+
       .welcome-got-it {
         display: block;
         width: 100%;
@@ -1837,6 +1858,21 @@
               If you run into any issues, drop us a mail at<br>
               <a href="mailto:anooppkrishnan96@gmail.com" style="color:var(--primary);font-weight:600;">anooppkrishnan96@gmail.com</a>
               &mdash; we're happy to help.
+            </div>
+          </div>
+        </div>
+
+        <div class="welcome-section">
+          <div class="welcome-section-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
+          <div>
+            <p class="welcome-section-label">Enjoying Invoiso?</p>
+            <div class="welcome-section-body">
+              A GitHub star takes 2 seconds and helps others discover the app.
+              <div style="margin-top:10px;">
+                <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="welcome-star-btn">
+                  <i class="fas fa-star" aria-hidden="true"></i> Star on GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>

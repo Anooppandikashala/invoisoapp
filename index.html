@@ -452,7 +452,7 @@
               Simple. Fast. Offline.
             </p>
             <p class="text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed" style="color:rgba(226,232,240,0.80)">
-              Create GST-ready PDF invoices, manage clients and products, track payments, and run your billing entirely offline on Windows, Linux &amp; macOS. Invoiso is free forever, open source, and requires no subscription, cloud account, or registration.
+              Invoiso lets you create GST-ready PDF invoices, manage clients and products, track payments, and run your billing entirely offline on Windows, Linux, and macOS. It is free forever, open source, and requires no subscription, cloud account, or registration.
             </p>
             <div class="hero-actions flex flex-col md:flex-row justify-center gap-6 mb-6">
               <a href="download.html" class="btn-primary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-lg">
@@ -461,13 +461,15 @@
                 <i class="fab fa-apple download-icon" aria-hidden="true"></i>
                 Download
               </a>
-              <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-lg">
+              <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="btn-secondary font-semibold px-8 py-4 rounded-lg inline-flex items-center justify-center gap-3 text-lg" id="gh-repo-btn">
                 <i class="fab fa-github download-icon" aria-hidden="true"></i>
                 GitHub Repository
+                <span id="gh-star-badge" style="display:none;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.35);color:#fbbf24;font-size:0.78rem;font-weight:700;"><i class="fas fa-star" style="font-size:0.72rem;" aria-hidden="true"></i><span id="gh-star-count"></span></span>
               </a>
             </div>
             <!-- Trust indicators -->
             <div class="hero-trust-strip" style="margin-top:32px;">
+              <span id="gh-star-chip" class="trust-chip" style="display:none;"><i class="fas fa-star" style="color:#fbbf24" aria-hidden="true"></i> <span id="gh-star-chip-count"></span> stars on GitHub</span>
               <span class="trust-chip"><i class="fas fa-plug-circle-xmark" aria-hidden="true"></i> Works offline</span>
               <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
               <span class="trust-chip"><i class="fas fa-file-invoice" aria-hidden="true"></i> GST ready</span>
@@ -1388,5 +1390,43 @@
     </footer>
 
     <script defer src="assets/js/app.js"></script>
+    <script>
+    (function () {
+      var THRESHOLD = 50;
+      var CACHE_KEY = 'invoiso_gh_stars';
+      var CACHE_TTL = 3600000; // 1 hour
+
+      function showStars(count) {
+        if (count < THRESHOLD) return;
+        var label = count >= 1000 ? (count / 1000).toFixed(1) + 'k' : String(count);
+        var badge = document.getElementById('gh-star-badge');
+        var badgeCount = document.getElementById('gh-star-count');
+        var chip = document.getElementById('gh-star-chip');
+        var chipCount = document.getElementById('gh-star-chip-count');
+        if (badge && badgeCount) { badgeCount.textContent = label; badge.style.display = 'inline-flex'; }
+        if (chip && chipCount) { chipCount.textContent = label; chip.style.display = 'inline-flex'; }
+      }
+
+      function fetchStars() {
+        var cached = null;
+        try { cached = JSON.parse(localStorage.getItem(CACHE_KEY)); } catch(e) {}
+        if (cached && Date.now() - cached.ts < CACHE_TTL) { showStars(cached.count); return; }
+        fetch('https://api.github.com/repos/Anooppandikashala/invoiso')
+          .then(function(r) { return r.json(); })
+          .then(function(d) {
+            var count = d.stargazers_count || 0;
+            try { localStorage.setItem(CACHE_KEY, JSON.stringify({ count: count, ts: Date.now() })); } catch(e) {}
+            showStars(count);
+          })
+          .catch(function() {});
+      }
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(fetchStars, { timeout: 3000 });
+      } else {
+        window.addEventListener('load', fetchStars);
+      }
+    })();
+    </script>
   </body>
 </html>
