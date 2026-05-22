@@ -294,6 +294,12 @@
         font-size: 0.78rem;
       }
 
+      .dl-os-section { border-radius: 8px; }
+      .dl-os-section.dl-highlight {
+        box-shadow: inset 3px 0 0 var(--primary);
+        background-color: rgba(99,102,241,0.07);
+      }
+
       .download-featured-badges {
         grid-column: 1 / -1;
         display: flex;
@@ -1416,21 +1422,21 @@
                 <strong><span class="live-dot" aria-hidden="true"></span> GitHub powered</strong>
               </div>
               <div class="download-platforms">
-                <div class="download-platform-card">
+                <a href="#latest-downloads" class="download-platform-card" data-platform="windows" style="text-decoration:none;cursor:pointer;">
                   <i class="fab fa-windows" aria-hidden="true"></i>
                   <strong>Windows</strong>
                   <span>Installer</span>
-                </div>
-                <div class="download-platform-card">
+                </a>
+                <a href="#latest-downloads" class="download-platform-card" data-platform="linux-deb" style="text-decoration:none;cursor:pointer;">
                   <i class="fab fa-linux" aria-hidden="true"></i>
                   <strong>Linux</strong>
                   <span>DEB / AppImage</span>
-                </div>
-                <div class="download-platform-card">
+                </a>
+                <a href="#latest-downloads" class="download-platform-card" data-platform="macos" style="text-decoration:none;cursor:pointer;">
                   <i class="fab fa-apple" aria-hidden="true"></i>
                   <strong>macOS</strong>
                   <span>DMG package</span>
-                </div>
+                </a>
               </div>
               <div id="total-dl-stat" style="display:none" class="total-dl-stat">
                 <i class="fas fa-download" aria-hidden="true"></i>
@@ -1489,30 +1495,6 @@
               username&nbsp;<code>admin</code>
               and password&nbsp;<code>admin</code>.
               You'll be prompted to set a new password on first login for your security.
-            </div>
-          </div>
-
-          <div class="quick-install-card" aria-labelledby="quick-install-title">
-            <div class="quick-install-icon">
-              <i class="fab fa-linux" aria-hidden="true"></i>
-            </div>
-            <div class="quick-install-content">
-              <p class="quick-install-title" id="quick-install-title">Linux quick install</p>
-              <div class="quick-install-command">
-                <span class="quick-install-label">DEB</span>
-                <code id="linux-install-deb-command">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --deb</code>
-                <button type="button" class="copy-install-btn" data-copy-target="linux-install-deb-command" aria-label="Copy DEB install command" title="Copy command">
-                  <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-              </div>
-              <div class="quick-install-command">
-                <span class="quick-install-label">AppImage</span>
-                <code id="linux-install-appimage-command">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --appimage</code>
-                <button type="button" class="copy-install-btn" data-copy-target="linux-install-appimage-command" aria-label="Copy AppImage install command" title="Copy command">
-                  <i class="fas fa-copy" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p class="quick-install-meta">Use DEB for Ubuntu 22.04 or 24.04. Use AppImage for other Linux distributions or when you want a portable app.</p>
             </div>
           </div>
 
@@ -1926,6 +1908,30 @@
       });
       if (installTabs.length) activateInstallTab(document.querySelector('.install-tab.active') || installTabs[0]);
 
+      document.querySelectorAll('.download-platform-card[data-platform]').forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+          var platform = card.getAttribute('data-platform');
+          var osKey = platform === 'linux-deb' ? 'linux' : platform;
+          var section = document.getElementById('dl-section-' + osKey);
+
+          if (section) {
+            var navHeight = (document.querySelector('.navbar') || {offsetHeight: 80}).offsetHeight;
+            var top = section.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            document.querySelectorAll('.dl-os-section.dl-highlight').forEach(function (el) {
+              el.classList.remove('dl-highlight');
+            });
+            section.classList.add('dl-highlight');
+          } else {
+            document.getElementById('latest-downloads').scrollIntoView({ behavior: 'smooth' });
+          }
+
+          var tab = document.querySelector('.install-tab[data-tab="' + platform + '"]');
+          if (tab) activateInstallTab(tab);
+        });
+      });
+
       if (navigator.clipboard) {
         document.querySelectorAll('[data-copy-target]').forEach(function (copyInstallButton) {
           copyInstallButton.addEventListener('click', function () {
@@ -2113,16 +2119,19 @@
 
           var downloadsHtml = '';
           if (windows.length) {
+            downloadsHtml += '<div class="dl-os-section" id="dl-section-windows">';
             downloadsHtml += '<p class="os-section-label"><i class="fab fa-windows mr-1" aria-hidden="true"></i> Windows</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(windows) + '</div>';
+            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(windows) + '</div></div>';
           }
           if (macos.length) {
-            downloadsHtml += '<p class="os-section-label" style="' + (windows.length || linux.length ? 'padding-top:8px;' : '') + '"><i class="fab fa-apple mr-1" aria-hidden="true"></i> macOS</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(macos) + '</div>';
+            downloadsHtml += '<div class="dl-os-section" id="dl-section-macos"' + (windows.length || linux.length ? ' style="margin-top:8px;"' : '') + '>';
+            downloadsHtml += '<p class="os-section-label"><i class="fab fa-apple mr-1" aria-hidden="true"></i> macOS</p>';
+            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(macos) + '</div></div>';
           }
           if (linux.length) {
-            downloadsHtml += '<p class="os-section-label" style="' + (windows.length ? 'padding-top:8px;' : '') + '"><i class="fab fa-linux mr-1" aria-hidden="true"></i> Linux</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(linux) + '</div>';
+            downloadsHtml += '<div class="dl-os-section" id="dl-section-linux"' + (windows.length ? ' style="margin-top:8px;"' : '') + '>';
+            downloadsHtml += '<p class="os-section-label"><i class="fab fa-linux mr-1" aria-hidden="true"></i> Linux</p>';
+            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(linux) + '</div></div>';
           }
           if (other.length) {
             downloadsHtml += '<p class="os-section-label" style="' + (windows.length || linux.length || macos.length ? 'padding-top:8px;' : '') + '">Other</p>';
