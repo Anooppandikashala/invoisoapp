@@ -192,6 +192,14 @@
         border: 1px solid rgba(226,232,240,0.10);
         background: rgba(255,255,255,0.035);
         color: var(--text);
+        transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+      }
+
+      .download-platform-card:hover {
+        border-color: rgba(79,142,247,0.48);
+        background: rgba(79,142,247,0.11);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 32px rgba(79,142,247,0.20), inset 0 1px 0 rgba(255,255,255,0.08);
       }
 
       .download-platform-card i {
@@ -199,12 +207,23 @@
         font-size: 1.35rem;
         grid-row: 1;
         align-self: center;
+        transition: color 0.22s ease, filter 0.22s ease;
+      }
+
+      .download-platform-card:hover i {
+        color: #90bfff;
+        filter: drop-shadow(0 0 7px rgba(79,142,247,0.55));
       }
 
       .download-platform-card strong {
         font-size: 0.95rem;
         line-height: 1.2;
         align-self: center;
+        transition: color 0.22s ease;
+      }
+
+      .download-platform-card:hover strong {
+        color: #fff;
       }
 
       .download-platform-card span {
@@ -212,6 +231,11 @@
         font-size: 0.74rem;
         font-weight: 700;
         grid-column: 2;
+        transition: color 0.22s ease;
+      }
+
+      .download-platform-card:hover span {
+        color: rgba(144,191,255,0.85);
       }
 
       .download-hero .total-dl-stat {
