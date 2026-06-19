@@ -498,7 +498,26 @@
                 <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
               </summary>
               <div class="faq-answer">
-                <p>Invoiso stores its database in your operating system's application support directory — typically <code>~/.local/share/invoiso/</code> on Linux and <code>%AppData%\invoiso\</code> on Windows. The database path is displayed on the splash screen during startup in debug mode.</p>
+                <p>Invoiso stores its database in your operating system's application support directory — typically <code>~/.local/share/invoiso/</code> on Linux and <code>%AppData%\anoopp\invoiso\</code> on Windows. The database path is displayed on the splash screen during startup in debug mode.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                I reinstalled Invoiso on Windows but still can't login with admin / admin
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Uninstalling Invoiso on Windows does <strong>not</strong> delete your database. The data remains at:</p>
+                <p><code>C:\Users\&lt;YourUserName&gt;\AppData\Roaming\anoopp\invoiso\</code></p>
+                <p>To fully reset and restore the default <strong>admin / admin</strong> credentials:</p>
+                <ol class="list-decimal list-inside space-y-1 mt-2">
+                  <li>Uninstall Invoiso.</li>
+                  <li>Open File Explorer and paste this path into the address bar: <code>%AppData%\anoopp\invoiso\</code></li>
+                  <li>Delete the <code>invoice_manager.db</code> file (or the entire <code>invoiso</code> folder).</li>
+                  <li>Reinstall and open Invoiso — login with <strong>Username: admin</strong> / <strong>Password: admin</strong>.</li>
+                </ol>
+                <p class="mt-2"><em>Note: AppData is a hidden folder. Pasting the path directly into the File Explorer address bar is the easiest way to reach it.</em></p>
               </div>
             </details>
 
