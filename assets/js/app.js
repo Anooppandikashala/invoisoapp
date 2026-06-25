@@ -13,6 +13,12 @@ var testimonials = [
     location: '',
     text: 'I\u2019ve been looking for a long time for a simple but useful invoicing program, multi platform. I found complete accounting suites, complicated, and not really useful if you just want to create invoices and keep record of payments and sales taxes. Then I found Invoiso and I was amazed!, beautiful interface and functionality, it does everything you need without complicating things like the full accounting suites. Try it, you will not be disappointed.',
     stars: 5,
+  },
+  {
+    name: 'Alessandro',
+    location: '',
+    text: 'Hi Anoop, thanks for the lightning-fast fix on the Euro symbol issue! It\u2019s working perfectly now. I really appreciate your support and your work on Invoiso. Keep it up!',
+    stars: 5,
   }
 ];
 
