@@ -378,7 +378,7 @@ window.addEventListener('scroll', function () {
   var map = {
     clients:     'bill-to',
     pdf:         '__all__',
-    payment:     'total',
+    payment:     ['total', 'status'],
     items:       'items',
     'upi-qr':    'footer',
     'qty-label': 'qty-col',
@@ -396,8 +396,11 @@ window.addEventListener('scroll', function () {
         el.classList.add('inv-row-highlight');
       });
     } else if (target) {
-      invoice.querySelectorAll('[data-inv="' + target + '"]').forEach(function (el) {
-        el.classList.add('inv-row-highlight');
+      var targets = Array.isArray(target) ? target : [target];
+      targets.forEach(function (t) {
+        invoice.querySelectorAll('[data-inv="' + t + '"]').forEach(function (el) {
+          el.classList.add('inv-row-highlight');
+        });
       });
     }
     if (qtyTh) qtyTh.textContent = feat === 'qty-label' ? 'Rate' : 'Qty';
