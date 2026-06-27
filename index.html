@@ -446,6 +446,7 @@
       <!-- Hero Section -->
       <section id="home" class="hero-gradient hero-premium text-white relative">
         <div class="hero-noise" aria-hidden="true"></div>
+        <div class="stamp-hero" aria-hidden="true"><span class="stamp-badge stamp-badge--green">Free Forever</span></div>
         <div class="container mx-auto px-6 relative z-10 hero-premium-shell">
           <div class="fade-in-up hero-premium-copy">
             <div class="hero-badge">
@@ -481,6 +482,27 @@
               <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
               <span class="trust-chip"><i class="fas fa-file-invoice" aria-hidden="true"></i> GST ready</span>
               <span class="trust-chip"><i class="fas fa-qrcode" aria-hidden="true"></i> UPI QR support</span>
+            </div>
+            <div class="hero-stats" aria-label="Invoiso at a glance">
+              <div class="hero-stat">
+                <span class="hero-stat-num" data-count="100" data-suffix="%">0%</span>
+                <span class="hero-stat-label">Free</span>
+              </div>
+              <span class="hero-stat-sep" aria-hidden="true"></span>
+              <div class="hero-stat">
+                <span class="hero-stat-num" data-count="3">0</span>
+                <span class="hero-stat-label">Platforms</span>
+              </div>
+              <span class="hero-stat-sep" aria-hidden="true"></span>
+              <div class="hero-stat">
+                <span class="hero-stat-num" data-count="5">0</span>
+                <span class="hero-stat-label">PDF Templates</span>
+              </div>
+              <span class="hero-stat-sep" aria-hidden="true"></span>
+              <div class="hero-stat">
+                <span class="hero-stat-num" id="hero-dl-count" style="font-size:1.5rem;">—</span>
+                <span class="hero-stat-label">Downloads</span>
+              </div>
             </div>
           </div>
 
@@ -540,6 +562,8 @@
         </div>
       </section>
 
+      <div class="perf-divider" aria-hidden="true"></div>
+
       <!-- Features Section -->
       <section id="features" class="py-20 features-section premium-features">
         <div class="container mx-auto px-6 max-w-7xl">
@@ -549,8 +573,7 @@
             <p>Everything you need to manage invoices professionally — 100% free, open source, and offline</p>
           </div>
 
-          <div class="premium-features-grid">
-            <article class="premium-feature-spotlight">
+          <article class="premium-feature-spotlight">
               <div class="premium-feature-copy">
                 <div class="premium-icon premium-icon-blue">
                   <i class="fas fa-route" aria-hidden="true"></i>
@@ -605,76 +628,139 @@
                   </div>
                 </div>
               </div>
-            </article>
+          </article>
 
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-green">
-                <i class="fas fa-lock" aria-hidden="true"></i>
+          <div class="feat-scroll-layout">
+            <div class="feat-scroll-list">
+
+              <div class="feat-scroll-item active" data-feat="clients">
+                <div class="premium-icon premium-icon-orange"><i class="fas fa-users" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Client &amp; Product Tracking</h3>
+                  <p>Store clients and products with built-in search, sort, and filter — GSTIN and HSN code support included.</p>
+                </div>
               </div>
-              <h3>Offline &amp; Secure</h3>
-              <p>Your data never leaves your device. No cloud, no internet required.</p>
+
+              <div class="feat-scroll-item" data-feat="pdf">
+                <div class="premium-icon premium-icon-cyan"><i class="fas fa-file-pdf" aria-hidden="true"></i></div>
+                <div>
+                  <h3>PDFs &amp; Templates</h3>
+                  <p>Generate polished PDF invoices. Choose from Classic, Modern, Minimal, Executive, or Compact A6 templates.</p>
+                </div>
+              </div>
+
+              <div class="feat-scroll-item" data-feat="payment">
+                <div class="premium-icon premium-icon-green"><i class="fas fa-money-bill-wave" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Payment Tracking</h3>
+                  <p>Record partial or full payments, track outstanding balances, and download PDF receipts per payment.</p>
+                </div>
+              </div>
+
+              <div class="feat-scroll-item" data-feat="items">
+                <div class="premium-icon premium-icon-orange"><i class="fas fa-tags" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Flexible Line Items</h3>
+                  <p>Override unit prices per invoice or add one-off custom items without creating a product entry first.</p>
+                </div>
+              </div>
+
+              <div class="feat-scroll-item" data-feat="qty-label">
+                <div class="premium-icon premium-icon-blue"><i class="fas fa-ruler" aria-hidden="true"></i></div>
+                <div>
+                  <h3>Custom Quantity Label</h3>
+                  <p>Rename the quantity column per invoice — hours, units, kg, pcs, or any label that fits your business.</p>
+                </div>
+              </div>
+
+              <div class="feat-scroll-item" data-feat="upi-qr">
+                <div class="premium-icon premium-icon-green"><i class="fas fa-qrcode" aria-hidden="true"></i></div>
+                <div>
+                  <h3>UPI QR Support</h3>
+                  <p>Add your UPI QR code to every invoice PDF so clients can pay instantly without manual bank transfers.</p>
+                </div>
+              </div>
+
             </div>
 
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-violet">
-                <i class="fas fa-file-invoice" aria-hidden="true"></i>
+            <div class="feat-scroll-sticky">
+              <div class="hero-invoice" id="feat-invoice" aria-hidden="true">
+                <div class="inv-header" data-inv="header">
+                  <div class="inv-from">
+                    <span class="inv-brand">INVOISO</span>
+                    <span class="inv-sub">invoiso.co.in</span>
+                  </div>
+                  <div class="inv-meta" data-inv="meta">
+                    <span class="inv-number">INV-0042</span>
+                    <span class="inv-date">26 Jun 2026</span>
+                    <span class="inv-status inv-status-unpaid">Unpaid</span>
+                  </div>
+                </div>
+                <div class="inv-bill-to" data-inv="bill-to">
+                  <span class="inv-label">Bill To</span>
+                  <strong>Rahul Sharma</strong>
+                  <span>Mumbai, Maharashtra</span>
+                  <span class="inv-gstin">GSTIN: 27AAAAA0000A1Z5</span>
+                </div>
+                <div class="inv-table-wrap" data-inv="items">
+                  <table class="inv-table">
+                    <thead>
+                      <tr><th>Description</th><th data-inv="qty-col">Qty</th><th>Amount</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>Web Design</td><td data-inv="qty-col">10 hr</td><td>₹15,000</td></tr>
+                      <tr><td>Annual Hosting</td><td data-inv="qty-col">1</td><td>₹3,599</td></tr>
+                      <tr><td>Logo Design</td><td data-inv="qty-col">1</td><td>₹5,000</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="inv-totals" data-inv="totals">
+                  <div><span>Subtotal</span><span>₹23,599</span></div>
+                  <div data-inv="gst"><span>GST (18%)</span><span>₹4,248</span></div>
+                  <div class="inv-total-row" data-inv="total"><span>Total Due</span><strong>₹27,847</strong></div>
+                </div>
+                <div class="inv-footer" data-inv="footer">
+                  <div class="inv-upi">
+                    <i class="fas fa-qrcode" aria-hidden="true"></i>
+                    <span>UPI QR · PDF export · Offline storage</span>
+                  </div>
+                </div>
               </div>
-              <h3>Invoice Management</h3>
-              <p>Create, edit, and manage invoices with status tracking and history.</p>
             </div>
+          </div>
 
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-orange">
-                <i class="fas fa-users" aria-hidden="true"></i>
+          <div class="feat-tiles-grid">
+            <div class="feat-tile">
+              <div class="premium-icon premium-icon-violet"><i class="fas fa-file-invoice" aria-hidden="true"></i></div>
+              <div>
+                <h3>Invoice Management</h3>
+                <p>Create, edit, and manage invoices with status tracking, history, and duplicate actions.</p>
               </div>
-              <h3>Client &amp; Product Tracking</h3>
-              <p>Store clients and products with built-in search, sort, and filter.</p>
             </div>
-
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-cyan">
-                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+            <div class="feat-tile">
+              <div class="premium-icon premium-icon-green"><i class="fas fa-lock" aria-hidden="true"></i></div>
+              <div>
+                <h3>Offline &amp; Secure</h3>
+                <p>Your data never leaves your device. No cloud, no internet required.</p>
               </div>
-              <h3>PDFs &amp; Templates</h3>
-              <p>Generate polished PDF invoices and choose Classic, Modern, or Minimal templates.</p>
             </div>
-
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-green">
-                <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+            <div class="feat-tile">
+              <div class="premium-icon premium-icon-violet"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+              <div>
+                <h3>Role-Based Access</h3>
+                <p>Admin and standard user roles protect deletes, settings, and restore actions.</p>
               </div>
-              <h3>Payment Tracking</h3>
-              <p>Record partial or full payments, track outstanding balances, and download PDF receipts.</p>
             </div>
-
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-violet">
-                <i class="fas fa-user-shield" aria-hidden="true"></i>
+            <div class="feat-tile">
+              <div class="premium-icon premium-icon-cyan"><i class="fas fa-database" aria-hidden="true"></i></div>
+              <div>
+                <h3>Easy Backup</h3>
+                <p>Portable database backups — restore your entire billing data anytime.</p>
               </div>
-              <h3>Role-Based Access</h3>
-              <p>Use admin and standard user roles to protect deletes, settings, backup, and restore actions.</p>
-            </div>
-
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-orange">
-                <i class="fas fa-tags" aria-hidden="true"></i>
-              </div>
-              <h3>Flexible Line Items</h3>
-              <p>Override unit prices per invoice or add one-off custom items without creating products first.</p>
-            </div>
-
-            <div class="premium-feature-card">
-              <div class="premium-icon premium-icon-cyan">
-                <i class="fas fa-database" aria-hidden="true"></i>
-              </div>
-              <h3>Easy Backup</h3>
-              <p>Create portable backups and restore your billing data whenever you move or reinstall.</p>
             </div>
           </div>
 
           <div class="premium-feature-strip" aria-label="More Invoiso features">
-            <span><i class="fas fa-ruler" aria-hidden="true"></i>Custom Quantity Label</span>
-            <span><i class="fas fa-qrcode" aria-hidden="true"></i>UPI QR Support</span>
             <span><i class="fas fa-file-csv" aria-hidden="true"></i>CSV Export</span>
             <span><i class="fas fa-clone" aria-hidden="true"></i>Duplicate Invoices</span>
           </div>
@@ -728,6 +814,8 @@
           </div>
         </div>
       </section>
+
+      <div class="perf-divider" aria-hidden="true"></div>
 
       <!-- About Section -->
       <section id="about" class="py-16 about-section premium-trust-section">
@@ -970,6 +1058,8 @@
           </div>
         </div>
       </section>
+
+      <div class="perf-divider" aria-hidden="true"></div>
 
       <!-- Screenshots Section -->
       <section id="screenshots" class="py-20 screenshots-section premium-screenshots">
@@ -1319,6 +1409,8 @@
           <div class="testimonials-grid" id="testimonials-grid"></div>
         </div>
       </section>
+
+      <div class="perf-divider" aria-hidden="true"></div>
 
       <!-- Contact Section -->
       <section id="contact" class="py-16 contact-section">

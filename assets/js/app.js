@@ -342,3 +342,103 @@ window.addEventListener('scroll', function () {
     });
   });
 })();
+
+// ─── Hero total downloads (GitHub releases API) ───────────────────────────────
+(function fetchHeroDownloads() {
+  var el = document.getElementById('hero-dl-count');
+  if (!el) return;
+  fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases?per_page=100')
+    .then(function (res) { if (!res.ok) throw new Error(); return res.json(); })
+    .then(function (releases) {
+      var total = releases.reduce(function (sum, r) {
+        return sum + (r.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);
+      }, 0);
+      if (!total) return;
+      var duration = 1800;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * total).toLocaleString('en-IN');
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = total.toLocaleString('en-IN');
+      }
+      requestAnimationFrame(step);
+    })
+    .catch(function () { el.closest('.hero-stat').style.display = 'none'; });
+})();
+
+// ─── Click-driven feature → invoice highlight (Task 3) ───────────────────────
+(function initFeatScroll() {
+  var items   = document.querySelectorAll('.feat-scroll-item[data-feat]');
+  var invoice = document.getElementById('feat-invoice');
+  if (!items.length || !invoice) return;
+
+  var map = {
+    clients:     'bill-to',
+    pdf:         '__all__',
+    payment:     'total',
+    items:       'items',
+    'upi-qr':    'footer',
+    'qty-label': 'qty-col',
+  };
+
+  var qtyTh = invoice.querySelector('.inv-table thead th:nth-child(2)');
+
+  function activate(feat) {
+    invoice.querySelectorAll('.inv-row-highlight').forEach(function (el) {
+      el.classList.remove('inv-row-highlight');
+    });
+    var target = map[feat];
+    if (target === '__all__') {
+      invoice.querySelectorAll('[data-inv]').forEach(function (el) {
+        el.classList.add('inv-row-highlight');
+      });
+    } else if (target) {
+      invoice.querySelectorAll('[data-inv="' + target + '"]').forEach(function (el) {
+        el.classList.add('inv-row-highlight');
+      });
+    }
+    if (qtyTh) qtyTh.textContent = feat === 'qty-label' ? 'Rate' : 'Qty';
+    items.forEach(function (item) {
+      item.classList.toggle('active', item.dataset.feat === feat);
+    });
+  }
+
+  items.forEach(function (item) {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', function () { activate(item.dataset.feat); });
+  });
+  activate(items[0].dataset.feat);
+})();
+
+// ─── Hero stat counters ───────────────────────────────────────────────────────
+(function initStatCounters() {
+  var statEls = document.querySelectorAll('.hero-stat-num[data-count]');
+  if (!statEls.length) return;
+  function animateCount(el) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+    var duration = 1200;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries, o) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { animateCount(entry.target); o.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(function (el) { obs.observe(el); });
+  } else {
+    statEls.forEach(animateCount);
+  }
+})();

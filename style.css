@@ -5871,5 +5871,431 @@ footer a:hover {
         margin-left: 0;
         margin-bottom: 2px;
       }
-      
+
     }
+
+/* ============================================================
+   Invoice-themed design elements
+   ============================================================ */
+
+/* 1 · Perforated section divider */
+.perf-divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(79,142,247,0.18) 0px,
+    rgba(79,142,247,0.18) 10px,
+    transparent 10px,
+    transparent 22px
+  );
+  margin: 0;
+}
+
+/* 2 · Rubber stamp badge */
+.stamp-badge {
+  display: inline-block;
+  border: 2.5px solid currentColor;
+  border-radius: 3px;
+  padding: 4px 11px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Courier New', Courier, monospace;
+  transform: rotate(-6deg);
+}
+.stamp-badge--green { color: #22c55e; opacity: 0.80; }
+.stamp-badge--blue  { color: var(--primary); opacity: 0.78; }
+
+.stamp-hero {
+  position: absolute;
+  top: 28px;
+  right: clamp(12px, 3vw, 60px);
+  z-index: 15;
+  line-height: 1;
+}
+
+/* 3 · Feature cards: invoice line-item numbers + status */
+.premium-features-grid {
+  counter-reset: feat;
+}
+.premium-feature-card {
+  counter-increment: feat;
+}
+.premium-feature-card::before {
+  content: counter(feat, decimal-leading-zero);
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(79,142,247,0.26);
+  pointer-events: none;
+}
+.premium-feature-card::after {
+  content: '\2713\00a0Included \00b7 Free';
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #22c55e;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
+/* 4 · Ledger ruled lines on surface sections */
+.about-section {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(79,142,247,0.04) 0px,
+      rgba(79,142,247,0.04) 1px,
+      transparent 1px,
+      transparent 36px
+    ),
+    var(--surface);
+}
+
+/* ============================================================
+   CSS Invoice card — shared (Tasks 1 & 3)
+   ============================================================ */
+.hero-invoice {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(10,18,34,0.92);
+  border: 1px solid rgba(79,142,247,0.22);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,142,247,0.07), 0 0 100px rgba(79,142,247,0.07);
+  font-size: 0.82rem;
+  color: var(--text);
+  cursor: default;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hero-invoice:hover {
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(79,142,247,0.22), 0 0 140px rgba(79,142,247,0.1);
+  transform: translateY(-4px);
+}
+.inv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(79,142,247,0.12);
+  background: rgba(79,142,247,0.05);
+}
+.inv-from { display: flex; flex-direction: column; gap: 2px; }
+.inv-brand {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  font-family: 'Courier New', Courier, monospace;
+}
+.inv-sub { font-size: 0.65rem; color: var(--text-muted); opacity: 0.75; }
+.inv-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.inv-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.inv-date { font-size: 0.65rem; color: var(--text-muted); opacity: 0.75; }
+.inv-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.inv-status-unpaid {
+  background: rgba(251,191,36,0.10);
+  border: 1px solid rgba(251,191,36,0.28);
+  color: #fbbf24;
+}
+.inv-bill-to {
+  padding: 12px 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.inv-label {
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+.inv-bill-to strong { font-size: 0.88rem; color: var(--text); }
+.inv-bill-to span   { font-size: 0.7rem; color: var(--text-muted); }
+.inv-gstin {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.6rem !important;
+  color: rgba(226,232,240,0.35) !important;
+  margin-top: 2px;
+}
+.inv-table-wrap { border-bottom: 1px solid rgba(255,255,255,0.05); }
+.inv-table { width: 100%; border-collapse: collapse; }
+.inv-table thead tr { background: rgba(79,142,247,0.06); }
+.inv-table th {
+  padding: 7px 22px;
+  text-align: left;
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.75;
+}
+.inv-table th:last-child,
+.inv-table td:last-child { text-align: right; }
+.inv-table tbody tr { border-top: 1px solid rgba(255,255,255,0.04); }
+.inv-table td {
+  padding: 8px 22px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.inv-table td:first-child { color: var(--text); font-weight: 500; }
+.inv-table td:last-child {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: var(--text);
+}
+.inv-totals {
+  padding: 10px 22px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.inv-totals > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+.inv-totals > div span:first-child { font-size: 0.67rem; letter-spacing: 0.04em; }
+.inv-totals > div span:last-child,
+.inv-totals > div strong {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+.inv-total-row {
+  border-top: 1px solid rgba(79,142,247,0.18);
+  margin-top: 4px;
+  padding-top: 6px;
+}
+.inv-total-row span:first-child { font-weight: 700; color: var(--text) !important; }
+.inv-total-row strong { color: var(--primary) !important; font-size: 0.95rem !important; font-weight: 800 !important; }
+.inv-footer {
+  padding: 9px 22px 13px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+}
+.inv-upi { display: flex; align-items: center; gap: 8px; font-size: 0.67rem; color: var(--text-muted); }
+.inv-upi i { font-size: 1.1rem; color: var(--primary); opacity: 0.65; }
+
+/* PAID hover stamp */
+.inv-paid-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg) scale(0.7);
+  border: 4px solid #22c55e;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #22c55e;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  text-shadow: 0 0 20px rgba(34,197,94,0.35);
+  z-index: 10;
+}
+.hero-invoice:hover .inv-paid-stamp {
+  opacity: 0.82;
+  transform: translate(-50%, -50%) rotate(-18deg) scale(1);
+}
+
+/* Invoice row highlight (Task 3 scroll sync) */
+[data-inv].inv-row-highlight {
+  background: rgba(79,142,247,0.1) !important;
+  outline: 1.5px solid rgba(79,142,247,0.32);
+  outline-offset: -1px;
+  border-radius: 4px;
+  transition: background 0.35s ease, outline-color 0.35s ease;
+}
+
+/* ── Scroll-driven feature layout (Task 3) ────────────────── */
+.premium-feature-spotlight { margin-bottom: 24px; grid-row: unset; }
+
+.feat-scroll-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 52px;
+  align-items: start;
+  margin-top: 4px;
+}
+.feat-scroll-list { display: flex; flex-direction: column; }
+.feat-scroll-item {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  column-gap: 16px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  opacity: 0.38;
+  transition: opacity 0.3s ease, background 0.2s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.feat-scroll-item:hover {
+  opacity: 0.72;
+  background: rgba(79,142,247,0.04);
+}
+.feat-scroll-item:first-child { padding-top: 6px; }
+.feat-scroll-item.active { opacity: 1; }
+.feat-scroll-item .premium-icon { margin-top: 2px; flex-shrink: 0; }
+.feat-scroll-item h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0 0 5px; line-height: 1.3; }
+.feat-scroll-item p  { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
+
+.feat-scroll-sticky { position: sticky; top: 90px; }
+.feat-scroll-sticky .hero-invoice { max-width: 380px; }
+
+@media (max-width: 1024px) {
+  .feat-scroll-layout { grid-template-columns: 1fr; }
+  .feat-scroll-sticky { display: none; }
+  .feat-scroll-item   { opacity: 1; }
+}
+
+/* Feature tiles (Offline, Roles, Backup) */
+.feat-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+.feat-tile {
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(226,232,240,0.1);
+  background: rgba(255,255,255,0.035);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  column-gap: 12px;
+  align-items: start;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.feat-tile:hover {
+  border-color: rgba(79,142,247,0.28);
+  background: rgba(255,255,255,0.052);
+}
+.feat-tile h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 5px;
+  line-height: 1.3;
+}
+.feat-tile p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .feat-tiles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .feat-tiles-grid { grid-template-columns: 1fr; }
+}
+
+/* 5 · Hero stat counters */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+  min-width: 64px;
+}
+.hero-stat-num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Courier New', Courier, monospace;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-stat-label {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(226,232,240,0.50);
+  margin-top: 5px;
+  font-weight: 600;
+}
+.hero-stat-sep {
+  width: 1px;
+  height: 30px;
+  background: rgba(79,142,247,0.22);
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .hero-stats { gap: 16px; }
+  .hero-stat-num { font-size: 1.5rem; }
+}
+
+/* Testimonials mobile — stack vertically, fix justify-center overflow bug */
+@media (max-width: 640px) {
+  .testimonials-grid {
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    justify-content: flex-start;
+  }
+  .testimonial-card,
+  .testimonials-grid.single .testimonial-card,
+  .testimonials-grid.double .testimonial-card {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+}
