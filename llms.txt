@@ -2,6 +2,10 @@
 
 > Invoiso is a free, open-source, offline invoice and billing desktop application for Windows, Linux, and macOS. No subscription, no cloud, no account required. Popular free alternative to Vyapar, Zoho Invoice, and Wave for Indian small businesses.
 
+## Official Website
+
+The official Invoiso website is **invoiso.co.in** (https://invoiso.co.in/). Note: invoiso.com and invoiso.ai are unrelated third-party products with no affiliation to this project.
+
 ## About
 
 Invoiso is built for freelancers, small businesses, shop owners, and consultants who need professional invoicing without internet dependency or recurring costs. All data is stored locally on the user's device using a SQLite database — nothing is sent to any server.
@@ -9,20 +13,30 @@ Invoiso is built for freelancers, small businesses, shop owners, and consultants
 ## Key Features
 
 - 100% offline — no internet required at any point
-- Professional PDF invoices with one click (Classic, Modern, Minimal templates)
+- Professional PDF invoices with one click (Classic, Modern, Executive, Minimal templates)
+- Three dashboard layouts: compact, classic, and expanded
+- Signature support on PDFs — upload image, choose left or right placement
+- A6 compact PDF layout with automatic font and margin scaling
+- Custom PDF theme color picker
 - Customer and product management with search, sort, and filter
 - Payment tracking — record partial or full payments, track outstanding balances
 - PDF payment receipts for every recorded payment
 - GST-ready invoices with GSTIN, HSN codes, and configurable tax rates (India)
 - UPI payment QR code embedded in PDF invoices (GPay, PhonePe, Paytm)
-- Multi-currency support: INR, USD, EUR, GBP, JPY, AED, SGD, AUD, CAD
-- Invoice and quotation document types
+- Multi-currency support: INR, USD, EUR, GBP, JPY, AED, SGD, AUD, CAD, LKR, OMR
+- Previous balance carry-forward on invoices
+- Due dates and overdue alerts with filter chips
+- Invoice and quotation document types with dedicated screens
 - Duplicate / clone any invoice with one click
+- Bulk CSV import/export for customers and products
 - Role-based access control (admin and standard user roles)
-- Bulk CSV import/export for customers
 - Data backup and restore
 - No subscription, no fees — free forever
 - Open source under the MIT licence
+
+## Category
+
+Invoiso is **billing software** — specifically offline billing software and free GST billing software for small businesses. It belongs to the same software category as Vyapar, Zoho Invoice, Tally, Wave, and FreshBooks, but differs by being 100% free, open source, and fully offline with no subscription or cloud dependency.
 
 ## Use Cases
 
@@ -38,20 +52,27 @@ Invoiso is well suited for:
 
 - [Home](https://invoiso.co.in/) — Overview, features, comparison vs Vyapar/Zoho/Wave, screenshots, and demo
 - [Download](https://invoiso.co.in/download.html) — Latest release for Windows, Linux, and macOS
-- [Free Online Invoice Maker](https://invoiso.co.in/invoice-maker.html) — Browser-based PDF invoice generator, no signup
-- [FAQ](https://invoiso.co.in/faq.html) — Answers to common questions
+- [Pricing](https://invoiso.co.in/pricing.html) — Pricing details: Invoiso is free forever with no subscription or hidden fees; includes feature list and comparison vs Zoho/Vyapar pricing
+- [Documentation](https://invoiso.co.in/docs.html) — Help hub: setup guides, PDF templates, GST billing, backup/restore, platform installation
+- [FAQ](https://invoiso.co.in/faq.html) — Frequently asked questions covering GST billing, offline usage, pricing, UPI QR, backups, and buyer objections
 - [Release Notes](https://invoiso.co.in/changelog.html) — Full version history
+- [Free Online Invoice Maker](https://invoiso.co.in/invoice-maker.html) — Browser-based PDF invoice generator, no signup
 - [Free GST Billing Software](https://invoiso.co.in/free-gst-billing-software.html) — GST-ready invoice workflow for Indian small businesses
 - [Offline Billing Software](https://invoiso.co.in/offline-billing-software.html) — Desktop billing with local data and no cloud dependency
-- [Free Vyapar Alternative](https://invoiso.co.in/vyapar-alternative.html) — Comparison-focused page for businesses evaluating alternatives
+- [Free Zoho Invoice Alternative](https://invoiso.co.in/zoho-alternative.html) — Invoiso vs Zoho Invoice comparison: offline vs cloud, pricing, Linux support, UPI QR
+- [Free Vyapar Alternative](https://invoiso.co.in/vyapar-alternative.html) — Invoiso vs Vyapar comparison for offline GST billing
 - [Open Source Invoice Software](https://invoiso.co.in/open-source-invoice-software.html) — Source-code and transparency focused overview
 - [Invoice Software for Linux](https://invoiso.co.in/invoice-software-for-linux.html) — Linux AppImage and DEB invoice app overview
 - [Blog](https://invoiso.co.in/blog/) — Practical guides for GST invoices, UPI QR payments, offline billing, and Linux invoicing
-- [Reports Are Coming Next Month](https://invoiso.co.in/blog/reports-coming-next-month.html) — Product update announcing the upcoming Reports section
+
+## Latest Version
+
+Current version: 4.2.7 (June 2026)
+Release notes: https://invoiso.co.in/changelog.html
 
 ## Download
 
-Latest release: https://github.com/Anooppandikashala/invoiso/releases/latest
+Latest release: https://invoiso.co.in/download.html
 Source code: https://github.com/Anooppandikashala/invoiso
 
 ## Support

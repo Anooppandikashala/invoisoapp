@@ -59,3 +59,5 @@ appimage-build/
 # Node / Tailwind build
 node_modules/
 tailwind-input.css
+
+*graph*

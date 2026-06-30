@@ -663,7 +663,7 @@
       "name": "Release Notes & Updates - Invoiso",
       "description": "Release notes and version history for Invoiso, including new features, improvements, and fixes for the free offline invoice software.",
       "inLanguage": "en",
-      "dateModified": "2026-06-25",
+      "dateModified": "2026-06-30",
       "publisher": {
         "@type": "Organization",
         "name": "Invoiso",
@@ -844,6 +844,75 @@
 
           <div class="timeline">
 
+            <!-- June 2026 -->
+            <div class="release-card fade-in-up">
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <div class="release-card-header">
+                <div class="release-card-header-left">
+                  <span class="version-badge">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    June 2026
+                  </span>
+                </div>
+                <span class="release-date">v4.2.7</span>
+              </div>
+
+              <div class="release-body">
+
+                <!-- New Features -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-features"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                    <span class="title-features">New Features</span>
+                  </div>
+                  <ul class="cl-list" aria-label="New features in June 2026">
+                    <li><span><strong>Dashboard Layouts</strong> — Three layouts: compact, classic, and expanded. Switch from the AppBar. A discovery banner guides existing users to the new option</span></li>
+                    <li><span><strong>Executive PDF Template</strong> — New professional template with a vertical accent bar and clean asymmetric party block. Pairs with the new custom PDF theme color picker</span></li>
+                    <li><span><strong>Custom PDF Theme Color</strong> — Pick any accent color for invoice PDFs from the PDF settings screen</span></li>
+                    <li><span><strong>A6 Compact PDF Layout</strong> — A6 page size with automatic font and margin scaling, great for smaller printed invoices and receipts. Select A4 or A6 in PDF settings</span></li>
+                    <li><span><strong>Signature on PDFs</strong> — Upload a signature image and choose left or right placement. Appears above the QR code and bank details on every PDF template</span></li>
+                    <li><span><strong>Previous Balance Carry-Forward</strong> — Optionally show outstanding balance from prior invoices on the current PDF — useful for clients with running dues</span></li>
+                    <li><span><strong>LKR (Sri Lankan Rupee)</strong> — LKR added with full Sinhala font support so the රු symbol renders correctly in generated PDFs</span></li>
+                    <li><span><strong>Euro (€) Symbol Support</strong> — Euro symbol now renders correctly across all generated PDFs; all supported currency symbols are fully tested</span></li>
+                    <li><span><strong>Cloud Edition &amp; PAN Field</strong> — Initial cloud version support added. PAN number field available in company settings for tax compliance</span></li>
+                  </ul>
+                </div>
+
+                <!-- UI Improvements -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-ui"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
+                    <span class="title-ui">UI &amp; UX Improvements</span>
+                  </div>
+                  <ul class="cl-list" aria-label="UI improvements in June 2026">
+                    <li><span>Show total quantity row toggle in the compact template</span></li>
+                    <li><span>Save buttons now show a loading indicator while writing settings</span></li>
+                    <li><span>PDF margins and logo alignment refined across all templates</span></li>
+                  </ul>
+                </div>
+
+                <!-- Bug Fixes — full width -->
+                <div class="cl-section" style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 20px;">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
+                    <span class="title-fixes">Bug Fixes</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Bug fixes in June 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                    <li><span>Unsaved invoice changes now show a warning before leaving the screen</span></li>
+                    <li><span>Fixed setState-after-dispose crashes across multiple screens</span></li>
+                    <li><span>Fixed tax calculation bug in edge cases</span></li>
+                    <li><span>Fixed database initialisation error (FOREIGN KEY syntax) on first launch</span></li>
+                    <li><span>Fixed Reports screen not recognising latest invoices; tax page and quotation page UI corrected</span></li>
+                    <li><span>Fixed signature misalignment in Modern PDF template</span></li>
+                    <li><span>Fixed duplicate company info block in Executive template</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <!-- / June 2026 -->
+
             <!-- May 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
@@ -855,10 +924,15 @@
                     May 2026
                   </span>
                 </div>
-                <span class="release-date">v4.1.7</span>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="release-date">v4.1.7</span>
+                  <button class="cl-toggle-btn" data-target="may-body" aria-label="Toggle May 2026 release notes" aria-expanded="false">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
               </div>
 
-              <div class="release-body">
+              <div class="release-body cl-collapsed" id="may-body">
 
                 <!-- New Features -->
                 <div class="cl-section">
@@ -1089,12 +1163,16 @@
                 <li><a href="invoice-maker.html" class="site-footer-link"><i class="fas fa-file-invoice" aria-hidden="true"></i>Invoice maker</a></li>
                 <li><a href="index.html#features" class="site-footer-link"><i class="fas fa-layer-group" aria-hidden="true"></i>Features</a></li>
                 <li><a href="download.html#install-guide" class="site-footer-link"><i class="fas fa-list-check" aria-hidden="true"></i>Install guide</a></li>
+                <li><a href="pricing.html" class="site-footer-link"><i class="fas fa-tag" aria-hidden="true"></i>Pricing</a></li>
               </ul>
             </div>
             <div>
               <h2 class="site-footer-title">Resources</h2>
               <ul class="site-footer-links">
                 <li><a href="faq.html" class="site-footer-link"><i class="fas fa-circle-question" aria-hidden="true"></i>FAQ</a></li>
+                <li><a href="docs.html" class="site-footer-link"><i class="fas fa-book" aria-hidden="true"></i>Docs</a></li>
+                <li><a href="zoho-alternative.html" class="site-footer-link"><i class="fas fa-right-left" aria-hidden="true"></i>Zoho alternative</a></li>
+                <li><a href="vyapar-alternative.html" class="site-footer-link"><i class="fas fa-right-left" aria-hidden="true"></i>Vyapar alternative</a></li>
                 <li><a href="changelog.html" class="site-footer-link"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i>Updates</a></li>
                 <li><a href="customization.html" class="site-footer-link"><i class="fas fa-sliders" aria-hidden="true"></i>Customization</a></li>
                 <li><a href="privacy.html" class="site-footer-link"><i class="fas fa-shield-halved" aria-hidden="true"></i>Privacy</a></li>

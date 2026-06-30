@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Invoiso documentation and help guides. Learn how to create GST invoices, set up UPI QR codes, manage customers, export PDFs, back up data, and more." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Documentation &amp; Help — Invoiso Offline Billing Software</title>
+  <link rel="canonical" href="https://invoiso.co.in/docs.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Documentation &amp; Help | Invoiso" />
+  <meta property="og:description"
+    content="Setup guides, how-tos, and help articles for Invoiso free offline billing software." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:url" content="https://invoiso.co.in/docs.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Documentation &amp; Help | Invoiso" />
+  <meta name="twitter:description"
+    content="Setup guides, how-tos, and help articles for Invoiso free offline billing software." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Documentation","item":"https://invoiso.co.in/docs.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://invoiso.co.in/docs.html#docs",
+    "headline": "Invoiso Documentation and Help",
+    "description": "Setup guides, how-tos, and help articles for Invoiso free offline billing software for Windows, Linux, and macOS.",
+    "url": "https://invoiso.co.in/docs.html",
+    "inLanguage": "en",
+    "publisher": {"@type": "Organization", "name": "Invoiso", "url": "https://invoiso.co.in/"}
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="tailwind.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
+
+  <style>
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .docs-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .docs-card:hover {
+      border-color: rgba(79,142,247,0.4);
+      box-shadow: 0 0 0 1px rgba(79,142,247,0.1), 0 8px 32px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+    .docs-card i {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+    .docs-card h3 {
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .docs-card p {
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .docs-section-title {
+      color: var(--text);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .docs-section-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+    .topic-block {
+      margin-bottom: 56px;
+    }
+    .inline-faq { margin-top: 40px; }
+    .inline-faq h3 {
+      color: var(--text); font-size: 0.95rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .inline-faq p {
+      color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; margin-bottom: 24px;
+    }
+  </style>
+</head>
+
+<body class="font-sans">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="/" class="logo-link nav-brand" style="text-decoration:none;">
+        <span class="nav-logo-mark"><img src="assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span>
+        <span class="nav-brand-text logo-text-accent">Invoiso</span>
+      </a>
+      <ul class="nav-links hidden md:flex">
+        <li><a href="/">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="changelog.html">Updates</a></li>
+      </ul>
+      <div class="nav-actions hidden md:flex">
+        <a href="invoice-maker.html" class="nav-btn">Try Online</a>
+        <a href="download.html" class="nav-cta">Download</a>
+      </div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mob-nav-list">
+          <li><a href="/" class="mob-nav-link">Home</a></li>
+          <li><a href="faq.html" class="mob-nav-link">FAQ</a></li>
+          <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
+        </ul>
+        <div class="mob-nav-ctas"><a href="download.html" class="mob-nav-btn-solid">Download</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="seo-hero">
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="container mx-auto px-6 max-w-7xl relative z-10">
+        <div class="seo-hero-copy">
+          <div class="seo-eyebrow"><i class="fas fa-book" aria-hidden="true"></i> Documentation</div>
+          <h1>Invoiso Help &amp; Documentation</h1>
+          <p>Guides, how-tos, and answers for setting up and using Invoiso — the free offline billing software for Windows, Linux, and macOS.</p>
+          <div class="seo-actions">
+            <a href="faq.html" class="btn-primary font-semibold px-6 py-3 rounded-lg inline-flex items-center gap-2">
+              <i class="fas fa-circle-question" aria-hidden="true"></i>View FAQ
+            </a>
+            <a href="https://github.com/Anooppandikashala/invoiso/issues" target="_blank" rel="noopener noreferrer"
+              class="btn-secondary font-semibold px-6 py-3 rounded-lg inline-flex items-center gap-2">
+              <i class="fab fa-github" aria-hidden="true"></i>Open an Issue
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container mx-auto px-6 max-w-5xl">
+
+        <!-- Getting Started -->
+        <div class="topic-block">
+          <div class="docs-section-title">Getting Started</div>
+          <p class="docs-section-sub">Download, install, and run Invoiso on your computer.</p>
+          <div class="docs-grid">
+            <a href="download.html" class="docs-card">
+              <i class="fas fa-download" aria-hidden="true"></i>
+              <h3>Download &amp; Install</h3>
+              <p>Get the latest installer for Windows (.exe), Linux (AppImage or .deb), or macOS (.dmg). No account required.</p>
+            </a>
+            <a href="blog/how-to-create-gst-invoice.html" class="docs-card">
+              <i class="fas fa-file-invoice" aria-hidden="true"></i>
+              <h3>Create Your First Invoice</h3>
+              <p>Step-by-step guide: add company details, create a customer, add line items, apply GST, and generate a PDF.</p>
+            </a>
+            <a href="customization.html" class="docs-card">
+              <i class="fas fa-palette" aria-hidden="true"></i>
+              <h3>Company Setup &amp; Customization</h3>
+              <p>Set your logo, company name, GSTIN, address, bank details, and PDF template preferences.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF Invoices -->
+        <div class="topic-block">
+          <div class="docs-section-title">PDF Invoices</div>
+          <p class="docs-section-sub">Templates, signatures, page sizes, and export options.</p>
+          <div class="docs-grid">
+            <a href="blog/how-to-customize-invoice-pdf-templates.html" class="docs-card">
+              <i class="fas fa-file-pdf" aria-hidden="true"></i>
+              <h3>PDF Templates</h3>
+              <p>Choose from Classic, Modern, Executive, and Minimal templates. Set a custom theme color and add your logo.</p>
+            </a>
+            <a href="faq.html#signature" class="docs-card">
+              <i class="fas fa-signature" aria-hidden="true"></i>
+              <h3>Signature on Invoices</h3>
+              <p>Upload a signature image and choose left or right placement. Appears above QR code and bank details on every PDF.</p>
+            </a>
+            <a href="faq.html#page-size" class="docs-card">
+              <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+              <h3>A4 and A6 Page Sizes</h3>
+              <p>Select A4 (default) or A6 compact layout in PDF settings. A6 auto-scales fonts and margins for receipt printing.</p>
+            </a>
+            <a href="blog/how-to-add-upi-qr-code-to-invoice.html" class="docs-card">
+              <i class="fas fa-qrcode" aria-hidden="true"></i>
+              <h3>UPI QR Code on PDFs</h3>
+              <p>Add your UPI ID in Payment Settings. A scannable QR code is embedded automatically in every PDF invoice.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- GST Billing -->
+        <div class="topic-block">
+          <div class="docs-section-title">GST Billing</div>
+          <p class="docs-section-sub">GSTIN, HSN codes, tax rates, and compliance for Indian businesses.</p>
+          <div class="docs-grid">
+            <a href="free-gst-billing-software.html" class="docs-card">
+              <i class="fas fa-receipt" aria-hidden="true"></i>
+              <h3>GST Invoice Overview</h3>
+              <p>How Invoiso handles GSTIN, HSN/SAC codes, CGST/SGST/IGST, and tax-inclusive pricing on PDF invoices.</p>
+            </a>
+            <a href="faq.html" class="docs-card">
+              <i class="fas fa-percent" aria-hidden="true"></i>
+              <h3>Per-Item Tax Rates</h3>
+              <p>Set different GST rates on individual line items within a single invoice. No global tax rate lock-in.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Data & Backup -->
+        <div class="topic-block">
+          <div class="docs-section-title">Data, Backup &amp; Import</div>
+          <p class="docs-section-sub">Export, import, and protect your billing data.</p>
+          <div class="docs-grid">
+            <a href="faq.html" class="docs-card">
+              <i class="fas fa-database" aria-hidden="true"></i>
+              <h3>Backup and Restore</h3>
+              <p>Invoiso stores all data in a local SQLite database. Use the built-in backup to export a copy and restore it on any machine.</p>
+            </a>
+            <a href="faq.html" class="docs-card">
+              <i class="fas fa-file-csv" aria-hidden="true"></i>
+              <h3>CSV Import &amp; Export</h3>
+              <p>Import customers and products from CSV files. Export your catalogue for offline editing or migration.</p>
+            </a>
+            <a href="offline-billing-software.html" class="docs-card">
+              <i class="fas fa-lock" aria-hidden="true"></i>
+              <h3>Offline Data Privacy</h3>
+              <p>All data stays on your device. Invoiso never connects to external servers. Your billing data is entirely private.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Platform Setup -->
+        <div class="topic-block">
+          <div class="docs-section-title">Platform Setup</div>
+          <p class="docs-section-sub">Installation and compatibility notes per OS.</p>
+          <div class="docs-grid">
+            <a href="invoice-software-for-linux.html" class="docs-card">
+              <i class="fab fa-linux" aria-hidden="true"></i>
+              <h3>Linux Installation</h3>
+              <p>Use the AppImage (no install needed) or the .deb package. Tested on Ubuntu 22.04, 24.04 LTS, Debian, and Fedora.</p>
+            </a>
+            <a href="download.html" class="docs-card">
+              <i class="fab fa-windows" aria-hidden="true"></i>
+              <h3>Windows Installation</h3>
+              <p>Download the .exe installer. Run it and follow the setup wizard. No admin account needed in most configurations.</p>
+            </a>
+            <a href="download.html" class="docs-card">
+              <i class="fab fa-apple" aria-hidden="true"></i>
+              <h3>macOS Installation</h3>
+              <p>Download the .dmg file, open it, and drag Invoiso to Applications. If Gatekeeper blocks it, go to System Settings → Privacy &amp; Security → Open Anyway.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick answers -->
+        <div class="seo-card inline-faq">
+          <h2 style="margin-bottom:20px;">Quick Answers</h2>
+
+          <h3>Is Invoiso free to use?</h3>
+          <p>Yes. Invoiso is 100% free with no subscription, no usage limits, and no paid tier. See the <a href="pricing.html" style="color:var(--primary);">pricing page</a> for details.</p>
+
+          <h3>Where is my data stored?</h3>
+          <p>All data — customers, invoices, products, settings — is stored in a SQLite database file on your local device. Nothing is sent to any server.</p>
+
+          <h3>Does it work without internet?</h3>
+          <p>Completely. Invoiso is designed for full offline use. No internet connection is ever required.</p>
+
+          <h3>Can I move my data to another computer?</h3>
+          <p>Yes. Use the built-in backup function to export your database, then restore it on the new machine after installing Invoiso.</p>
+
+          <h3>Where do I report a bug or request a feature?</h3>
+          <p>Open an issue on <a href="https://github.com/Anooppandikashala/invoiso/issues" target="_blank" rel="noopener noreferrer" style="color:var(--primary);">GitHub</a>. All development happens in the open.</p>
+
+          <a href="faq.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--primary);font-weight:600;font-size:0.9rem;text-decoration:none;margin-top:8px;">
+            <i class="fas fa-circle-question" aria-hidden="true"></i>
+            View all frequently asked questions
+            <i class="fas fa-arrow-right" style="font-size:0.75em;" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-top">
+        <div class="site-footer-brand">
+          <a href="/" class="site-footer-logo">
+            <img src="assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /><span>Invoiso</span>
+          </a>
+          <p class="site-footer-text">Free, open-source billing software for small businesses. Create GST-ready invoices offline on Windows, Linux, and macOS.</p>
+        </div>
+        <div class="site-footer-grid">
+          <div>
+            <h2 class="site-footer-title">Product</h2>
+            <ul class="site-footer-links">
+              <li><a href="download.html" class="site-footer-link"><i class="fas fa-download" aria-hidden="true"></i>Download app</a></li>
+              <li><a href="pricing.html" class="site-footer-link"><i class="fas fa-tag" aria-hidden="true"></i>Pricing</a></li>
+              <li><a href="free-gst-billing-software.html" class="site-footer-link"><i class="fas fa-receipt" aria-hidden="true"></i>GST billing</a></li>
+              <li><a href="offline-billing-software.html" class="site-footer-link"><i class="fas fa-database" aria-hidden="true"></i>Offline billing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="site-footer-title">Help</h2>
+            <ul class="site-footer-links">
+              <li><a href="docs.html" class="site-footer-link"><i class="fas fa-book" aria-hidden="true"></i>Documentation</a></li>
+              <li><a href="faq.html" class="site-footer-link"><i class="fas fa-circle-question" aria-hidden="true"></i>FAQ</a></li>
+              <li><a href="blog/" class="site-footer-link"><i class="fas fa-book-open" aria-hidden="true"></i>Blog</a></li>
+              <li><a href="open-source-invoice-software.html" class="site-footer-link"><i class="fab fa-github" aria-hidden="true"></i>Open source</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); });
+    var hamburgerBtn = document.getElementById('hamburger-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    hamburgerBtn.addEventListener('click', function () {
+      var isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      hamburgerBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
+</body>
+
+</html>
