@@ -1,13 +1,12 @@
 // ─── Testimonials ────────────────────────────────────────────────────────────
 // To add a new review, push another object into this array.
 var testimonials = [
-  //Uncomment after client approval:
-  /*{
+  {
     name: 'Keyson',
     location: 'Jamaica',
     text: 'All-in-all, your app is a very fantastic piece of software! I look forward to supporting this project in the future, where you can probably add more features or what not! Well done bro! 👏 👏👏',
     stars: 5,
-  },*/
+  },
   {
     name: 'Raul V',
     location: '',
@@ -18,6 +17,12 @@ var testimonials = [
     name: 'Alessandro',
     location: '',
     text: 'Hi Anoop, thanks for the lightning-fast fix on the Euro symbol issue! It\u2019s working perfectly now. I really appreciate your support and your work on Invoiso. Keep it up!',
+    stars: 5,
+  },
+  {
+    name: 'Daniel',
+    location: 'Malawi',
+    text: 'I have been using the Invoiso Offline Edition, and it\u2019s been really good so far. I like how the whole software works and how the company is organized.',
     stars: 5,
   }
 ];
