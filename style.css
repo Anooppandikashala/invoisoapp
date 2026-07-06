@@ -1176,6 +1176,11 @@ body {
 
 .hero-actions {
     justify-content: flex-start !important;
+    flex-wrap: wrap;
+}
+
+.hero-actions > a {
+    flex-shrink: 0;
 }
 
 .hero-announce-bar {
@@ -1226,7 +1231,7 @@ body {
     justify-content: center !important;
     width: min(100%, 900px);
     max-width: 900px;
-    margin: 16px auto 0 !important;
+    margin: -24px auto 0 !important;
     padding-top: 24px;
     border-top: 1px solid rgba(226,232,240,0.08);
     opacity: 0.86;
