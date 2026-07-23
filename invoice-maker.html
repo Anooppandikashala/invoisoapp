@@ -147,12 +147,14 @@
 
     <!-- Currency + Type -->
     <div class="card">
-      <div class="card-header"><i class="fas fa-sliders"></i> Settings</div>
+      <div class="card-header collapsible" onclick="toggleCard(this)"><i class="fas fa-sliders"></i> Settings <i class="fas fa-plus chevron"></i></div>
+      <div class="card-body">
       <div class="form-group">
         <label>Document Type</label>
         <div class="seg-ctrl" id="type-ctrl">
           <button class="active" data-val="Invoice" onclick="setDocType(this)">Invoice</button>
           <button data-val="Quotation" onclick="setDocType(this)">Quotation</button>
+          <button data-val="Receipt" onclick="setDocType(this)">Receipt</button>
         </div>
       </div>
       <div class="form-group">
@@ -169,14 +171,42 @@
           <option value="CAD|C$">C$ CAD — Canadian Dollar</option>
         </select>
       </div>
+      <div class="form-group">
+        <label>PDF Template</label>
+        <div class="seg-ctrl" id="template-ctrl">
+          <button class="active" data-val="modern" onclick="setTemplate(this)">Modern</button>
+          <button data-val="classic" onclick="setTemplate(this)">Classic</button>
+          <button data-val="vintage" onclick="setTemplate(this)">Vintage</button>
+        </div>
+      </div>
+      <div class="form-group" id="theme-color-controls">
+        <label>Theme Color <span style="font-weight:400;color:var(--label);">(Modern &amp; Classic templates)</span></label>
+        <div class="theme-color-row" id="theme-color-ctrl">
+          <button class="theme-swatch active" data-color="#4f8ef7" style="background:#4f8ef7;" onclick="setAccentColor('#4f8ef7', this)" title="Blue"></button>
+          <button class="theme-swatch" data-color="#22c55e" style="background:#22c55e;" onclick="setAccentColor('#22c55e', this)" title="Green"></button>
+          <button class="theme-swatch" data-color="#a855f7" style="background:#a855f7;" onclick="setAccentColor('#a855f7', this)" title="Purple"></button>
+          <button class="theme-swatch" data-color="#f97316" style="background:#f97316;" onclick="setAccentColor('#f97316', this)" title="Orange"></button>
+          <button class="theme-swatch" data-color="#ef4444" style="background:#ef4444;" onclick="setAccentColor('#ef4444', this)" title="Red"></button>
+          <button class="theme-swatch" data-color="#0f172a" style="background:#0f172a;" onclick="setAccentColor('#0f172a', this)" title="Graphite"></button>
+          <input type="color" id="theme-color-custom" value="#4f8ef7" class="theme-swatch-custom" title="Custom color" onchange="setAccentColor(this.value, null)" />
+        </div>
+      </div>
+      <div class="toggle-row">
+        <label>Hide HSN/SAC column</label>
+        <label class="switch">
+          <input type="checkbox" id="hide-hsn-toggle" onchange="state.hideHsn = this.checked" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      </div>
     </div>
 
     <!-- Your Business Details -->
     <div class="card" style="margin-top:12px;">
-      <div class="card-header">
-        <i class="fas fa-building"></i> Your Business Details
+      <div class="card-header collapsible" onclick="toggleCard(this)">
+        <i class="fas fa-building"></i> Your Business Details <i class="fas fa-plus chevron"></i>
       </div>
-      <div id="from-body">
+      <div class="card-body" id="from-body">
         <div class="form-group">
             <label>Business / Your Name *</label>
             <input type="text" id="from-name" placeholder="Your company name" />
@@ -201,6 +231,32 @@
             <label>Website</label>
             <input type="text" id="from-website" placeholder="www.yourbusiness.com" />
           </div>
+          <div class="form-group" id="logo-controls">
+            <label>Logo <span style="font-weight:400;color:var(--label);">(Modern &amp; Classic templates)</span></label>
+            <div class="logo-upload-row">
+              <div class="logo-preview" id="logo-preview" onclick="document.getElementById('logo-file-input').click()">
+                <i class="fas fa-image"></i>
+              </div>
+              <div class="logo-upload-actions">
+                <input type="file" id="logo-file-input" accept="image/*" style="display:none;" onchange="handleLogoUpload(this)" />
+                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('logo-file-input').click()">Upload</button>
+                <button type="button" class="btn btn-outline btn-sm" id="logo-remove-btn" onclick="removeLogo()" style="display:none;">Remove</button>
+              </div>
+            </div>
+            <div id="logo-position-size">
+              <label style="margin-top:8px;">Position</label>
+              <div class="seg-ctrl" id="logo-pos-ctrl">
+                <button class="active" data-val="left" onclick="setLogoPosition(this)">Left</button>
+                <button data-val="right" onclick="setLogoPosition(this)">Right</button>
+              </div>
+              <label style="margin-top:8px;">Size</label>
+              <div class="seg-ctrl" id="logo-size-ctrl">
+                <button data-val="small" onclick="setLogoSize(this)">Small</button>
+                <button class="active" data-val="medium" onclick="setLogoSize(this)">Medium</button>
+                <button data-val="large" onclick="setLogoSize(this)">Large</button>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
 
@@ -218,7 +274,8 @@
 
       <!-- Invoice Details card -->
       <div class="card">
-        <div class="card-header"><i class="fas fa-receipt"></i> <span id="doc-type-label">Invoice</span> Details</div>
+        <div class="card-header collapsible collapsed" onclick="toggleCard(this)"><i class="fas fa-receipt"></i> <span id="doc-type-label">Invoice</span> Details <i class="fas fa-plus chevron"></i></div>
+        <div class="card-body collapsed">
         <div class="form-group">
           <label>Document Number</label>
           <input type="text" id="inv-number" value="" placeholder="INV-001" />
@@ -233,11 +290,13 @@
             <input type="date" id="inv-due" />
           </div>
         </div>
+        </div>
       </div>
 
       <!-- Customer (Bill To) card -->
       <div class="card">
-        <div class="card-header"><i class="fas fa-user"></i> Bill To</div>
+        <div class="card-header collapsible collapsed" onclick="toggleCard(this)"><i class="fas fa-user"></i> Bill To <i class="fas fa-plus chevron"></i></div>
+        <div class="card-body collapsed">
         <div class="form-row cols-3">
           <div class="form-group">
             <label>Customer Name *</label>
@@ -265,6 +324,7 @@
             <label>GSTIN / Tax No.</label>
             <input type="text" id="cust-gstin" placeholder="Optional" />
           </div>
+        </div>
         </div>
       </div>
 
@@ -561,6 +621,11 @@
 
 <!-- ── App JS ─────────────────────────────────────────── -->
 <script>
+function toggleCard(header) {
+  header.classList.toggle('collapsed');
+  header.nextElementSibling.classList.toggle('collapsed');
+}
+
 /* ════════════════════════════════════════════════════
    STATE
    ════════════════════════════════════════════════════ */
@@ -574,7 +639,30 @@ const state = {
   extraCosts: [],
   itemType: 'product',
   editingId: null,
+  template: 'modern',
+  accentColor: '#4f8ef7',
+  hideHsn: false,
+  logo: { dataUrl: null, ratio: 1, position: 'left', size: 'medium' },
 };
+
+function hexToRgb(hex) {
+  const n = parseInt(hex.replace('#', ''), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+// HSN is always column index 2 in the items table headers/rows across all PDF templates
+function hsnAdjustedHeaders(headers) { return state.hideHsn ? headers.filter((_, i) => i !== 2) : headers; }
+function hsnAdjustedRow(row) { return state.hideHsn ? row.filter((_, i) => i !== 2) : row; }
+function hsnAdjustedColumnStyles(styles) {
+  if (!state.hideHsn) return styles;
+  const out = {};
+  Object.entries(styles).forEach(([k, v]) => {
+    const idx = Number(k);
+    if (idx === 2) return;
+    out[idx > 2 ? idx - 1 : idx] = v;
+  });
+  return out;
+}
 
 // PDF-safe symbol map (jsPDF standard fonts don't support all Unicode)
 const PDF_SYM = {
@@ -709,10 +797,11 @@ function setDocType(btn) {
   document.getElementById('doc-type-label').textContent = state.docType;
   document.getElementById('items-doc-label').textContent = state.docType;
   const numEl = document.getElementById('inv-number');
-  if (state.docType === 'Quotation' && numEl.value.startsWith('INV-')) {
-    numEl.value = numEl.value.replace('INV-', 'QUO-');
-  } else if (state.docType === 'Invoice' && numEl.value.startsWith('QUO-')) {
-    numEl.value = numEl.value.replace('QUO-', 'INV-');
+  const PREFIX = { Invoice: 'INV-', Quotation: 'QUO-', Receipt: 'REC-' };
+  const newPrefix = PREFIX[state.docType];
+  const oldPrefix = Object.values(PREFIX).find(p => numEl.value.startsWith(p));
+  if (newPrefix && oldPrefix && oldPrefix !== newPrefix) {
+    numEl.value = newPrefix + numEl.value.slice(oldPrefix.length);
   }
 }
 
@@ -727,6 +816,61 @@ function setItemType(btn) {
   btn.closest('.seg-ctrl').querySelectorAll('button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   state.itemType = btn.dataset.val;
+}
+
+function setTemplate(btn) {
+  btn.closest('.seg-ctrl').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  state.template = btn.dataset.val;
+  document.getElementById('logo-controls').style.display = state.template === 'vintage' ? 'none' : '';
+  document.getElementById('theme-color-controls').style.display = state.template === 'vintage' ? 'none' : '';
+}
+
+function setAccentColor(hex, btn) {
+  state.accentColor = hex;
+  document.querySelectorAll('#theme-color-ctrl .theme-swatch').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.getElementById('theme-color-custom').value = hex;
+  document.documentElement.style.setProperty('--primary', hex);
+  const [r, g, b] = hexToRgb(hex);
+  document.documentElement.style.setProperty('--primary-dim', `rgba(${r},${g},${b},0.15)`);
+}
+
+function handleLogoUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  input.value = '';
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const img = new Image();
+    img.onload = function() {
+      state.logo.dataUrl = dataUrl;
+      state.logo.ratio = img.width / img.height;
+      document.getElementById('logo-preview').innerHTML = `<img src="${dataUrl}" alt="Logo" />`;
+      document.getElementById('logo-remove-btn').style.display = '';
+    };
+    img.src = dataUrl;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeLogo() {
+  state.logo.dataUrl = null;
+  document.getElementById('logo-preview').innerHTML = '<i class="fas fa-image"></i>';
+  document.getElementById('logo-remove-btn').style.display = 'none';
+}
+
+function setLogoPosition(btn) {
+  btn.closest('.seg-ctrl').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  state.logo.position = btn.dataset.val;
+}
+
+function setLogoSize(btn) {
+  btn.closest('.seg-ctrl').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  state.logo.size = btn.dataset.val;
 }
 
 function setTaxMode(btn) {
@@ -811,12 +955,12 @@ function renderItems() {
         </div>
         <div class="item-nums-group">
           <div class="item-field">${fmtNum(item.qty)}<span>Qty</span></div>
-          <div class="item-field">${sym}${fmtNum(item.price)}<span>Unit Price</span></div>
-          <div class="item-field">${sym}${fmtNum(item.discount)}<span>Discount</span></div>
+          <div class="item-field">${fmtNum(item.price)}<span>Unit Price</span></div>
+          <div class="item-field">${fmtNum(item.discount)}<span>Discount</span></div>
           <div class="item-field">${item.taxPct}%<span>Tax</span></div>
         </div>
         <div class="item-footer-row">
-          <div class="item-total">${sym}${fmtNum(item.total)}</div>
+          <div class="item-total">${fmtNum(item.total)}</div>
           <div class="item-actions">
             <button class="btn-icon" onclick="openEditDialog(${item.id})" title="Edit item" style="color:var(--primary);"><i class="fas fa-pen"></i></button>
             <button class="btn-icon" onclick="removeItem(${item.id})" title="Remove item"><i class="fas fa-trash-alt"></i></button>
@@ -918,6 +1062,7 @@ function clearAll() {
   ['cust-name','cust-biz','cust-phone','cust-email','cust-address','cust-gstin',
    'from-name','from-address','from-phone','from-email','from-gstin','from-website',
    'notes'].forEach(id => { document.getElementById(id).value = ''; });
+  removeLogo();
   renderItems();
   renderExtraCosts();
   updateTotals();
@@ -926,53 +1071,78 @@ function clearAll() {
 /* ════════════════════════════════════════════════════
    PDF GENERATION
    ════════════════════════════════════════════════════ */
+function gatherInvoiceData() {
+  const { subtotal, tax, grand } = calculateTotals();
+  return {
+    psym: state.currency.pdfSym,
+    subtotal, tax, grand,
+    docType: state.docType.toUpperCase(),
+    fromName: v('from-name') || 'Your Business',
+    fromAddr: v('from-address'),
+    fromPhone: v('from-phone'),
+    fromEmail: v('from-email'),
+    fromGstin: v('from-gstin'),
+    fromWeb: v('from-website'),
+    custName: v('cust-name') || 'Customer',
+    custBiz: v('cust-biz'),
+    custAddr: v('cust-address'),
+    custPhone: v('cust-phone'),
+    custEmail: v('cust-email'),
+    custGstin: v('cust-gstin'),
+    invNum: v('inv-number'),
+    invDate: v('inv-date'),
+    invDue: v('inv-due'),
+    notes: v('notes'),
+  };
+}
+
+function logoImageFormat(dataUrl) {
+  return /^data:image\/png/i.test(dataUrl) ? 'PNG' : 'JPEG';
+}
+
 function buildPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-  const psym = state.currency.pdfSym;
-  const { subtotal, tax, grand } = calculateTotals();
-  const docType = state.docType.toUpperCase();
+  const d = gatherInvoiceData();
+  if (state.template === 'vintage') {
+    buildPDF_vintage(doc, d);
+  } else if (state.template === 'classic') {
+    buildPDF_classic(doc, d);
+  } else {
+    buildPDF_modern(doc, d);
+  }
+  return doc;
+}
 
-  const fromName = v('from-name') || 'Your Business';
-  const fromAddr = v('from-address');
-  const fromPhone = v('from-phone');
-  const fromEmail = v('from-email');
-  const fromGstin = v('from-gstin');
-  const fromWeb = v('from-website');
-
-  const custName = v('cust-name') || 'Customer';
-  const custBiz = v('cust-biz');
-  const custAddr = v('cust-address');
-  const custPhone = v('cust-phone');
-  const custEmail = v('cust-email');
-  const custGstin = v('cust-gstin');
-
-  const invNum = v('inv-number');
-  const invDate = v('inv-date');
-  const invDue = v('inv-due');
-  const notes = v('notes');
+function buildPDF_modern(doc, d) {
+  const { psym, subtotal, tax, grand, docType, fromName, fromAddr, fromPhone, fromEmail, fromGstin, fromWeb,
+          custName, custBiz, custAddr, custPhone, custEmail, custGstin, invNum, invDate, invDue, notes } = d;
 
   const PW = 210, PH = 297;
+  const ACC = hexToRgb(state.accentColor);
   const ML = 14, MR = 14, MW = PW - ML - MR;
   let y = 14;
+  let ry = 20;
 
-  // ── Header band ──
-  /*
-  doc.setFillColor(79, 142, 247);
-  doc.rect(0, 0, PW, 14, 'F');
-  doc.setFontSize(8);
-  doc.setTextColor(255, 255, 255);
-  doc.text('Generated by Invoiso — invoiso.co.in', ML, 9);
-  doc.text(docType, PW - MR, 9, { align: 'right' });
-
-  y = 20;
-  */
+  // ── Logo ──
+  const logo = state.logo;
+  if (logo.dataUrl) {
+    const logoH = { small: 14, medium: 20, large: 28 }[logo.size] || 20;
+    const logoW = Math.min(logoH * (logo.ratio || 1), 60);
+    if (logo.position === 'right') {
+      doc.addImage(logo.dataUrl, logoImageFormat(logo.dataUrl), PW - MR - logoW, y, logoW, logoH);
+      ry = y + logoH + 4;
+    } else {
+      doc.addImage(logo.dataUrl, logoImageFormat(logo.dataUrl), ML, y, logoW, logoH);
+      y += logoH + 4;
+    }
+  }
 
   // ── From (left) ──
   doc.setFontSize(14);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(30, 40, 60);
-  doc.text(fromName, ML, y);
+  doc.text(fromName, ML, y+2);
   y += 6;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
@@ -984,10 +1154,9 @@ function buildPDF() {
   if (fromWeb) { doc.text(fromWeb, ML, y); y += 4.5; }
 
   // ── Invoice meta (right) ──
-  let ry = 20;
-  doc.setFontSize(22);
+  doc.setFontSize(15);
   doc.setFont('helvetica', 'bold');
-  doc.setTextColor(79, 142, 247);
+  doc.setTextColor(...ACC);
   doc.text(docType, PW - MR, ry, { align: 'right' });
   ry += 8;
   doc.setFontSize(8.5);
@@ -1007,7 +1176,7 @@ function buildPDF() {
   y = divY + 6;
   doc.setFontSize(7.5);
   doc.setFont('helvetica', 'bold');
-  doc.setTextColor(79, 142, 247);
+  doc.setTextColor(...ACC);
   doc.text('BILL TO', ML, y);
   y += 4.5;
   doc.setFontSize(11);
@@ -1027,8 +1196,8 @@ function buildPDF() {
   y += 4;
 
   // ── Items table ──
-  const headers = ['#', 'Description', 'HSN', 'Qty', psym.trim() + ' Price', psym.trim() + ' Disc.', psym.trim() + ' Amount'];
-  const rows = state.items.map((item, i) => [
+  const headers = hsnAdjustedHeaders(['#', 'Description', 'HSN', 'Qty', ' Price', ' Disc.', ' Amount']);
+  const rows = state.items.map((item, i) => hsnAdjustedRow([
     i + 1,
     item.name,
     item.hsn || '',
@@ -1036,33 +1205,34 @@ function buildPDF() {
     fmtNum(item.price),
     fmtNum(item.discount),
     fmtNum(item.total),
-  ]);
+  ]));
 
   doc.autoTable({
     head: [headers],
     body: rows,
     startY: y,
+    showHead: 'firstPage',
     styles: { fontSize: 8.5, cellPadding: 3 },
-    headStyles: { fillColor: [79, 142, 247], textColor: 255, fontStyle: 'bold', fontSize: 8 },
+    headStyles: { fillColor: ACC, textColor: 255, fontStyle: 'bold', fontSize: 8 },
     alternateRowStyles: { fillColor: [246, 249, 255] },
-    columnStyles: {
-      0: { cellWidth: 8, halign: 'center' },
+    columnStyles: hsnAdjustedColumnStyles({
+      0: { cellWidth: 15, halign: 'center' },
       1: { cellWidth: 'auto' },
       2: { cellWidth: 25, halign: 'left' },
       3: { cellWidth: 15, halign: 'left' },
       4: { cellWidth: 25, halign: 'left' },
       5: { cellWidth: 20, halign: 'left' },
       6: { cellWidth: 30, halign: 'right', fontStyle: 'bold' },
-    },
+    }),
     margin: { left: ML, right: MR },
     tableWidth: MW,
   });
 
   y = doc.lastAutoTable.finalY + 10;
+  const BOTTOM_LIMIT = PH - 22; // leave room for footer line + text
 
   // ── Totals (right-aligned block) ──
   const totBlockX = PW - MR - 70;
-  const totBlockW = 70;
 
   const totals = [
     ['Subtotal', psym + fmtNum(subtotal)],
@@ -1076,6 +1246,9 @@ function buildPDF() {
   state.extraCosts.forEach(c => {
     if (c.amount > 0) totals.push([c.label || 'Extra', psym + fmtNum(c.amount)]);
   });
+
+  const totalsBlockH = totals.length * 5 + 16;
+  if (y + totalsBlockH > BOTTOM_LIMIT) { doc.addPage(); y = 20; }
 
   doc.setFontSize(8.5);
   doc.setFont('helvetica', 'normal');
@@ -1101,27 +1274,384 @@ function buildPDF() {
   // ── Notes ──
   if (notes) {
     doc.setFontSize(8.5);
+    doc.setFont('helvetica', 'normal');
+    const lines = doc.splitTextToSize(notes, MW);
+    const notesH = 4.5 + lines.length * 4.5 + 4;
+    if (y + notesH > BOTTOM_LIMIT) { doc.addPage(); y = 20; }
     doc.setFont('helvetica', 'bold');
-    doc.setTextColor(79, 142, 247);
+    doc.setTextColor(...ACC);
     doc.text('Notes / Terms', ML, y);
     y += 4.5;
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(80, 95, 115);
-    const lines = doc.splitTextToSize(notes, MW);
     doc.text(lines, ML, y);
     y += lines.length * 4.5 + 4;
   }
 
   // ── Footer line ──
+  const totalPages = doc.internal.getNumberOfPages();
   doc.setDrawColor(220, 228, 240);
   doc.line(ML, PH - 16, PW - MR, PH - 16);
   doc.setFontSize(7.5);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(150, 160, 175);
   doc.text('Created with Invoiso — invoiso.co.in', ML, PH - 11);
-  doc.text('Page 1', PW - MR, PH - 11, { align: 'right' });
+  doc.text(`Page ${totalPages} of ${totalPages}`, PW - MR, PH - 11, { align: 'right' });
+}
 
-  return doc;
+function buildPDF_classic(doc, d) {
+  const { psym, subtotal, tax, grand, docType, fromName, fromAddr, fromPhone, fromEmail, fromGstin, fromWeb,
+          custName, custBiz, custAddr, custPhone, custEmail, custGstin, invNum, invDate, invDue, notes } = d;
+
+  const PW = 210, PH = 297;
+  const ML = 16, MR = 16, MW = PW - ML - MR;
+  const INK = [30, 30, 35];
+  const MUTED = [110, 110, 120];
+  const RULE = [200, 200, 205];
+  const ACC = hexToRgb(state.accentColor);
+  const BOTTOM_LIMIT = PH - 22;
+
+  // ── Logo ──
+  let y = 16;
+  const logo = state.logo;
+  if (logo.dataUrl) {
+    const logoH = { small: 14, medium: 20, large: 28 }[logo.size] || 20;
+    const logoW = Math.min(logoH * (logo.ratio || 1), 60);
+    const lx = logo.position === 'right' ? PW - MR - logoW : ML;
+    doc.addImage(logo.dataUrl, logoImageFormat(logo.dataUrl), lx, y, logoW, logoH);
+    y += logoH + 4;
+  }
+
+  // ── Title ──
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(20);
+  doc.setTextColor(...ACC);
+  doc.text(docType.toUpperCase(), ML, y + 6);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(...MUTED);
+  const metaParts = [invNum && ('No: ' + invNum), invDate && ('Date: ' + fmtDateDisplay(invDate)), invDue && ('Due: ' + fmtDateDisplay(invDue))].filter(Boolean);
+  doc.text(metaParts.join('   |   '), PW - MR, y + 6, { align: 'right' });
+  y += 12;
+
+  doc.setDrawColor(...ACC);
+  doc.setLineWidth(0.6);
+  doc.line(ML, y, PW - MR, y);
+  y += 8;
+
+  // ── From / Bill To ──
+  const colW = MW / 2 - 4;
+  const writeBlock = (x, label, name, lines) => {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(7.5);
+    doc.setTextColor(...MUTED);
+    doc.text(label, x, y);
+    let by = y + 5;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10.5);
+    doc.setTextColor(...INK);
+    doc.text(name, x, by);
+    by += 5;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...MUTED);
+    lines.forEach(line => { doc.text(String(line), x, by); by += 4.5; });
+    return by;
+  };
+  const fromAddrLines = fromAddr ? doc.splitTextToSize(fromAddr, colW) : [];
+  const custAddrLines = custAddr ? doc.splitTextToSize(custAddr, colW) : [];
+  const fromLines = [...fromAddrLines, fromPhone && ('Phone: ' + fromPhone), fromEmail && ('Email: ' + fromEmail), fromGstin && ('GSTIN: ' + fromGstin), fromWeb].filter(Boolean);
+  const custLines = [custBiz, ...custAddrLines, custPhone && ('Phone: ' + custPhone), custEmail && ('Email: ' + custEmail), custGstin && ('GSTIN: ' + custGstin)].filter(Boolean);
+
+  const yAfterFrom = writeBlock(ML, 'FROM', fromName, fromLines);
+  const yAfterCust = writeBlock(ML + colW + 8, 'BILL TO', custName, custLines);
+  y = Math.max(yAfterFrom, yAfterCust) + 4;
+
+  doc.setDrawColor(...RULE);
+  doc.setLineWidth(0.2);
+  doc.line(ML, y, PW - MR, y);
+  y += 8;
+
+  // ── Items table ──
+  const headers = hsnAdjustedHeaders(['#', 'Description', 'HSN', 'Qty', 'Price', 'Disc.', 'Amount']);
+  const rows = state.items.map((item, i) => hsnAdjustedRow([
+    i + 1, item.name, item.hsn || '', fmtNum(item.qty), fmtNum(item.price), fmtNum(item.discount), fmtNum(item.total),
+  ]));
+
+  doc.autoTable({
+    head: [headers],
+    body: rows,
+    startY: y,
+    showHead: 'firstPage',
+    styles: { font: 'helvetica', fontSize: 8.5, cellPadding: 3, textColor: INK, lineColor: RULE, lineWidth: 0.15 },
+    headStyles: { fillColor: [255, 255, 255], textColor: ACC, fontStyle: 'bold', fontSize: 8, lineColor: ACC, lineWidth: 0.4 },
+    theme: 'plain',
+    columnStyles: hsnAdjustedColumnStyles({
+      0: { cellWidth: 15, halign: 'center' },
+      1: { cellWidth: 'auto' },
+      2: { cellWidth: 25, halign: 'left' },
+      3: { cellWidth: 15, halign: 'left' },
+      4: { cellWidth: 25, halign: 'left' },
+      5: { cellWidth: 20, halign: 'left' },
+      6: { cellWidth: 30, halign: 'right', fontStyle: 'bold' },
+    }),
+    margin: { left: ML, right: MR },
+    tableWidth: MW,
+    didParseCell: (data) => {
+      if (data.section === 'body') data.cell.styles.lineWidth = { top: 0, left: 0, right: 0, bottom: 0.15 };
+    },
+  });
+
+  y = doc.lastAutoTable.finalY + 10;
+
+  // ── Totals ──
+  const totBlockX = PW - MR - 70;
+  const totals = [['Subtotal', psym + fmtNum(subtotal)]];
+  if (state.taxEnabled) {
+    const label = state.taxMode === 'global' ? `Tax (${state.globalTaxRate}%)` : 'Tax (per item)';
+    totals.push([label, psym + fmtNum(tax)]);
+  }
+  state.extraCosts.forEach(c => { if (c.amount > 0) totals.push([c.label || 'Extra', psym + fmtNum(c.amount)]); });
+
+  const totalsBlockH = totals.length * 5 + 16;
+  if (y + totalsBlockH > BOTTOM_LIMIT) { doc.addPage(); y = 20; }
+
+  doc.setFontSize(8.5);
+  doc.setFont('helvetica', 'normal');
+  totals.forEach(([lbl, val]) => {
+    doc.setTextColor(...MUTED);
+    doc.text(lbl + ':', totBlockX, y);
+    doc.setTextColor(...INK);
+    doc.text(val, PW - MR, y, { align: 'right' });
+    y += 5;
+  });
+
+  doc.setDrawColor(...ACC);
+  doc.setLineWidth(0.5);
+  doc.line(totBlockX, y - 1, PW - MR, y - 1);
+  y += 7;
+  doc.setFontSize(12);
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(...ACC);
+  doc.text('Total:', totBlockX, y);
+  doc.text(psym + fmtNum(grand), PW - MR, y, { align: 'right' });
+  y += 10;
+
+  // ── Notes ──
+  if (notes) {
+    doc.setFontSize(8.5);
+    doc.setFont('helvetica', 'normal');
+    const lines = doc.splitTextToSize(notes, MW);
+    const notesH = 4.5 + lines.length * 4.5 + 4;
+    if (y + notesH > BOTTOM_LIMIT) { doc.addPage(); y = 20; }
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...ACC);
+    doc.text('Notes / Terms', ML, y);
+    y += 4.5;
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...MUTED);
+    doc.text(lines, ML, y);
+    y += lines.length * 4.5 + 4;
+  }
+
+  // ── Footer ──
+  const totalPages = doc.internal.getNumberOfPages();
+  doc.setDrawColor(...RULE);
+  doc.setLineWidth(0.2);
+  doc.line(ML, PH - 16, PW - MR, PH - 16);
+  doc.setFontSize(7.5);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...MUTED);
+  doc.text('Created with Invoiso — invoiso.co.in', ML, PH - 11);
+  doc.text(`Page ${totalPages} of ${totalPages}`, PW - MR, PH - 11, { align: 'right' });
+}
+
+function buildPDF_vintage(doc, d) {
+  const { psym, subtotal, tax, grand, docType, fromName, fromAddr, fromPhone, fromEmail, fromGstin, fromWeb,
+          custName, custBiz, custAddr, custPhone, custEmail, custGstin, invNum, invDate, invDue, notes } = d;
+
+  const PW = 210, PH = 297;
+  const OM = 8; // outer border margin
+  const BORDER_W = 0.3; // matches items table border thickness
+  const ML = OM, MR = OM, MW = PW - ML - MR; // content flush with outer border
+  const INK = [40, 35, 25];
+  const MUTED = [95, 85, 70];
+
+  // bottom edge only known once last page reached, so draw it once at end
+  const drawBorderSides = ({ bottom = false } = {}) => {
+    doc.setDrawColor(...INK);
+    doc.setLineWidth(BORDER_W);
+    doc.line(OM, OM, OM, PH - OM);
+    doc.line(PW - OM, OM, PW - OM, PH - OM);
+    doc.line(OM, OM, PW - OM, OM);
+    if (bottom) doc.line(OM, PH - OM, PW - OM, PH - OM);
+  };
+  const BOTTOM_LIMIT = PH - OM - 18; // leave room for footer text
+
+  // ── Outer border (top+sides; bottom drawn on last page only) ──
+  drawBorderSides();
+
+  let y = OM + 7;
+
+  // ── Title ──
+  doc.setFont('times', 'bold');
+  doc.setFontSize(15);
+  doc.setTextColor(...INK);
+  doc.text(docType, PW / 2, y, { align: 'center' });
+  y += 3;
+  //doc.setLineWidth(0.4);
+  //doc.line(PW / 2 - 22, y, PW / 2 + 22, y);
+  //y += 9;
+
+  // ── From / Bill To section (ruled, no boxes) ──
+  const boxW = MW / 2;
+  const boxTop = y;
+  const leftX = ML, rightX = ML + boxW;
+
+  doc.setFont('times', 'normal');
+  doc.setFontSize(8.5);
+  const addrW = boxW - 8;
+  const fromAddrLines = fromAddr ? doc.splitTextToSize(fromAddr, addrW) : [];
+  const custAddrLines = custAddr ? doc.splitTextToSize(custAddr, addrW) : [];
+
+  const fromLines = [fromName, ...fromAddrLines, fromPhone && ('Phone: ' + fromPhone), fromEmail && ('Email: ' + fromEmail), fromGstin && ('GSTIN: ' + fromGstin), fromWeb].filter(Boolean);
+  const custLines = [custName, custBiz, ...custAddrLines, custPhone && ('Phone: ' + custPhone), custEmail && ('Email: ' + custEmail), custGstin && ('GSTIN: ' + custGstin)].filter(Boolean);
+  const boxH = Math.max(fromLines.length, custLines.length) * 5 + 14;
+
+  doc.setLineWidth(BORDER_W);
+  doc.line(ML, boxTop, PW - MR, boxTop);
+  doc.line(ML, boxTop + boxH, PW - MR, boxTop + boxH);
+  doc.line(rightX, boxTop, rightX, boxTop + boxH);
+
+  const writeBox = (x, w, label, lines) => {
+    let by = boxTop + 6;
+    doc.setFont('times', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...MUTED);
+    doc.text(label, x + 4, by);
+    by += 5;
+    lines.forEach((line, i) => {
+      doc.setFont('times', i === 0 ? 'bold' : 'normal');
+      doc.setFontSize(i === 0 ? 11 : 8.5);
+      doc.setTextColor(...INK);
+      doc.text(String(line), x + 4, by);
+      by += i === 0 ? 5.5 : 4.5;
+    });
+  };
+  writeBox(leftX, boxW, 'FROM', fromLines);
+  writeBox(rightX, boxW, 'BILL TO', custLines);
+
+  y = boxTop + boxH + 6;
+
+  // ── Meta row (invoice #, date, due) ──
+  doc.setFont('times', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(...INK);
+  const metaParts = [invNum && ('No: ' + invNum), invDate && ('Date: ' + fmtDateDisplay(invDate)), invDue && ('Due: ' + fmtDateDisplay(invDue))].filter(Boolean);
+  doc.text(metaParts.join('      '), ML+4, y);
+  y += 3;
+  //doc.setLineWidth(0.3);
+  //doc.line(ML, y, PW - MR, y);
+ // y += 6;
+
+  // ── Items table (full grid) ──
+  const headers = hsnAdjustedHeaders(['#', 'Description', 'HSN', 'Qty', 'Price', 'Disc.', 'Amount']);
+  const rows = state.items.map((item, i) => hsnAdjustedRow([
+    i + 1, item.name, item.hsn || '', fmtNum(item.qty), fmtNum(item.price), fmtNum(item.discount), fmtNum(item.total),
+  ]));
+
+  doc.autoTable({
+    head: [headers],
+    body: rows,
+    startY: y,
+    theme: 'grid',
+    showHead: 'firstPage',
+    styles: { font: 'times', fontSize: 8.5, cellPadding: 3, lineColor: INK, lineWidth: BORDER_W, textColor: INK },
+    headStyles: { fillColor: [255, 255, 255], textColor: INK, fontStyle: 'bold', fontSize: 8, lineColor: INK, lineWidth: BORDER_W },
+    columnStyles: hsnAdjustedColumnStyles({
+      0: { cellWidth: 15, halign: 'center' },
+      1: { cellWidth: 'auto' },
+      2: { cellWidth: 25, halign: 'left' },
+      3: { cellWidth: 15, halign: 'left' },
+      4: { cellWidth: 25, halign: 'left' },
+      5: { cellWidth: 20, halign: 'left' },
+      6: { cellWidth: 30, halign: 'right', fontStyle: 'bold' },
+    }),
+    margin: { left: ML, right: MR, top: OM, bottom: OM},
+    tableWidth: MW,
+    didDrawPage: (data) => { if (data.pageNumber === 1) drawBorderSides({ bottom: true }); },
+    // no border on middle pages — only page 1 (top+sides above) and last page (below)
+  });
+
+  y = doc.lastAutoTable.finalY + 8;
+
+  // ── Totals box ──
+  const totBoxW = 76, totBoxX = PW - MR - totBoxW;
+  const totals = [['Subtotal', psym + fmtNum(subtotal)]];
+  if (state.taxEnabled) {
+    const label = state.taxMode === 'global' ? `Tax (${state.globalTaxRate}%)` : 'Tax (per item)';
+    totals.push([label, psym + fmtNum(tax)]);
+  }
+  state.extraCosts.forEach(c => { if (c.amount > 0) totals.push([c.label || 'Extra', psym + fmtNum(c.amount)]); });
+
+  const totBoxH = totals.length * 5.5 + 12;
+  if (y + totBoxH > BOTTOM_LIMIT) { doc.addPage();  y = OM + 12; }
+  doc.setLineWidth(0.3);
+  doc.rect(totBoxX, y, totBoxW, totBoxH);
+  let ty = y + 6;
+  doc.setFont('times', 'normal');
+  doc.setFontSize(8.5);
+  totals.forEach(([lbl, val]) => {
+    doc.setTextColor(...MUTED);
+    doc.text(lbl + ':', totBoxX + 4, ty);
+    doc.setTextColor(...INK);
+    doc.text(val, totBoxX + totBoxW - 4, ty, { align: 'right' });
+    ty += 5.5;
+  });
+  doc.setLineWidth(0.3);
+  doc.line(totBoxX + 4, ty - 2, totBoxX + totBoxW - 4, ty - 2);
+  ty += 4;
+  doc.setFont('times', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(...INK);
+  doc.text('Total:', totBoxX + 4, ty);
+  doc.text(psym + fmtNum(grand), totBoxX + totBoxW - 4, ty, { align: 'right' });
+
+  y += totBoxH + 8;
+
+  // ── Notes ──
+  if (notes) {
+    doc.setFont('times', 'normal');
+    doc.setFontSize(8.5);
+    const lines = doc.splitTextToSize(notes, MW);
+    const notesH = 4.5 + lines.length * 4.5;
+    if (y + notesH > BOTTOM_LIMIT) { doc.addPage(); y = OM + 12; }
+    doc.setFont('times', 'bold');
+    doc.setTextColor(...INK);
+    doc.text('Notes / Terms', ML+4, y);
+    y += 4.5;
+    doc.setFont('times', 'normal');
+    doc.setTextColor(...MUTED);
+    doc.text(lines, ML+4, y);
+  }
+
+  // ── Footer ──
+  doc.setFont('times', 'italic');
+  doc.setFontSize(7.5);
+  doc.setTextColor(...MUTED);
+  doc.text('Created with Invoiso — invoiso.co.in', PW / 2, PH - OM - 5, { align: 'center' });
+
+  // ── Last page border: bottom only if it's page 1 (already has top+sides), else full frame ──
+  const lastPage = doc.internal.getNumberOfPages();
+  doc.setPage(lastPage);
+  if (lastPage === 1) {
+    doc.setDrawColor(...INK);
+    doc.setLineWidth(BORDER_W);
+    doc.line(OM, PH - OM, PW - OM, PH - OM);
+  } else {
+    drawBorderSides({ bottom: true });
+  }
 }
 
 function previewPDF() {
@@ -1156,6 +1686,9 @@ function exportJSON() {
     _version: 1,
     _app: 'invoiso-maker',
     docType: state.docType,
+    template: state.template,
+    accentColor: state.accentColor,
+    logo: state.logo,
     currency: state.currency,
     taxEnabled: state.taxEnabled,
     taxMode: state.taxMode,
@@ -1230,6 +1763,40 @@ function applyImport(data) {
     const sel = document.getElementById('currency-sel');
     const opt = Array.from(sel.options).find(o => o.value.startsWith(data.currency.code + '|'));
     if (opt) sel.value = opt.value;
+  }
+
+  // Template
+  if (data.template) {
+    state.template = data.template;
+    document.querySelectorAll('#template-ctrl button').forEach(b => {
+      b.classList.toggle('active', b.dataset.val === data.template);
+    });
+    document.getElementById('logo-controls').style.display = state.template === 'vintage' ? 'none' : '';
+    document.getElementById('theme-color-controls').style.display = state.template === 'vintage' ? 'none' : '';
+  }
+
+  // Accent color
+  if (data.accentColor) {
+    const swatch = document.querySelector(`#theme-color-ctrl .theme-swatch[data-color="${data.accentColor}"]`);
+    setAccentColor(data.accentColor, swatch || null);
+  }
+
+  // Logo
+  if (data.logo) {
+    state.logo = { dataUrl: null, ratio: 1, position: 'left', size: 'medium', ...data.logo };
+    if (state.logo.dataUrl) {
+      document.getElementById('logo-preview').innerHTML = `<img src="${state.logo.dataUrl}" alt="Logo" />`;
+      document.getElementById('logo-remove-btn').style.display = '';
+    } else {
+      document.getElementById('logo-preview').innerHTML = '<i class="fas fa-image"></i>';
+      document.getElementById('logo-remove-btn').style.display = 'none';
+    }
+    document.querySelectorAll('#logo-pos-ctrl button').forEach(b => {
+      b.classList.toggle('active', b.dataset.val === state.logo.position);
+    });
+    document.querySelectorAll('#logo-size-ctrl button').forEach(b => {
+      b.classList.toggle('active', b.dataset.val === state.logo.size);
+    });
   }
 
   // Doc type
