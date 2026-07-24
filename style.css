@@ -4175,7 +4175,7 @@ body {
 
 .testimonials-grid {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -4207,8 +4207,13 @@ body {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    flex: 0 0 320px;
+    flex: 0 0 380px;
     scroll-snap-align: start;
+}
+
+.testimonials-grid.single,
+.testimonials-grid.double {
+    justify-content: center;
 }
 
 .testimonials-grid.single .testimonial-card {

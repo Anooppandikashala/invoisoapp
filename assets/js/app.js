@@ -24,6 +24,12 @@ var testimonials = [
     location: 'Malawi',
     text: 'I have been using the Invoiso Offline Edition, and it\u2019s been really good so far. I like how the whole software works and how the company is organized.',
     stars: 5,
+  },
+  {
+    name: 'Marilet Landman',
+    location: '',
+    text: 'I use this for my small business.  it is a great program that helps me keep track of my stock, and also my invoicing.  It is easy to see outstanding payments.  It will be nice if they can add a section where i can add supplier invoices so i can keep track of my expenses.  But great overall. ',
+    stars: 5,
   }
 ];
 
