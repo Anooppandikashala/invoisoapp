@@ -30,7 +30,19 @@ var testimonials = [
     location: '',
     text: 'I use this for my small business.  it is a great program that helps me keep track of my stock, and also my invoicing.  It is easy to see outstanding payments.  It will be nice if they can add a section where i can add supplier invoices so i can keep track of my expenses.  But great overall. ',
     stars: 5,
-  }
+  },
+  {
+    name: 'Nick',
+    location: '',
+    text: 'This is a great app for my business. I honestly love it and I appreciate the work and effort put into this project.',
+    stars: 5,
+  },
+  // {
+  //   name: '',
+  //   location: '',
+  //   text: '',
+  //   stars: 5,
+  // }
 ];
 
 (function buildTestimonials() {
@@ -43,7 +55,7 @@ var testimonials = [
   if (!grid) return;
   if (testimonials.length === 1) grid.classList.add('single');
   else if (testimonials.length === 2) grid.classList.add('double');
-  testimonials.forEach(function (t) {
+  [...testimonials].reverse().forEach(function (t) {
     var starsHtml = '';
     for (var i = 0; i < 5; i++) {
       starsHtml += i < t.stars
