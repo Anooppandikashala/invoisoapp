@@ -353,6 +353,14 @@
             "@type": "Answer",
             "text": "Yes. Invoiso works as free GST billing software for Indian businesses. It supports GSTIN fields for both your company and customers, HSN codes on each product, CGST/SGST/IGST tax rates, UPI QR code payments on invoices, and generates GST-compliant PDF invoices. It works completely offline and requires no subscription."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Invoiso support dark mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, dark mode is available in beta. Go to Settings > Company Info and toggle it on to switch the dashboard, login screen, and core modules to a dark theme."
+          }
         }
       ]
     }
@@ -508,6 +516,7 @@
               <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
               <span class="trust-chip"><i class="fas fa-file-invoice" aria-hidden="true"></i> GST ready</span>
               <span class="trust-chip"><i class="fas fa-qrcode" aria-hidden="true"></i> UPI QR support</span>
+              <span class="trust-chip"><i class="fas fa-moon" aria-hidden="true"></i> Dark mode</span>
             </div>
             <div class="hero-stats" aria-label="Invoiso at a glance">
               <div class="hero-stat">
@@ -533,6 +542,12 @@
           </div>
 
           <div class="hero-3d-stage fade-in-up" aria-label="Invoiso app preview">
+            <div class="hero-theme-toggle-wrap">
+              <button type="button" id="hero-theme-toggle" class="hero-theme-toggle" aria-label="Preview night mode dashboard" aria-pressed="false">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <span>Night mode</span>
+              </button>
+            </div>
             <div class="hero-3d-glow" aria-hidden="true"></div>
             <div class="hero-3d-card hero-3d-card-back" aria-hidden="true">
               <div class="hero-window-bar">
@@ -550,7 +565,7 @@
               <div class="hero-window-bar" aria-hidden="true">
                 <span></span><span></span><span></span>
               </div>
-              <img src="assets/images/hero/dashboard.webp" alt="Invoiso dashboard for free billing software showing invoices, revenue and business overview" width="1920" height="1080" loading="eager" decoding="async" />
+              <img id="hero-dashboard-img" src="assets/images/hero/dashboard.webp" data-light-src="assets/images/hero/dashboard.webp" data-dark-src="assets/images/hero/dashboard_dark.png" alt="Invoiso dashboard for free billing software showing invoices, revenue and business overview" width="1920" height="1080" loading="eager" decoding="async" />
             </div>
             <div class="hero-floating-card hero-floating-card-top" aria-hidden="true">
               <i class="fas fa-file-invoice"></i>
@@ -1369,6 +1384,16 @@
               </div>
             </details>
 
+            <details class="faq-item">
+              <summary class="faq-question">
+                Does Invoiso support dark mode?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes, dark mode is available in beta. Go to <strong>Settings → Company Info</strong> and toggle it on to switch the dashboard, login screen, and core modules to a dark theme.</p>
+              </div>
+            </details>
+
           </div>
 
           <div class="mt-10">
@@ -1510,6 +1535,8 @@
                 <li><a href="contact.html" class="site-footer-link"><i class="fas fa-headset" aria-hidden="true"></i>Contact support</a></li>
                 <li><a href="mailto:anooppkrishnan96@gmail.com" class="site-footer-link"><i class="fas fa-envelope" aria-hidden="true"></i>Email</a></li>
                 <li><a href="customization.html" class="site-footer-link"><i class="fas fa-briefcase" aria-hidden="true"></i>Custom work</a></li>
+                <li><a href="privacy.html" class="site-footer-link"><i class="fas fa-shield-halved" aria-hidden="true"></i>Privacy</a></li>
+                <li><a href="terms.html" class="site-footer-link"><i class="fas fa-file-contract" aria-hidden="true"></i>Terms</a></li>
               </ul>
             </div>
           </div>
@@ -1518,7 +1545,7 @@
         <div class="site-footer-bottom">
           <div>
             <p class="site-footer-copy">© <span id="year"></span> Invoiso. All rights reserved.</p>
-            <p class="site-footer-note"><time datetime="2026-06-30">Last updated June 2026</time></p>
+            <p class="site-footer-note">Offline-first billing software. No account required.</p>
           </div>
           <div class="site-footer-social" aria-label="Social links">
             <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" aria-label="Invoiso on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>

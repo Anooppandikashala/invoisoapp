@@ -321,6 +321,18 @@ window.addEventListener('scroll', function () {
 });
 
 // ─── Scroll-reveal ────────────────────────────────────────────────────────────
+(function initHeroThemeToggle() {
+  var btn = document.getElementById('hero-theme-toggle');
+  var img = document.getElementById('hero-dashboard-img');
+  if (!btn || !img) return;
+  btn.addEventListener('click', function () {
+    var isDark = btn.classList.toggle('is-dark');
+    btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    btn.setAttribute('aria-label', isDark ? 'Preview light mode dashboard' : 'Preview night mode dashboard');
+    img.src = isDark ? img.dataset.darkSrc : img.dataset.lightSrc;
+  });
+})();
+
 (function initReveal() {
   var revealEls = document.querySelectorAll('.reveal');
   if (!revealEls.length) return;

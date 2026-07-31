@@ -15,6 +15,7 @@ Invoiso is built for freelancers, small businesses, shop owners, and consultants
 - 100% offline — no internet required at any point
 - Professional PDF invoices with one click (Classic, Modern, Executive, Minimal templates)
 - Three dashboard layouts: compact, classic, and expanded
+- Dark mode (beta) — toggle from Settings > Company Info
 - Signature support on PDFs — upload image, choose left or right placement
 - A6 compact PDF layout with automatic font and margin scaling
 - Custom PDF theme color picker

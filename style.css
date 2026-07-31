@@ -1315,6 +1315,40 @@ body {
     width: min(92%, 760px);
     aspect-ratio: 16 / 9;
     transform: rotateX(9deg) rotateY(-17deg) rotateZ(1deg);
+    position: relative;
+}
+
+.hero-theme-toggle-wrap {
+    position: absolute;
+    top: -46px;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(226,232,240,0.18);
+    background: rgba(13,21,38,0.85);
+    color: #e2e8f0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero-theme-toggle:hover {
+    background: rgba(79,142,247,0.35);
+}
+
+.hero-theme-toggle.is-dark i:before {
+    content: "\f185";
 }
 
 .hero-3d-card-side {
