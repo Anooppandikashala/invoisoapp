@@ -1238,7 +1238,7 @@ body {
 }
 
 .hero-featured-badges img {
-    max-height: 46px;
+    max-height: 100px;
     width: auto;
 }
 
