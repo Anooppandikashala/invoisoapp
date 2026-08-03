@@ -663,7 +663,7 @@
       "name": "Release Notes & Updates - Invoiso",
       "description": "Release notes and version history for Invoiso, including new features, improvements, and fixes for the free offline invoice software.",
       "inLanguage": "en",
-      "dateModified": "2026-06-30",
+      "dateModified": "2026-07-31",
       "publisher": {
         "@type": "Organization",
         "name": "Invoiso",
@@ -844,6 +844,83 @@
 
           <div class="timeline">
 
+            <!-- July 2026 -->
+            <div class="release-card fade-in-up">
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <div class="release-card-header">
+                <div class="release-card-header-left">
+                  <span class="version-badge">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    July 2026
+                  </span>
+                </div>
+                <span class="release-date">v4.3.3</span>
+              </div>
+
+              <div class="release-body">
+
+                <!-- New Features -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-features"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                    <span class="title-features">New Features</span>
+                  </div>
+                  <ul class="cl-list" aria-label="New features in July 2026">
+                    <li><span><strong>Receipts</strong> — new receipt document type alongside invoices/quotations</span></li>
+                    <li><span><strong>Thermal printer support</strong> — USB thermal printer printing, two receipt layouts (table/detailed), thermal-style layout also available in PDF preview</span></li>
+                    <li><span><strong>Product purchase price</strong> — track cost price per product, not just sale price</span></li>
+                    <li><span><strong>Product units</strong> — assign units (kg, pcs, box, dozen, etc.) to products/invoice items</span></li>
+                    <li><span><strong>Product name aliases</strong> — set a local-language alias name per product, shown on PDFs (supported in Grid Classic template too)</span></li>
+                    <li><span><strong>New PDF template</strong> — Grid Classic (bordered old-style bill), adaptive across A4/A5/A6</span></li>
+                    <li><span><strong>Daily Reports</strong> screen, with footer branding</span></li>
+                    <li><span><strong>Multi-currency support</strong>, plus new dashboard layout options (Classic, Bento, Simple Feed, Default)</span></li>
+                    <li><span><strong>Multi-tenant support</strong> for the cloud edition</span></li>
+                    <li><span><strong>Additional font support</strong> — Malayalam, Tamil, Telugu, Hindi, Kannada, Marathi</span></li>
+                    <li><span><strong>Dark mode</strong> — rolled out across all screens (beta)</span></li>
+                    <li><span>Configurable <strong>invoice starting number</strong></span></li>
+                    <li><span><strong>Default tax rate</strong> setting for new invoices</span></li>
+                    <li><span>New <strong>logo size</strong> and <strong>signature size</strong> options for PDFs</span></li>
+                    <li><span>Anonymous <strong>installation tracking</strong> (analytics, opt-in style, no personal data)</span></li>
+                    <li><span><strong>Support link</strong> added to login/dashboard (Google Form)</span></li>
+                  </ul>
+                </div>
+
+                <!-- Under the Hood -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-platform"><i class="fas fa-gear" aria-hidden="true"></i></span>
+                    <span class="title-platform">Under the Hood</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Under the hood changes in July 2026">
+                    <li><span>Migrated all services to <strong>Riverpod</strong> state management</span></li>
+                    <li><span>Split PDF layout code into separate files for maintainability</span></li>
+                    <li><span>Added database regression test suite</span></li>
+                    <li><span>Package import cleanup</span></li>
+                    <li><span>CI/workflow tweaks</span></li>
+                  </ul>
+                </div>
+
+                <!-- Bug Fixes — full width -->
+                <div class="cl-section" style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 20px;">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
+                    <span class="title-fixes">Bug Fixes</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Bug fixes in July 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                    <li><span>Quantity update error on invoice items; added PDF page-size dropdown</span></li>
+                    <li><span>Product page count mismatch and pagination bug</span></li>
+                    <li><span>Windows: maximized window overshooting onto other monitors/taskbar (multi-monitor fix)</span></li>
+                    <li><span>macOS: internet/network permission fix</span></li>
+                    <li><span>Grid template and alias-name function errors</span></li>
+                    <li><span>Various UI overflow fixes, spacing fixes, warning cleanups</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <!-- / July 2026 -->
+
             <!-- June 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
@@ -855,10 +932,15 @@
                     June 2026
                   </span>
                 </div>
+                <div style="display:flex;align-items:center;gap:12px;">
                 <span class="release-date">v4.2.7</span>
+                <button class="cl-toggle-btn" data-target="june-body" aria-label="Toggle June 2026 release notes" aria-expanded="false">
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
               </div>
 
-              <div class="release-body">
+              <div class="release-body cl-collapsed" id="june-body">
 
                 <!-- New Features -->
                 <div class="cl-section">
