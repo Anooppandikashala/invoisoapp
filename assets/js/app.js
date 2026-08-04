@@ -37,6 +37,12 @@ var testimonials = [
     text: 'This is a great app for my business. I honestly love it and I appreciate the work and effort put into this project.',
     stars: 5,
   },
+  {
+    name: 'Shahid',
+    location: '',
+    text: 'thanks for your creation ',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
@@ -66,16 +72,28 @@ var testimonials = [
     card.className = 'testimonial-card';
     card.innerHTML =
       '<div class="testimonial-header">' +
-        '<div class="testimonial-stars" aria-label="' + t.stars + ' out of 5 stars">' + starsHtml + '</div>' +
-        '<div class="testimonial-meta">' +
-          '<span class="testimonial-name">' + t.name + '</span>' +
-          (t.location ? '<span>, </span><span class="testimonial-location">' + t.location + '</span>' : '') +
+        '<span class="testimonial-avatar">' + t.name.trim().charAt(0).toUpperCase() + '</span>' +
+        '<div class="testimonial-header-info">' +
+          '<div class="testimonial-meta">' +
+            '<span class="testimonial-name">' + t.name + '</span>' +
+            (t.location ? '<span>, </span><span class="testimonial-location">' + t.location + '</span>' : '') +
+          '</div>' +
+          '<div class="testimonial-stars" aria-label="' + t.stars + ' out of 5 stars">' + starsHtml + '</div>' +
         '</div>' +
       '</div>' +
-      '<p class="testimonial-text">' + t.text + '</p>';
+      '<p class="testimonial-text' + (t.text.length > 220 ? ' clamped' : '') + '">' + t.text + '</p>' +
+      (t.text.length > 220 ? '<button type="button" class="testimonial-showmore">Show more</button>' : '');
     grid.appendChild(card);
   });
 })();
+
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.testimonial-showmore');
+  if (!btn) return;
+  var text = btn.previousElementSibling;
+  var expanded = !text.classList.toggle('clamped');
+  btn.textContent = expanded ? 'Show less' : 'Show more';
+});
 
 // ─── YouTube facade ───────────────────────────────────────────────────────────
 // Inject iframe only when user clicks the thumbnail — saves ~520 KB of YouTube JS
