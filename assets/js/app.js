@@ -43,6 +43,12 @@ var testimonials = [
     text: 'thanks for your creation ',
     stars: 5,
   },
+  {
+    name: 'Angh',
+    location: '',
+    text: 'Simple anh best, like the other invoice app.',
+    stars: 4,
+  },
   // {
   //   name: '',
   //   location: '',
