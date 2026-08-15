@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Step-by-step guide to backing up and restoring your invoice data in Invoiso, including where the local database lives and moving data to a new computer." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Backup and Restore Invoice Data | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/how-to-backup-restore-invoice-data.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Backup and Restore Invoice Data" />
+  <meta property="og:description"
+    content="How to back up, restore, and move your local invoice database in Invoiso." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/how-to-backup-restore-invoice-data.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-15T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Backup and Restore Invoice Data | Invoiso Blog" />
+  <meta name="twitter:description"
+    content="How to back up, restore, and move your local invoice database in Invoiso." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Backup and Restore Invoice Data","description":"Step-by-step guide to backing up and restoring your invoice data in Invoiso, including where the local database lives and moving data to a new computer.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-15T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-backup-restore-invoice-data.html"}}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Backup and Restore Invoice Data","item":"https://invoiso.co.in/blog/how-to-backup-restore-invoice-data.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to Backup and Restore Invoice Data in Invoiso","description":"Steps to create a database backup in Invoiso, store it safely, and restore it on the same or a new machine.","step":[{"@type":"HowToStep","name":"Open Settings and go to Backup","text":"In Invoiso, go to Settings → Backup."},{"@type":"HowToStep","name":"Create a backup file","text":"Create a database backup and save the file to a location of your choice."},{"@type":"HowToStep","name":"Store the backup safely","text":"Copy the backup file to an external drive, USB stick, or personal cloud storage, separate from the computer running Invoiso."},{"@type":"HowToStep","name":"Restore on the same or a new machine","text":"Install Invoiso if needed, open Settings → Backup, and restore from the saved backup file."},{"@type":"HowToStep","name":"Verify your data","text":"Check the dashboard, customer list, and a few invoices to confirm everything restored correctly."}]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
+</head>
+
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img
+            src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span
+          class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex">
+        <li><a href="../">Home</a></li>
+        <li><a href="./" aria-current="page">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions hidden md:flex"><a href="../docs.html" class="nav-btn">Docs</a><a
+          href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mob-nav-list">
+          <li><a href="../" class="mob-nav-link">Home</a></li>
+          <li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li>
+          <li><a href="../download.html" class="mob-nav-link">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left"
+            aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-database" aria-hidden="true"></i> Data &amp; backup</div>
+          <h1>Backup and Restore Invoice Data</h1>
+          <p>Invoiso stores everything locally, which means backups are your responsibility. Here's exactly how to
+            do it, and how to move your data to a new machine.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso
+              Team</span><span><i class="fas fa-calendar" aria-hidden="true"></i>August 2026</span><span><i
+                class="fas fa-clock" aria-hidden="true"></i>5 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/backup_and_restore_page.png"
+            alt="Backup and restore screen in Invoiso — one-click database backup to keep your data safe" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>Invoiso keeps every customer, invoice, product, and setting in a local SQLite database on your own
+              computer — nothing is synced to a server automatically. That's a privacy win, but it also means there
+              is no cloud vendor quietly backing your data up in the background. If a drive fails or a laptop gets
+              replaced, your invoice history is only as safe as your last backup. Here is the exact process for
+              backing it up, restoring it, and moving it to a new machine.</p>
+
+            <h2>Step 1: Open Settings → Backup</h2>
+            <p>In Invoiso, go to <strong>Settings → Backup</strong>. This screen handles both directions — creating
+              a new backup file and restoring from an existing one — so it's the only place you need for the whole
+              workflow.</p>
+
+            <h2>Step 2: Create a backup file</h2>
+            <p>Create a database backup and choose where to save the file. This single file contains your complete
+              database — every customer, invoice, product, and setting — so keeping it current is equivalent to
+              protecting your entire billing history in one action.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/backup_and_restore_page.png"
+                alt="Backup and restore screen in Invoiso — one-click database backup to keep your data safe"
+                loading="lazy" />
+              <figcaption>The Backup screen in Invoiso creates and restores your database file — no internet or
+                cloud account needed.</figcaption>
+            </figure>
+
+            <h2>Step 3: Store the backup somewhere safe</h2>
+            <p>A backup file sitting on the same hard drive as the original database protects you against almost
+              nothing — if that drive fails, both copies go with it. Copy the file to an external drive, a USB
+              stick, or your own cloud storage (Google Drive, OneDrive, or similar) on a regular schedule. Since
+              this is a manual step in offline software, it only works if you actually do it — set a recurring
+              reminder if backups aren't already part of your routine.</p>
+
+            <h2>Step 4: Restore on the same or a new machine</h2>
+            <p>To move to a new computer, or to recover from a lost database, install Invoiso on the target machine,
+              open <strong>Settings → Backup</strong>, and restore from your saved backup file. All customers,
+              products, and invoices transfer completely — no internet connection or account login required for
+              either direction of the process.</p>
+
+            <h2>Step 5: Verify your data</h2>
+            <p>After restoring, check the dashboard totals, open the customer list, and pull up a couple of recent
+              invoices to confirm everything matches what you expect before you resume billing on the new setup. A
+              quick check like this takes a minute and catches problems immediately, rather than weeks later when
+              you go looking for an invoice that turns out to be missing.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/dashboard.png"
+                alt="Invoiso dashboard showing total revenue, invoice count, and recent invoices overview"
+                loading="lazy" />
+              <figcaption>The dashboard is a quick sanity check after a restore — revenue and invoice counts should
+                match what you had before.</figcaption>
+            </figure>
+
+            <h2>Where the database actually lives</h2>
+            <p>Invoiso stores its database in your operating system's application support directory — typically
+              <code>~/.local/share/invoiso/</code> on Linux and <code>%AppData%\anoopp\invoiso\</code> on Windows.
+              You don't need to touch this file directly for normal use — the Backup screen handles it — but it's
+              useful to know if you ever need to locate it manually, for example after a reinstall. Uninstalling
+              Invoiso does not delete this folder, so a fresh install can often find your existing database even
+              without a manual backup, though taking one is still the safer habit.</p>
+
+            <h2>CSV export for reporting, not full backup</h2>
+            <p>The Invoice Management screen also has an <strong>Export CSV</strong> button, plus a bulk export for
+              selected invoices, which opens in Excel, Google Sheets, or any spreadsheet app. This is useful for
+              sharing a subset of data with an accountant or building a report, but it only covers invoices — it is
+              not a substitute for the full database backup, which is the only copy that includes customers,
+              products, and settings together.</p>
+
+            <div class="blog-article-cta">
+              <p>Invoiso keeps your billing data local with one-click backup and restore, no cloud account required.
+                See <a href="../offline-billing-software.html" class="primary-text">offline billing software</a> or
+                <a href="../download.html" class="primary-text">download the desktop app</a>.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2><a href="offline-vs-cloud-billing-software.html">Offline vs Cloud
+                Billing</a><a href="how-to-create-gst-invoice.html">GST Invoice Guide</a><a
+                href="../offline-billing-software.html">Offline Billing Software</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a
+            href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+
+</html>

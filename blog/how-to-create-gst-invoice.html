@@ -19,17 +19,20 @@
   <meta property="og:url" content="https://invoiso.co.in/blog/how-to-create-gst-invoice.html" />
   <meta property="og:site_name" content="Invoiso" />
   <meta property="article:published_time" content="2026-05-25T09:00:00+05:30" />
-  <meta property="article:modified_time" content="2026-05-25T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GST Invoice Guide | Invoiso Blog" />
   <meta name="twitter:description"
     content="A practical GST invoice checklist for small businesses, freelancers, and shops." />
   <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"GST Invoice Guide","description":"A practical GST invoice guide for Indian small businesses, covering GSTIN, HSN codes, invoice numbers, tax fields, PDF copies, and UPI payment details.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-06-25T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-create-gst-invoice.html"}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"GST Invoice Guide","description":"A practical GST invoice guide for Indian small businesses, covering GSTIN, HSN codes, invoice numbers, tax fields, PDF copies, and UPI payment details.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-create-gst-invoice.html"}}
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"GST Invoice Guide","item":"https://invoiso.co.in/blog/how-to-create-gst-invoice.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to Create a GST Invoice in Invoiso","description":"Steps to create a GST-compliant PDF invoice with GSTIN, HSN/SAC codes and CGST/SGST/IGST breakup in Invoiso.","step":[{"@type":"HowToStep","name":"Add your company GST details","text":"In Settings → Company Info, enter your business name, address, and GSTIN."},{"@type":"HowToStep","name":"Add products with HSN/SAC codes","text":"For each product or service, set the HSN (goods) or SAC (services) code and a tax rate so it carries into every invoice line automatically."},{"@type":"HowToStep","name":"Add or select the customer","text":"Enter the customer's name, billing address, and GSTIN if it is a B2B sale."},{"@type":"HowToStep","name":"Create the invoice and add line items","text":"Start a new invoice, pick the customer, and add products with quantity, rate, and discount."},{"@type":"HowToStep","name":"Review the tax breakup","text":"Invoiso calculates CGST + SGST for same-state sales or IGST for interstate sales automatically based on the tax rate."},{"@type":"HowToStep","name":"Generate the PDF","text":"Export the invoice as a PDF with GSTIN, HSN/SAC codes, tax breakup, and payment details included."}]}
   </script>
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
@@ -99,12 +102,18 @@
             alt="Create a new invoice in Invoiso — select customer, add products, apply tax rate" /></figure>
         <div class="blog-article-layout">
           <article class="blog-article">
+            <p>A GST invoice isn't just a bill with a tax number stapled on — it needs a specific set of fields to
+              hold up for your customer's input tax credit claim and your own GST return. This guide walks through
+              exactly what those fields are and the order to fill them in when creating one in Invoiso, from company
+              setup through to the final PDF.</p>
             <h2>Seller
               and buyer details</h2>
             <p>Start with the legal business name,
               address, phone or email, and GSTIN where applicable. Add the
               customer name, business name, billing address, and customer
-              GSTIN if the buyer is registered.</p>
+              GSTIN if the buyer is registered. In Invoiso this lives under <strong>Settings → Company Info</strong>
+              for your own details — fill it in once and it appears on every invoice you generate afterward, so you
+              never retype your GSTIN or address again.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/Company_settings_page.png"
                 alt="Company information settings in Invoiso — name, address, phone, email, GSTIN and logo"
                 loading="lazy" />
@@ -116,26 +125,53 @@
               date</h2>
             <p>Every invoice should have a unique invoice number
               and invoice date. If payment is not immediate, include a due
-              date so both sides understand the payment timeline.</p>
+              date so both sides understand the payment timeline. Invoiso auto-increments the invoice number for
+              you with a configurable prefix, so numbering stays sequential without you tracking it manually in a
+              register.</p>
             <h2>Line
               items and tax fields</h2>
             <p>Each product or service line should
               include a description, quantity, rate, discount if any, HSN or
               SAC where needed, and tax rate. For Indian GST workflows,
               businesses often need CGST, SGST, or IGST depending on the
-              sale.</p>
+              sale. Set the HSN (for goods) or SAC (for services) code once on the product record itself, and it
+              carries into every invoice line automatically — you don't retype a code every time you bill the same
+              item.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/edit_product.png"
                 alt="Edit product in Invoiso — set name, price, stock, HSN code and tax rate" loading="lazy" />
               <figcaption>Edit product in Invoiso — set
                 name, price, stock, HSN code and tax
                 rate.</figcaption>
             </figure>
+            <h2>How to create the invoice, step by step</h2>
+            <ol>
+              <li><strong>Set up your company GST details once.</strong> Settings → Company Info: business name,
+                  address, and GSTIN.</li>
+              <li><strong>Add HSN/SAC codes to your products.</strong> Open each product record and set its HSN
+                  (goods) or SAC (services) code plus a default tax rate.</li>
+              <li><strong>Add or pick the customer.</strong> Enter name, billing address, and GSTIN if it's a
+                  B2B sale — leave GSTIN blank for a B2C sale to an individual.</li>
+              <li><strong>Start a new invoice and add line items.</strong> Select the customer, add products, and
+                  set quantity, rate, and discount per line.</li>
+              <li><strong>Let Invoiso calculate the tax breakup.</strong> Based on the tax rate you set and whether
+                  the sale is intra-state or interstate, the invoice splits the amount into CGST + SGST or applies
+                  IGST — no manual percentage math.</li>
+              <li><strong>Generate the PDF.</strong> The finished invoice carries your GSTIN, the customer's GSTIN
+                  (if entered), HSN/SAC codes, the tax breakup, and the grand total, ready to send or print.</li>
+            </ol>
+            <h2>CGST, SGST, and IGST — which applies</h2>
+            <p>The rule is simple: same state, split the rate into CGST and SGST (half each); different state,
+              apply the full rate as IGST. Invoiso applies this automatically once your company state and the
+              customer's billing address are on file, so you don't have to remember the rule invoice by invoice —
+              it just shows the right breakup on the PDF.</p>
             <h2>Totals and payment
               details</h2>
             <p>Make the subtotal, tax amount, additional
               charges, discounts, paid amount, and balance easy to read.
               Include bank details, UPI ID, or a UPI QR code if you accept
-              digital payments.</p>
+              digital payments — see the <a href="how-to-add-upi-qr-code-to-invoice.html">UPI QR guide</a> for the
+              exact setup steps. Mark the invoice as paid, partially paid, or unpaid once payment comes in so your
+              records stay accurate for GST return filing later.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_pdf_view.png"
                 alt="Professional PDF invoice generated by Invoiso with company logo, itemised list and total amount"
                 loading="lazy" />
@@ -143,6 +179,11 @@
                 generated by Invoiso with company logo, itemised list and
                 total amount.</figcaption>
             </figure>
+            <h2>A note on GST compliance</h2>
+            <p>Invoiso gives every field a GST invoice needs and calculates the tax breakup for you, but it is
+              billing software, not a GST filing or return-preparation tool. Confirm your exact invoice format and
+              filing obligations with your accountant or the GST portal for your business's specific situation —
+              this guide covers the invoice fields, not tax law.</p>
             <div class="blog-article-cta">
               <p>Invoiso can create GST-ready PDF
                 invoices offline with GSTIN, HSN, tax fields, payment

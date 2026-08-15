@@ -19,14 +19,14 @@
   <meta property="og:url" content="https://invoiso.co.in/blog/dark-mode-coming-to-invoiso.html" />
   <meta property="og:site_name" content="Invoiso" />
   <meta property="article:published_time" content="2026-07-31T09:00:00+05:30" />
-  <meta property="article:modified_time" content="2026-07-31T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dark Mode Is Finally Coming to Invoiso | Invoiso Blog" />
   <meta name="twitter:description"
     content="Dark mode beta is live in Invoiso. Toggle it from Settings > Company Info to get a dark dashboard, login screen and core modules." />
   <meta name="twitter:image" content="https://invoiso.co.in/assets/images/hero/dashboard_dark.webp" />
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Dark Mode Is Finally Coming to Invoiso","description":"Dark mode is finally coming to Invoiso. Toggle it on from Settings > Company Info — dashboard, login screen and every core module now render in a full dark theme.","image":"https://invoiso.co.in/assets/images/hero/dashboard_dark.webp","datePublished":"2026-07-31T09:00:00+05:30","dateModified":"2026-07-31T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/dark-mode-coming-to-invoiso.html"}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Dark Mode Is Finally Coming to Invoiso","description":"Dark mode is finally coming to Invoiso. Toggle it on from Settings > Company Info — dashboard, login screen and every core module now render in a full dark theme.","image":"https://invoiso.co.in/assets/images/hero/dashboard_dark.webp","datePublished":"2026-07-31T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/dark-mode-coming-to-invoiso.html"}}
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Dark Mode Is Finally Coming to Invoiso","item":"https://invoiso.co.in/blog/dark-mode-coming-to-invoiso.html"}]}
@@ -94,14 +94,18 @@
             alt="Invoiso dashboard in dark mode showing revenue, outstanding, invoices and financial overview cards" /></figure>
         <div class="blog-article-layout">
           <article class="blog-article">
-            <p>Dark mode has been the most requested feature since launch. It is now live in beta across Invoiso — same layout, same data, dark surface.</p>
+            <p>Dark mode has been the most requested feature since Invoiso launched, and it shipped as part of the same release that added multi-currency support and the new dashboard layouts (see the <a href="../changelog.html" class="primary-text">changelog</a>). It is live now, rolled out across every core screen — same layout, same data, dark surface instead of light.</p>
+
+            <p>This wasn't a simple color inversion. Text contrast, chart colors, status badges (paid, overdue, out of stock) and the financial overview donut chart all needed separate palettes so they stay readable against a dark background instead of just looking washed out.</p>
 
             <h2>Where it applies</h2>
             <ul>
               <li>Dashboard overview — revenue, outstanding, invoices, customers, products and financial overview cards</li>
               <li>Login screen — username, password and cloud edition banner</li>
               <li>Recent invoices, out of stock and quick actions panels</li>
-              <li>Charts and financial overview donut render in dark-friendly colors</li>
+              <li>Invoice list, customer list and product list screens</li>
+              <li>Charts and the financial overview donut render in dark-friendly colors, not just a straight color inversion</li>
+              <li>Settings and reports screens, so the whole session stays dark once switched on — not just the dashboard shell</li>
             </ul>
 
             <figure class="blog-inline-figure"><img src="../assets/images/hero/login_dark.webp"
@@ -111,7 +115,24 @@
             </figure>
 
             <h2>How to turn it on</h2>
-            <p>Go to <strong>Settings &gt; Company Info</strong> and toggle dark mode on. It is marked beta — layouts and colors are still being refined, so if something looks off, let us know.</p>
+            <p>Go to <strong>Settings &gt; Company Info</strong> and toggle dark mode on. The switch applies immediately — no restart needed — and the preference is saved locally, so Invoiso reopens in the same mode next time you launch it.</p>
+
+            <h2>Why it's marked beta</h2>
+            <p>Dark mode is functional across every core module, but it's tagged beta because a few less-common screens and third-party PDF template previews are still being tuned for contrast. If a color looks off or a panel doesn't fully switch, that's expected during this phase — switching back to light mode from the same Settings toggle always works as a fallback.</p>
+
+            <h2>Why dark mode matters beyond looks</h2>
+            <p>For anyone billing late at night or running Invoiso on a shop counter monitor for hours at a stretch, a bright white dashboard is genuinely tiring on the eyes. Dark mode also tends to reduce power draw slightly on OLED and some laptop displays, though that wasn't the primary reason it was built — the main driver was the volume of user requests since the first release.</p>
+
+            <h2>What's next</h2>
+            <p>Feedback from the beta period will decide when dark mode moves out of beta and whether a system-matched auto-switch (following the OS light/dark setting) gets added. If you hit a screen that doesn't render correctly in dark mode, that's the kind of report that speeds this up.</p>
+
+            <h2>Availability</h2>
+            <p>Dark mode ships in the same free download as everything else — Linux and Windows both get it, with no separate build or paid tier required. It landed alongside multi-currency support, the four new dashboard layouts, and additional font support for Malayalam, Tamil, Telugu, Hindi, Kannada and Marathi, all in the same release.</p>
+
+            <h2>Frequently asked questions</h2>
+            <p><strong>Does dark mode affect generated PDFs?</strong> No. Dark mode only changes the app's on-screen interface. Invoice PDFs are generated using your chosen PDF template's own color scheme, independent of whether you're working in light or dark mode.</p>
+            <p><strong>Can I switch back to light mode any time?</strong> Yes — the same Settings &gt; Company Info toggle switches it off instantly, and there's no restriction on switching back and forth as often as you like.</p>
+            <p><strong>Will dark mode use less battery on a laptop?</strong> On OLED and some newer LCD panels, a darker interface can reduce power draw slightly, though the effect varies by hardware and wasn't the main reason dark mode was built.</p>
 
             <div class="blog-article-cta">
               <p>Update to the latest version from the <a href="../changelog.html" class="primary-text">changelog</a>, or <a href="../download.html" class="primary-text">download Invoiso</a> to try dark mode now.</p>

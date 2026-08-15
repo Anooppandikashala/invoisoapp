@@ -18,14 +18,14 @@
   <meta property="og:url" content="https://invoiso.co.in/blog/free-invoice-software-for-linux.html" />
   <meta property="og:site_name" content="Invoiso" />
   <meta property="article:published_time" content="2026-05-25T09:00:00+05:30" />
-  <meta property="article:modified_time" content="2026-05-25T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Linux Invoice Software | Invoiso Blog" />
   <meta name="twitter:description"
     content="A Linux billing software checklist for small businesses and freelancers." />
   <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Linux Invoice Software","description":"A Linux invoice software checklist covering AppImage, DEB packages, PDF export, backups, local data, and GST invoice fields.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-05-25T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/free-invoice-software-for-linux.html"}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Linux Invoice Software","description":"A Linux invoice software checklist covering AppImage, DEB packages, PDF export, backups, local data, and GST invoice fields.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/free-invoice-software-for-linux.html"}}
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Linux Invoice Software","item":"https://invoiso.co.in/blog/free-invoice-software-for-linux.html"}]}
@@ -96,16 +96,23 @@
             alt="About Invoiso screen — version, developer info and open source license details" /></figure>
         <div class="blog-article-layout">
           <article class="blog-article">
-            <h2>Package format</h2>
-            <p>An AppImage is
-              convenient when you want a portable build across many Linux
-              distributions. A DEB package is useful on Ubuntu or Debian-based
-              systems where package installation is preferred.</p>
-            <h2>PDF
-              invoice export</h2>
-            <p>The app should generate clean PDF invoices
-              that are easy to send, print, and archive. Test at least one
-              real invoice before committing your workflow.</p>
+            <p>Most invoicing software ships for Windows and macOS first — Linux gets an afterthought, if it gets anything at all beyond a browser tab pointed at someone else's server. That's a real problem if you run Ubuntu, Debian, Fedora, or Mint and want an actual desktop app: no subscription, no forced account, and no invoice data sitting on a vendor's cloud. Here's what to check before picking Linux invoice software, and how Invoiso covers each point.</p>
+
+            <h2>Package format and distro support</h2>
+            <p>Two formats cover almost every Linux desktop. A <strong>DEB package</strong> installs through your system package manager and adds a normal entry to your app launcher — Invoiso ships officially tested DEB builds for <strong>Ubuntu 22.04 LTS</strong> and <strong>24.04 LTS</strong>. An <strong>AppImage</strong> is a single self-contained executable that runs on virtually any 64-bit distribution — Fedora, Debian, Linux Mint, Pop!_OS, elementary OS, Zorin, MX Linux, Arch-based builds — with no package manager involved and no root access needed. Rule of thumb: DEB on Ubuntu or Debian for menu integration, AppImage everywhere else or if you just want to try the app without installing anything system-wide.</p>
+
+            <h2>Installing on Ubuntu or Debian (DEB)</h2>
+            <p>The fastest route is the install script — it detects your Ubuntu version, pulls the matching release from GitHub, and installs it with apt:</p>
+            <p><code>curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --deb</code></p>
+            <p>Prefer doing it by hand? Grab the <code>.deb</code> file from the <a href="../download.html">downloads page</a> and run <code>sudo dpkg -i invoiso_*.deb</code> in a terminal. Either way you end up with a normal desktop entry — no PPA to add, no snap store account required.</p>
+
+            <h2>Installing via AppImage (any distro)</h2>
+            <p>On Fedora, Arch, Mint, or anything that isn't Ubuntu, use the AppImage build instead:</p>
+            <p><code>curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --appimage</code></p>
+            <p>Or download <code>Invoiso-x.x.x-x86_64.AppImage</code> manually, make it executable with <code>chmod +x Invoiso-*.AppImage</code>, and run it by double-clicking in your file manager or with <code>./Invoiso-*.AppImage</code> from a terminal. No sudo prompt, no dependencies to chase, no system files touched.</p>
+
+            <h2>PDF invoice export</h2>
+            <p>Whatever software you pick, test the actual PDF output before committing your workflow — not just the on-screen preview. Open a real generated PDF, check it prints cleanly on A4, and confirm your logo, GSTIN, and tax breakdown all render the way you expect. Invoiso renders the PDF locally on your machine using the same engine on every distro — no server round-trip, no queue to wait on, no "download link expired" to chase later.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_pdf_view.png"
                 alt="Professional PDF invoice generated by Invoiso with company logo, itemised list and total amount"
                 loading="lazy" />
@@ -115,9 +122,7 @@
             </figure>
             <h2>Backup and
               restore</h2>
-            <p>Offline invoice software gives you control, but
-              you must protect the database. Choose software that makes backup
-              and restore easy to understand.</p>
+            <p>Offline software puts you in full control of your data, but that control comes with responsibility — there's no cloud provider quietly backing up your database in the background. Invoiso stores its data locally under <code>~/.local/share/invoiso/</code> on Linux, and the app includes a one-click backup and restore screen so you can export your entire database to an external drive, a synced folder, or a USB stick on whatever schedule suits you. Restoring is just as direct: point the app at a backup file, and moving to a new machine takes minutes instead of a support ticket.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/backup_and_restore_page.png"
                 alt="Backup and restore screen in Invoiso — one-click database backup to keep your data safe"
                 loading="lazy" />
@@ -127,12 +132,12 @@
             </figure>
             <h2>Tax and currency
               fields</h2>
-            <p>If you bill Indian customers, check for GSTIN,
-              HSN, and tax rate fields. If you work internationally, check
-              currency and invoice template flexibility.</p>
+            <p>If you invoice Indian customers, confirm the software has native GSTIN, HSN/SAC code, and CGST/SGST/IGST fields — bolting tax compliance onto a spreadsheet after the fact is a headache nobody wants. Invoiso includes all of these by default, plus configurable tax rates per product. Invoicing internationally instead? Check for multi-currency support and template flexibility so the PDF matches what your client actually expects to receive.</p>
+            <h2>Why offline matters on Linux</h2>
+            <p>Linux users tend to run offline-first software by habit — it's part of why the platform appeals to freelancers, developers, and small shop owners in the first place. Offline invoice software means your customer list, pricing, and invoice history live in a file you control, not a database you're renting access to. No subscription to cancel, no account to lose, no internet connection required at a market stall or a client site with patchy wifi. Invoiso is free and open source for exactly this reason — the source is public on GitHub, and there's no premium tier gating core billing features.</p>
             <div class="blog-article-cta">
-              <p>Invoiso provides Linux builds and
-                offline PDF billing. See the <a href="../invoice-software-for-linux.html" class="primary-text">invoice
+              <p>Invoiso provides Linux builds (DEB and AppImage) and
+                offline PDF billing with GST-ready fields. See the <a href="../invoice-software-for-linux.html" class="primary-text">invoice
                   software for Linux</a> page or
                 <a href="../download.html" class="primary-text">download
                   Invoiso</a>.

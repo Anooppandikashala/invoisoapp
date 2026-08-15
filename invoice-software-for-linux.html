@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Free invoice software for Linux. Download Invoiso as an offline desktop billing app with PDF invoices, GST fields, customer management, and backup support." />
+    content="Free invoice software for Linux — AppImage and DEB builds. Invoiso is an open-source offline billing app with PDF invoices, GST fields, and customer management." />
   <meta name="author" content="Invoiso" />
   <meta name="robots" content="index, follow" />
   <title>Invoice Software for Linux | Free Offline Billing App</title>
@@ -28,6 +28,46 @@
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://invoiso.co.in/invoice-software-for-linux.html#webpage","url":"https://invoiso.co.in/invoice-software-for-linux.html","name":"Invoice Software for Linux | Free Offline Billing App","description":"Free invoice software for Linux. Download Invoiso as an offline desktop billing app with PDF invoices, GST fields, customer management, and backup support.","inLanguage":"en","isPartOf":{"@id":"https://invoiso.co.in/#website"},"about":{"@id":"https://invoiso.co.in/#software"}},{"@type":"SoftwareApplication","@id":"https://invoiso.co.in/#software","name":"Invoiso","url":"https://invoiso.co.in/download.html","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","description":"Free offline billing software for Linux, Windows, and macOS with PDF invoices, GST fields, customers, products, payment tracking, and local backups.","applicationCategory":"BusinessApplication","operatingSystem":"Linux, Windows, macOS","softwareHelp":"https://invoiso.co.in/faq.html","downloadUrl":"https://invoiso.co.in/download.html","offers":{"@type":"Offer","price":"0","priceCurrency":"INR","availability":"https://schema.org/InStock"}}]}
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which Linux distributions does Invoiso support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The AppImage build runs on most modern 64-bit Linux distributions, including Ubuntu, Fedora, Debian, Pop!_OS, Linux Mint, and Arch-based systems, without a separate install step. The DEB package is built specifically for Ubuntu and other Debian-based distributions that use apt or dpkg."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need root or sudo access to run the AppImage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. AppImage files run directly after you mark them executable (chmod +x), with no system-wide installation and no admin rights required. The DEB package does need sudo since it registers the app with your system's package manager."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Invoiso need an internet connection on Linux?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Invoiso is offline-first on every platform, including Linux. Invoices, customers, and products are stored in a local database on your machine, so billing works the same with or without a network connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the Linux build the same as the Windows and macOS versions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Invoiso ships from a single open-source codebase on GitHub, so the Linux, Windows, and macOS builds share the same features — GST fields, UPI QR payments, PDF templates, and backups — with no functionality held back on Linux."
+          }
+        }
+      ]
+    }
   </script>
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -131,6 +171,111 @@
                 Linux guide</a><a href="offline-billing-software.html">Offline billing software overview</a><a
                 href="open-source-invoice-software.html">Open-source invoice software</a></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <div class="seo-grid seo-grid-two">
+          <article class="seo-card">
+            <h2>Installing Invoiso on Linux</h2>
+            <p>Both Linux builds come from the <a href="download.html">Downloads</a> page. For the AppImage: download
+              the file, make it executable with <code>chmod +x Invoiso-*.AppImage</code>, then double-click or run it
+              from a terminal — no package manager, no root permissions, no system files touched. For the DEB build
+              on Ubuntu or Debian-based distributions, install it with <code>sudo dpkg -i invoiso_*.deb</code> (or
+              open it directly through your distro's software center) and launch it from your applications menu like
+              any native app.</p>
+            <p>Because Invoiso is open source, you can also clone the
+              <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+              and run it from source on distributions that fall outside the AppImage/DEB coverage, or audit exactly
+              what the installer does before running it.</p>
+          </article>
+          <article class="seo-card">
+            <h2>Why Linux users choose Invoiso over web-based billing</h2>
+            <p>Most invoicing tools marketed to Indian small businesses — Vyapar, Zoho Invoice, and similar — either
+              skip Linux entirely or only offer a browser-based web app. Invoiso ships a real native desktop build
+              for Linux with the same feature set as Windows and macOS: PDF invoices, GST fields, UPI QR codes,
+              customer and product records, payment tracking, and local backups. There is no browser tab to keep
+              open, no account signup, and no dependency on a hosted service staying online.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section seo-section-alt">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <div class="seo-grid seo-grid-two">
+          <article class="seo-card">
+            <h2>AppImage vs. DEB — which build to pick</h2>
+            <ul>
+              <li><strong>AppImage</strong> — best if you want a portable, no-install app, use a non-Debian distro
+                (Fedora, Arch, openSUSE), or don't have admin rights on the machine</li>
+              <li><strong>DEB package</strong> — best on Ubuntu, Linux Mint, or Debian if you want the app registered
+                with your system package manager and listed in your applications menu automatically</li>
+            </ul>
+          </article>
+          <article class="seo-card">
+            <h2>Open source, MIT licensed</h2>
+            <p>Invoiso's Linux build comes from the same public repository as every other platform, released under
+              the MIT licence. You can inspect the code, verify there's no telemetry phoning home, and self-host a
+              custom build if your workflow needs it. See the full <a href="open-source-invoice-software.html">open-source
+              invoice software</a> page for licence details.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <h2 style="color:var(--text);font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:850;letter-spacing:-0.03em;margin-bottom:20px;">
+          Frequently asked questions
+        </h2>
+        <div class="space-y-2">
+          <details class="faq-item">
+            <summary class="faq-question">
+              Which Linux distributions does Invoiso support?
+              <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>The AppImage build runs on most modern 64-bit Linux distributions, including Ubuntu, Fedora, Debian,
+                Pop!_OS, Linux Mint, and Arch-based systems, without a separate install step. The DEB package is
+                built specifically for Ubuntu and other Debian-based distributions that use apt or dpkg.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Do I need root or sudo access to run the AppImage?
+              <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>No. AppImage files run directly after you mark them executable (<code>chmod +x</code>), with no
+                system-wide installation and no admin rights required. The DEB package does need sudo since it
+                registers the app with your system's package manager.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Does Invoiso need an internet connection on Linux?
+              <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>No. Invoiso is offline-first on every platform, including Linux. Invoices, customers, and products
+                are stored in a local database on your machine, so billing works the same with or without a network
+                connection.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              Is the Linux build the same as the Windows and macOS versions?
+              <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. Invoiso ships from a single open-source codebase on GitHub, so the Linux, Windows, and macOS
+                builds share the same features — GST fields, UPI QR payments, PDF templates, and backups — with no
+                functionality held back on Linux.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>

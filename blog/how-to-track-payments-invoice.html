@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="How to track invoice payments in Invoiso: record partial or full payments, follow paid/unpaid/partial status, download receipts, and see outstanding balances." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Track Invoice Payments | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/how-to-track-payments-invoice.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="How to Track Invoice Payments" />
+  <meta property="og:description"
+    content="Record payments, follow paid/unpaid/partial status, and track outstanding balances on Invoiso invoices." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/how-to-track-payments-invoice.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-15T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Track Invoice Payments | Invoiso Blog" />
+  <meta name="twitter:description"
+    content="Record payments, follow paid/unpaid/partial status, and track outstanding balances on Invoiso invoices." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Track Invoice Payments","description":"How to track invoice payments in Invoiso: record partial or full payments, follow paid/unpaid/partial status, download receipts, and see outstanding balances.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-15T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-track-payments-invoice.html"}}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Track Invoice Payments","item":"https://invoiso.co.in/blog/how-to-track-payments-invoice.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to Track Invoice Payments in Invoiso","description":"Steps to record payments against an invoice and follow paid, unpaid, and partial status in Invoiso.","step":[{"@type":"HowToStep","name":"Open the invoice","text":"Open the invoice you want to record a payment against from the invoice list."},{"@type":"HowToStep","name":"Record a payment","text":"Enter the amount received and the payment date. Enter less than the full total for a partial payment."},{"@type":"HowToStep","name":"Let the status update automatically","text":"Invoiso recalculates the outstanding balance and updates the status chip to Unpaid, Partial, or Paid."},{"@type":"HowToStep","name":"Download the payment receipt","text":"Download a PDF receipt for the payment you just recorded."},{"@type":"HowToStep","name":"Check outstanding balances","text":"Open the Invoice Status Report to see paid, unpaid, and overdue invoices with filter chips."},{"@type":"HowToStep","name":"Review per-customer balances","text":"Open the Customer Statement Report to see revenue and outstanding balance for each client."}]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
+</head>
+
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img
+            src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span
+          class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex">
+        <li><a href="../">Home</a></li>
+        <li><a href="./" aria-current="page">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a
+          href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mob-nav-list">
+          <li><a href="../" class="mob-nav-link">Home</a></li>
+          <li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li>
+          <li><a href="../download.html" class="mob-nav-link">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left"
+            aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-money-check-dollar" aria-hidden="true"></i> Payments</div>
+          <h1>Track Invoice Payments</h1>
+          <p>Record partial or full payments, follow paid/unpaid/partial status, and keep outstanding balances
+            accurate without a spreadsheet.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i
+                class="fas fa-calendar" aria-hidden="true"></i>Aug 2026</span><span><i class="fas fa-clock"
+                aria-hidden="true"></i>5 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/report_invoice_status.png"
+            alt="Invoice status report in Invoiso — paid, unpaid and overdue invoices with filter chips" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>An invoice that's out the door isn't the same as an invoice that's paid. The gap between the two — who
+              owes what, how much came in, and what's still outstanding — is where most manual bookkeeping breaks
+              down. Invoiso tracks that gap for you: every payment you record against an invoice updates its status
+              and the business-wide outstanding balance automatically. Here's exactly how to use it.</p>
+            <h2>What payment tracking covers</h2>
+            <p>Invoiso lets you record a partial or full payment against any invoice. Each invoice carries a status
+              of <strong>Unpaid</strong>, <strong>Partial</strong>, or <strong>Paid</strong>, shown as a
+              colour-coded chip so you can scan a full invoice list and see payment state at a glance. The app
+              calculates the outstanding balance automatically from the invoice total and the payments recorded
+              against it — you never subtract it by hand.</p>
+            <h2>How to record a payment, step by step</h2>
+            <ol>
+              <li><strong>Open the invoice.</strong> From the invoice list, open the invoice you're recording a
+                payment against.</li>
+              <li><strong>Enter the payment amount and date.</strong> Enter the full total for a complete payment,
+                or a smaller amount for a partial payment against a larger bill.</li>
+              <li><strong>Save the payment.</strong> Invoiso logs it and recalculates the outstanding balance for
+                that invoice immediately.</li>
+              <li><strong>Watch the status update.</strong> The invoice's status chip switches to Partial once any
+                payment is recorded short of the full amount, and to Paid once the balance reaches zero.</li>
+              <li><strong>Download a receipt.</strong> Generate a PDF receipt for the payment you just recorded, so
+                the customer has proof of that specific transaction, not just the original invoice.</li>
+              <li><strong>Repeat for further instalments.</strong> If a customer pays in stages, record each
+                payment as it arrives — the outstanding balance narrows with every entry until it's fully settled.
+              </li>
+            </ol>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_simple_view.png"
+                alt="Invoice details view in Invoiso showing customer info, line items and total amount due"
+                loading="lazy" />
+              <figcaption>Invoice details view in Invoiso — the same screen where you record payments and see the
+                current balance.</figcaption>
+            </figure>
+            <h2>Reading the status chips</h2>
+            <p><strong>Unpaid</strong> means no payment has been recorded yet. <strong>Partial</strong> means some
+              amount has come in but the balance isn't zero. <strong>Paid</strong> means the full invoice total has
+              been received. These three states are the fastest way to triage a long invoice list without opening
+              each one — sort or filter by status and you immediately see which customers still owe money.</p>
+            <h2>Seeing outstanding balances across the business</h2>
+            <p>Open the <strong>Invoice Status Report</strong> to view every invoice filtered by paid, unpaid, or
+              overdue, using the built-in filter chips — useful for a weekly check on what's still pending rather
+              than scrolling the full invoice list. For a per-client view, open the <strong>Customer Statement
+                Report</strong>, which shows total revenue and the current outstanding balance for each customer,
+              so you know exactly who to follow up with and how much is due.</p>
+            <figure class="blog-inline-figure"><img
+                src="../assets/images/screenshots/report_customer_wise_statement.png"
+                alt="Customer-wise statement report in Invoiso showing revenue and outstanding balance per client"
+                loading="lazy" />
+              <figcaption>Customer-wise statement report — revenue and outstanding balance per client.</figcaption>
+            </figure>
+            <h2>Handling a partial payment correctly</h2>
+            <p>Partial payments are the most common source of confusion in manual bookkeeping, because a paper
+              register only has room for "paid" or "not paid." Invoiso treats a partial payment as a first-class
+              state rather than a workaround: record the amount that actually came in, and the app carries the
+              remaining balance forward on the same invoice. If a customer later pays the rest in a second
+              instalment, record that as a second payment entry against the same invoice rather than editing the
+              first one — that way you keep an accurate log of when each amount arrived, which matters if a
+              customer later disputes what they paid and when.</p>
+            <h2>Why this beats a spreadsheet</h2>
+            <p>A spreadsheet tracks payments only as accurately as whoever last updated it, and it doesn't
+              recalculate the invoice's status chip or flag which customers have gone quiet on an overdue balance.
+              Because Invoiso ties every payment to the specific invoice it belongs to, the outstanding balance
+              shown on an invoice, in the Invoice Status Report, and in the Customer Statement Report always agree
+              with each other — there's no separate ledger to keep in sync by hand, and no risk of the spreadsheet
+              and the invoice list drifting apart after a few months of billing.</p>
+            <h2>Practical habits that keep balances accurate</h2>
+            <p>Record a payment the same day it arrives rather than batching a week's worth from memory — recall
+              errors are where outstanding-balance mistakes usually start. If a customer pays by bank transfer with
+              a delay before it clears, note the payment date as the date funds actually arrived, not the date
+              promised. And run the Invoice Status Report at a fixed weekly time, so chasing unpaid invoices becomes
+              a habit rather than something you remember only when cash is tight.</p>
+            <div class="blog-article-cta">
+              <p>Invoiso tracks partial and full payments, status, and outstanding balances offline, with PDF
+                receipts per payment. See <a href="../free-gst-billing-software.html" class="primary-text">free GST
+                  billing software</a> or <a href="../download.html" class="primary-text">download the desktop app</a>.
+              </p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2><a href="how-to-create-gst-invoice.html">GST Invoice Guide</a><a
+                href="how-to-add-upi-qr-code-to-invoice.html">UPI QR on Invoices</a><a
+                href="offline-vs-cloud-billing-software.html">Offline vs Cloud Billing</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a
+            href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+
+</html>

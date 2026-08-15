@@ -58,6 +58,18 @@
       "description": "Request custom PDF templates, custom fields, white-label branding, and industry-specific Invoiso builds."
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What can I customize without paying for custom work?", "acceptedAnswer": { "@type": "Answer", "text": "The free Invoiso app already lets you switch between multiple PDF invoice templates (Classic, Modern, Minimal, Executive, Vintage, and a compact A6 receipt layout), pick from six theme colors or a custom color picker on Modern and Classic templates, and upload your own logo with position and size controls. No request needed for any of this." } },
+        { "@type": "Question", "name": "What counts as paid customization work?", "acceptedAnswer": { "@type": "Answer", "text": "Anything beyond the built-in template and branding options: a one-off PDF layout designed to your exact spec, new fields added to invoices, customers, or products, white-label builds for reselling, industry-specific workflow changes, or a cloud database version with multi-device sync." } },
+        { "@type": "Question", "name": "How much does customization cost?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope. Submit your requirements through the form and you'll get a quote after a feasibility and effort review — before any custom work starts." } },
+        { "@type": "Question", "name": "Can I get a custom PDF invoice template only, without other changes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Template-only requests (layout, branding, columns, terms, signatures) are common and usually faster to scope and deliver than requests that also touch the app's logic or database." } }
+      ]
+    }
+    </script>
   </head>
 
   <body class="font-sans">
@@ -222,6 +234,33 @@
             </div>
           </div>
 
+          <div class="customization-fit-grid">
+            <div class="customization-info-card">
+              <span class="customization-card-label">Already included, free</span>
+              <h2>What you can customize today, no request needed</h2>
+              <p>Before you submit a paid request, check what's already built into the free app. Invoiso ships with
+                several PDF invoice templates — Classic, Modern, Minimal, Executive, Vintage, and a compact A6
+                receipt layout for shorter bills — so you can switch the look of your invoices from a settings
+                screen. Modern and Classic templates also support a theme color: pick from six preset swatches
+                (blue, green, purple, orange, red, graphite) or set any custom color with the built-in color
+                picker. You can upload your own logo, then control its position and display size on the invoice.
+                Company details — name, address, phone, email, and GSTIN — appear on every invoice once saved in
+                settings. None of this needs a customization request or extra payment.</p>
+            </div>
+            <div class="customization-info-card">
+              <span class="customization-card-label">Paid custom work</span>
+              <h2>What goes beyond the free app</h2>
+              <p>Custom work covers what the built-in options can't do. That includes a PDF template built to your
+                exact layout — different column order, extra signature blocks, specific paper sizes, or branding
+                rules beyond a logo and accent color. It also covers new data fields on invoices, customers, or
+                products that don't exist in the standard app; white-label builds if you plan to distribute Invoiso
+                under your own brand; industry-specific adjustments for retail, trading, repair, or service
+                billing flows that differ from the default; and a cloud database option built on your own Supabase
+                account for teams that need multiple people billing from different devices with real-time sync,
+                while keeping the data in an account you control rather than ours.</p>
+            </div>
+          </div>
+
           <div class="customization-form-shell" id="customization-request-form">
             <div class="customization-form-header">
               <div>
@@ -236,6 +275,54 @@
             <div class="customization-form-frame">
               <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdctSA4Qsw86kbaHWZCI0xuGNfEqUdteZGtU-rxjFFAb0eVYw/viewform?embedded=true" title="Invoiso Customisation Request form" width="640" height="2400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="customization-section py-16">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <h2 class="text-2xl font-bold mb-6">Customization FAQ</h2>
+          <div class="space-y-2">
+            <details class="faq-item">
+              <summary class="faq-question">What can I customize without paying for custom work?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>The free Invoiso app already lets you switch between multiple PDF invoice templates (Classic,
+                  Modern, Minimal, Executive, Vintage, and a compact A6 receipt layout), pick from six theme colors
+                  or a custom color picker on Modern and Classic templates, and upload your own logo with position
+                  and size controls. No request needed for any of this.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">What counts as paid customization work?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Anything beyond the built-in template and branding options: a one-off PDF layout designed to
+                  your exact spec, new fields added to invoices, customers, or products, white-label builds for
+                  reselling, industry-specific workflow changes, or a cloud database version with multi-device
+                  sync.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">How much does customization cost?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>It depends on scope. Submit your requirements through the form and you'll get a quote after a
+                  feasibility and effort review — before any custom work starts.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-question">Can I get a custom PDF invoice template only, without other changes?
+                <i class="fas fa-chevron-down faq-chevron" aria-hidden="true"></i>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes. Template-only requests (layout, branding, columns, terms, signatures) are common and
+                  usually faster to scope and deliver than requests that also touch the app's logic or database.</p>
+              </div>
+            </details>
           </div>
         </div>
       </section>

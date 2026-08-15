@@ -18,17 +18,20 @@
   <meta property="og:url" content="https://invoiso.co.in/blog/how-to-add-upi-qr-code-to-invoice.html" />
   <meta property="og:site_name" content="Invoiso" />
   <meta property="article:published_time" content="2026-05-25T09:00:00+05:30" />
-  <meta property="article:modified_time" content="2026-05-25T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-15T09:00:00+05:30" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="UPI QR on Invoices | Invoiso Blog" />
   <meta name="twitter:description"
     content="Payment QR code tips for small business invoices." />
   <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"UPI QR on Invoices","description":"Learn how to add a UPI QR code to an invoice and what payment details small businesses should include on PDF invoices.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-06-25T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-add-upi-qr-code-to-invoice.html"}}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"UPI QR on Invoices","description":"Learn how to add a UPI QR code to an invoice and what payment details small businesses should include on PDF invoices.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-05-25T09:00:00+05:30","dateModified":"2026-08-15T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/how-to-add-upi-qr-code-to-invoice.html"}}
   </script>
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"UPI QR on Invoices","item":"https://invoiso.co.in/blog/how-to-add-upi-qr-code-to-invoice.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to Add a UPI QR Code to an Invoice in Invoiso","description":"Steps to enable a scannable UPI payment QR code on Invoiso PDF invoices.","step":[{"@type":"HowToStep","name":"Open Payment Settings","text":"Go to Settings → Company Info → Payment Settings in Invoiso."},{"@type":"HowToStep","name":"Enter your UPI ID","text":"Type your UPI ID into the UPI ID field, for example yourname@bank."},{"@type":"HowToStep","name":"Enable the QR toggle","text":"Turn on the 'Show UPI QR on invoice' toggle."},{"@type":"HowToStep","name":"Save settings","text":"Save your Payment Settings changes."},{"@type":"HowToStep","name":"Generate the invoice PDF","text":"Create or export any invoice — the UPI QR code is embedded automatically near the total on the PDF."}]}
   </script>
   <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
@@ -97,18 +100,50 @@
             alt="Invoice settings screen in Invoiso — configure prefix, currency, tax and UPI QR code" /></figure>
         <div class="blog-article-layout">
           <article class="blog-article">
+            <p>A UPI QR code on an invoice turns "please pay within 7 days" into "scan this and you're done." For
+              Indian small businesses billing individual customers, it collapses the entire payment step — no typing
+              a UPI ID, no copying an account number, no waiting for a bank transfer to clear. Here's what a good
+              payment QR needs, and the exact steps to add one to every invoice in Invoiso.</p>
             <h2>What a
               payment QR should include</h2>
-            <p>The QR should represent the
-              correct UPI ID and payment receiver name. If your invoice
-              software supports it, it may also include the amount so the
-              customer does not need to type it manually.</p>
+            <p>The QR must encode the correct UPI ID and payee (receiver) name — get either wrong and payments either
+              fail to scan or land somewhere else. A well-formed UPI QR uses the standard <code>upi://pay</code>
+              deep-link format, which every major UPI app reads the same way: Google Pay, PhonePe, Paytm, BHIM, and
+              Amazon Pay. Some setups also encode a fixed amount so the customer doesn't have to type it manually —
+              useful for a fixed-price service, less useful for invoices where the customer might pay a partial
+              amount.</p>
+            <h2>How to add a UPI QR code in Invoiso</h2>
+            <ol>
+              <li><strong>Open Payment Settings.</strong> In Invoiso, go to <strong>Settings → Company Info → Payment
+                  Settings</strong>.</li>
+              <li><strong>Enter your UPI ID.</strong> Type your UPI ID into the UPI ID field — the format is
+                  <code>yourname@bank</code>, for example <code>shop@okhdfcbank</code> or <code>9876543210@ybl</code>.</li>
+              <li><strong>Turn on the QR toggle.</strong> Enable "Show UPI QR on invoice" so the code is embedded on
+                  generated PDFs.</li>
+              <li><strong>Save your settings.</strong> The UPI ID and toggle apply to every invoice going forward —
+                  you only configure this once.</li>
+              <li><strong>Generate any invoice.</strong> Create or export a PDF as usual. Invoiso builds the QR code
+                  automatically from your saved UPI ID and places it near the total, no extra step per invoice.</li>
+            </ol>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_settings_page.png"
+                alt="Invoice settings screen in Invoiso — configure prefix, currency, tax and UPI QR code"
+                loading="lazy" />
+              <figcaption>Payment Settings in Invoiso — enter your UPI ID once and every invoice PDF gets a
+                scannable QR code automatically.</figcaption>
+            </figure>
+            <h2>Which UPI apps can scan it</h2>
+            <p>Because Invoiso generates a standard <code>upi://pay</code> deep link rather than a proprietary
+              format, the QR works with any UPI-enabled banking app your customer already has installed — there's
+              nothing for them to download or set up. Test it yourself before rolling it out: open your own UPI app,
+              scan a sample invoice PDF on screen or printed, and confirm your correct UPI ID and business name show
+              up before you tap pay.</p>
             <h2>Where to
               place it</h2>
             <p>Place the QR code near the payment summary or
               footer, where the customer naturally looks after checking the
               total. Keep it large enough to scan from a printed
-              PDF.</p>
+              PDF — roughly 2.5cm square minimum for a printed A4 or A6 invoice — and avoid placing it over a
+              patterned or dark background that reduces scan contrast.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_pdf_view.png"
                 alt="Professional PDF invoice generated by Invoiso with company logo, itemised list and total amount"
                 loading="lazy" />
@@ -118,14 +153,17 @@
             </figure>
             <h2>Add fallback payment
               details</h2>
-            <p>Add the UPI ID as text and optionally bank
-              details. If the QR code cannot be scanned, the customer still
-              has another way to pay.</p>
+            <p>Add the UPI ID as plain text next to the QR code, and optionally bank account and IFSC details below
+              it. If the QR code cannot be scanned — a bad print, a screen glare, an older phone camera — the
+              customer still has a legible fallback and doesn't need to call you to ask for your payment details
+              again.</p>
             <h2>Track payment status</h2>
             <p>A QR
               code helps collect payment, but the business still needs to mark
               whether the invoice is unpaid, partially paid, or fully
-              paid.</p>
+              paid. Update the invoice status as payments come in so your reports and outstanding-balance list stay
+              accurate — a QR code that gets scanned doesn't automatically tell your books the invoice was
+              settled.</p>
             <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_simple_view.png"
                 alt="Invoice details view in Invoiso showing customer info, line items and total amount due"
                 loading="lazy" />
@@ -133,6 +171,12 @@
                 showing customer info, line items and total amount
                 due.</figcaption>
             </figure>
+            <h2>Troubleshooting a QR that won't scan</h2>
+            <p>Most scan failures come down to print quality or size, not the QR data itself. If customers report
+              issues: check the invoice isn't printed at a reduced scale that shrinks the QR below a readable size,
+              confirm your printer or PDF export isn't compressing the image into a blurry raster, and re-verify the
+              UPI ID in Payment Settings hasn't been mistyped. When in doubt, scan your own invoice with a second
+              phone before sending a batch out.</p>
             <div class="blog-article-cta">
               <p>Invoiso supports UPI QR details on
                 invoices and payment tracking in the desktop app. See <a href="../free-gst-billing-software.html"
