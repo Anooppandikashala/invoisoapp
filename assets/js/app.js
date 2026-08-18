@@ -49,12 +49,18 @@ var testimonials = [
     text: 'Simple anh best, like the other invoice app.',
     stars: 4,
   },
+  {
+    name: 'Kukil',
+    location: '',
+    text: 'Nice software for gst Billi Its free Thankyou Anoop sir',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
   //   text: '',
   //   stars: 5,
-  // }
+  // },
 ];
 
 (function buildTestimonials() {
