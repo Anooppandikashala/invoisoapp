@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Export invoice format india gst: mandatory fields, LUT vs paying IGST, multi-currency billing, and how Indian SMBs create export invoices in Invoiso." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Export Invoice Format India GST: Guide for Indian SMBs | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/export-invoice-multi-currency-billing.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Export Invoice Format India GST: Guide for Indian SMBs" />
+  <meta property="og:description" content="Selling abroad? Here's how GST treats exports, what your export invoice must include, and how to handle multi-currency billing correctly." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/export-invoice-multi-currency-billing.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-17T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-17T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Export Invoice Format India GST: Guide for Indian SMBs | Invoiso Blog" />
+  <meta name="twitter:description" content="Selling abroad? Here's how GST treats exports, what your export invoice must include, and how to handle multi-currency billing correctly." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Export Invoice Format India GST: A Complete Guide for Indian SMBs","description":"Export invoice format india gst: mandatory fields, LUT vs paying IGST, multi-currency billing, and how Indian SMBs create export invoices in Invoiso.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-17T09:00:00+05:30","dateModified":"2026-08-17T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/export-invoice-multi-currency-billing.html"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Export Invoice Format & Multi-Currency Billing","item":"https://invoiso.co.in/blog/export-invoice-multi-currency-billing.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is GST charged on exports from India?","acceptedAnswer":{"@type":"Answer","text":"Exports are treated as a zero-rated supply under Section 16 of the IGST Act. You either export under a Letter of Undertaking (LUT) without paying IGST upfront, or pay IGST at the time of export and claim it back as a refund. Either way, no GST is meant to be a final cost to the exporter. Confirm the current process with your CA, since refund and LUT procedures are occasionally revised by CBIC."}},{"@type":"Question","name":"What is an LUT and do I need one to export without paying IGST?","acceptedAnswer":{"@type":"Answer","text":"A Letter of Undertaking (LUT) is a self-declaration filed on the GST portal that lets a registered exporter ship goods or services abroad without paying IGST upfront. It's typically filed once for a financial year and its reference number should appear on every export invoice raised under it."}},{"@type":"Question","name":"What must an export invoice show that a domestic GST invoice doesn't?","acceptedAnswer":{"@type":"Answer","text":"An export invoice needs the recipient's country and address, an 8-digit HSN code, your IEC (Import Export Code), a declaration such as 'Supply meant for export under LUT without payment of integrated tax' with the LUT reference, the invoice currency along with its INR equivalent at the applicable exchange rate, and eventually a shipping bill or bill of export reference once goods clear customs."}},{"@type":"Question","name":"Can I raise export invoices in USD or other foreign currency in Invoiso?","acceptedAnswer":{"@type":"Answer","text":"Yes. Invoiso lets you bill a customer in a foreign currency and record the amount received, so your export invoices reflect the currency your overseas buyer actually pays in while you keep your own books in INR."}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+</head>
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex"><li><a href="../">Home</a></li><li><a href="./" aria-current="page">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu"><div class="mobile-menu-panel"><ul class="mob-nav-list"><li><a href="../" class="mob-nav-link">Home</a></li><li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li><li><a href="../download.html" class="mob-nav-link">Download</a></li></ul></div></div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-globe" aria-hidden="true"></i> Exports</div>
+          <h1>Export Invoice Format India GST: A Complete Guide for Indian SMBs</h1>
+          <p>Selling abroad? Here's how GST treats exports, what your export invoice must include, and how to handle multi-currency billing correctly.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i class="fas fa-calendar" aria-hidden="true"></i>Aug 2026</span><span><i class="fas fa-clock" aria-hidden="true"></i>7 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/invoice_pdf_view.png" alt="Export invoice PDF generated in Invoiso showing itemised details ready to send to an overseas buyer" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>Selling to a customer outside India changes the invoice you need to raise. GST treats an export invoice differently from a domestic one, customs wants specific fields for clearance, and you're billing in a currency that isn't rupees while your accounting still needs to land in INR. None of this is complicated once you know the shape of it — this guide covers the export invoice format under GST, the LUT process most small exporters use, the fields your invoice must carry, and how to handle multi-currency billing without the numbers drifting apart. As always, GST and customs rules are periodically updated by CBIC, so treat this as a working guide and confirm specifics with your CA before your first export shipment. Getting the format right the first time also saves you from reissuing invoices later, which can complicate LUT and refund matching once a shipment is already in transit.</p>
+
+            <h2>Are exports taxable under GST?</h2>
+            <p>Exports of goods and services from India are treated as a <strong>zero-rated supply</strong> under Section 16 of the IGST Act. Zero-rated doesn't mean exempt — it means GST is not meant to be a cost on export transactions at all, and exporters get one of two routes to achieve that:</p>
+            <ul>
+              <li><strong>Export under LUT (Letter of Undertaking):</strong> you ship the goods or supply the service without paying IGST upfront, provided you've filed a valid LUT on the GST portal for the financial year.</li>
+              <li><strong>Export on payment of IGST:</strong> you pay IGST at the time of export and then claim it back as a refund once the shipment is processed.</li>
+            </ul>
+            <p>Most small and mid-size exporters prefer the LUT route since it avoids tying up working capital in a tax that gets refunded later. LUTs are filed once a year and, once approved, apply to every export invoice raised during that period — you just need to quote the LUT reference number on each invoice.</p>
+
+            <h2>Mandatory fields on an export invoice</h2>
+            <p>An export invoice carries everything a normal GST tax invoice does, plus a set of export-specific fields that customs and your GST return both rely on:</p>
+            <ol>
+              <li><strong>Invoice number and date</strong> — same sequential numbering rules as any other GST invoice.</li>
+              <li><strong>Exporter details</strong> — your legal business name, address and GSTIN exactly as registered.</li>
+              <li><strong>IEC (Import Export Code)</strong> — the 10-digit code issued by DGFT that every exporter needs to ship goods out of India; usually shown just below your GSTIN.</li>
+              <li><strong>Recipient details</strong> — the overseas buyer's name, address and country. A foreign buyer generally won't have a GSTIN.</li>
+              <li><strong>HSN code</strong> — export invoices typically require the full 8-digit HSN code for goods, rather than the shorter codes allowed on some domestic invoices.</li>
+              <li><strong>Zero-rated declaration</strong> — a line stating either "Supply meant for export under LUT without payment of integrated tax" (with your LUT reference number) or "Supply meant for export on payment of integrated tax," depending on which route you're using.</li>
+              <li><strong>Invoice currency and INR equivalent</strong> — the invoice value in the currency you're billing (USD, EUR, GBP, etc.) along with its INR equivalent, converted at the applicable exchange rate on the invoice date.</li>
+              <li><strong>Place of supply and port details</strong> — port of loading and country of final destination, which customs cross-checks against your shipping documents.</li>
+              <li><strong>Shipping bill / bill of export reference</strong> — added once the shipment clears customs; this ties your GST invoice to the actual export for refund or LUT compliance purposes.</li>
+            </ol>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/create_new_invoice2.png" alt="Creating a new invoice in Invoiso with customer country and line item details for an export sale" loading="lazy" />
+              <figcaption>Adding customer and line-item details when creating an export invoice.</figcaption>
+            </figure>
+
+            <h2>Multi-currency billing: what to get right</h2>
+            <p>Billing a foreign buyer in their own currency is normal and often expected — a US client paying in USD, a European buyer paying in EUR. The part that trips up small exporters isn't the billing itself, it's keeping the currency conversion consistent across the invoice, your accounting books, and your GST filing:</p>
+            <ul>
+              <li><strong>Show both figures.</strong> The invoice should display the amount in the billed currency and its INR equivalent, since GST returns and your books are ultimately reported in rupees.</li>
+              <li><strong>Use a defensible exchange rate.</strong> Convert at the rate applicable on the invoice date — typically the RBI reference rate or the rate your bank applies — and keep a record of which rate you used and when, rather than recalculating later from memory.</li>
+              <li><strong>Don't edit the rate after the fact.</strong> If the rupee moves before payment actually lands, that's a foreign-exchange gain or loss to record separately — the original invoice's conversion rate stays as it was on the invoice date.</li>
+              <li><strong>Track payment separately from invoice value.</strong> The amount your bank actually credits, after conversion and any bank charges, can differ slightly from the invoice's INR equivalent. Record what you invoiced and what you received as two data points, not one — reconciling the two later is far easier if both were captured at the time rather than reconstructed from bank statements months afterward.</li>
+              <li><strong>Keep numbering separate if it helps reconciliation.</strong> Some exporters use a distinct invoice number prefix for export invoices, which makes it easier to filter them out during LUT or refund filing.</li>
+            </ul>
+
+            <h2>How Invoiso handles foreign-currency invoicing</h2>
+            <p>Invoiso lets you bill a customer in a foreign currency directly on the invoice, so an overseas buyer sees the amount in the currency they actually pay in, while your invoice record stays part of the same offline database as every domestic sale. You can add custom fields where the standard layout doesn't cover something export-specific — an LUT reference line, a shipping-bill number added after clearance, or a port-of-loading note — without needing a separate tool just for export billing. Company settings hold your GSTIN, IEC and bank details once, so they appear automatically on every invoice, export or domestic, rather than being retyped each time.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/Company_settings_page.png" alt="Company settings screen in Invoiso for storing GSTIN, IEC and bank details used across every invoice" loading="lazy" />
+              <figcaption>Company settings — GSTIN, IEC and bank details, filled once and applied to every invoice.</figcaption>
+            </figure>
+            <p>Because Invoiso runs offline on your desktop, your export invoice data — buyer details, HSN codes, currency amounts — stays local rather than sitting on a third-party server, which matters for businesses handling overseas client information.</p>
+
+            <h2>Reporting export invoices in your GST returns</h2>
+            <p>Export invoices don't just sit in your own records — they need to show up correctly in your GST returns for the LUT or refund process to close out. Export invoices are reported separately from domestic sales in <strong>GSTR-1</strong>, typically under the table meant for exports (commonly referred to as Table 6A), which asks for the invoice details along with the shipping bill number and date once available. If you exported on payment of IGST and are claiming a refund, that refund is generally processed by matching your GST return data against the shipping bill data your customs broker files on ICEGATE — so a mismatch between the invoice value on your GST return and the value declared on the shipping bill is one of the more common reasons refunds get held up. Keeping consistent HSN codes, invoice values and currency conversions between your invoice, your GST return and your shipping documents avoids most of this friction.</p>
+
+            <h2>Common export invoice mistakes</h2>
+            <p>A few mistakes come up repeatedly with first-time exporters. Quoting a 4 or 6-digit HSN code instead of the full 8-digit code customs expects is one of the most common, since many domestic invoices don't need that precision and the habit carries over. Forgetting to update the LUT reference number when a new financial year's LUT is approved is another — the old LUT number no longer applies once it expires, even if your export activity continues uninterrupted. Some exporters also convert the invoice currency to INR using whatever rate their bank quotes on the day payment arrives, rather than the rate applicable on the invoice date, which creates a mismatch between the invoice record and the return filed against it. And a surprising number of otherwise GST-compliant businesses simply forget to add their IEC to the invoice, treating it as a customs-only detail rather than something that belongs on the document itself.</p>
+
+            <h2>A practical checklist before your first export invoice</h2>
+            <ol>
+              <li>Confirm your IEC is active and linked to your GST registration.</li>
+              <li>File an LUT for the current financial year if you plan to export without paying IGST upfront.</li>
+              <li>Use the full 8-digit HSN code for every item on the invoice.</li>
+              <li>Add the zero-rated declaration line with your LUT reference, or note that IGST has been paid if you're going the refund route.</li>
+              <li>Show the invoice currency and its INR equivalent at the rate applicable on the invoice date.</li>
+              <li>Keep the shipping bill or bill of export number ready to attach to the invoice record once the shipment clears customs.</li>
+              <li>Check current LUT, refund and e-invoicing thresholds with your CA — CBIC updates procedural rules periodically, and this guide covers the structure, not a substitute for that check.</li>
+              <li>Keep a copy of every export invoice alongside its matching shipping bill and bank realisation certificate, so a GST audit or refund query can be answered from one folder rather than reconstructed after the fact.</li>
+            </ol>
+
+            <div class="blog-article-cta">
+              <p>Invoiso supports foreign-currency invoicing and custom fields for LUT references, shipping details and more. See <a href="../free-gst-billing-software.html" class="primary-text">free GST billing software</a> or <a href="../download.html" class="primary-text">download the desktop app</a> to set up your export invoices.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar"><div class="blog-sidebar-box"><h2>Related reading</h2><a href="how-to-create-gst-invoice.html">GST Invoice Guide</a><a href="gst-invoice-vs-bill-of-supply.html">GST Invoice vs Bill of Supply</a><a href="invoice-numbering-format-guide.html">Invoice Numbering Format Guide</a></div></aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container mx-auto px-6 max-w-7xl site-footer-inner"><div class="site-footer-bottom"><p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a href="../download.html" class="primary-text">Download</a></p></div></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+</html>

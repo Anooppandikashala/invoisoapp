@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="GST 2.0 new rates 2026: how the 0/5/18/40% slabs replaced the old GST structure, old-to-new rate mapping, and how to update tax rates in Invoiso." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>GST 2.0 New Rates 2026 | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/gst-2-0-new-tax-slabs-invoicing.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="GST 2.0 New Rates 2026: What Changed and How to Update Invoices" />
+  <meta property="og:description"
+    content="The 0/5/18/40% GST 2.0 slabs, the old-to-new rate mapping, and how to update tax rates on products and invoices in Invoiso." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/gst-2-0-new-tax-slabs-invoicing.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-17T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-17T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GST 2.0 New Rates 2026 | Invoiso Blog" />
+  <meta name="twitter:description"
+    content="The 0/5/18/40% GST 2.0 slabs, the old-to-new rate mapping, and how to update tax rates on products and invoices in Invoiso." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"GST 2.0 New Rates 2026: What Changed and How to Update Invoices","description":"GST 2.0 new rates 2026: how the 0/5/18/40% slabs replaced the old GST structure, old-to-new rate mapping, and how to update tax rates in Invoiso.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-17T09:00:00+05:30","dateModified":"2026-08-17T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/gst-2-0-new-tax-slabs-invoicing.html"}}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"GST 2.0 New Rates 2026","item":"https://invoiso.co.in/blog/gst-2-0-new-tax-slabs-invoicing.html"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the new GST 2.0 tax rate slabs?","acceptedAnswer":{"@type":"Answer","text":"GST 2.0 replaced the old five-tier structure (0%, 5%, 12%, 18%, 28%) with four slabs: 0% for exempt goods, 5%, 18% as the standard rate for most goods and services, and a new 40% slab for luxury and sin goods."}},{"@type":"Question","name":"When did GST 2.0 come into effect?","acceptedAnswer":{"@type":"Answer","text":"The GST Council approved the rate rationalisation on 3 September 2025, and the new rates took effect from 22 September 2025 for most goods and services covered by the reform."}},{"@type":"Question","name":"Do I need to change tax rates on invoices raised before the transition?","acceptedAnswer":{"@type":"Answer","text":"No. Invoices genuinely dated before 22 September 2025 keep the rate that applied at the time. Only invoices dated on or after the effective date need the new rate. Correct a pre-transition invoice wrongly billed at the new rate with a credit note, not by editing the original document."}},{"@type":"Question","name":"What happened to the 12% and 28% GST slabs?","acceptedAnswer":{"@type":"Answer","text":"Both were abolished. Most items that sat at 12% moved to 5%, with a smaller share moving to 18%. Most items that sat at 28% moved to 18%, with luxury and sin goods moving to the new 40% slab. Check the official CBIC rate notification for your specific HSN code."}}]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
+</head>
+
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img
+            src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span
+          class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex">
+        <li><a href="../">Home</a></li>
+        <li><a href="./" aria-current="page">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a
+          href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu">
+      <div class="mobile-menu-panel">
+        <ul class="mob-nav-list">
+          <li><a href="../" class="mob-nav-link">Home</a></li>
+          <li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li>
+          <li><a href="../download.html" class="mob-nav-link">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left"
+            aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-percent" aria-hidden="true"></i> GST compliance</div>
+          <h1>GST 2.0 New Rates: What Changed and How to Update Your Invoices</h1>
+          <p>The old 0/5/12/18/28% structure is gone. Here's what the new 0/5/18/40% GST 2.0 slabs mean for your
+            invoicing, and how to update tax rates in Invoiso.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i
+                class="fas fa-calendar" aria-hidden="true"></i>Aug 2026</span><span><i class="fas fa-clock"
+                aria-hidden="true"></i>8 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/invoice_settings_page.png"
+            alt="Invoice settings page in Invoiso where default tax rates are configured" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>GST 2.0 rewrote the tax rate table most Indian businesses had used since 2017. The old five-slab
+              structure — 0%, 5%, 12%, 18%, and 28% — is gone, replaced by a leaner set of 0%, 5%, 18%, and 40%
+              rates that took effect from 22 September 2025. If you've been billing customers at 12% or 28% on any
+              product or service, that rate no longer exists, and every invoice you raise now has to reflect the
+              new slab. This guide covers what actually changed, how the old rates map onto the new ones, what it
+              means for your day-to-day invoicing, and how to update tax rates on products and invoices in Invoiso.</p>
+            <h2>What GST 2.0 changed</h2>
+            <p>GST 2.0 is the informal name for the rate rationalisation the GST Council approved on 3 September
+              2025, notified soon after and effective from 22 September 2025. The core change is simple to state
+              even though the item-by-item detail is long: two of the five original slabs — 12% and 28% — have been
+              abolished, and the goods and services that sat in them have been redistributed mostly into 5% and
+              18%, with a new 40% slab created for luxury and sin goods that previously carried 28% plus a
+              compensation cess on top. That cess has been folded into the headline rate for the items that now sit
+              at 40%, so there's no separate cess line to calculate for those goods anymore. For the vast majority
+              of everyday goods and services — the kind a small business actually invoices day to day — the change
+              lands as either a rate cut or no change at all. It's a smaller group of items that moved upward.</p>
+            <h2>The new rate slabs explained</h2>
+            <p>Four slabs now cover essentially everything under GST:</p>
+            <ul>
+              <li><strong>0% (nil-rated / exempt).</strong> Unbranded food staples, fresh produce, books, and a
+                handful of essential services stay outside GST entirely, same as before the reform.</li>
+              <li><strong>5%.</strong> The most heavily populated slab now. Most goods that used to sit at 12%
+                dropped here — packaged food items, personal care basics, medical devices and consumables, and a
+                range of daily-use goods. Items already at 5% mostly stayed put.</li>
+              <li><strong>18%.</strong> The standard, default rate for the bulk of goods and services that don't
+                have a specific reason to sit lower or higher — consumer electronics, most B2B services, apparel
+                above the exemption threshold, and the majority of what used to sit at 28% before this reform.</li>
+              <li><strong>40%.</strong> A new top slab reserved for luxury and sin goods: tobacco products, pan
+                masala, aerated drinks, luxury cars, and similar items that carried 28% plus compensation cess under
+                the old structure. The cess is now built into the 40% rate rather than charged separately.</li>
+            </ul>
+            <h2>Old-to-new rate mapping: where did 12% and 28% go?</h2>
+            <p>There isn't a single one-line rule that maps every old rate to a new one — the mapping runs
+              item-by-item across the HSN schedule — but the broad pattern looks like this:</p>
+            <ul>
+              <li><strong>12% slab →</strong> mostly moved to 5% (packaged foods, personal care items, medical
+                devices, agricultural equipment); a smaller share moved to 18% (certain textiles above ₹2,500,
+                select services).</li>
+              <li><strong>28% slab →</strong> mostly moved to 18% (air conditioners, televisions, dishwashers,
+                small cars, cement); luxury and sin items moved to 40% (tobacco, pan masala, aerated beverages,
+                luxury and SUV-class vehicles).</li>
+              <li><strong>5% slab →</strong> largely unchanged, with some additions absorbed from the old 12%
+                bracket.</li>
+              <li><strong>18% slab →</strong> largely unchanged as the base rate, now also absorbing most of the
+                old 28% bracket.</li>
+              <li><strong>0% slab →</strong> unchanged, with a few additional essential items added to the exempt
+                list.</li>
+            </ul>
+            <p>Because the mapping isn't uniform for every HSN code, don't assume — check the item's new rate
+              against the official CBIC rate notification or the GST portal's rate finder before you bill it,
+              especially for anything that used to sit at 12% or 28%.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/edit_product.png"
+                alt="Edit product in Invoiso — updating the tax rate field on a product after GST 2.0"
+                loading="lazy" />
+              <figcaption>Update a product's tax rate once in Invoiso and it applies to every new invoice line
+                that uses it.</figcaption>
+            </figure>
+            <h2>How this affects your invoicing</h2>
+            <p>Three things matter for day-to-day billing under GST 2.0. First, the rate charged has to be the
+              rate in force on the date of supply or invoice, not the rate that applied when you last quoted the
+              customer — if a quote or proforma was prepared before 22 September 2025 using an old rate, update it
+              before converting it into a tax invoice. Second, product and service masters that you set up once and
+              left alone need a review: any product still tagged at 12% or 28% in your invoicing software carries
+              an obsolete rate until you change it, and that obsolete rate will silently apply to every future
+              invoice for that item. Third, if you issued invoices at the old rate close to the transition date and
+              need to correct them, that's a credit note against the old invoice plus a fresh invoice at the new
+              rate — not an edit to the original document, since a tax invoice that's already been issued and filed
+              shouldn't be altered after the fact.</p>
+            <h2>How to update tax rates on invoices in Invoiso</h2>
+            <ol>
+              <li><strong>Open your product list.</strong> Go to Products and scan for items previously taxed at
+                12% or 28% — those are the ones most likely to have changed under GST 2.0.</li>
+              <li><strong>Edit the tax rate field.</strong> Open each affected product and change its tax rate to
+                match the new slab, based on the CBIC mapping for that HSN code.</li>
+              <li><strong>Save the product.</strong> Invoiso applies the updated rate to every new invoice line
+                that uses this product automatically — you don't need to touch individual invoices going forward.</li>
+              <li><strong>Check for invoice-level overrides.</strong> If any invoice sets a custom tax rate instead
+                of pulling it from the product record, review those overrides separately, since they won't update
+                on their own.</li>
+              <li><strong>Reissue affected quotes.</strong> Regenerate any proforma invoice or quote created before
+                the transition so the customer sees the correct rate before you convert it into a tax invoice.</li>
+              <li><strong>Verify before sending.</strong> Open the invoice preview and confirm the displayed rate
+                and total tax match the new slab before you finalise, print, or share the PDF.</li>
+            </ol>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/create_new_invoice1.png"
+                alt="Creating a new invoice in Invoiso with product tax rates applied automatically" loading="lazy" />
+              <figcaption>Once a product's rate is updated, new invoices pull the correct GST 2.0 rate
+                automatically.</figcaption>
+            </figure>
+            <h2>Common transition mistakes to avoid</h2>
+            <ul>
+              <li>Leaving old 12% or 28% rates on product masters and only fixing the next invoice manually — the
+                wrong rate comes right back the time after that if you don't check.</li>
+              <li>Assuming every item that used to sit at 28% now sits at 40%. Most 28% items moved to 18%; only
+                luxury and sin goods moved to the new top slab.</li>
+              <li>Editing an already-issued tax invoice instead of raising a credit note for the correction.</li>
+              <li>Forgetting recurring or repeat customers on standing orders that reuse old invoices as templates
+                for the next billing cycle.</li>
+              <li>Assuming compensation cess still applies as a separate line on 40% items — it's merged into the
+                headline rate now, so charging it again over-collects tax.</li>
+            </ul>
+            <h2>GST 2.0 and your GST returns</h2>
+            <p>A rate change on the invoice doesn't, by itself, change how ITC or return filing works — the
+              mechanics of GSTR-1 and GSTR-3B stay the same, and there's no requirement to reverse input tax
+              credit already claimed on stock purchased before the transition just because the outward rate on
+              that stock has since changed. What does need attention is consistency between what you're billing
+              and what you're reporting: if a product's rate changed mid-month, GSTR-1 for that period will show a
+              mix of old-rate and new-rate invoices depending on the actual invoice dates, and that's expected, not
+              an error. The place mistakes tend to show up is stock that was purchased at the old rate but sold
+              after the transition — the GST rate that matters for the sale is always the rate in force on the
+              date of that outward supply, regardless of what rate applied when the stock was originally bought
+              in. If you're carrying a large batch of pre-transition inventory, it's worth flagging it to your
+              accountant so the return filed for that period reconciles cleanly against the invoices actually
+              issued, rather than trying to average or approximate the rate across a mixed batch.</p>
+            <h2>Frequently asked questions</h2>
+            <h3>What are the new GST 2.0 tax rate slabs?</h3>
+            <p>Four main slabs: 0% for exempt goods, 5%, 18% as the standard rate, and a new 40% slab for luxury
+              and sin goods, replacing the old 0/5/12/18/28% structure.</p>
+            <h3>When did GST 2.0 come into effect?</h3>
+            <p>The GST Council approved the rate rationalisation on 3 September 2025, and it took effect from 22
+              September 2025 for most goods and services covered by the reform.</p>
+            <h3>Do I need to change tax rates on invoices raised before the transition?</h3>
+            <p>No — invoices genuinely raised before 22 September 2025 keep whatever rate applied at that time.
+              Only invoices dated on or after the effective date need the new rate; correct a pre-transition
+              invoice that was wrongly billed at the new rate with a credit note, not by editing it.</p>
+            <h3>What happened to the 12% and 28% GST slabs?</h3>
+            <p>Both were abolished. Items that sat in 12% moved mostly to 5% (with some to 18%), and items in 28%
+              moved mostly to 18% (with luxury and sin goods moving to the new 40% slab). Check the official rate
+              notification for the exact mapping of your specific product.</p>
+            <div class="blog-article-cta">
+              <p>GST rates keep evolving — always cross-check your product's exact new rate against the current
+                CBIC notification before billing. Invoiso lets you edit the tax rate on any product or invoice line
+                in seconds, offline. See <a href="../free-gst-billing-software.html" class="primary-text">free GST
+                  billing software</a> or <a href="../download.html" class="primary-text">download the desktop
+                  app</a>.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2><a href="how-to-create-gst-invoice.html">GST Invoice Guide</a><a
+                href="gst-invoice-vs-bill-of-supply.html">GST Invoice vs Bill of Supply</a><a
+                href="6-digit-hsn-code-mandate.html">6-Digit HSN Code Mandate</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a
+            href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+
+</html>
