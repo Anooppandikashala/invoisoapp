@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Invoiso v4.3.3 adds a Receipt document type and USB thermal printer invoice software support, with table and detailed layouts for counter sales." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/receipts-thermal-printer-support.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type" />
+  <meta property="og:description" content="Invoiso now has a dedicated Receipt document type and USB thermal printer support, so counter sales don't need a full A4 tax invoice." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/receipts-thermal-printer-support.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-22T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-22T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type | Invoiso Blog" />
+  <meta name="twitter:description" content="Invoiso now has a dedicated Receipt document type and USB thermal printer support, so counter sales don't need a full A4 tax invoice." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type","description":"Invoiso v4.3.3 adds a Receipt document type and USB thermal printer invoice software support, with table and detailed layouts for counter sales.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-22T09:00:00+05:30","dateModified":"2026-08-22T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/receipts-thermal-printer-support.html"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type","item":"https://invoiso.co.in/blog/receipts-thermal-printer-support.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Receipt document type in Invoiso?","acceptedAnswer":{"@type":"Answer","text":"Receipt is a new document type in Invoiso, alongside Invoice and Quotation, introduced in v4.3.3. It is a lightweight document meant for point-of-sale-style, paid-on-the-spot counter sales, distinct from a full tax invoice or a pre-sale quotation."}},{"@type":"Question","name":"Can Invoiso print directly to a thermal receipt printer?","acceptedAnswer":{"@type":"Answer","text":"Yes. Invoiso v4.3.3 added USB thermal printer support, so receipts can be sent straight to a standard USB thermal receipt printer at the counter instead of only generating an A4 PDF."}},{"@type":"Question","name":"What receipt layouts does Invoiso support?","acceptedAnswer":{"@type":"Answer","text":"Two receipt layouts are available: a table layout and a detailed layout. Both can be used when printing to a thermal printer, and the thermal-style layout is also available in the regular PDF preview for generating a thermal-style PDF without a physical printer connected."}},{"@type":"Question","name":"Do I need a thermal printer to use the new receipt layout?","acceptedAnswer":{"@type":"Answer","text":"No. The thermal-style receipt layout is available in Invoiso's regular PDF preview as well, so you can preview or generate a thermal-style PDF and, for example, email it to a customer, even without a physical thermal printer connected."}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+</head>
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex"><li><a href="../">Home</a></li><li><a href="./" aria-current="page">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu"><div class="mobile-menu-panel"><ul class="mob-nav-list"><li><a href="../" class="mob-nav-link">Home</a></li><li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li><li><a href="../download.html" class="mob-nav-link">Download</a></li></ul></div></div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-receipt" aria-hidden="true"></i> New Feature</div>
+          <h1>Receipts in Invoiso: Thermal Printer Support and the New Receipt Document Type</h1>
+          <p>Invoiso v4.3.3 adds a dedicated Receipt document type and USB thermal printer invoice software support, so counter sales no longer need a full A4 tax invoice.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i class="fas fa-calendar" aria-hidden="true"></i>August 2026</span><span><i class="fas fa-clock" aria-hidden="true"></i>8 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/invoice_print_view.png" alt="Invoiso print view used for printing invoices and receipts" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>If you run a shop counter, a kirana store, a pharmacy, or any business where a customer pays and walks out with their goods in the same minute, a full A4 tax invoice has always felt like overkill. Invoiso was built around the GST-compliant tax invoice from day one, and that's still the right document for B2B sales, credit sales, and anything that needs to hold up in your books as a formal tax document. But retail counter sales are a different shape of transaction — fast, cash-or-UPI, paid on the spot, and usually printed on a narrow paper roll rather than an A4 sheet. In v4.3.3, released in July 2026, Invoiso added a document type built specifically for that: the Receipt. Alongside it came the other half of the story — USB thermal printer support, so a receipt doesn't have to be squeezed onto A4 paper to reach the customer's hand.</p>
+
+            <h2>Why a separate Receipt document type</h2>
+            <p>Before this release, Invoiso had two document types: Invoice and Quotation. An Invoice is the formal tax document — GST fields, invoice numbering rules, the works. A Quotation is a pre-sale estimate that hasn't been billed yet. Neither of these is quite right for a walk-in customer buying a bag of groceries or a printer cartridge and paying immediately. Using a full tax invoice for every such sale means generating and storing a formal GST document for transactions that may not need one, and it means printing something sized for a filing cabinet when what you actually want is a slip that fits in a customer's palm.</p>
+            <p>The Receipt document type sits alongside Invoice and Quotation as a third option when you create a new transaction in Invoiso. It's a lightweight record of a paid-on-the-spot sale — the kind of thing a supermarket till or a café counter prints out in a few seconds. Because it's a distinct document type rather than a reformatted invoice, it doesn't get mixed into your invoice numbering sequence or your formal GST invoice records; it's tracked as its own kind of transaction inside the app.</p>
+            <p>This matters most for businesses that run a genuine retail counter alongside other kinds of sales. A hardware store might issue formal tax invoices to contractors buying on account, quotations to customers asking "how much would this job cost," and receipts to the walk-in customer buying a tin of paint. Having all three document types available in the same app, on the same product and customer data, means you're not switching tools or exporting data between systems depending on which kind of sale just happened.</p>
+
+            <h2>What actually changed: printing, not just paperwork</h2>
+            <p>A new document type on its own wouldn't solve much if you still had to print it on A4 and trim it down. The bigger practical change in this release is thermal printer support. Invoiso can now print directly to a standard USB thermal receipt printer — the compact printers you see at retail counters, cafés, and small shops that produce a narrow paper strip almost instantly, with no ink cartridge to replace. Previously, every document coming out of Invoiso — invoice, quotation, or otherwise — was built around A4/PDF output. That's fine for a formal invoice you're emailing or filing, but it's the wrong shape entirely for a counter that needs to hand over a slip of paper in the two or three seconds it takes to bag an item.</p>
+            <p>With thermal printer support in place, printing a receipt from Invoiso now works the way a point-of-sale system's receipt printing does elsewhere: you finalize the sale, choose print, and the narrow paper receipt comes out of the connected thermal printer at the counter, ready to hand to the customer. Because the app is still offline-first, this works entirely on your own machine — there's no cloud service in the loop, no data leaving your computer to reach the printer, and nothing to configure beyond having the printer connected over USB the way you'd connect any other USB printer to a Windows, Linux, or macOS machine.</p>
+
+            <h2>Two receipt layouts: table vs detailed</h2>
+            <p>Not every business wants the same amount of detail on a receipt. Invoiso ships two receipt layouts to cover that:</p>
+            <ul>
+              <li><strong>Table layout</strong> — a compact, row-based layout listing items, quantities, and line totals in a simple table, closer to what you'd expect from a supermarket till receipt.</li>
+              <li><strong>Detailed layout</strong> — a fuller layout with more line-item information per product, useful when customers or your own records benefit from more context per sale (unit descriptions, per-item breakdowns, and similar detail).</li>
+            </ul>
+            <p>Both layouts are available whether you're printing to a physical thermal printer or generating a PDF. You choose the layout that fits how your business actually operates — a fast-moving retail counter will usually prefer the table layout for speed and paper economy, while a business that wants a more descriptive record per transaction might lean toward the detailed layout.</p>
+
+            <h2>You don't need a thermal printer to use the new layout</h2>
+            <p>One detail worth calling out because it's easy to miss: the thermal-style receipt layout isn't locked to physical thermal printer hardware. It's also available in Invoiso's regular PDF preview. That means you can select the thermal-style layout, preview it, and generate a normal PDF from it — without ever having a thermal printer plugged in. This is useful in a couple of situations. If you're testing out the new Receipt document type before deciding whether to buy a thermal printer, you can see exactly how the layout will look. And if you want to email a customer a receipt-style document rather than a full-page invoice — say, for an online order that still feels more like a "receipt" transaction than a formal invoice — you can generate that thermal-style PDF and send it, no hardware required.</p>
+            <figure class="blog-inline-figure">
+              <img src="../assets/images/screenshots/invoice_simple_view.png" alt="Simple document view in Invoiso showing line items and totals" />
+              <figcaption>The same line-item and totals structure underlies both invoices and the new Receipt document type — the difference is in layout and paper format, not the underlying data.</figcaption>
+            </figure>
+
+            <h2>Walkthrough: printing your first receipt</h2>
+            <p>The flow for creating and printing a receipt follows the same basic shape as creating any document in Invoiso:</p>
+            <ol>
+              <li>Start a new transaction and choose <strong>Receipt</strong> as the document type, instead of Invoice or Quotation.</li>
+              <li>Add the customer (or leave it as a walk-in sale, depending on how you track counter customers) and add the products or services being sold, the same way you would for an invoice.</li>
+              <li>Pick the receipt layout — table or detailed — based on how much detail you want printed.</li>
+              <li>Choose your output: print directly to a connected USB thermal printer for an immediate paper slip, or generate a PDF using the same thermal-style layout if you want a digital copy or don't have a thermal printer connected.</li>
+              <li>Hand over the printed slip, or send the PDF, and the sale is recorded in Invoiso as a Receipt — kept separate from your formal tax invoices and quotations.</li>
+            </ol>
+            <p>Because Receipt is a first-class document type rather than a workaround, it shows up in your records as exactly what it is, which keeps your invoice numbering and formal GST paperwork clean and limited to transactions that actually need it.</p>
+
+            <h2>How this fits with the A6 Compact layout</h2>
+            <p>If you've used Invoiso for a while, you may already be familiar with the A6 Compact PDF layout, which has been available in PDF settings for some time. It automatically scales fonts and margins down so an invoice prints reasonably on smaller A6 paper — a useful option if you wanted a smaller printed document before thermal printer support existed. The A6 Compact layout is still there, and it's still a good option if your printing setup is a regular printer loaded with smaller paper, or if you simply prefer a compact A6 invoice over full A4.</p>
+            <p>Thermal printer support is a different, more specialized answer to a similar underlying need. Where A6 Compact scales an existing invoice layout down to fit smaller paper on a normal printer, the new Receipt document type combined with thermal printer support is purpose-built for the narrow paper roll and instant-print behavior of dedicated thermal hardware. If your business already runs a thermal printer at the counter — or is considering buying one specifically for faster checkout — the new Receipt flow is the more direct fit. If you're sticking with a standard printer and just want a smaller invoice footprint, A6 Compact remains the simpler option.</p>
+
+            <h2>What else shipped alongside this in v4.3.3</h2>
+            <p>Thermal printer support and receipts were the headline of this release, but a few related changes landed in the same version and are worth knowing about if you're upgrading:</p>
+            <ul>
+              <li>A new <strong>Grid Classic</strong> PDF template — a bordered, old-style bill look, adaptive across A4, A5, and A6 paper sizes.</li>
+              <li><strong>Product units</strong> (kg, pcs, box, dozen, and similar) and <strong>product purchase price</strong> (cost price) tracking, so products can carry more useful metadata than before.</li>
+              <li><strong>Multi-currency support</strong> for businesses that bill outside a single currency.</li>
+              <li>New <strong>dashboard layouts</strong> — Classic, Bento, Simple Feed, and Default — giving you a choice of how your dashboard is arranged.</li>
+            </ul>
+            <p>None of these directly change how receipts or thermal printing work, but they land in the same v4.3.3 update, so if you're updating Invoiso to get thermal printer support, you'll see these show up too.</p>
+
+            <h2>Who this is for</h2>
+            <p>If every sale you make is a formal, invoiced, often credit-based B2B transaction, this release probably won't change your day-to-day much — your workflow is still Invoice, same as before. But if any part of your business involves a counter, a till, or paid-on-the-spot sales — a retail shop, a pharmacy, a café, a service counter that also sells small items — the Receipt document type plus thermal printer support closes a real gap. You get a document shaped for the transaction it's actually recording, printed on the hardware built for that job, without having to reach for a separate point-of-sale system just to handle receipts. And because it's still the same offline-first Invoiso, your receipt data lives in the same place as your invoices, quotations, customers, and products — no second system to reconcile against.</p>
+
+            <figure class="blog-inline-figure">
+              <img src="../assets/images/screenshots/template_compact_a6.png" alt="Compact A6 template layout in Invoiso, used for smaller printed documents" />
+              <figcaption>The A6 Compact layout remains available for smaller printed invoices on standard printers, alongside the new thermal-printer-focused Receipt flow.</figcaption>
+            </figure>
+
+            <h2>Getting started</h2>
+            <p>If you're already running Invoiso, updating to v4.3.3 or later brings the Receipt document type and thermal printer support in automatically — there's nothing to migrate, since it's an additional document type rather than a change to how invoices or quotations work. Connect your USB thermal printer the way you would with any other application, choose Receipt when starting a new transaction, pick your layout, and print. If you don't have a thermal printer yet but want to see how it looks, generate a PDF from the thermal-style layout first — no hardware purchase required to try it out.</p>
+
+            <div class="blog-article-cta">
+              <p>Start billing faster at the counter today with Invoiso's <a href="../free-gst-billing-software.html" class="primary-text">free GST billing software</a> or <a href="../download.html" class="primary-text">download the desktop app</a>.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2>
+              <a href="how-to-customize-invoice-pdf-templates.html">Customize Invoice PDF Templates</a>
+              <a href="how-to-track-payments-invoice.html">How to Track Invoice Payments</a>
+              <a href="invoice-numbering-format-guide.html">Invoice Numbering Rules Under GST</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+</html>

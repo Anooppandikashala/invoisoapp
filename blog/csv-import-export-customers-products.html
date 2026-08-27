@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bulk import customers CSV and product catalog CSV import in Invoiso: duplicate detection, type field, round-trip export, and setup tips." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Bulk Import Customers and Products with CSV | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/csv-import-export-customers-products.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Bulk Import Customers and Products with CSV in Invoiso" />
+  <meta property="og:description" content="Switch from a spreadsheet or another tool in one pass: bulk import customers CSV, product catalog CSV import, and export with round-trip compatibility." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/csv-import-export-customers-products.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-22T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-22T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bulk Import Customers and Products with CSV | Invoiso Blog" />
+  <meta name="twitter:description" content="Switch from a spreadsheet or another tool in one pass: bulk import customers CSV, product catalog CSV import, and export with round-trip compatibility." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bulk Import Customers and Products with CSV in Invoiso","description":"Bulk import customers CSV and product catalog CSV import in Invoiso: duplicate detection, type field, round-trip export, and setup tips.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-22T09:00:00+05:30","dateModified":"2026-08-22T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/csv-import-export-customers-products.html"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Bulk Import Customers and Products with CSV in Invoiso","item":"https://invoiso.co.in/blog/csv-import-export-customers-products.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does Invoiso handle duplicate customers during CSV import?","acceptedAnswer":{"@type":"Answer","text":"Invoiso's customer CSV import includes duplicate detection. When a row in your CSV matches an existing customer, you get a per-row choice to skip that row or overwrite the existing record with the CSV data, so you control exactly what happens instead of the import silently creating duplicates or silently overwriting data."}},{"@type":"Question","name":"What is the product 'type' field used for in CSV import?","acceptedAnswer":{"@type":"Answer","text":"The Product/Service type field, added in v4.0.5, marks a catalogue row as either a physical product or a service line item, and it's used for filtering your catalogue. The product CSV export includes this type column along with default_discount, and the sample CSV includes a worked example service row so the format is clear."}},{"@type":"Question","name":"Can I export my product catalog and re-import it without losing data?","acceptedAnswer":{"@type":"Answer","text":"Yes. Product CSV export was improved to include the type and default_discount columns specifically so a catalogue could be exported and re-imported — round-tripped — without losing information. The downloadable sample CSV was updated to eight columns to match."}},{"@type":"Question","name":"Is the CSV import for customers and products the same as exporting invoices to CSV?","acceptedAnswer":{"@type":"Answer","text":"No, they're separate features. Customer and product CSV import/export manages your catalogue and customer list. Invoices have their own, separate CSV export from the Invoice Management screen — an Export CSV button for all invoices plus a bulk export for a selection, opened through a date-range filter dialog and type-aware between invoices and quotations."}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+</head>
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex"><li><a href="../">Home</a></li><li><a href="./" aria-current="page">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu"><div class="mobile-menu-panel"><ul class="mob-nav-list"><li><a href="../" class="mob-nav-link">Home</a></li><li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li><li><a href="../download.html" class="mob-nav-link">Download</a></li></ul></div></div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-file-csv" aria-hidden="true"></i> Product Guide</div>
+          <h1>Bulk Import Customers and Products with CSV in Invoiso</h1>
+          <p>Switching from a spreadsheet, another billing tool, or paper records? Load your entire customer list and product catalogue into Invoiso in one pass instead of retyping every row by hand.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i class="fas fa-calendar" aria-hidden="true"></i>August 2026</span><span><i class="fas fa-clock" aria-hidden="true"></i>8 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/customer_list.png" alt="Invoiso customer list showing bulk-imported customer records" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>Setting up a new billing tool usually starts the same painful way: an empty customer list and an empty product catalogue, both of which need to be filled in one entry at a time. If you're coming from a spreadsheet, from Vyapar, Tally, or another invoicing tool, or simply from a stack of paper records, that manual re-entry is the single biggest friction point in switching. Invoiso's CSV import, shipped in v4.0.5 (April 2026), is built specifically to remove that friction — you prepare or export a CSV file once, and load your whole customer list or product catalogue in a single pass.</p>
+
+            <h2>What CSV import is actually for</h2>
+            <p>A CSV file is just a spreadsheet saved in plain-text, comma-separated form — something every spreadsheet tool, accounting package, and even most POS systems can produce. Instead of Invoiso asking you to open every customer or product one by one and type in the same fields repeatedly, CSV import lets you hand it a file with all your records at once, and it creates them all in a single operation. This matters most at two moments: when you're first setting up Invoiso and migrating existing records in, and when you've built or updated a large batch of customers or products elsewhere and need to bring Invoiso's records in line.</p>
+
+            <h2>Bulk importing customers</h2>
+            <p>Invoiso's customer CSV import lets you bring in your entire customer list from a CSV file in one go. Two details make this reliable rather than risky:</p>
+            <ul>
+              <li><strong>Duplicate detection.</strong> If a row in your CSV matches a customer that already exists in Invoiso, the import doesn't just silently create a second copy or silently overwrite the existing one.</li>
+              <li><strong>Per-row skip or overwrite choice.</strong> For each detected duplicate, you decide — row by row — whether to skip it (keep what's already in Invoiso) or overwrite it (replace the existing record with the CSV version).</li>
+            </ul>
+            <p>This combination means you can safely re-run an import, or bring in a CSV that partially overlaps with your existing customer list, without worrying about ending up with duplicate customer entries cluttering your list or losing data you'd already entered by hand.</p>
+            <p>Around the same release, Invoiso also added a new <strong>Business Name</strong> field on customer records, which shows up on your generated PDFs as well. If your customer CSV includes a business name alongside the contact name, it carries through the import and appears correctly on invoices sent to that customer.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/edit_customer.png" alt="Invoiso edit customer screen showing customer fields including business name" loading="lazy" />
+              <figcaption>Customer fields in Invoiso, including the Business Name field that also appears on invoice PDFs.</figcaption>
+            </figure>
+
+            <h2>Importing and exporting your product catalogue</h2>
+            <p>The same idea applies to products and services. Invoiso lets you import your full product catalogue via CSV, and export it back out — which matters because a one-way import isn't enough for most businesses. You usually need to make bulk edits somewhere other than inside the app — adjusting prices across dozens of products in a spreadsheet is much faster than editing each one individually — and then bring the updated list back in.</p>
+            <p>Two fields make the product catalogue CSV meaningfully more useful than a flat list of names and prices:</p>
+            <ul>
+              <li><strong>Product/Service type.</strong> A new type field lets each row represent either a physical product or a service line item, and this field is used for filtering your catalogue inside Invoiso.</li>
+              <li><strong>default_discount.</strong> The product CSV export was improved to include a default_discount column, alongside type, so a discount that's normally applied to a given product or service travels with it through export and back through import.</li>
+            </ul>
+            <p>To make the format clear, the downloadable sample CSV was updated to eight columns, including a worked example service row — so you can see exactly how a service-type entry should look next to a physical product entry, rather than guessing at the format from a blank template.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/product_list.png" alt="Invoiso product list showing products and services imported from CSV" loading="lazy" />
+              <figcaption>Product catalogue in Invoiso — physical products and services can both be bulk-imported and filtered by type.</figcaption>
+            </figure>
+
+            <h2>Why round-trip compatibility matters</h2>
+            <p>"Round-trip" means you can export your catalogue to CSV, make changes in a spreadsheet, and re-import it without anything getting dropped or corrupted along the way. This is the detail that turns CSV import from a one-time migration tool into an ongoing workflow. Before the type and default_discount columns were added to the export, exporting and re-importing a catalogue risked losing that information, since the exported file simply didn't carry it. With both columns now included in the export and matched by the sample CSV's eight-column format, you can treat your product catalogue as something you're comfortable editing in bulk outside Invoiso whenever that's faster, then reloading — instead of only trusting CSV import for a one-time initial setup.</p>
+
+            <h2>A note on encoding — why exported files sometimes looked wrong before</h2>
+            <p>If you've ever exported a CSV from another tool and opened it in Excel only to see garbled characters or a broken multiplication symbol, you've run into an encoding problem. Invoiso's CSV export encoding was fixed to use UTF-8 with a byte-order mark (BOM) and to correctly output the × symbol, so files generated by Invoiso now open cleanly in Excel as well as LibreOffice Calc and Google Sheets, without special import settings or manual encoding fixes on your end.</p>
+
+            <h2>Practical tips for preparing a clean CSV</h2>
+            <p>A CSV import is only as good as the file you feed it. A few habits make imports go smoothly:</p>
+            <ol>
+              <li><strong>Start from the sample CSV.</strong> Use Invoiso's downloadable sample as your template rather than building a CSV from scratch — the column headers and order need to match what the importer expects, and the sample's worked example rows show the expected format for both products and services.</li>
+              <li><strong>Keep headers consistent.</strong> Don't rename, reorder, or add stray columns unless you know the importer will handle them — mismatched headers are the most common reason an import behaves unexpectedly.</li>
+              <li><strong>Remove duplicate rows within the file itself.</strong> Invoiso's duplicate detection catches matches against your existing customer list, but it's still good practice to de-duplicate your source spreadsheet first, so you're not relying on the skip/overwrite prompt to catch mistakes you could have avoided upstream.</li>
+              <li><strong>Double-check the type column on products.</strong> Since type now drives filtering in the product catalogue, make sure every row is correctly marked as a product or a service before importing — fixing it after the fact means editing each entry individually.</li>
+              <li><strong>Save as UTF-8 CSV from your spreadsheet tool.</strong> Most spreadsheet software defaults to this, but if you're exporting from an older tool, confirm the encoding to avoid special characters breaking on import.</li>
+              <li><strong>Import a small batch first if you're unsure.</strong> A handful of rows lets you confirm the mapping and formatting look right before you commit your full customer list or catalogue.</li>
+            </ol>
+
+            <h2>How to check the import actually worked</h2>
+            <p>After running an import, don't just trust the success message — spend a few minutes verifying:</p>
+            <ul>
+              <li>Open the customer or product list and confirm the row count roughly matches what you expected from your CSV.</li>
+              <li>Spot-check a few records for correct field mapping — particularly Business Name on customers and type on products, since these are the newer fields most likely to be misaligned if your CSV columns were in an unexpected order.</li>
+              <li>If you imported over an existing list, check a few of the rows you expected to be duplicates and confirm they were skipped or overwritten as you intended.</li>
+              <li>For products, filter by type to make sure services and physical products are separated the way you expect.</li>
+            </ul>
+            <p>If something looks off, it's almost always a header mismatch or a mismatched duplicate decision — both are easy to fix by correcting the source CSV and re-importing, especially since the duplicate-handling flow is designed to be safely repeatable.</p>
+
+            <h2>Don't confuse this with invoice CSV export</h2>
+            <p>It's worth being clear about where this feature ends. Customer and product CSV import/export is about building and maintaining your catalogue and customer list — it's not the same as exporting your invoices. Invoices have their own, separate CSV export available from the Invoice Management screen: an <strong>Export CSV</strong> button covering all invoices, plus a bulk export option for a selection of invoices you've chosen, both opened through a date-range filter dialog. That invoice export is also type-aware, distinguishing invoices from quotations. If you're looking to pull your billing history into a spreadsheet for your accountant, that's the invoice export — customer and product CSV import is specifically for the records that feed into the invoices you create, not the invoices themselves.</p>
+
+            <h2>Why this matters for switching from another system</h2>
+            <p>The businesses that benefit most from CSV import are the ones migrating from somewhere else — a spreadsheet they've maintained for years, a tool like Vyapar or Tally, or simply a paper ledger they've finally decided to digitise. In every one of those cases, the customer list and product catalogue already exist somewhere; the work is just getting it into Invoiso without retyping hundreds of rows by hand. Preparing a clean CSV from your existing records, using Invoiso's sample file as the template, and importing in one pass turns what could be a multi-day data-entry chore into something you can finish in an afternoon — leaving the manual work for the handful of edge cases the duplicate-detection prompt flags for your judgment.</p>
+
+            <div class="blog-article-cta">
+              <p>Invoiso supports bulk CSV import for customers and products, with duplicate detection and round-trip export. Try Invoiso's <a href="../free-gst-billing-software.html" class="primary-text">free GST billing software</a> or <a href="../download.html" class="primary-text">download the desktop app</a>.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2>
+              <a href="how-to-backup-restore-invoice-data.html">How to Backup and Restore Invoice Data</a>
+              <a href="best-invoice-software-small-business-india.html">Best Invoice Software for Small Business in India</a>
+              <a href="essential-reports-for-small-business.html">Essential Business Reports Every Small Business Needs</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+</html>

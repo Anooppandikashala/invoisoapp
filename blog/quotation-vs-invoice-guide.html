@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Quotation vs invoice: what's different, when to send which, and how to convert an accepted quotation into a real invoice in Invoiso." />
+  <meta name="author" content="Invoiso" />
+  <meta name="robots" content="index, follow" />
+  <title>Quotation vs Invoice: When to Send Which | Invoiso Blog</title>
+  <link rel="canonical" href="https://invoiso.co.in/blog/quotation-vs-invoice-guide.html" />
+  <meta name="theme-color" content="#06080f" />
+  <meta property="og:title" content="Quotation vs Invoice: When to Send Which (and How to Convert One in Invoiso)" />
+  <meta property="og:description" content="Learn the real difference between a quotation and a tax invoice, and how to turn an accepted quote into an invoice in one click." />
+  <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://invoiso.co.in/blog/quotation-vs-invoice-guide.html" />
+  <meta property="og:site_name" content="Invoiso" />
+  <meta property="article:published_time" content="2026-08-22T09:00:00+05:30" />
+  <meta property="article:modified_time" content="2026-08-22T09:00:00+05:30" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quotation vs Invoice: When to Send Which | Invoiso Blog" />
+  <meta name="twitter:description" content="Learn the real difference between a quotation and a tax invoice, and how to turn an accepted quote into an invoice in one click." />
+  <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Quotation vs Invoice: When to Send Which (and How to Convert One in Invoiso)","description":"Quotation vs invoice: what's different, when to send which, and how to convert an accepted quotation into a real invoice in Invoiso.","image":"https://invoiso.co.in/assets/images/invoiso_banner.webp","datePublished":"2026-08-22T09:00:00+05:30","dateModified":"2026-08-22T09:00:00+05:30","author":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/"},"publisher":{"@type":"Organization","name":"Invoiso","url":"https://invoiso.co.in/","logo":{"@type":"ImageObject","url":"https://invoiso.co.in/assets/images/apple-touch-icon.png","width":180,"height":180}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://invoiso.co.in/blog/quotation-vs-invoice-guide.html"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://invoiso.co.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://invoiso.co.in/blog/"},{"@type":"ListItem","position":3,"name":"Quotation vs Invoice: When to Send Which (and How to Convert One in Invoiso)","item":"https://invoiso.co.in/blog/quotation-vs-invoice-guide.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the main difference between a quotation and an invoice?","acceptedAnswer":{"@type":"Answer","text":"A quotation is a pre-sale, non-binding price estimate sent before work or goods are confirmed. A tax invoice is the legal GST document issued once a sale actually happens — it carries GST and HSN fields and feeds your GST returns and books. A quotation is not a tax document and should not share your invoice numbering sequence."}},{"@type":"Question","name":"Can a quotation and an invoice use the same number series in Invoiso?","acceptedAnswer":{"@type":"Answer","text":"They shouldn't. A quotation is not a tax document, so it should not carry your invoice numbering sequence. Invoiso treats invoices and quotations as separate document types with their own lists, so keeping their numbering separate is straightforward."}},{"@type":"Question","name":"How do I turn an accepted quotation into an invoice in Invoiso?","acceptedAnswer":{"@type":"Answer","text":"Open the accepted quotation and click Duplicate. Choose Invoice as the target type. Invoiso creates a new document pre-filled with the same customer, line items, tax settings, and notes, but with a fresh document ID and today's date. Review anything that changed during negotiation, then save it as the invoice you send."}},{"@type":"Question","name":"Do quotations in Invoiso show a payment status like Paid or Unpaid?","acceptedAnswer":{"@type":"Answer","text":"No. As of Invoiso v4.0.5, quotations have their own dedicated screen and sidebar entry, separate from the invoice list, and the Paid/Partial/Unpaid payment-status columns are hidden there — a quotation was never paid in the first place, so showing payment status on it would be misleading."}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" />
+  <link rel="stylesheet" href="../tailwind.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
+</head>
+<body class="font-sans blog-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="navbar fixed w-full z-50">
+    <nav class="nav-shell container mx-auto px-4 md:px-6 max-w-7xl" aria-label="Main navigation">
+      <a href="../" class="logo-link nav-brand" style="text-decoration:none;"><span class="nav-logo-mark"><img src="../assets/images/logo.svg" alt="Invoiso" aria-hidden="true" /></span><span class="nav-brand-text logo-text-accent">Invoiso</span></a>
+      <ul class="nav-links hidden md:flex"><li><a href="../">Home</a></li><li><a href="./" aria-current="page">Blog</a></li><li><a href="../faq.html">FAQ</a></li></ul>
+      <div class="nav-actions hidden md:flex"><a href="../invoice-maker.html" class="nav-btn">Try Online</a><a href="../download.html" class="nav-cta">Download</a></div>
+      <button class="mobile-menu-toggle md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+    </nav>
+    <div class="mobile-menu hidden md:hidden" id="mobile-menu"><div class="mobile-menu-panel"><ul class="mob-nav-list"><li><a href="../" class="mob-nav-link">Home</a></li><li><a href="./" class="mob-nav-link mob-nav-active">Blog</a></li><li><a href="../download.html" class="mob-nav-link">Download</a></li></ul></div></div>
+  </header>
+  <main id="main-content" class="blog-nav-spacer">
+    <section class="blog-article-hero">
+      <div class="container mx-auto px-6 max-w-7xl"><a href="./" class="blog-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i>Back to blog</a>
+        <div class="blog-article-heading">
+          <div class="blog-kicker"><i class="fas fa-file-invoice" aria-hidden="true"></i> Product Guide</div>
+          <h1>Quotation vs Invoice: When to Send Which (and How to Convert One in Invoiso)</h1>
+          <p>A quotation and an invoice look similar but do very different jobs. Here's how to tell them apart, and how to turn an accepted quote into a real invoice without retyping anything.</p>
+          <div class="blog-meta-row"><span><i class="fas fa-user" aria-hidden="true"></i>Invoiso Team</span><span><i class="fas fa-calendar" aria-hidden="true"></i>August 2026</span><span><i class="fas fa-clock" aria-hidden="true"></i>8 min read</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-20">
+      <div class="container mx-auto px-6 max-w-7xl">
+        <figure class="blog-article-cover"><img src="../assets/images/screenshots/duplicate_invoice_list.png" alt="Invoiso document list showing the Duplicate action used to clone a quotation into an invoice" /></figure>
+        <div class="blog-article-layout">
+          <article class="blog-article">
+            <p>A lot of small businesses use the words "quotation" and "invoice" interchangeably, and then wonder why their books don't reconcile at tax time. They're not the same document, they don't serve the same purpose, and mixing them up — especially by putting a quote through your invoice numbering sequence — creates real problems later. This guide walks through what actually separates a quotation from a tax invoice, when to send each one, and exactly how Invoiso lets you move from an accepted quote to a finished invoice without retyping a single line item.</p>
+
+            <h2>What a quotation actually is</h2>
+            <p>A quotation is a pre-sale document. It's the price estimate you send a prospective customer before any work has started or any goods have changed hands. Its entire purpose is to communicate what you propose to charge, so the customer can decide whether to go ahead. Because nothing has been sold yet, a quotation is non-binding — the customer can accept it, ask for changes, or walk away, and neither side owes the other anything based on the quote alone.</p>
+            <p>This matters more than it sounds. A quotation is not a tax document. It doesn't represent a completed transaction, so it has no place in your GST returns, and it shouldn't be treated as part of your books the way a sale is. Some businesses make the mistake of numbering quotations in the same sequence as invoices — Invoice #101, Quotation #102, Invoice #103 — which creates a numbering sequence with gaps and confuses anyone reconciling your invoice trail later, including you. A quotation should live in its own numbering world entirely, separate from your tax invoice sequence.</p>
+
+            <h2>What a tax invoice actually is</h2>
+            <p>An invoice is issued once a sale has actually happened — the goods have been delivered, or the service has been performed, and the customer now owes you money for it. Unlike a quotation, an invoice is a legal GST document. It carries the fields a quotation doesn't need: GST rates, HSN or SAC codes, your GSTIN, and the customer's GSTIN where applicable. This is the document that feeds your GST returns and your books, and it's what a tax authority, an auditor, or your accountant will actually look at when reconciling your revenue.</p>
+            <p>Put simply: a quotation asks "would you like to buy this at this price?" An invoice states "you bought this, here is what it cost, and here is the tax on it." One is a conversation starter. The other is a legal record.</p>
+
+            <h2>Why the distinction actually matters day to day</h2>
+            <p>It's tempting to treat this as a semantic detail, but the practical consequences are real:</p>
+            <ul>
+              <li><strong>Tax filing accuracy.</strong> If a quotation gets mixed into your invoice records, you risk overstating revenue that was never actually earned, since the deal may never have closed.</li>
+              <li><strong>Numbering integrity.</strong> GST invoice numbering is expected to be sequential and gap-free for the invoices you actually issue. A quotation sitting inside that sequence breaks that expectation for no good reason.</li>
+              <li><strong>Customer clarity.</strong> A customer who receives a document titled "Invoice" may reasonably assume they now owe you money, even if the deal isn't finalised. Sending a clearly labelled quotation avoids that confusion entirely.</li>
+              <li><strong>Reporting sanity.</strong> If your invoice list is cluttered with quotes that were never accepted, your reports on paid, unpaid, and outstanding amounts stop being trustworthy at a glance.</li>
+            </ul>
+            <p>None of this requires complicated bookkeeping — it just requires keeping the two document types visibly and structurally separate, which is exactly what Invoiso is built to do.</p>
+
+            <h2>How Invoiso separates quotations from invoices</h2>
+            <p>When you create a new document in Invoiso, you choose the document type up front — either <strong>Invoice</strong> or <strong>Quotation</strong>. This choice has been part of Invoiso since its early versions, so the two document types have always been distinct at the point of creation rather than bolted on afterward.</p>
+            <p>As of version 4.0.5 (April 2026), quotations got a meaningfully bigger upgrade: a dedicated screen with its own entry in the sidebar navigation, completely separate from the main invoice list. This isn't just a label change — it changes what you see. Because a quotation was never paid in the first place, the Paid/Partial/Unpaid payment-status columns that appear on the invoice list are hidden on the quotations screen. There's no ambiguous "Unpaid" chip sitting next to a document that was never meant to represent a completed sale.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/create_new_invoice1.png" alt="Creating a new document in Invoiso and choosing between Invoice and Quotation as the document type" loading="lazy" />
+              <figcaption>Choosing the document type when you start a new document — Invoice or Quotation.</figcaption>
+            </figure>
+            <p>Both document types generate professional PDFs from the same set of PDF templates, so a quotation looks just as polished as the invoice that eventually follows it — there's no visual downgrade for sending an estimate rather than a bill. And because invoices and quotations are tracked in separate lists with colour-coded badges, you can scan either list and instantly tell what you're looking at, without opening each document to check.</p>
+
+            <h2>Turning a quotation into an invoice, step by step</h2>
+            <p>This is the part that actually saves time. Once a customer accepts a quotation, you don't rebuild the invoice from scratch — you convert the quote directly using the <strong>Duplicate</strong> button that's available on every invoice and quotation in Invoiso.</p>
+            <ol>
+              <li><strong>Open the accepted quotation.</strong> Find it in the Quotations screen once your customer has confirmed they want to go ahead.</li>
+              <li><strong>Click Duplicate.</strong> Every document in Invoiso — invoice or quotation — has this button available.</li>
+              <li><strong>Choose the target type.</strong> When you duplicate a document, Invoiso asks whether the clone should be an Invoice or a Quotation. Pick Invoice.</li>
+              <li><strong>Review the pre-filled document.</strong> The new invoice opens with the same customer, the same line items, the same tax settings, and the same notes as the original quotation — but with a fresh document ID and today's date.</li>
+              <li><strong>Adjust anything that changed.</strong> If the customer negotiated a different price, added or dropped a line item, or the quantities shifted since the quote was first sent, update those fields now.</li>
+              <li><strong>Save.</strong> You now have a ready-to-send tax invoice, built from the quote's contents, without retyping the customer's details or the line items by hand.</li>
+            </ol>
+            <p>This one workflow is the entire bridge between "estimate" and "sale" in Invoiso. It removes the most tedious and error-prone part of converting a quote — manually re-entering everything into a new invoice — while still giving you a clean opportunity to catch anything that changed during negotiation before the document goes out as a legal record.</p>
+            <figure class="blog-inline-figure"><img src="../assets/images/screenshots/invoice_search_view.png" alt="Invoiso document list with colour-coded status badges distinguishing invoices from quotations" loading="lazy" />
+              <figcaption>Colour-coded badges keep quotations and invoices visually distinct in list views.</figcaption>
+            </figure>
+
+            <h2>What carries over, and what you should double-check</h2>
+            <p>When you duplicate a quotation into an invoice, the customer record, every line item, the tax settings applied to those line items, and any notes attached to the original document all carry over automatically. What changes is the document ID — it gets a new one, consistent with your invoice numbering rather than your quotation numbering — and the date, which resets to today.</p>
+            <p>Because negotiations often shift a little between the quote and the final agreement, it's worth treating the duplicate step as a checkpoint rather than a rubber stamp. Before saving, check that:</p>
+            <ul>
+              <li>Quantities and prices still match what was actually agreed, not just what was originally quoted.</li>
+              <li>Any discount negotiated after the quote was sent is reflected in the new invoice.</li>
+              <li>The customer's GST details are current, especially if some time passed between the quote and the confirmed sale.</li>
+              <li>The invoice date is correct for when the sale is actually being recorded, since GST invoice timing generally matters for when a sale is reported.</li>
+            </ul>
+
+            <h2>Exporting quotations and invoices separately</h2>
+            <p>If you need your records in a spreadsheet — for your accountant, for a manual reconciliation, or just for your own records — Invoiso's CSV export from the Invoice Management screen is type-aware. It distinguishes between invoices and quotations, and it opens with a date-range filter dialog, so you can export just your invoices for a given period, or just your quotations, without the two getting mixed into a single messy file.</p>
+
+            <h2>Common mistakes to avoid</h2>
+            <p>A few patterns come up repeatedly with businesses that are new to separating quotations from invoices:</p>
+            <ul>
+              <li><strong>Sending a "quotation" that's actually formatted like a tax invoice</strong> — with GST breakdowns and invoice-style numbering — which can confuse a customer into thinking a sale has already happened.</li>
+              <li><strong>Letting quotations pile up unconverted.</strong> If a quote is accepted verbally or over email, it's worth converting it to an invoice as soon as the sale is confirmed, rather than weeks later when the details are harder to recall accurately.</li>
+              <li><strong>Reusing an old quotation as a template for an unrelated invoice.</strong> Duplicating is meant for converting that specific quote into that specific sale — for a different customer or a different deal, start a new document instead.</li>
+              <li><strong>Ignoring the numbering sequence.</strong> Keeping invoices and quotations in separate number series from day one avoids having to explain gaps in your invoice sequence later.</li>
+            </ul>
+
+            <h2>A note on India-specific GST rules</h2>
+            <p>Terms like "proforma invoice" and specific GST invoice timing requirements can carry particular legal expectations depending on current CBIC guidance, and those rules can change. This guide covers how Invoiso structurally separates quotations from invoices and how to convert one into the other — for the specific legal wording or timing your business needs to comply with under current GST law, it's worth confirming the latest requirements with a tax advisor or the current CBIC guidance rather than relying on general guidance like this.</p>
+
+            <h2>Why this workflow matters for a small business</h2>
+            <p>Most small businesses don't have a dedicated sales-ops team drawing a hard line between "estimate" and "sale" — the same person is often writing the quote, following up with the customer, and eventually issuing the invoice. Having the software enforce the distinction structurally — separate screens, separate numbering, a payment-status column that only shows up where it's meaningful — removes the burden of remembering to keep them apart manually. And having a one-click path from an accepted quote to a finished invoice means the discipline of separating the two documents doesn't cost you extra typing every time a deal closes.</p>
+
+            <div class="blog-article-cta">
+              <p>Invoiso keeps quotations and invoices separate by design, with one-click conversion when a deal closes. Try Invoiso's <a href="../free-gst-billing-software.html" class="primary-text">free GST billing software</a> or <a href="../download.html" class="primary-text">download the desktop app</a>.</p>
+            </div>
+          </article>
+          <aside class="blog-sidebar">
+            <div class="blog-sidebar-box">
+              <h2>Related reading</h2>
+              <a href="invoice-numbering-format-guide.html">Invoice Numbering Rules Under GST</a>
+              <a href="how-to-track-payments-invoice.html">How to Track Invoice Payments</a>
+              <a href="how-to-customize-invoice-pdf-templates.html">Customize Invoice PDF Templates</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container mx-auto px-6 max-w-7xl site-footer-inner">
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">© <span id="year"></span> Invoiso. <a href="./" class="primary-text">Blog</a> · <a href="../download.html" class="primary-text">Download</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear(); window.addEventListener('scroll', function () { document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50); }); var hamburgerBtn = document.getElementById('hamburger-btn'); var mobileMenu = document.getElementById('mobile-menu'); hamburgerBtn.addEventListener('click', function () { var isOpen = !mobileMenu.classList.contains('hidden'); mobileMenu.classList.toggle('hidden'); hamburgerBtn.setAttribute('aria-expanded', String(!isOpen)); });</script>
+</body>
+</html>
