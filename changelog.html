@@ -844,6 +844,102 @@
 
           <div class="timeline">
 
+            <!-- August 2026 -->
+            <div class="release-card fade-in-up">
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <div class="release-card-header">
+                <div class="release-card-header-left">
+                  <span class="version-badge">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    August 2026
+                  </span>
+                </div>
+                <span class="release-date">v4.3.9</span>
+              </div>
+
+              <div class="release-body">
+
+                <!-- New Features -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-features"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                    <span class="title-features">New Features</span>
+                  </div>
+                  <ul class="cl-list" aria-label="New features in August 2026">
+                    <li><span><strong>Multi-language app UI</strong> — the entire interface is now available in 7 languages (English, Hindi, Nepali, Tibetan, French, Spanish, Chinese Simplified). Switch instantly from a language picker; non-English translations are machine-translated drafts marked <em>Beta</em>. Invoice PDF content stays English for now</span></li>
+                    <li><span><strong>First-login onboarding wizard</strong> — a one-time, skippable 4-step setup (Company, Invoice Settings, Invoice Appearance, confirmation) shown after the first login, so new installs aren't stuck on defaults. Each step saves independently</span></li>
+                    <li><span><strong>Custom invoice numbering</strong> — full control over the invoice number format, longer prefixes, and an option to hide the invoice number on the PDF</span></li>
+                    <li><span><strong>Simple invoice numbers</strong> — opt out of zero-padding (INV-7 instead of INV-0007)</span></li>
+                    <li><span><strong>Price-inclusive tax mode</strong> — enter item prices with tax already included; CGST/SGST columns added to invoice PDFs; new FSSAI code field</span></li>
+                    <li><span><strong>New GST document types</strong> added</span></li>
+                    <li><span><strong>Customer Statement PDF</strong> — generate a running account statement per customer from the Reports screen</span></li>
+                    <li><span><strong>Unlimited product stock &amp; product metadata</strong> — mark a product as unlimited stock and attach custom metadata fields</span></li>
+                    <li><span><strong>Configurable Product Details</strong> — hide optional product fields (alias, tax rate, HSN/SAC, description, purchase price, discount, unit, type) for simpler catalogs</span></li>
+                    <li><span><strong>All world currencies supported</strong> — every currency is now selectable, plus the new XOF (West African CFA franc); amount-in-words is now internationalised</span></li>
+                    <li><span><strong>More PDF field control</strong> — show or hide company name, phone, email and address individually on PDFs</span></li>
+                    <li><span><strong>Additional script fonts</strong> — Arabic, Bengali, Thai, Khmer, Myanmar, Georgian, Armenian and Tibetan</span></li>
+                    <li><span><strong>Password reset</strong> — a "forgot password" flow on the login screen</span></li>
+                    <li><span><strong>Invoice list filters &amp; sorting</strong> — filter by date, status and invoice ID; sortable columns in Invoice Management</span></li>
+                    <li><span><strong>CSV import progress dialog</strong> for product and customer imports</span></li>
+                    <li><span><strong>Android support (early)</strong> — the app now runs on Android tablets, with an Android logo and layout optimisations</span></li>
+                    <li><span>Duplicate line items are now allowed in an invoice</span></li>
+                    <li><span>Notes labelling on PDFs, a new round-off row with its own setting, and tighter PDF layouts (smaller fonts, less whitespace) across all templates</span></li>
+                    <li><span>Signature, UPI and bank details now print on a single line; larger logo uploads allowed; company font-size control for PDFs</span></li>
+                  </ul>
+                </div>
+
+                <!-- UI Improvements -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-ui"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
+                    <span class="title-ui">UI &amp; UX Improvements</span>
+                  </div>
+                  <ul class="cl-list" aria-label="UI improvements in August 2026">
+                    <li><span>Redesigned screens — new Create Invoice, Invoice Management, Invoice Settings, Customer / Product / User Management, and PDF Settings screens</span></li>
+                    <li><span>Customer selection is now a search field instead of a dropdown</span></li>
+                    <li><span>First-time users get clear guidance on the login screen</span></li>
+                    <li><span>Full keyboard tab traversal, more shortcuts (add product, custom item, create invoice), and focus-loss fixes</span></li>
+                    <li><span>Status summary cards on the Products and Customers pages can be hidden</span></li>
+                  </ul>
+                </div>
+
+                <!-- Under the Hood -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-platform"><i class="fas fa-gear" aria-hidden="true"></i></span>
+                    <span class="title-platform">Under the Hood</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Under the hood changes in August 2026">
+                    <li><span>Refactored legacy screen files, split the theme file, and restructured common/constants imports</span></li>
+                    <li><span>Reverted to the stable thermal-printer service after issues with the new library</span></li>
+                    <li><span>Windows installer no longer depends on <code>vc_redist.x64.exe</code></span></li>
+                    <li><span>Database migration and version-conflict fixes</span></li>
+                  </ul>
+                </div>
+
+                <!-- Bug Fixes — full width -->
+                <div class="cl-section" style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 20px;">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
+                    <span class="title-fixes">Bug Fixes</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Bug fixes in August 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                    <li><span>Invoice clone creation failure fixed</span></li>
+                    <li><span>Customer search not finding results in the create-invoice screen</span></li>
+                    <li><span>Tax label (GSTIN) now shown correctly on the customer page</span></li>
+                    <li><span>Date format corrected in PDFs and in the bulk PDF export</span></li>
+                    <li><span>Login screen responsiveness on small windows</span></li>
+                    <li><span>Reports screen not picking up the latest data</span></li>
+                    <li><span>Tax calculation edge-case fixes</span></li>
+                    <li><span>Various UI render-overflow fixes</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <!-- / August 2026 -->
+
             <!-- July 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
@@ -855,10 +951,15 @@
                     July 2026
                   </span>
                 </div>
-                <span class="release-date">v4.3.3</span>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="release-date">v4.3.3</span>
+                  <button class="cl-toggle-btn" data-target="july-body" aria-label="Toggle July 2026 release notes" aria-expanded="false">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
               </div>
 
-              <div class="release-body">
+              <div class="release-body cl-collapsed" id="july-body">
 
                 <!-- New Features -->
                 <div class="cl-section">
