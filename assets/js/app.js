@@ -67,6 +67,12 @@ var testimonials = [
     text: 'Software is perfect for small businesses and simple invoices. Keeps updating frequently. Values of Anoop are on point, Paying for everyone\'s upgrade to make the software better instead of locking features behind paywalls.\nWas very happy to pay for updates!',
     stars: 5,
   },
+  {
+    name: 'amr',
+    location: '',
+    text: 'very helpful',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
