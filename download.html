@@ -2045,12 +2045,12 @@
 
       document.querySelectorAll('.download-platform-card[data-platform]').forEach(function (card) {
         card.addEventListener('click', function (e) {
-          e.preventDefault();
           var platform = card.getAttribute('data-platform');
           var osKey = platform === 'linux-deb' ? 'linux' : platform;
           var section = document.getElementById('dl-section-' + osKey);
 
           if (section) {
+            e.preventDefault();
             var navHeight = (document.querySelector('.navbar') || {offsetHeight: 80}).offsetHeight;
             var top = section.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
             window.scrollTo({ top: top, behavior: 'smooth' });
@@ -2058,9 +2058,8 @@
               el.classList.remove('dl-highlight');
             });
             section.classList.add('dl-highlight');
-          } else {
-            document.getElementById('latest-downloads').scrollIntoView({ behavior: 'smooth' });
           }
+          // else: let the native href="#latest-downloads" anchor navigation happen
 
           var tab = document.querySelector('.install-tab[data-tab="' + platform + '"]');
           if (tab) activateInstallTab(tab);
