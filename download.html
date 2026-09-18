@@ -2169,14 +2169,28 @@
         }
       }
 
+      function triggerDownload(url, filename, platform) {
+        trackDownload(filename, platform);
+        var iframe = document.getElementById('dl-iframe');
+        if (!iframe) {
+          iframe = document.createElement('iframe');
+          iframe.id = 'dl-iframe';
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+        }
+        iframe.src = url;
+        return false;
+      }
+
       function buildAssetRows(entries) {
         return entries.map(function (e) {
           var size = formatBytes(e.asset.size);
           var dl   = e.asset.download_count || 0;
           var meta = [size, dl ? dl.toLocaleString() + ' downloads' : ''].filter(Boolean).join(' · ');
           var safeName = e.asset.name.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+          var safeUrl  = e.asset.browser_download_url.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
           return (
-            '<a href="' + escHtml(e.asset.browser_download_url) + '" class="asset-btn" onclick="trackDownload(\'' + safeName + '\',\'' + e.info.os + '\')" aria-label="Download ' + escHtml(e.asset.name) + '">' +
+            '<a href="' + escHtml(e.asset.browser_download_url) + '" class="asset-btn" onclick="return triggerDownload(\'' + safeUrl + '\',\'' + safeName + '\',\'' + e.info.os + '\')" aria-label="Download ' + escHtml(e.asset.name) + '">' +
               '<span class="asset-icon"><i class="' + e.info.icon + '" aria-hidden="true"></i></span>' +
               '<span class="asset-info">' +
                 '<span class="asset-name">' + escHtml(e.asset.name) + '</span>' +
