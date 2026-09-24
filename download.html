@@ -4,6 +4,7 @@
     <!-- Basic Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
     <meta name="description" content="Download Invoiso free billing software for Windows, Linux and macOS. Create GST-ready PDF invoices offline with no account, subscription, or cloud login." />
     <meta name="author" content="Invoiso" />
     <meta name="robots" content="index, follow" />
@@ -195,11 +196,13 @@
         transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
       }
 
-      .download-platform-card:hover {
-        border-color: rgba(79,142,247,0.48);
-        background: rgba(79,142,247,0.11);
-        transform: translateY(-4px);
-        box-shadow: 0 10px 32px rgba(79,142,247,0.20), inset 0 1px 0 rgba(255,255,255,0.08);
+      @media (hover: hover) {
+          .download-platform-card:hover {
+            border-color: rgba(79,142,247,0.48);
+            background: rgba(79,142,247,0.11);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 32px rgba(79,142,247,0.20), inset 0 1px 0 rgba(255,255,255,0.08);
+          }
       }
 
       .download-platform-card i {
@@ -305,11 +308,13 @@
         transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
       }
 
-      .download-scroll-cue:hover {
-        border-color: rgba(79,142,247,0.32);
-        background: rgba(79,142,247,0.10);
-        color: #fff;
-        transform: translateY(1px);
+      @media (hover: hover) {
+          .download-scroll-cue:hover {
+            border-color: rgba(79,142,247,0.32);
+            background: rgba(79,142,247,0.10);
+            color: #fff;
+            transform: translateY(1px);
+          }
       }
 
       .download-scroll-cue i {
@@ -517,7 +522,7 @@
       /* ── Asset download buttons ── */
       .assets-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 10px;
         padding: 0 20px 4px;
       }
@@ -686,12 +691,14 @@
         min-width: 0;
       }
 
-      .asset-btn:hover {
-        border-color: var(--primary);
-        background: rgba(79,142,247,0.08);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(79,142,247,0.15), 0 0 0 1px rgba(79,142,247,0.1);
-        color: var(--primary);
+      @media (hover: hover) {
+          .asset-btn:hover {
+            border-color: var(--primary);
+            background: rgba(79,142,247,0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79,142,247,0.15), 0 0 0 1px rgba(79,142,247,0.1);
+            color: var(--primary);
+          }
       }
 
       .asset-icon {
@@ -1099,7 +1106,9 @@
         color: var(--text-muted);
         margin-bottom: 7px;
       }
+      .welcome-section > div:last-child { min-width: 0; }
       .welcome-section-body {
+        overflow-wrap: anywhere;
         font-size: 0.875rem;
         color: rgba(226,232,240,0.85);
         line-height: 1.6;
@@ -1209,10 +1218,12 @@
         transition: all 0.2s ease;
         letter-spacing: 0.01em;
       }
-      .welcome-got-it:hover {
-        background: #6ba8ff;
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(79,142,247,0.35);
+      @media (hover: hover) {
+          .welcome-got-it:hover {
+            background: #6ba8ff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(79,142,247,0.35);
+          }
       }
 
       /* ── Installation Guide ── */
@@ -1980,6 +1991,7 @@
       </div>
     </div>
 
+    <script src="assets/js/gh-releases.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -2213,11 +2225,7 @@
       }
 
       // --- Fetch releases ---
-      fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases?per_page=100')
-        .then(function (res) {
-          if (!res.ok) throw new Error('Network error');
-          return res.json();
-        })
+      fetchReleases()
         .then(function (releases) {
           var list = document.getElementById('releases-list');
           var previousList = document.getElementById('previous-releases-list');

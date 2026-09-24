@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
   <meta name="description" content="Free online invoice maker — fill in your details and download a professional PDF invoice instantly. No sign-up, no account, no data stored. Supports GST, multi-currency, and custom items." />
   <meta name="keywords" content="free invoice maker, online invoice generator, create invoice online, PDF invoice, GST invoice, free invoice template" />
   <meta name="robots" content="index, follow" />
@@ -1664,9 +1665,16 @@ function previewPDF() {
     return;
   }
   const doc = buildPDF();
+  // No built-in PDF viewer (e.g. Chrome Android) → a blob tab would be blank; download instead
+  if (navigator.pdfViewerEnabled === false) {
+    doc.save('invoice-preview.pdf');
+    return;
+  }
   const blob = doc.output('blob');
   const url = URL.createObjectURL(blob);
-  window.open(url, '_blank');
+  const win = window.open(url, '_blank');
+  if (!win) doc.save('invoice-preview.pdf'); // popup blocked
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
 function downloadPDF() {
@@ -1729,8 +1737,11 @@ function exportJSON() {
   const num = v('inv-number') || 'invoice';
   a.href = url;
   a.download = `${state.docType}-${num}.json`.replace(/[^a-z0-9\-_.]/gi, '_').toLowerCase();
+  // Must be in the DOM for Firefox; revoking synchronously can cancel the download in Safari/Firefox
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function handleImport(input) {

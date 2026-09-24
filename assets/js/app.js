@@ -132,7 +132,7 @@ document.addEventListener('click', function (e) {
   if (!el) return;
   var iframe = document.createElement('iframe');
   iframe.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.id +
-               '?rel=0&autoplay=1&origin=https://invoiso.co.in';
+               '?rel=0&autoplay=1&playsinline=1&origin=https://invoiso.co.in';
   iframe.title = el.dataset.title || 'Video';
   iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
   iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
@@ -186,8 +186,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 3D tilt effect for feature cards
-  document.querySelectorAll('.feature-card').forEach(function (card) {
+  // 3D tilt effect for feature cards (mouse only — would stick after a tap on touch screens)
+  var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (finePointer) document.querySelectorAll('.feature-card').forEach(function (card) {
     card.addEventListener('mousemove', function (e) {
       var rect    = card.getBoundingClientRect();
       var x       = e.clientX - rect.left;
@@ -386,6 +387,10 @@ window.addEventListener('scroll', function () {
 (function initReveal() {
   var revealEls = document.querySelectorAll('.reveal');
   if (!revealEls.length) return;
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+    return;
+  }
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -401,7 +406,7 @@ window.addEventListener('scroll', function () {
 (function initNavHighlight() {
   var sections = document.querySelectorAll('main section[id]');
   var navLinks = document.querySelectorAll('.navbar nav ul a[href^="#"]');
-  if (!sections.length || !navLinks.length) return;
+  if (!sections.length || !navLinks.length || !('IntersectionObserver' in window)) return;
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -432,8 +437,7 @@ window.addEventListener('scroll', function () {
 (function fetchHeroDownloads() {
   var el = document.getElementById('hero-dl-count');
   if (!el) return;
-  fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases?per_page=100')
-    .then(function (res) { if (!res.ok) throw new Error(); return res.json(); })
+  fetchReleases()
     .then(function (releases) {
       var total = releases.reduce(function (sum, r) {
         return sum + (r.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);

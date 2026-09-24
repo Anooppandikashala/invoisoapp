@@ -4,6 +4,7 @@
     <!-- Basic Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
     <meta name="description" content="Release notes and version history for Invoiso — every new feature, improvement, and bug fix across all versions of the free offline invoice and billing software for Windows and Linux." />
     <meta name="keywords" content="Invoiso updates, invoice software updates, what's new Invoiso, release notes Invoiso" />
     <meta name="author" content="Invoiso" />
@@ -541,12 +542,14 @@
         transition: background 0.2s, border-color 0.2s, transform 0.15s;
       }
 
-      .subscribe-btn:hover {
-        background: rgba(79,142,247,0.2);
-        border-color: rgba(79,142,247,0.55);
-        transform: translateY(-1px);
-        text-decoration: none;
-        color: var(--primary);
+      @media (hover: hover) {
+          .subscribe-btn:hover {
+            background: rgba(79,142,247,0.2);
+            border-color: rgba(79,142,247,0.55);
+            transform: translateY(-1px);
+            text-decoration: none;
+            color: var(--primary);
+          }
       }
 
       /* ── Collapsible release body ── */
