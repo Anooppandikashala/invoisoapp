@@ -8,11 +8,20 @@ function fetchReleases() {
   try { cached = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
   if (cached && Date.now() - cached.ts < TTL) return Promise.resolve(cached.data);
 
-  return fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases?per_page=100')
-    .then(function (res) {
-      if (!res.ok) throw new Error('GitHub API ' + res.status);
-      return res.json();
-    })
+  // API returns max 100 releases per page; keep fetching until a short page
+  function fetchPage(page, acc) {
+    return fetch('https://api.github.com/repos/Anooppandikashala/invoiso/releases?per_page=100&page=' + page)
+      .then(function (res) {
+        if (!res.ok) throw new Error('GitHub API ' + res.status);
+        return res.json();
+      })
+      .then(function (releases) {
+        acc = acc.concat(releases);
+        return releases.length === 100 ? fetchPage(page + 1, acc) : acc;
+      });
+  }
+
+  return fetchPage(1, [])
     .then(function (releases) {
       var data = releases.map(function (r, i) {
         return {

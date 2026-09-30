@@ -94,6 +94,8 @@
       .dl2-file:hover { border-color: rgba(79,142,247,0.6); background: rgba(79,142,247,0.08); }
       .dl2-file strong { display: block; color: #fff; font-weight: 600; }
       .dl2-file small { color: var(--text-muted); font-size: 0.76rem; }
+      .dl2-file .dl2-count { display: block; margin-top: 2px; opacity: 0.85; }
+      .dl2-file .dl2-count:empty { display: none; }
       .dl2-file > i { color: var(--primary); }
       .dl2-file.is-primary { background: var(--primary); border-color: transparent; }
       .dl2-file.is-primary strong, .dl2-file.is-primary small, .dl2-file.is-primary > i { color: #fff; }
@@ -734,9 +736,11 @@
         a.href = asset.browser_download_url;
         a.setAttribute('data-os', info.os);
         a.setAttribute('data-name', asset.name);
-        a.innerHTML = '<span><strong></strong><small></small></span><i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        a.innerHTML = '<span><strong></strong><small></small><small class="dl2-count"></small></span><i class="fas fa-arrow-down" aria-hidden="true"></i>';
         a.querySelector('strong').textContent = info.title;
         a.querySelector('small').textContent = info.kind + ' · ' + mb(asset.size);
+        var dl = asset.download_count || 0;
+        if (dl) a.querySelector('.dl2-count').textContent = dl.toLocaleString('en-IN') + (dl === 1 ? ' download' : ' downloads');
         return a;
       }
 
