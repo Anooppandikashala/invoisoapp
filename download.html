@@ -1,1406 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Basic Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Download Invoiso free billing software for Windows, Linux and macOS. Create GST-ready PDF invoices offline with no account, subscription, or cloud login." />
+    <title>Download Free Billing Software for PC, Mac &amp; Linux | Invoiso</title>
+    <meta name="description" content="Download Invoiso, free offline billing software for Windows, macOS and Linux. Create GST-ready PDF invoices with no account, no subscription and no cloud login." />
     <meta name="author" content="Invoiso" />
     <meta name="robots" content="index, follow" />
-
-    <!-- Title -->
-    <title>Download Free Billing Software for PC | Invoiso</title>
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://invoiso.co.in/download.html" />
-
-    <!-- Theme Color -->
     <meta name="theme-color" content="#06080f" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Download Free Billing Software for PC | Invoiso" />
-    <meta property="og:description" content="Download Invoiso for Windows, Linux and macOS. Free offline billing software for small businesses with GST-ready PDF invoices. No account or subscription." />
+    <meta property="og:title" content="Download Invoiso: Free Billing Software for PC, Mac &amp; Linux" />
+    <meta property="og:description" content="Free offline billing software for Windows, macOS and Linux. GST-ready PDF invoices, no account, no subscription." />
     <meta property="og:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
     <meta property="og:url" content="https://invoiso.co.in/download.html" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Invoiso" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Download Free Billing Software for PC | Invoiso" />
-    <meta name="twitter:description" content="Free offline billing software for Windows, Linux and macOS. GST-ready PDF invoices, no account, no subscription. Download and run instantly." />
+    <meta name="twitter:title" content="Download Invoiso: Free Billing Software for PC, Mac &amp; Linux" />
+    <meta name="twitter:description" content="Free offline billing software for Windows, macOS and Linux. GST-ready PDF invoices, no account, no subscription." />
     <meta name="twitter:image" content="https://invoiso.co.in/assets/images/invoiso_banner.webp" />
 
-    <!-- Favicon & Icons -->
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg" />
     <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
-
-    <!-- CSS: critical (local, render-blocking) -->
     <link rel="stylesheet" href="tailwind.css" />
     <link rel="stylesheet" href="style.css" />
-
-    <!-- CSS: non-critical (deferred) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /></noscript>
 
     <style>
-      /* ── Premium download hero ── */
-      .download-hero {
-        min-height: auto;
-        padding: 136px 0 72px;
-        overflow: hidden;
-      }
+      /* ── Download v2: page-scoped styles (prefix dl2-) ── */
+      .dl2 { --dl2-radius: 16px; --dl2-line: rgba(255,255,255,0.08); --dl2-soft: #94a3b8; }
+      .dl2 [hidden], .dl2-dialog [hidden] { display: none !important; }
+      .dl2 section { padding: 88px 0; }
+      .dl2-wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+      .dl2-narrow { max-width: 760px; }
+      .dl2 h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.03em; color: #fff; text-align: center; }
+      .dl2-lead { margin: 10px auto 0; max-width: 560px; color: var(--dl2-soft); text-align: center; line-height: 1.6; }
+      .dl2 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86em; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,0.07); color: #e2e8f0; }
 
-      .download-hero-shell {
-        display: grid;
-        grid-template-columns: minmax(0, 0.98fr) minmax(390px, 0.72fr);
-        align-items: center;
-        gap: 54px;
-      }
+      /* Hero */
+      .dl2-hero { position: relative; padding: 136px 0 0 !important; text-align: center; overflow: hidden; }
+      .dl2-hero::before { content: ""; position: absolute; top: -220px; left: 50%; width: 900px; height: 600px; margin-left: -450px; background: radial-gradient(closest-side, rgba(79,142,247,0.22), transparent); pointer-events: none; }
+      .dl2-hero > * { position: relative; }
+      .dl2-crumb { display: flex; justify-content: center; gap: 8px; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 22px; }
+      .dl2-crumb a { color: var(--text-muted); text-decoration: none; }
+      .dl2-crumb a:hover { color: #fff; }
+      .dl2-release { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--dl2-line); border-radius: 999px; background: rgba(255,255,255,0.03); color: var(--dl2-soft); font-size: 0.8rem; font-weight: 500; text-decoration: none; }
+      .dl2-release:hover { border-color: rgba(79,142,247,0.5); color: #fff; }
+      .dl2-release b { color: #fff; font-weight: 600; }
+      .dl2-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.18); }
+      .dl2-hero h1 { margin: 22px auto 0; color: #fff; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.04; letter-spacing: -0.045em; }
+      .dl2-h1-sub { display: block; margin-top: 14px; font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 500; letter-spacing: -0.01em; line-height: 1.5; color: var(--dl2-soft); }
+      .dl2-cta-row { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .dl2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 30px; border: 1px solid transparent; border-radius: 14px; background: var(--primary); color: #fff; font: inherit; font-size: 1.05rem; font-weight: 700; text-decoration: none; cursor: pointer; box-shadow: 0 10px 30px -8px rgba(79,142,247,0.6); transition: background-color 0.2s, transform 0.2s; }
+      .dl2-btn:hover { background: #3b7bf0; }
+      .dl2-btn i { font-size: 1.2rem; }
+      .dl2-btn:focus-visible, .dl2-file:focus-visible, .dl2-tab:focus-visible, .dl2-copy:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+      .dl2-meta { color: var(--text-muted); font-size: 0.82rem; }
+      .dl2-hero-files { width: 100%; max-width: 580px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; text-align: left; }
+      .dl2-hero-files .dl2-file { padding: 14px 16px; background: rgba(79,142,247,0.1); border-color: rgba(79,142,247,0.35); }
+      @media (max-width: 560px) { .dl2-hero-files { grid-template-columns: minmax(0, 1fr); } }
+      .dl2-alt { color: var(--dl2-soft); font-size: 0.9rem; }
+      .dl2-alt a { color: #fff; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); }
+      .dl2-alt a:hover { border-color: #fff; }
+      .dl2-trust { margin: 28px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; list-style: none; padding: 0; color: var(--dl2-soft); font-size: 0.86rem; }
+      .dl2-trust i { color: #22c55e; margin-right: 6px; }
+      .dl2-shot { margin: 56px auto 0; max-width: 960px; padding: 0 20px; }
+      .dl2-shot-frame { border: 1px solid var(--dl2-line); border-bottom: 0; border-radius: 18px 18px 0 0; padding: 10px 10px 0; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)); box-shadow: 0 -20px 80px -30px rgba(79,142,247,0.45); }
+      .dl2-shot img { display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0; }
 
-      .download-hero-copy {
-        text-align: left;
-        max-width: 690px;
-      }
+      /* Platform cards */
+      .dl2-platforms { border-top: 1px solid var(--dl2-line); }
+      .dl2-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+      .dl2-card { position: relative; padding: 26px 22px 22px; border: 1px solid var(--dl2-line); border-radius: var(--dl2-radius); background: var(--card); }
+      .dl2-card.is-yours { border-color: rgba(79,142,247,0.55); background: rgba(79,142,247,0.06); }
+      .dl2-yours { display: none; position: absolute; top: -11px; left: 20px; padding: 2px 10px; border-radius: 999px; background: var(--primary); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em; }
+      .dl2-card.is-yours .dl2-yours { display: inline-block; }
+      .dl2-card-head { display: flex; align-items: center; gap: 12px; }
+      .dl2-card-head > i { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 12px; background: rgba(255,255,255,0.06); color: #fff; font-size: 1.3rem; }
+      .dl2-card h3 { color: #fff; font-size: 1.1rem; font-weight: 700; }
+      .dl2-card-sub { color: var(--text-muted); font-size: 0.8rem; }
+      .dl2-files { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+      .dl2-file { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 14px; border: 1px solid var(--dl2-line); border-radius: 10px; background: rgba(255,255,255,0.02); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: border-color 0.2s, background-color 0.2s; }
+      .dl2-file:hover { border-color: rgba(79,142,247,0.6); background: rgba(79,142,247,0.08); }
+      .dl2-file strong { display: block; color: #fff; font-weight: 600; }
+      .dl2-file small { color: var(--text-muted); font-size: 0.76rem; }
+      .dl2-file > i { color: var(--primary); }
+      .dl2-file.is-primary { background: var(--primary); border-color: transparent; }
+      .dl2-file.is-primary strong, .dl2-file.is-primary small, .dl2-file.is-primary > i { color: #fff; }
+      .dl2-file.is-primary:hover { background: #3b7bf0; }
+      .dl2-cmd { margin-top: 12px; display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px; border: 1px solid var(--dl2-line); border-radius: 10px; background: #04060c; }
+      .dl2-cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 0; background: none; font-size: 0.76rem; color: #cbd5e1; }
+      .dl2-copy { flex-shrink: 0; width: 32px; height: 32px; border: 1px solid var(--dl2-line); border-radius: 8px; background: rgba(255,255,255,0.04); color: var(--dl2-soft); cursor: pointer; }
+      .dl2-copy:hover { color: #fff; }
+      .dl2-cmd-label { margin-top: 14px; color: var(--text-muted); font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+      .dl2-older { margin-top: 26px; text-align: center; color: var(--text-muted); font-size: 0.86rem; }
+      .dl2-older a { color: var(--dl2-soft); }
 
-      .download-breadcrumb ol {
-        justify-content: flex-start;
-      }
+      /* Install steps */
+      .dl2-install { background: rgba(255,255,255,0.015); border-top: 1px solid var(--dl2-line); border-bottom: 1px solid var(--dl2-line); }
+      .dl2-tabs { margin: 32px auto 0; display: flex; width: max-content; max-width: 100%; padding: 4px; gap: 4px; border: 1px solid var(--dl2-line); border-radius: 12px; background: rgba(255,255,255,0.03); }
+      .dl2-tab { padding: 8px 18px; border: 0; border-radius: 9px; background: transparent; color: var(--dl2-soft); font: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+      .dl2-tab[aria-selected="true"] { background: rgba(255,255,255,0.1); color: #fff; }
+      .dl2-tab i { margin-right: 6px; }
+      .dl2-steps { margin-top: 32px; list-style: none; padding: 0; counter-reset: dl2; }
+      .dl2-steps > li { position: relative; padding: 0 0 26px 52px; counter-increment: dl2; }
+      .dl2-steps > li::before { content: counter(dl2); position: absolute; left: 0; top: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(79,142,247,0.45); border-radius: 50%; color: #fff; font-size: 0.85rem; font-weight: 700; background: rgba(79,142,247,0.12); }
+      .dl2-steps > li::after { content: ""; position: absolute; left: 16px; top: 38px; bottom: 6px; width: 1px; background: var(--dl2-line); }
+      .dl2-steps > li:last-child::after { display: none; }
+      .dl2-steps h3 { color: #fff; font-size: 1rem; font-weight: 600; line-height: 32px; }
+      .dl2-steps p { margin-top: 4px; color: var(--dl2-soft); font-size: 0.92rem; line-height: 1.65; }
+      .dl2-steps .dl2-cmd { max-width: 560px; }
+      .dl2-note { margin-top: 4px; padding: 12px 16px; border-radius: 10px; background: rgba(79,142,247,0.07); color: var(--dl2-soft); font-size: 0.85rem; line-height: 1.6; }
 
-      .download-hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 16px;
-        padding: 7px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(79,142,247,0.22);
-        background: rgba(79,142,247,0.08);
-        color: #93c5fd;
-        font-size: 0.74rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
+      /* What's new */
+      .dl2-news { padding: 26px; border: 1px solid var(--dl2-line); border-radius: var(--dl2-radius); background: var(--card); }
+      .dl2-news-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+      .dl2-news h2 { text-align: left; font-size: 1.25rem; }
+      .dl2-news-date { color: var(--text-muted); font-size: 0.82rem; }
+      .dl2-news p { margin-top: 12px; color: var(--dl2-soft); line-height: 1.65; font-size: 0.93rem; }
+      .dl2-news ul { margin-top: 14px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+      .dl2-news li { color: var(--text); font-size: 0.92rem; }
+      .dl2-news li i { color: var(--primary); margin-right: 8px; font-size: 0.8rem; }
+      .dl2-news-links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 0.88rem; }
+      .dl2-news-links a { color: var(--primary); font-weight: 600; text-decoration: none; }
+      .dl2-news-links a:hover { text-decoration: underline; }
 
-      .download-hero h1 {
-        max-width: 620px;
-        margin: 0 0 16px;
-        color: var(--text);
-        font-size: clamp(2.1rem, 4vw, 3.45rem) !important;
-        line-height: 1.05 !important;
-        letter-spacing: -0.045em;
-        font-weight: 850;
-      }
+      /* FAQ */
+      .dl2-faq { margin-top: 36px; border-top: 1px solid var(--dl2-line); }
+      .dl2-faq details { border-bottom: 1px solid var(--dl2-line); }
+      .dl2-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 2px; color: #fff; font-weight: 600; cursor: pointer; list-style: none; }
+      .dl2-faq summary::-webkit-details-marker { display: none; }
+      .dl2-faq summary::after { content: "+"; color: var(--text-muted); font-size: 1.4rem; font-weight: 400; line-height: 1; transition: transform 0.2s; }
+      .dl2-faq details[open] summary::after { transform: rotate(45deg); }
+      .dl2-faq details p { padding: 0 2px 20px; color: var(--dl2-soft); line-height: 1.7; font-size: 0.93rem; }
+      .dl2-help { margin-top: 36px; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+      .dl2-help a { color: var(--dl2-soft); margin: 0 8px; }
+      .dl2-help a:hover { color: #fff; }
 
-      .download-hero-copy > p {
-        max-width: 610px;
-        margin: 0;
-        color: rgba(226,232,240,0.80);
-        font-size: clamp(0.96rem, 1.2vw, 1.08rem);
-        line-height: 1.72;
-      }
-
-      .download-hero .hero-trust-strip {
-        justify-content: flex-start;
-        margin-top: 24px !important;
-      }
-
-      .download-hero-panel {
-        position: relative;
-        border-radius: 28px;
-        border: 1px solid rgba(226,232,240,0.12);
-        background:
-          linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.024)),
-          rgba(6,8,15,0.62);
-        box-shadow: 0 34px 110px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.08);
-        backdrop-filter: blur(22px);
-        -webkit-backdrop-filter: blur(22px);
-        padding: 18px;
-        overflow: hidden;
-      }
-
-      .download-hero-panel::before {
-        content: '';
-        position: absolute;
-        inset: -40% -20% auto 28%;
-        height: 220px;
-        background: radial-gradient(circle, rgba(79,142,247,0.22), transparent 68%);
-        pointer-events: none;
-      }
-
-      .download-panel-topbar,
-      .download-platforms,
-      .download-panel-note,
-      .download-hero .total-dl-stat {
-        position: relative;
-        z-index: 1;
-      }
-
-      .download-panel-topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 14px;
-        padding: 12px 14px;
-        border-radius: 18px;
-        border: 1px solid rgba(226,232,240,0.09);
-        background: rgba(6,8,15,0.42);
-      }
-
-      .download-panel-topbar span {
-        color: var(--text-muted);
-        font-size: 0.78rem;
-        font-weight: 750;
-      }
-
-      .download-panel-topbar strong {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        color: #34d399;
-        font-size: 0.76rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-      }
-
-      .download-platforms {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .download-platform-card {
-        min-height: 112px;
-        display: grid;
-        grid-template-columns: 34px minmax(0, 1fr);
-        grid-template-rows: 34px auto;
-        column-gap: 12px;
-        row-gap: 7px;
-        align-items: start;
-        padding: 16px;
-        border-radius: 18px;
-        border: 1px solid rgba(226,232,240,0.10);
-        background: rgba(255,255,255,0.035);
-        color: var(--text);
-        transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-      }
+      /* Thank-you dialog */
+      .dl2-dialog { width: min(92vw, 460px); max-height: 92vh; margin: auto; top: 0; right: 0; bottom: 0; left: 0; padding: 30px 26px 24px; border: 1px solid var(--dl2-line, rgba(255,255,255,0.08)); border-radius: 20px; background: #0b1222; color: var(--text); overflow: auto; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+      .dl2-dialog[open] { animation: dl2-in 0.25s ease-out; }
+      .dl2-dialog::backdrop { background: rgba(3,6,15,0.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+      .dl2-dialog-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(34,197,94,0.14); color: #22c55e; font-size: 1.3rem; }
+      .dl2-dialog h2 { margin-top: 16px; color: #fff; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
+      .dl2-dialog-sub { margin-top: 6px; color: #94a3b8; font-size: 0.9rem; }
+      .dl2-dialog-sub a { color: var(--primary); font-weight: 600; }
+      .dl2-dialog ol { margin-top: 20px; padding: 0; list-style: none; display: grid; gap: 12px; }
+      .dl2-dialog li { display: flex; gap: 12px; color: #cbd5e1; font-size: 0.9rem; line-height: 1.55; }
+      .dl2-dialog li span { flex-shrink: 0; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(79,142,247,0.15); color: #fff; font-size: 0.75rem; font-weight: 700; }
+      .dl2-dialog-foot { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+      .dl2-dialog-foot a { color: #94a3b8; font-size: 0.86rem; text-decoration: none; }
+      .dl2-dialog-foot a:hover { color: #fff; }
+      .dl2-dialog-foot a i { color: #fbbf24; margin-right: 6px; }
+      .dl2-dialog .dl2-btn { min-height: 42px; padding: 0 22px; font-size: 0.92rem; box-shadow: none; }
+      .dl2-x { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgba(255,255,255,0.06); color: #94a3b8; font-size: 1.3rem; line-height: 1; cursor: pointer; }
+      .dl2-x:hover { color: #fff; }
+      @keyframes dl2-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
 
       @media (hover: hover) {
-          .download-platform-card:hover {
-            border-color: rgba(79,142,247,0.48);
-            background: rgba(79,142,247,0.11);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 32px rgba(79,142,247,0.20), inset 0 1px 0 rgba(255,255,255,0.08);
-          }
-      }
-
-      .download-platform-card i {
-        color: var(--primary);
-        font-size: 1.35rem;
-        grid-row: 1;
-        align-self: center;
-        transition: color 0.22s ease, filter 0.22s ease;
-      }
-
-      .download-platform-card:hover i {
-        color: #90bfff;
-        filter: drop-shadow(0 0 7px rgba(79,142,247,0.55));
-      }
-
-      .download-platform-card strong {
-        font-size: 0.95rem;
-        line-height: 1.2;
-        align-self: center;
-        transition: color 0.22s ease;
-      }
-
-      .download-platform-card:hover strong {
-        color: #fff;
-      }
-
-      .download-platform-card span {
-        color: var(--text-muted);
-        font-size: 0.74rem;
-        font-weight: 700;
-        grid-column: 2;
-        transition: color 0.22s ease;
-      }
-
-      .download-platform-card:hover span {
-        color: rgba(144,191,255,0.85);
-      }
-
-      .download-hero .total-dl-stat {
-        justify-content: flex-start;
-        width: 100%;
-        margin: 12px 0 0;
-        padding: 14px 15px;
-        border-radius: 18px;
-        font-size: 0.86rem;
-        box-shadow: none;
-      }
-
-      .download-hero .total-dl-stat i {
-        width: 34px;
-        height: 34px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        background: rgba(79,142,247,0.14);
-        font-size: 0.95rem;
-      }
-
-      .download-hero .total-dl-number {
-        font-size: 1.28rem;
-      }
-
-      .download-panel-note {
-        display: grid;
-        gap: 8px;
-        margin-top: 12px;
-      }
-
-      .download-panel-note span {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        min-height: 38px;
-        padding: 9px 12px;
-        border-radius: 14px;
-        border: 1px solid rgba(226,232,240,0.08);
-        background: rgba(6,8,15,0.34);
-        color: rgba(226,232,240,0.78);
-        font-size: 0.82rem;
-        font-weight: 700;
-      }
-
-      .download-panel-note i {
-        color: var(--primary);
-      }
-
-      .download-scroll-cue {
-        grid-column: 1 / -1;
-        justify-self: center;
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        margin-top: -6px;
-        padding: 9px 13px;
-        border-radius: 999px;
-        border: 1px solid rgba(226,232,240,0.11);
-        background: rgba(255,255,255,0.035);
-        color: rgba(226,232,240,0.82);
-        font-size: 0.84rem;
-        font-weight: 750;
-        text-decoration: none;
-        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-      }
-
-      @media (hover: hover) {
-          .download-scroll-cue:hover {
-            border-color: rgba(79,142,247,0.32);
-            background: rgba(79,142,247,0.10);
-            color: #fff;
-            transform: translateY(1px);
-          }
-      }
-
-      .download-scroll-cue i {
-        color: var(--primary);
-        font-size: 0.78rem;
-      }
-
-      .dl-os-section { border-radius: 8px; }
-      .dl-os-section.dl-highlight {
-        box-shadow: inset 3px 0 0 var(--primary);
-        background-color: rgba(99,102,241,0.07);
-      }
-
-      .download-featured-badges {
-        grid-column: 1 / -1;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        width: min(100%, 900px);
-        max-width: 900px;
-        margin: 0 auto;
-        padding-top: 22px;
-        border-top: 1px solid rgba(226,232,240,0.08);
-        opacity: 0.86;
-      }
-
-      .download-featured-badges img {
-        max-height: 100px;
-        width: auto;
-      }
-
-      .download-tip-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        padding: 16px 18px;
-        margin-bottom: 24px;
-        border-radius: 18px;
-        background:
-          linear-gradient(135deg, rgba(79,142,247,0.10), rgba(255,255,255,0.025)),
-          rgba(255,255,255,0.03);
-        border: 1px solid rgba(79,142,247,0.22);
-        box-shadow: 0 18px 60px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.06);
-      }
-
-      .download-tip-card > i {
-        width: 34px;
-        height: 34px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        color: var(--primary);
-        background: rgba(79,142,247,0.14);
-        flex-shrink: 0;
-      }
-
-      .download-tip-card div {
-        color: rgba(226,232,240,0.82);
-        font-size: 0.86rem;
-        line-height: 1.65;
-      }
-
-      .download-tip-card strong {
-        color: var(--text);
-      }
-
-      .download-tip-card code {
-        background: rgba(79,142,247,0.15);
-        color: var(--primary);
-        padding: 1px 6px;
-        border-radius: 4px;
-        font-family: monospace;
-      }
-
-      /* ── Release card ── */
-      .release-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        overflow: hidden;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.4);
-        margin-bottom: 24px;
-        transition: border-color 0.3s ease;
-      }
-
-      .release-card:hover {
-        border-color: rgba(79,142,247,0.2);
-      }
-
-      .release-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 22px 28px;
-        border-bottom: 1px solid var(--border);
-        background: rgba(255,255,255,0.02);
-      }
-
-      .release-header-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .release-title {
-        font-weight: 700;
-        font-size: 1.05rem;
-        color: var(--text);
-      }
-
-      .release-date {
-        font-size: 0.875rem;
-        color: var(--text-muted);
-        white-space: nowrap;
-      }
-
-      /* ── Two-column layout for latest release ── */
-      .latest-body {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        min-height: 0;
-      }
-
-      .latest-downloads {
-        border-right: 1px solid var(--border);
-        padding-bottom: 20px;
-      }
-
-      .latest-notes {
-        padding: 24px 28px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .latest-notes-title {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-        color: var(--text-muted);
-        margin-bottom: 16px;
-      }
-
-      /* Release notes content */
-      .notes-content {
-        color: var(--text);
-        font-size: 0.9rem;
-        line-height: 1.75;
-        flex: 1;
-      }
-
-      .notes-content .cl-heading {
-        font-weight: 700;
-        font-size: 0.85rem;
-        color: var(--primary);
-        margin: 12px 0 6px;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-
-      .notes-content .cl-heading:first-child {
-        margin-top: 0;
-      }
-
-      .notes-content .cl-para {
-        margin: 4px 0;
-      }
-
-      .notes-content .cl-list {
-        list-style: none;
-        padding-left: 0;
-        margin: 4px 0;
-      }
-
-      .notes-content .cl-list li {
-        padding: 2px 0 2px 18px;
-        position: relative;
-      }
-
-      .notes-content .cl-list li::before {
-        content: '•';
-        position: absolute;
-        left: 5px;
-        color: var(--primary);
-        font-weight: bold;
-      }
-
-      .notes-content .cl-code {
-        background: rgba(79,142,247,0.15);
-        color: var(--primary);
-        padding: 1px 5px;
-        border-radius: 4px;
-        font-family: monospace;
-        font-size: 0.85em;
-      }
-
-      /* ── Asset download buttons ── */
-      .assets-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
-        padding: 0 20px 4px;
-      }
-
-      .os-section-label {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-        color: var(--text-muted);
-        padding: 14px 20px 8px;
-      }
-
-      .quick-install-card {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-        padding: 18px 20px;
-        margin-bottom: 28px;
-        border-radius: 14px;
-        border: 1px solid rgba(79,142,247,0.25);
-        background: rgba(255,255,255,0.035);
-      }
-
-      .quick-install-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 10px;
-        color: var(--primary);
-        background: rgba(79,142,247,0.13);
-        flex-shrink: 0;
-      }
-
-      .quick-install-content {
-        min-width: 0;
-        flex: 1;
-      }
-
-      .quick-install-title {
-        margin: 0 0 10px;
-        color: var(--text);
-        font-weight: 700;
-        font-size: 0.95rem;
-      }
-
-      .quick-install-command {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        min-width: 0;
-        margin-top: 10px;
-      }
-
-      .quick-install-command:first-of-type {
-        margin-top: 0;
-      }
-
-      .quick-install-label {
-        width: 86px;
-        color: var(--text);
-        font-size: 0.78rem;
-        font-weight: 700;
-        flex-shrink: 0;
-      }
-
-      .quick-install-command code {
-        display: block;
-        min-width: 0;
-        flex: 1;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 10px 12px;
-        border-radius: 8px;
-        background: rgba(0,0,0,0.28);
-        color: rgba(226,232,240,0.92);
-        font-family: monospace;
-        font-size: 0.86rem;
-      }
-
-      .copy-install-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 8px;
-        border: 1px solid rgba(79,142,247,0.35);
-        background: rgba(79,142,247,0.1);
-        color: var(--primary);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        flex-shrink: 0;
-      }
-
-      .copy-install-btn:hover {
-        background: rgba(79,142,247,0.18);
-        color: #fff;
-      }
-
-      .quick-install-meta {
-        margin: 9px 0 0;
-        color: var(--text-muted);
-        font-size: 0.82rem;
-        line-height: 1.55;
-      }
-
-      .quick-install-meta code {
-        color: var(--primary);
-        background: rgba(79,142,247,0.12);
-        padding: 1px 5px;
-        border-radius: 4px;
-        font-family: monospace;
-      }
-
-      /* ── Total downloads highlight ── */
-      .total-dl-stat {
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin: 18px auto 0;
-        width: fit-content;
-        padding: 10px 28px;
-        border-radius: 999px;
-        background: linear-gradient(135deg, rgba(79,142,247,0.18), rgba(139,92,246,0.12));
-        border: 1px solid rgba(79,142,247,0.4);
-        box-shadow: 0 0 28px rgba(79,142,247,0.2);
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: rgba(226,232,240,0.8);
-      }
-      .total-dl-stat i { color: var(--primary); font-size: 2.0rem; }
-      .live-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #4ade80;
-        box-shadow: 0 0 6px #4ade80;
-        animation: live-pulse 1.8s ease-in-out infinite;
-        flex-shrink: 0;
-      }
-      @keyframes live-pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50%       { opacity: 0.3; transform: scale(0.75); }
-      }
-      .total-dl-number {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: -0.01em;
-      }
-
-      .asset-btn {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 16px;
-        border-radius: 12px;
-        border: 1.5px solid var(--border);
-        background: rgba(255,255,255,0.03);
-        text-decoration: none;
-        color: var(--text-muted);
-        transition: all 0.25s ease;
-        min-width: 0;
-      }
-
-      @media (hover: hover) {
-          .asset-btn:hover {
-            border-color: var(--primary);
-            background: rgba(79,142,247,0.08);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79,142,247,0.15), 0 0 0 1px rgba(79,142,247,0.1);
-            color: var(--primary);
-          }
-      }
-
-      .asset-icon {
-        font-size: 1.4rem;
-        flex-shrink: 0;
-        width: 30px;
-        text-align: center;
-      }
-
-      .asset-info {
-        min-width: 0;
-        flex: 1;
-      }
-
-      .asset-name {
-        font-weight: 600;
-        font-size: 0.85rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 1.3;
-      }
-
-      .asset-meta {
-        font-size: 0.75rem;
-        opacity: 0.65;
-        margin-top: 2px;
-      }
-
-      .asset-dl-icon {
-        font-size: 0.85rem;
-        flex-shrink: 0;
-        opacity: 0.6;
-      }
-
-      .no-assets {
-        padding: 20px;
-        color: var(--text-muted);
-        font-style: italic;
-        font-size: 0.95rem;
-      }
-
-      /* ── GitHub link at bottom of notes ── */
-      .gh-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: 20px;
-        color: var(--primary);
-        font-weight: 600;
-        font-size: 0.88rem;
-        text-decoration: none;
-        transition: all 0.2s ease;
-      }
-
-      .gh-link:hover {
-        color: white;
-        text-decoration: underline;
-      }
-
-      /* ── Archive list ── */
-      .archive-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding: 16px 24px;
-        text-decoration: none;
-        color: var(--text-muted);
-        border-bottom: 1px solid var(--border);
-        transition: background 0.2s ease, color 0.2s ease;
-      }
-
-      .archive-row:last-child { border-bottom: none; }
-
-      .archive-row:hover {
-        background: rgba(79,142,247,0.05);
-        color: var(--primary);
-      }
-
-      .archive-row-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        min-width: 0;
-      }
-
-      .archive-row-right {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-shrink: 0;
-        color: var(--text-muted);
-        font-size: 0.875rem;
-      }
-
-      .archive-downloads {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(79,142,247,0.18);
-        background: rgba(79,142,247,0.08);
-        color: rgba(226,232,240,0.82);
-        font-size: 0.78rem;
-        font-weight: 700;
-        white-space: nowrap;
-      }
-
-      .archive-downloads i {
-        color: var(--primary);
-        font-size: 0.72rem;
-      }
-
-      .archive-row:hover .archive-downloads {
-        border-color: rgba(79,142,247,0.34);
-        color: #fff;
-      }
-
-      .archive-title {
-        font-size: 0.95rem;
-        font-weight: 500;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      /* ── "View all releases" button ── */
-      .gh-all-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: 1px solid var(--border);
-        background: var(--card);
-        color: var(--text-muted);
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.25s ease;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
-
-      .gh-all-link:hover {
-        border-color: rgba(79,142,247,0.35);
-        color: var(--primary);
-        background: rgba(79,142,247,0.06);
-      }
-
-      /* ── Previous releases section label ── */
-      .archive-section-heading {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.09em;
-        color: var(--text-muted);
-        margin-bottom: 10px;
-        padding-left: 2px;
-      }
-
-      /* ── Responsive ── */
-      @media (max-width: 1024px) {
-        .download-hero {
-          padding: 128px 0 64px;
-        }
-
-        .download-hero-shell {
-          grid-template-columns: 1fr;
-          gap: 36px;
-        }
-
-        .download-hero-copy,
-        .download-hero h1,
-        .download-hero-copy > p {
-          max-width: 760px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .download-hero {
-          padding: 116px 0 52px;
-        }
-
-        .download-hero-copy,
-        .download-hero h1,
-        .download-hero-copy > p {
-          text-align: center;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .download-breadcrumb ol,
-        .download-hero .hero-trust-strip {
-          justify-content: center;
-        }
-
-        .download-hero h1 {
-          font-size: clamp(1.9rem, 9vw, 2.65rem) !important;
-          letter-spacing: -0.035em;
-        }
-
-        .download-hero-copy > p {
-          font-size: 0.94rem;
-        }
-
-        .download-hero-panel {
-          border-radius: 22px;
-          padding: 14px;
-        }
-
-        .download-platforms {
-          grid-template-columns: 1fr;
-        }
-
-        .download-platform-card {
-          min-height: auto;
-          padding: 13px;
-        }
-
-        .download-platform-card i {
-          grid-row: 1;
-          align-self: center;
-          font-size: 1.1rem;
-        }
-
-        .download-platform-card strong {
-          font-size: 0.92rem;
-        }
-
-        .download-hero .total-dl-stat {
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 8px;
-          font-size: 0.8rem;
-        }
-
-        .download-hero .total-dl-number {
-          font-size: 1.1rem;
-        }
-
-        .download-featured-badges {
-          gap: 10px;
-          padding-top: 18px;
-        }
-
-        .download-featured-badges img {
-          max-height: 36px;
-        }
-
-        .download-tip-card {
-          border-radius: 16px;
-          padding: 14px;
-        }
-
-        .latest-body {
-          grid-template-columns: 1fr;
-        }
-
-        .latest-downloads {
-          border-right: none;
-          border-bottom: 1px solid var(--border);
-        }
-
-        .quick-install-card {
-          gap: 12px;
-          padding: 16px;
-        }
-
-        .quick-install-command {
-          align-items: stretch;
-        }
-
-        .quick-install-label {
-          width: 74px;
-        }
-
-        .release-header {
-          padding: 18px 20px;
-        }
-
-        .archive-row {
-          padding: 14px 18px;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .archive-row-right .release-date {
-          display: none;
-        }
-
-        .archive-downloads {
-          font-size: 0.76rem;
-          padding: 4px 9px;
-        }
-      }
-
-      /* ── Welcome modal ── */
-      .welcome-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.65);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        z-index: 2000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.25s ease, visibility 0.25s ease;
-      }
-      .welcome-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-      .welcome-modal {
-        background: #07080f;
-        border: 1px solid rgba(79,142,247,0.3);
-        border-radius: 20px;
-        box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 24px 80px rgba(0,0,0,0.6);
-        max-width: 560px;
-        width: 100%;
-        padding: 32px 32px 28px;
-        position: relative;
-        transform: translateY(20px) scale(0.97);
-        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-      }
-      .welcome-overlay.active .welcome-modal {
-        transform: translateY(0) scale(1);
-      }
-      .welcome-close {
-        position: absolute;
-        top: 14px;
-        right: 14px;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 1px solid var(--border);
-        background: transparent;
-        color: var(--text-muted);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.85rem;
-        transition: all 0.2s ease;
-      }
-      .welcome-close:hover {
-        border-color: rgba(79,142,247,0.4);
-        color: var(--primary);
-        background: rgba(79,142,247,0.08);
-      }
-      .welcome-head {
-        text-align: center;
-        margin-bottom: 22px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid var(--border);
-      }
-      .welcome-emoji {
-        font-size: 2.4rem;
-        margin-bottom: 10px;
-        line-height: 1;
-      }
-      .welcome-title {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 6px;
-      }
-      .welcome-sub {
-        font-size: 0.875rem;
-        color: var(--text-muted);
-        line-height: 1.55;
-      }
-      .welcome-section {
-        display: flex;
-        gap: 14px;
-        align-items: flex-start;
-        padding: 15px 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .welcome-section:last-of-type { border-bottom: none; }
-      .welcome-section-icon {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-        background: rgba(79,142,247,0.12);
-        border: 1px solid rgba(79,142,247,0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary);
-        font-size: 0.9rem;
-        flex-shrink: 0;
-      }
-      .welcome-section-label {
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-muted);
-        margin-bottom: 7px;
-      }
-      .welcome-section > div:last-child { min-width: 0; }
-      .welcome-section-body {
-        overflow-wrap: anywhere;
-        font-size: 0.875rem;
-        color: rgba(226,232,240,0.85);
-        line-height: 1.6;
-      }
-      .welcome-cred-row {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 4px;
-      }
-      .welcome-cred {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(79,142,247,0.1);
-        border: 1px solid rgba(79,142,247,0.2);
-        border-radius: 8px;
-        padding: 4px 10px;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
-      .welcome-cred code {
-        font-family: monospace;
-        color: var(--primary);
-        font-weight: 700;
-      }
-      .welcome-cred-note {
-        font-size: 0.78rem;
-        color: var(--text-muted);
-        font-style: italic;
-        margin-top: 4px;
-      }
-      .welcome-star-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 7px 14px;
-        border-radius: 8px;
-        background: rgba(79,142,247,0.1);
-        border: 1px solid rgba(79,142,247,0.25);
-        color: var(--primary);
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: background 0.2s ease, border-color 0.2s ease;
-      }
-      .welcome-star-btn:hover {
-        background: rgba(79,142,247,0.2);
-        border-color: rgba(79,142,247,0.45);
-        color: #fff;
-      }
-      .welcome-star-btn .fa-star { color: #fbbf24; }
-
-      .welcome-support-row {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 10px;
-      }
-      .welcome-support-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        flex: 1;
-        justify-content: center;
-        min-width: 140px;
-      }
-      .welcome-support-btn.bmc {
-        background: rgba(255,221,0,0.12);
-        border: 1px solid rgba(255,221,0,0.3);
-        color: #fbbf24;
-      }
-      .welcome-support-btn.bmc:hover {
-        background: rgba(255,221,0,0.22);
-        border-color: rgba(255,221,0,0.5);
-        color: #fde68a;
-      }
-      .welcome-support-btn.gh-sponsor {
-        background: rgba(234,74,170,0.1);
-        border: 1px solid rgba(234,74,170,0.25);
-        color: #f472b6;
-      }
-      .welcome-support-btn.gh-sponsor:hover {
-        background: rgba(234,74,170,0.2);
-        border-color: rgba(234,74,170,0.45);
-        color: #fbcfe8;
-      }
-
-      .welcome-got-it {
-        display: block;
-        width: 100%;
-        margin-top: 22px;
-        padding: 13px;
-        border-radius: 12px;
-        background: var(--primary);
-        color: #fff;
-        font-weight: 700;
-        font-size: 0.95rem;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        letter-spacing: 0.01em;
-      }
-      @media (hover: hover) {
-          .welcome-got-it:hover {
-            background: #6ba8ff;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(79,142,247,0.35);
-          }
-      }
-
-      /* ── Installation Guide ── */
-      .install-guide-section {
-        background: rgba(255,255,255,0.015);
-        border-top: 1px solid var(--border);
-      }
-      .install-guide-heading {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 6px;
-      }
-      .install-guide-sub {
-        color: var(--text-muted);
-        font-size: 0.93rem;
-        margin-bottom: 28px;
-      }
-      .install-tabs {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-bottom: 24px;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 0;
-      }
-      .install-tab {
-        background: none;
-        border: none;
-        color: var(--text-muted);
-        font-size: 0.88rem;
-        font-weight: 600;
-        padding: 9px 18px;
-        border-radius: 8px 8px 0 0;
-        cursor: pointer;
-        transition: color 0.18s, background 0.18s;
-        position: relative;
-        bottom: -1px;
-        border-bottom: 2px solid transparent;
-        font-family: inherit;
-      }
-      .install-tab:hover {
-        color: var(--text);
-        background: rgba(79,142,247,0.06);
-      }
-      .install-tab.active {
-        color: var(--primary);
-        border-bottom: 2px solid var(--primary);
-        background: rgba(79,142,247,0.06);
-      }
-      .install-panel {
-        display: none;
-      }
-      .install-panel.active {
-        display: block;
-      }
-      .install-steps {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .install-step {
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-        padding: 16px 20px;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-        transition: background 0.2s;
-      }
-      .install-step:hover {
-        background: rgba(79,142,247,0.05);
-      }
-      .install-step-num {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background: rgba(79,142,247,0.15);
-        color: var(--primary);
-        font-size: 0.8rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        margin-top: 1px;
-      }
-      .install-step-body {
-        flex: 1;
-        min-width: 0;
-      }
-      .install-step-title {
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-      .install-step-desc {
-        font-size: 0.875rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-      .install-step-desc code {
-        background: rgba(79,142,247,0.15);
-        color: var(--primary);
-        padding: 1px 6px;
-        border-radius: 4px;
-        font-family: monospace;
-        font-size: 0.85em;
-      }
-      .install-note {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        margin-top: 20px;
-        padding: 14px 18px;
-        border-radius: 10px;
-        background: rgba(79,142,247,0.07);
-        border: 1px solid rgba(79,142,247,0.2);
-        font-size: 0.875rem;
-        color: rgba(226,232,240,0.85);
-        line-height: 1.6;
-      }
-      .install-note i {
-        color: var(--primary);
-        margin-top: 2px;
-        flex-shrink: 0;
-      }
-      .install-coming-soon {
-        text-align: center;
-        padding: 48px 24px;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-      }
-      .install-coming-soon i {
-        font-size: 2.5rem;
-        margin-bottom: 14px;
-        opacity: 0.4;
-        display: block;
+        .dl2-btn:hover { transform: translateY(-1px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .dl2-dialog[open] { animation: none; }
+        .dl2-btn:hover { transform: none; }
+      }
+      @media (max-width: 860px) {
+        .dl2-grid { grid-template-columns: minmax(0, 1fr); max-width: 480px; margin-left: auto; margin-right: auto; }
+      }
+      @media (max-width: 640px) {
+        .dl2 section { padding: 64px 0; }
+        .dl2-hero { padding-top: 112px !important; }
+        .dl2-btn { width: 100%; max-width: 360px; }
+        .dl2-tab { padding: 8px 12px; font-size: 0.84rem; }
+        .dl2-steps > li { padding-left: 46px; }
       }
     </style>
 
-    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Invoiso",
-      "operatingSystem": "Windows, Linux, macOS",
+      "operatingSystem": "Windows, macOS, Linux",
       "applicationCategory": "BusinessApplication",
-      "description": "Free billing software and offline invoicing software for Windows, Linux and macOS. Create GST-ready PDF invoices, manage customers and products without internet access.",
-      "softwareVersion": "4.1.7",
+      "description": "Free, open-source offline billing software for Windows, macOS and Linux. Create GST-ready PDF invoices and manage customers and products without internet access.",
+      "softwareVersion": "4.4.4",
       "url": "https://invoiso.co.in/",
-      "downloadUrl": "https://invoiso.co.in/download.html",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "1",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Anoop Pandikashala"
-      }
+      "downloadUrl": "https://github.com/Anooppandikashala/invoiso/releases/latest",
+      "screenshot": "https://invoiso.co.in/assets/images/hero/dashboard_dark.webp",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "1", "bestRating": "5" },
+      "author": { "@type": "Person", "name": "Anoop Pandikashala" }
     }
     </script>
-
-    <!-- Structured Data: Breadcrumb -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1411,6 +213,21 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is Invoiso really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoiso is free and open source. There is no subscription, no trial period and no account to create." } },
+        { "@type": "Question", "name": "Why does Windows show a SmartScreen warning?", "acceptedAnswer": { "@type": "Answer", "text": "SmartScreen warns about apps that are not yet widely downloaded. Invoiso is open source and its code is public on GitHub. Click More info, then Run anyway to continue." } },
+        { "@type": "Question", "name": "What is the default login?", "acceptedAnswer": { "@type": "Answer", "text": "The default login credentials are username admin and password admin. You are asked to set a new password the first time you sign in." } },
+        { "@type": "Question", "name": "Can I create GST invoices with Invoiso?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Invoiso creates GST-ready PDF invoices for small businesses, with your company details, tax rates and totals, and it works fully offline." } },
+        { "@type": "Question", "name": "Does Invoiso need an internet connection?", "acceptedAnswer": { "@type": "Answer", "text": "No. After installation Invoiso works fully offline and your billing data stays on your own computer." } },
+        { "@type": "Question", "name": "Which Linux file should I download?", "acceptedAnswer": { "@type": "Answer", "text": "Use the DEB package on Ubuntu 22.04 or 24.04. On any other 64-bit distribution, use the AppImage, which runs without installation." } }
+      ]
+    }
+    </script>
+
     <!-- Google Analytics: deferred until browser is idle -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -1485,352 +302,198 @@
       </div>
     </header>
 
-    <main id="main-content">
-      <!-- Page Hero -->
-      <section class="download-hero hero-gradient text-white relative">
-        <div class="hero-noise" aria-hidden="true"></div>
-        <div class="container mx-auto px-6 max-w-7xl relative z-10">
-          <div class="download-hero-shell fade-in-up">
-            <div class="download-hero-copy">
-              <nav aria-label="Breadcrumb" class="download-breadcrumb mb-6">
-                <ol class="flex items-center gap-2 text-sm font-medium" style="color:rgba(79,142,247,0.7)">
-                <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-                <li aria-hidden="true" class="opacity-50">/</li>
-                <li class="text-white" aria-current="page">Download</li>
-              </ol>
-            </nav>
-              <span class="download-hero-eyebrow"><i class="fas fa-desktop" aria-hidden="true"></i> Desktop billing app</span>
-              <h1>Download Free Billing Software</h1>
-              <p>
-              Invoiso is free billing software for Windows, Linux, and macOS. Create GST-ready PDF invoices offline with no account, no subscription, and no cloud login.
+    <main id="main-content" class="dl2">
+
+      <!-- Hero: one primary action, auto-detected for the visitor's OS -->
+      <section class="dl2-hero">
+        <div class="dl2-wrap">
+          <nav aria-label="Breadcrumb">
+            <ol class="dl2-crumb">
+              <li><a href="/">Home</a></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page">Download</li>
+            </ol>
+          </nav>
+
+          <a href="#whats-new" class="dl2-release" id="dl2-release">
+            <span class="dl2-dot" aria-hidden="true"></span>
+            <span><b id="dl2-version">Latest version</b> <span id="dl2-date"></span></span>
+            <i class="fas fa-arrow-right" aria-hidden="true" style="font-size:0.7rem"></i>
+          </a>
+
+          <h1>Download Invoiso <span class="dl2-h1-sub">Free billing software for Windows, macOS&nbsp;&amp;&nbsp;Linux</span></h1>
+          <p class="dl2-h1-sub" style="margin-top:4px">Create GST-ready PDF invoices offline. No account, no subscription.</p>
+
+          <div class="dl2-cta-row">
+            <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" class="dl2-btn" id="dl2-main-btn" rel="noopener">
+              <i class="fas fa-download" aria-hidden="true" id="dl2-main-icon"></i>
+              <span id="dl2-main-label">Download for your PC</span>
+            </a>
+            <span class="dl2-meta" id="dl2-main-meta">Free · Open source</span>
+            <p class="dl2-alt" id="dl2-alt">
+              Other platforms: <a href="#latest-downloads">Windows, macOS &amp; Linux</a>
             </p>
-              <div class="hero-trust-strip">
-              <span class="trust-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Free forever</span>
-              <span class="trust-chip"><i class="fab fa-github" aria-hidden="true"></i> Open source</span>
-              <span class="trust-chip"><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works offline</span>
-              <span class="trust-chip"><i class="fas fa-user-slash" aria-hidden="true"></i> No registration</span>
-            </div>
-            </div>
-
-            <aside class="download-hero-panel" aria-label="Supported download platforms">
-              <div class="download-panel-topbar">
-                <span>Current release</span>
-                <strong><span class="live-dot" aria-hidden="true"></span> GitHub powered</strong>
-              </div>
-              <div class="download-platforms">
-                <a href="#latest-downloads" class="download-platform-card" data-platform="windows" style="text-decoration:none;cursor:pointer;">
-                  <i class="fab fa-windows" aria-hidden="true"></i>
-                  <strong>Windows</strong>
-                  <span>Installer</span>
-                </a>
-                <a href="#latest-downloads" class="download-platform-card" data-platform="linux-deb" style="text-decoration:none;cursor:pointer;">
-                  <i class="fab fa-linux" aria-hidden="true"></i>
-                  <strong>Linux</strong>
-                  <span>DEB / AppImage</span>
-                </a>
-                <a href="#latest-downloads" class="download-platform-card" data-platform="macos" style="text-decoration:none;cursor:pointer;">
-                  <i class="fab fa-apple" aria-hidden="true"></i>
-                  <strong>macOS</strong>
-                  <span>DMG package</span>
-                </a>
-              </div>
-              <div id="total-dl-stat" style="display:none" class="total-dl-stat">
-                <i class="fas fa-download" aria-hidden="true"></i>
-                <span id="total-downloads" class="total-dl-number"></span>
-                <span>total downloads and counting</span>
-                <span class="live-dot" aria-hidden="true"></span>
-              </div>
-              <div class="download-panel-note">
-                <span><i class="fas fa-wifi-slash" aria-hidden="true"></i> Works fully offline after install</span>
-                <span><i class="fas fa-shield-halved" aria-hidden="true"></i> Your billing data stays on your device</span>
-                <span><i class="fas fa-list-check" aria-hidden="true"></i> Install guide included below</span>
-              </div>
-            </aside>
-
-            <!-- Featured on -->
-            <div class="download-featured-badges">
-              <a href="https://www.producthunt.com/products/invoiso?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-invoiso" target="_blank" rel="noopener noreferrer">
-                <img alt="Invoiso - Free Offline Invoice &amp; Billing Software for all. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1105229&amp;theme=light&amp;t=1774412242179" style="display:block;" />
-              </a>
-              <!-- <a href="https://www.shipit.buzz/products/invoiso?ref=badge" target="_blank" rel="noopener noreferrer">
-                <img src="https://www.shipit.buzz/api/products/invoiso/badge?theme=light" alt="Featured on Shipit" style="height:43px;display:block;" />
-              </a> -->
-              <!-- nxgntools badge hidden until working -->
-              <a href="https://www.nxgntools.com/tools/invoiso?utm_source=invoiso" target="_blank" rel="noopener noreferrer">
-                <img src="https://www.nxgntools.com/api/embed/invoiso?type=LAUNCHING_SOON_ON&amp;hideUpvotes=true" alt="Launching Soon on NextGen Tools" style="height:43px;width:auto;display:block;" />
-              </a>
-
-              <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
-                <img src="https://sellwithboost.com/badge/listing-dark.svg" alt="Listed on Sell With boost" style="height: 40px; width: auto;" />
-              </a>
-              <!-- Begin  Tag -->
-              <div class="sf-root" data-id="4068440" data-badge="oss-users-love-us-black" style="width:100px">
-                  <a href="https://sourceforge.net/projects/invoiso/" target="_blank">Invoiso</a>
-              </div>
-              <script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=4068440';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
-              </script>
-              <!-- End  Tag -->
-              <!-- SourceForge Rising Star -->
-              <div class="sf-root" data-id="4068440" data-badge="oss-rising-star-black" data-metadata="achievement=oss-rising-star" style="width:100px">
-                <a href="https://sourceforge.net/projects/invoiso/" target="_blank">Invoiso</a>
-              </div>
-              <script>(function () {var sc=document.createElement('script');sc.async=true;sc.src='https://b.sf-syn.com/badge_js?sf_id=4068440';var p=document.getElementsByTagName('script')[0];p.parentNode.insertBefore(sc, p);})();
-              </script>
-            </div>
-            <a href="#latest-downloads" class="download-scroll-cue">
-              <span>Scroll down to download for your platform</span>
-              <i class="fas fa-arrow-down" aria-hidden="true"></i>
-            </a>
-            </div>
-        </div>
-      </section>
-
-      <!-- Content -->
-      <section class="py-14 releases-section" id="latest-downloads">
-        <div class="container mx-auto px-6 max-w-5xl">
-
-          <!-- Default credentials tip -->
-          <div class="download-tip-card">
-            <i class="fas fa-circle-info" aria-hidden="true"></i>
-            <div>
-              <strong>First launch?</strong>
-              Log in with the default credentials —
-              username&nbsp;<code>admin</code>
-              and password&nbsp;<code>admin</code>.
-              You'll be prompted to set a new password on first login for your security.
-            </div>
           </div>
 
-          <div id="releases-list">
-            <div class="text-center py-10" style="color:var(--text-muted)">
-              <i class="fas fa-spinner fa-spin text-2xl mb-3 primary-text" aria-hidden="true"></i>
-              <p class="text-sm">Loading releases...</p>
-            </div>
+          <ul class="dl2-trust" aria-label="Why Invoiso">
+            <li><i class="fas fa-check" aria-hidden="true"></i>Free forever</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>Open source</li>
+            <li><i class="fas fa-check" aria-hidden="true"></i>Data stays on your PC</li>
+            <li id="dl2-total" hidden><i class="fas fa-check" aria-hidden="true"></i><span></span> downloads</li>
+          </ul>
+        </div>
+
+        <div class="dl2-shot">
+          <div class="dl2-shot-frame">
+            <img src="assets/images/hero/dashboard_dark.webp" alt="Invoiso billing software dashboard showing revenue, outstanding invoices and recent activity" width="1920" height="1080" fetchpriority="high" decoding="async" />
           </div>
         </div>
       </section>
 
-      <!-- Installation Guide -->
-      <section class="py-14 install-guide-section" id="install-guide">
-        <div class="container mx-auto px-6 max-w-5xl">
-          <h2 class="install-guide-heading">Installation Guide</h2>
-          <p class="install-guide-sub">Step-by-step setup instructions for each platform.</p>
+      <!-- All platforms -->
+      <section class="dl2-platforms" id="latest-downloads" aria-labelledby="platforms-title">
+        <div class="dl2-wrap">
+          <h2 id="platforms-title">Choose your platform</h2>
+          <p class="dl2-lead">Every build is the same free invoicing and billing app. Pick the file for your computer.</p>
 
-          <!-- Platform tabs -->
-          <div class="install-tabs" role="tablist" aria-label="Platform installation guides">
-            <button class="install-tab active" data-tab="windows" role="tab" aria-selected="true" aria-controls="panel-windows">
-              <i class="fab fa-windows" aria-hidden="true" style="margin-right:6px;"></i>Windows
-            </button>
-            <button class="install-tab" data-tab="linux-deb" role="tab" aria-selected="false" aria-controls="panel-linux-deb">
-              <i class="fab fa-linux" aria-hidden="true" style="margin-right:6px;"></i>Linux (DEB)
-            </button>
-            <button class="install-tab" data-tab="linux-appimage" role="tab" aria-selected="false" aria-controls="panel-linux-appimage">
-              <i class="fab fa-linux" aria-hidden="true" style="margin-right:6px;"></i>Linux (AppImage)
-            </button>
-            <button class="install-tab" data-tab="macos" role="tab" aria-selected="false" aria-controls="panel-macos">
-              <i class="fab fa-apple" aria-hidden="true" style="margin-right:6px;"></i>macOS
-            </button>
+          <div class="dl2-grid">
+            <article class="dl2-card" data-os="windows">
+              <span class="dl2-yours">Your system</span>
+              <div class="dl2-card-head">
+                <i class="fab fa-windows" aria-hidden="true"></i>
+                <div><h3>Windows</h3><p class="dl2-card-sub">Installs in under a minute</p></div>
+              </div>
+              <div class="dl2-files" data-files="windows">
+                <a class="dl2-file" href="https://github.com/Anooppandikashala/invoiso/releases/latest" rel="noopener"><span><strong>Get it on GitHub</strong><small>Latest release</small></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="dl2-card" data-os="macos">
+              <span class="dl2-yours">Your system</span>
+              <div class="dl2-card-head">
+                <i class="fab fa-apple" aria-hidden="true"></i>
+                <div><h3>macOS</h3><p class="dl2-card-sub">Drag into Applications</p></div>
+              </div>
+              <div class="dl2-files" data-files="macos">
+                <a class="dl2-file" href="https://github.com/Anooppandikashala/invoiso/releases/latest" rel="noopener"><span><strong>Get it on GitHub</strong><small>Latest release</small></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+              </div>
+            </article>
+
+            <article class="dl2-card" data-os="linux">
+              <span class="dl2-yours">Your system</span>
+              <div class="dl2-card-head">
+                <i class="fab fa-linux" aria-hidden="true"></i>
+                <div><h3>Linux</h3><p class="dl2-card-sub">DEB or AppImage · x86_64</p></div>
+              </div>
+              <div class="dl2-files" data-files="linux">
+                <a class="dl2-file" href="https://github.com/Anooppandikashala/invoiso/releases/latest" rel="noopener"><span><strong>Get it on GitHub</strong><small>Latest release</small></span><i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+              </div>
+              <p class="dl2-cmd-label">Or install from the terminal</p>
+              <div class="dl2-cmd">
+                <code id="dl2-cmd-card">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --deb</code>
+                <button type="button" class="dl2-copy" data-copy="dl2-cmd-card" aria-label="Copy install command"><i class="fas fa-copy" aria-hidden="true"></i></button>
+              </div>
+            </article>
           </div>
 
-          <!-- Windows -->
-          <div class="install-panel active" id="panel-windows" role="tabpanel">
-            <ol class="install-steps">
-              <li class="install-step">
-                <span class="install-step-num">1</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Download the installer</p>
-                  <p class="install-step-desc">Download the <code>.exe</code> setup file from the releases section above. Look for the file named <code>Invoiso-Setup-x.x.x.exe</code>.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">2</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Run the installer</p>
-                  <p class="install-step-desc">Double-click the downloaded <code>.exe</code> file. If Windows SmartScreen shows a warning, click <strong>More info</strong> → <strong>Run anyway</strong>. The app is safe — it may show this warning because it's not yet widely known.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">3</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Follow the setup wizard</p>
-                  <p class="install-step-desc">Accept the license agreement, choose your install location (default is fine), and click <strong>Install</strong>. The wizard will complete in under a minute.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">4</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Launch Invoiso</p>
-                  <p class="install-step-desc">Open Invoiso from the Start Menu or the desktop shortcut created by the installer.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">5</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Log in for the first time</p>
-                  <p class="install-step-desc">Use the default credentials — username <code>admin</code> and password <code>admin</code>. You'll be prompted to set a new password immediately after your first login.</p>
-                </div>
-              </li>
+          <p class="dl2-older">Looking for previous releases? <a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer">All releases on GitHub</a> · <a href="changelog.html">Changelog</a></p>
+        </div>
+      </section>
+
+      <!-- Install guide -->
+      <section class="dl2-install" id="install-guide" aria-labelledby="install-title">
+        <div class="dl2-wrap dl2-narrow">
+          <h2 id="install-title">Installation guide</h2>
+          <p class="dl2-lead">Three steps and you're creating invoices in under a minute.</p>
+
+          <div class="dl2-tabs" role="tablist" aria-label="Installation guide by platform">
+            <button type="button" class="dl2-tab" role="tab" id="tab-windows" aria-controls="steps-windows" aria-selected="true"><i class="fab fa-windows" aria-hidden="true"></i>Windows</button>
+            <button type="button" class="dl2-tab" role="tab" id="tab-macos" aria-controls="steps-macos" aria-selected="false" tabindex="-1"><i class="fab fa-apple" aria-hidden="true"></i>macOS</button>
+            <button type="button" class="dl2-tab" role="tab" id="tab-linux" aria-controls="steps-linux" aria-selected="false" tabindex="-1"><i class="fab fa-linux" aria-hidden="true"></i>Linux</button>
+          </div>
+
+          <div role="tabpanel" id="steps-windows" aria-labelledby="tab-windows">
+            <ol class="dl2-steps">
+              <li><h3>Run the installer</h3><p>Open the downloaded <code>invoiso-x.x.x-windows-setup.exe</code>. If Windows SmartScreen appears, click <strong>More info</strong> → <strong>Run anyway</strong>.</p></li>
+              <li><h3>Follow the setup wizard</h3><p>The default options are fine. Click <strong>Install</strong>; it finishes in under a minute.</p></li>
+              <li><h3>Open Invoiso and sign in</h3><p>Launch it from the Start Menu or desktop shortcut. Sign in with username <code>admin</code> and password <code>admin</code>, then set your own password.</p></li>
             </ol>
-            <div class="install-note">
-              <i class="fas fa-shield-halved" aria-hidden="true"></i>
-              <span>Invoiso stores all data locally on your PC. No internet connection or account is required after installation.</span>
+          </div>
+
+          <div role="tabpanel" id="steps-macos" aria-labelledby="tab-macos" hidden>
+            <ol class="dl2-steps">
+              <li><h3>Open the disk image</h3><p>Double-click the downloaded <code>.dmg</code> file and drag Invoiso into your <strong>Applications</strong> folder.</p></li>
+              <li><h3>Allow it on first launch</h3><p>Open Invoiso from Applications. If macOS blocks it, go to <strong>System Settings</strong> → <strong>Privacy &amp; Security</strong> and allow Invoiso to run.</p></li>
+              <li><h3>Sign in</h3><p>Use username <code>admin</code> and password <code>admin</code>, then set your own password.</p></li>
+            </ol>
+          </div>
+
+          <div role="tabpanel" id="steps-linux" aria-labelledby="tab-linux" hidden>
+            <ol class="dl2-steps">
+              <li>
+                <h3>Install with one command</h3>
+                <p>Recommended. Fetches the latest release from GitHub and installs it (needs <code>curl</code> and <code>sudo</code>):</p>
+                <div class="dl2-cmd">
+                  <code id="dl2-cmd-deb">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --deb</code>
+                  <button type="button" class="dl2-copy" data-copy="dl2-cmd-deb" aria-label="Copy DEB install command"><i class="fas fa-copy" aria-hidden="true"></i></button>
+                </div>
+                <p>Not on Ubuntu? Use the AppImage installer instead (no <code>sudo</code> needed):</p>
+                <div class="dl2-cmd">
+                  <code id="dl2-cmd-appimage">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --appimage</code>
+                  <button type="button" class="dl2-copy" data-copy="dl2-cmd-appimage" aria-label="Copy AppImage install command"><i class="fas fa-copy" aria-hidden="true"></i></button>
+                </div>
+              </li>
+              <li>
+                <h3>Or install the file manually</h3>
+                <p>For a downloaded DEB package:</p>
+                <div class="dl2-cmd">
+                  <code id="dl2-cmd-apt">sudo apt install ./Invoiso-*.deb</code>
+                  <button type="button" class="dl2-copy" data-copy="dl2-cmd-apt" aria-label="Copy apt command"><i class="fas fa-copy" aria-hidden="true"></i></button>
+                </div>
+                <p>For a downloaded AppImage, make it executable and run it:</p>
+                <div class="dl2-cmd">
+                  <code id="dl2-cmd-chmod">chmod +x Invoiso-*.AppImage</code>
+                  <button type="button" class="dl2-copy" data-copy="dl2-cmd-chmod" aria-label="Copy chmod command"><i class="fas fa-copy" aria-hidden="true"></i></button>
+                </div>
+              </li>
+              <li><h3>Open Invoiso and sign in</h3><p>Find Invoiso in your app launcher. Sign in with username <code>admin</code> and password <code>admin</code>, then set your own password.</p></li>
+            </ol>
+            <p class="dl2-note">DEB packages are supported on Ubuntu 22.04 and 24.04. The AppImage runs on any 64-bit distribution and keeps your data in <code>~/.local/share/invoiso/</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's new (filled from the latest GitHub release) -->
+      <section id="whats-new" aria-labelledby="news-title">
+        <div class="dl2-wrap dl2-narrow">
+          <div class="dl2-news">
+            <div class="dl2-news-head">
+              <h2 id="news-title">What's new<span id="dl2-news-version"></span></h2>
+              <span class="dl2-news-date" id="dl2-news-date"></span>
             </div>
-          </div>
-
-          <!-- Linux DEB -->
-          <div class="install-panel" id="panel-linux-deb" role="tabpanel">
-            <ol class="install-steps">
-              <li class="install-step">
-                <span class="install-step-num">1</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Run the one-line installer (recommended)</p>
-                  <p class="install-step-desc">Open a terminal and run:</p>
-                  <div class="quick-install-command" style="margin-top:10px;">
-                    <code id="guide-deb-cmd">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --deb</code>
-                    <button type="button" class="copy-install-btn" data-copy-target="guide-deb-cmd" aria-label="Copy DEB install command" title="Copy command">
-                      <i class="fas fa-copy" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <p class="install-step-desc" style="margin-top:8px;">The script fetches the latest release from GitHub, downloads the <code>.deb</code> package, and installs it automatically. Requires <code>curl</code> and <code>sudo</code> access.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">2</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Or install manually</p>
-                  <p class="install-step-desc">Download <code>invoiso_x.x.x_amd64.deb</code> from the releases above, then run:</p>
-                  <div class="quick-install-command" style="margin-top:10px;">
-                    <code id="guide-deb-manual">sudo dpkg -i invoiso_*.deb</code>
-                    <button type="button" class="copy-install-btn" data-copy-target="guide-deb-manual" aria-label="Copy dpkg command" title="Copy command">
-                      <i class="fas fa-copy" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">3</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Launch Invoiso</p>
-                  <p class="install-step-desc">Find Invoiso in your application launcher or run <code>invoiso</code> in the terminal.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">4</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Log in for the first time</p>
-                  <p class="install-step-desc">Use username <code>admin</code> and password <code>admin</code>. You'll be asked to set a new password on your first login.</p>
-                </div>
-              </li>
-            </ol>
-            <div class="install-note">
-              <i class="fas fa-circle-info" aria-hidden="true"></i>
-              <span>DEB packages are officially supported on <strong>Ubuntu 22.04</strong> and <strong>Ubuntu 24.04</strong>. For other distros, use the AppImage instead.</span>
-            </div>
-          </div>
-
-          <!-- Linux AppImage -->
-          <div class="install-panel" id="panel-linux-appimage" role="tabpanel">
-            <ol class="install-steps">
-              <li class="install-step">
-                <span class="install-step-num">1</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Run the one-line installer (recommended)</p>
-                  <p class="install-step-desc">Open a terminal and run:</p>
-                  <div class="quick-install-command" style="margin-top:10px;">
-                    <code id="guide-appimage-cmd">curl -fsSL https://invoiso.co.in/install.sh | bash -s -- --appimage</code>
-                    <button type="button" class="copy-install-btn" data-copy-target="guide-appimage-cmd" aria-label="Copy AppImage install command" title="Copy command">
-                      <i class="fas fa-copy" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <p class="install-step-desc" style="margin-top:8px;">The script downloads the AppImage, sets it as executable, and creates a desktop entry for you.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">2</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Or install manually</p>
-                  <p class="install-step-desc">Download <code>Invoiso-x.x.x-x86_64.AppImage</code> from the releases above, then make it executable:</p>
-                  <div class="quick-install-command" style="margin-top:10px;">
-                    <code id="guide-appimage-chmod">chmod +x Invoiso-*.AppImage</code>
-                    <button type="button" class="copy-install-btn" data-copy-target="guide-appimage-chmod" aria-label="Copy chmod command" title="Copy command">
-                      <i class="fas fa-copy" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">3</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Run the AppImage</p>
-                  <p class="install-step-desc">Double-click the file in your file manager, or run it from the terminal: <code>./Invoiso-*.AppImage</code></p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">4</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Log in for the first time</p>
-                  <p class="install-step-desc">Use username <code>admin</code> and password <code>admin</code>. You'll be asked to set a new password on your first login.</p>
-                </div>
-              </li>
-            </ol>
-            <div class="install-note">
-              <i class="fas fa-circle-info" aria-hidden="true"></i>
-              <span>AppImage runs on any 64-bit Linux distribution without installation. No <code>sudo</code> access needed. Your data is stored in <code>~/.local/share/invoiso/</code>.</span>
-            </div>
-          </div>
-
-          <!-- macOS -->
-          <div class="install-panel" id="panel-macos" role="tabpanel">
-            <ol class="install-steps">
-              <li class="install-step">
-                <span class="install-step-num">1</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Download the macOS package</p>
-                  <p class="install-step-desc">Download the <code>.dmg</code> file from the releases section above. Look for the file named similar to <code>Invoiso-x.x.x.dmg</code>.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">2</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Open the disk image</p>
-                  <p class="install-step-desc">Double-click the downloaded <code>.dmg</code> file, then drag Invoiso into the <strong>Applications</strong> folder if the installer window asks you to do so.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">3</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Launch Invoiso</p>
-                  <p class="install-step-desc">Open Invoiso from the Applications folder or Launchpad. If macOS shows a security prompt, open <strong>System Settings</strong> → <strong>Privacy &amp; Security</strong> and allow Invoiso to run.</p>
-                </div>
-              </li>
-              <li class="install-step">
-                <span class="install-step-num">4</span>
-                <div class="install-step-body">
-                  <p class="install-step-title">Log in for the first time</p>
-                  <p class="install-step-desc">Use username <code>admin</code> and password <code>admin</code>. You'll be asked to set a new password on your first login.</p>
-                </div>
-              </li>
-            </ol>
-            <div class="install-note">
-              <i class="fas fa-shield-halved" aria-hidden="true"></i>
-              <span>Invoiso stores your billing data locally on your Mac. No cloud account or internet connection is required after installation.</span>
+            <p id="dl2-news-summary">Invoiso is updated regularly with new features and fixes.</p>
+            <ul id="dl2-news-list" hidden></ul>
+            <div class="dl2-news-links">
+              <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" id="dl2-news-link" target="_blank" rel="noopener noreferrer">Full release notes <i class="fas fa-arrow-up-right-from-square" aria-hidden="true" style="font-size:0.7rem"></i></a>
+              <a href="changelog.html">All updates</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Previous Releases -->
-      <section class="py-14 releases-section" id="previous-releases-section">
-        <div class="container mx-auto px-6 max-w-5xl">
-          <div id="previous-releases-list"></div>
-
-          <div class="text-center mt-10">
-            <a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer" class="gh-all-link">
-              <i class="fab fa-github" aria-hidden="true"></i>
-              View all releases on GitHub
-              <i class="fas fa-chevron-right" style="font-size:0.7rem;opacity:0.6" aria-hidden="true"></i>
-            </a>
+      <!-- FAQ (mirrors FAQPage schema in <head>) -->
+      <section id="faq" aria-labelledby="faq-title" style="padding-top:0">
+        <div class="dl2-wrap dl2-narrow">
+          <h2 id="faq-title">Questions before you download</h2>
+          <div class="dl2-faq">
+            <details><summary>Is Invoiso really free?</summary><p>Yes. Invoiso is free and open source. There is no subscription, no trial period and no account to create.</p></details>
+            <details><summary>Why does Windows show a SmartScreen warning?</summary><p>SmartScreen warns about apps that are not yet widely downloaded. Invoiso is open source and its code is public on <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" style="color:var(--primary)">GitHub</a>. Click <strong>More info</strong>, then <strong>Run anyway</strong> to continue.</p></details>
+            <details><summary>What is the default login?</summary><p>The default login credentials are username <code>admin</code> and password <code>admin</code>. You are asked to set a new password the first time you sign in.</p></details>
+            <details><summary>Can I create GST invoices with Invoiso?</summary><p>Yes. Invoiso creates GST-ready PDF invoices for small businesses, with your company details, tax rates and totals, and it works fully offline.</p></details>
+            <details><summary>Does Invoiso need an internet connection?</summary><p>No. After installation Invoiso works fully offline and your billing data stays on your own computer.</p></details>
+            <details><summary>Which Linux file should I download?</summary><p>Use the DEB package on Ubuntu 22.04 or 24.04. On any other 64-bit distribution, use the AppImage, which runs without installation.</p></details>
           </div>
+          <p class="dl2-help">Still stuck?<a href="docs.html">Read the docs</a>·<a href="contact.html">Contact support</a>·<a href="https://github.com/Anooppandikashala/invoiso/issues" target="_blank" rel="noopener noreferrer">Report an issue</a></p>
         </div>
       </section>
     </main>
@@ -1913,466 +576,233 @@
       </div>
     </footer>
 
-    <!-- Welcome modal -->
-    <div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
-      <div class="welcome-modal">
-        <button class="welcome-close" id="welcomeClose" aria-label="Close dialog">
-          <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-
-        <div class="welcome-head">
-          <div class="welcome-emoji">🎉</div>
-          <h2 class="welcome-title" id="welcomeTitle">Welcome to the Invoiso Family!</h2>
-          <p class="welcome-sub">Your download has started. Here's everything you need to get up and running.</p>
-        </div>
-
-        <div class="welcome-section">
-          <div class="welcome-section-icon"><i class="fas fa-key" aria-hidden="true"></i></div>
-          <div>
-            <p class="welcome-section-label">Default Login Credentials</p>
-            <div class="welcome-section-body">
-              <div class="welcome-cred-row">
-                <span class="welcome-cred">Username&nbsp;<code>admin</code></span>
-                <span class="welcome-cred">Password&nbsp;<code>admin</code></span>
-              </div>
-              <p class="welcome-cred-note">You'll be prompted to set a new password on first login for your security.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="welcome-section">
-          <div class="welcome-section-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
-          <div>
-            <p class="welcome-section-label">Need Help?</p>
-            <div class="welcome-section-body">
-              If you run into any issues, drop us a mail at<br>
-              <a href="mailto:anooppkrishnan96@gmail.com" style="color:var(--primary);font-weight:600;">anooppkrishnan96@gmail.com</a>
-              &mdash; we're happy to help.
-            </div>
-          </div>
-        </div>
-
-        <div class="welcome-section">
-          <div class="welcome-section-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-          <div>
-            <p class="welcome-section-label">Enjoying Invoiso?</p>
-            <div class="welcome-section-body">
-              A GitHub star takes 2 seconds and helps others discover the app.
-              <div style="margin-top:10px;">
-                <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="welcome-star-btn">
-                  <i class="fas fa-star" aria-hidden="true"></i> Star on GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="welcome-section">
-          <div class="welcome-section-icon" style="background:rgba(255,221,0,0.08);border-color:rgba(255,221,0,0.2);color:#fbbf24;">
-            <i class="fas fa-heart" aria-hidden="true"></i>
-          </div>
-          <div>
-            <p class="welcome-section-label">Support the Project</p>
-            <div class="welcome-section-body">
-              Invoiso is free and open source. If it saves you time, consider supporting its development — even a small contribution keeps it going.
-              <div class="welcome-support-row">
-                <a href="https://buymeacoffee.com/anoopp" target="_blank" rel="noopener noreferrer" class="welcome-support-btn bmc">
-                  <i class="fas fa-coffee" aria-hidden="true"></i> Buy Me a Coffee
-                </a>
-                <a href="https://github.com/sponsors/anooppandikashala" target="_blank" rel="noopener noreferrer" class="welcome-support-btn gh-sponsor">
-                  <i class="fas fa-heart" aria-hidden="true"></i> GitHub Sponsors
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button class="welcome-got-it" id="welcomeGotIt">Got it, let's go!</button>
+    <!-- Post-download dialog: confirm + next steps + fallback link -->
+    <dialog class="dl2-dialog" id="dl2-thanks" aria-labelledby="dl2-thanks-title">
+      <button type="button" class="dl2-x" data-close aria-label="Close">&times;</button>
+      <div class="dl2-dialog-icon" aria-hidden="true"><i class="fas fa-check"></i></div>
+      <h2 id="dl2-thanks-title">Your download has started</h2>
+      <p class="dl2-dialog-sub">Didn't start? <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" id="dl2-retry">Download again</a></p>
+      <ol id="dl2-next"></ol>
+      <div class="dl2-dialog-foot">
+        <span>
+          <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer"><i class="fas fa-star" aria-hidden="true"></i>Star on GitHub</a>
+          &nbsp;·&nbsp;
+          <a href="https://buymeacoffee.com/anoopp" target="_blank" rel="noopener noreferrer">Support the project</a>
+        </span>
+        <button type="button" class="dl2-btn" data-close>Done</button>
       </div>
-    </div>
+    </dialog>
 
     <script src="assets/js/gh-releases.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    (function () {
+      var RELEASES_URL = 'https://github.com/Anooppandikashala/invoiso/releases/latest';
+      var $ = function (id) { return document.getElementById(id); };
 
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Welcome modal
-      var welcomeOverlay = document.getElementById('welcomeOverlay');
-      function openWelcomeModal() {
-        welcomeOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeWelcomeModal() {
-        welcomeOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      document.getElementById('welcomeClose').addEventListener('click', closeWelcomeModal);
-      document.getElementById('welcomeGotIt').addEventListener('click', closeWelcomeModal);
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeWelcomeModal();
-      });
-      document.getElementById('releases-list').addEventListener('click', function (e) {
-        if (e.target.closest('.asset-btn')) openWelcomeModal();
-      });
-
-      // Installation guide tabs
-      var installTabs = Array.prototype.slice.call(document.querySelectorAll('.install-tab'));
-      var installPanels = Array.prototype.slice.call(document.querySelectorAll('.install-panel'));
-      function activateInstallTab(tab) {
-        var targetPanel = document.getElementById('panel-' + tab.getAttribute('data-tab'));
-        if (!targetPanel) return;
-
-        installTabs.forEach(function (item) {
-          var isActive = item === tab;
-          item.classList.toggle('active', isActive);
-          item.setAttribute('aria-selected', String(isActive));
-          item.setAttribute('tabindex', isActive ? '0' : '-1');
-        });
-
-        installPanels.forEach(function (panel) {
-          var isActive = panel === targetPanel;
-          panel.classList.toggle('active', isActive);
-          panel.setAttribute('aria-hidden', String(!isActive));
-        });
-      }
-      installTabs.forEach(function (tab, index) {
-        tab.addEventListener('click', function () {
-          activateInstallTab(tab);
-        });
-        tab.addEventListener('keydown', function (e) {
-          var nextIndex;
-          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextIndex = (index + 1) % installTabs.length;
-          else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') nextIndex = (index - 1 + installTabs.length) % installTabs.length;
-          else if (e.key === 'Home') nextIndex = 0;
-          else if (e.key === 'End') nextIndex = installTabs.length - 1;
-          else return;
-
-          e.preventDefault();
-          installTabs[nextIndex].focus();
-          activateInstallTab(installTabs[nextIndex]);
-        });
-      });
-      if (installTabs.length) activateInstallTab(document.querySelector('.install-tab.active') || installTabs[0]);
-
-      document.querySelectorAll('.download-platform-card[data-platform]').forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          var platform = card.getAttribute('data-platform');
-          var osKey = platform === 'linux-deb' ? 'linux' : platform;
-          var section = document.getElementById('dl-section-' + osKey);
-
-          if (section) {
-            e.preventDefault();
-            var navHeight = (document.querySelector('.navbar') || {offsetHeight: 80}).offsetHeight;
-            var top = section.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-            document.querySelectorAll('.dl-os-section.dl-highlight').forEach(function (el) {
-              el.classList.remove('dl-highlight');
-            });
-            section.classList.add('dl-highlight');
-          }
-          // else: let the native href="#latest-downloads" anchor navigation happen
-
-          var tab = document.querySelector('.install-tab[data-tab="' + platform + '"]');
-          if (tab) activateInstallTab(tab);
-        });
-      });
-
-      if (navigator.clipboard) {
-        document.querySelectorAll('[data-copy-target]').forEach(function (copyInstallButton) {
-          copyInstallButton.addEventListener('click', function () {
-            var installCommand = document.getElementById(copyInstallButton.getAttribute('data-copy-target'));
-            if (!installCommand) return;
-
-            navigator.clipboard.writeText(installCommand.textContent).then(function () {
-              copyInstallButton.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
-              setTimeout(function () {
-                copyInstallButton.innerHTML = '<i class="fas fa-copy" aria-hidden="true"></i>';
-              }, 1600);
-            });
-          });
-        });
-      }
-
-      // Mobile menu
-      var hamburgerBtn = document.getElementById('hamburger-btn');
-      var mobileMenu   = document.getElementById('mobile-menu');
+      // ── Navbar (same behaviour as the other pages) ──
+      var hamburgerBtn = $('hamburger-btn'), mobileMenu = $('mobile-menu');
       hamburgerBtn.addEventListener('click', function () {
         var isOpen = !mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
         hamburgerBtn.setAttribute('aria-expanded', String(!isOpen));
       });
-      mobileMenu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-          mobileMenu.classList.add('hidden');
-          hamburgerBtn.setAttribute('aria-expanded', 'false');
+      window.addEventListener('scroll', function () {
+        document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+      });
+
+      // ── OS detection ──
+      function detectOS() {
+        var ua = navigator.userAgent;
+        var plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+        // Phones/tablets default to Windows (most downloads); checked first because Android UAs contain "Linux"
+        if (/Android|iPhone|iPad|iPod/i.test(ua) || (/Mac/i.test(plat) && navigator.maxTouchPoints > 1)) return 'windows';
+        if (/Win/i.test(plat) || /Windows/i.test(ua)) return 'windows';
+        if (/Mac/i.test(plat) || /Mac OS X/i.test(ua)) return 'macos';
+        if (/Linux|X11|CrOS/i.test(plat + ' ' + ua)) return 'linux';
+        return null;
+      }
+      var OS = {
+        windows: { name: 'Windows', icon: 'fab fa-windows' },
+        macos:   { name: 'macOS',   icon: 'fab fa-apple' },
+        linux:   { name: 'Linux',   icon: 'fab fa-linux' }
+      };
+      var NEXT = {
+        windows: ['Open <strong>invoiso-…-windows-setup.exe</strong> from your Downloads folder.',
+                  'If SmartScreen appears, click <strong>More info</strong> → <strong>Run anyway</strong>.'],
+        macos:   ['Open the <strong>.dmg</strong> and drag Invoiso into Applications.',
+                  'If macOS blocks it, allow it in <strong>System Settings → Privacy &amp; Security</strong>.'],
+        linux:   ['DEB: run <code>sudo apt install ./Invoiso-*.deb</code>',
+                  'AppImage: run <code>chmod +x Invoiso-*.AppImage</code>, then open it.']
+      };
+      var userOS = detectOS();
+
+      // ── Hero button ──
+      var mainBtn = $('dl2-main-btn'), mainLabel = $('dl2-main-label'), mainIcon = $('dl2-main-icon');
+      var mainMeta = $('dl2-main-meta'), alt = $('dl2-alt');
+
+      function otherPlatformsLinks(except) {
+        return 'Other platforms: ' + Object.keys(OS).filter(function (k) { return k !== except; })
+          .map(function (k) { return '<a href="#latest-downloads">' + OS[k].name + '</a>'; }).join(' · ');
+      }
+
+      if (OS[userOS]) {
+        mainLabel.textContent = 'Download for ' + OS[userOS].name;
+        mainIcon.className = OS[userOS].icon;
+        alt.innerHTML = otherPlatformsLinks(userOS);
+        // Visitor's platform first: card in the grid, tab in the install guide
+        var card = document.querySelector('.dl2-card[data-os="' + userOS + '"]');
+        card.classList.add('is-yours');
+        card.parentNode.insertBefore(card, card.parentNode.firstElementChild);
+        var tab = $('tab-' + userOS);
+        tab.parentNode.insertBefore(tab, tab.parentNode.firstElementChild);
+      } else {
+        mainLabel.textContent = 'See all downloads';
+        mainBtn.href = '#latest-downloads';
+      }
+
+      // ── Install tabs (ARIA tabs pattern) ──
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.dl2-tab'));
+      function selectTab(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', String(on));
+          t.tabIndex = on ? 0 : -1;
+          $(t.getAttribute('aria-controls')).hidden = !on;
+        });
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { selectTab(tab); });
+        tab.addEventListener('keydown', function (e) {
+          var n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+          if (n === null) return;
+          e.preventDefault();
+          n = (n + tabs.length) % tabs.length;
+          tabs[n].focus();
+          selectTab(tabs[n]);
+        });
+      });
+      if (OS[userOS]) selectTab($('tab-' + userOS));
+
+      // ── Copy buttons ──
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (!navigator.clipboard) return;
+          navigator.clipboard.writeText($(btn.getAttribute('data-copy')).textContent).then(function () {
+            btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+            setTimeout(function () { btn.innerHTML = '<i class="fas fa-copy" aria-hidden="true"></i>'; }, 1600);
+          });
         });
       });
 
-      // --- Helpers ---
-      function escHtml(str) {
-        return str
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;');
+      // ── Post-download dialog ──
+      var dlg = $('dl2-thanks');
+      function onDownload(link) {
+        var os = link.getAttribute('data-os'), name = link.getAttribute('data-name');
+        if (typeof gtag === 'function') gtag('event', 'file_download', { file_name: name, platform: os });
+        if (typeof dlg.showModal !== 'function') return;
+        $('dl2-retry').href = link.href;
+        $('dl2-next').innerHTML = (NEXT[os] || []).concat('Sign in with <code>admin</code> / <code>admin</code>, then set your own password.')
+          .map(function (s, i) { return '<li><span>' + (i + 1) + '</span><div>' + s + '</div></li>'; }).join('');
+        dlg.showModal();
+      }
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest('a[data-name]');
+        if (link) onDownload(link); // no preventDefault: GitHub serves the file as an attachment
+      });
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg || e.target.closest('[data-close]')) dlg.close();
+      });
+
+      // ── Release data ──
+      function mb(bytes) { return (bytes / 1048576).toFixed(1) + ' MB'; }
+      function describe(asset) {
+        var n = asset.name.toLowerCase();
+        var u24 = n.indexOf('ubuntu24') > -1, u22 = n.indexOf('ubuntu22') > -1;
+        if (/\.(exe|msi)$/.test(n)) return { os: 'windows', rank: 1, title: 'Download installer', kind: '.' + n.slice(-3) + ' installer' };
+        if (/\.dmg$/.test(n))       return { os: 'macos',   rank: 1, title: 'Download disk image', kind: '.dmg disk image' };
+        if (/\.appimage$/.test(n))  return u24 ? { os: 'linux', rank: 4, title: 'AppImage · Ubuntu 24.04', kind: '.AppImage · smaller build' }
+                                               : { os: 'linux', rank: 1, title: 'AppImage · any distro', kind: '.AppImage' };
+        if (/\.deb$/.test(n))       return { os: 'linux', rank: u24 ? 2 : u22 ? 3 : 2, title: 'DEB · ' + (u24 ? 'Ubuntu 24.04' : u22 ? 'Ubuntu 22.04' : 'Debian/Ubuntu'), kind: '.deb package' };
+        if (/\.rpm$/.test(n))       return { os: 'linux', rank: 5, title: 'RPM · Fedora', kind: '.rpm package' };
+        return null; // checksums, zsync, etc.
+      }
+      function fileLink(asset, info, primary) {
+        var a = document.createElement('a');
+        a.className = 'dl2-file' + (primary ? ' is-primary' : '');
+        a.href = asset.browser_download_url;
+        a.setAttribute('data-os', info.os);
+        a.setAttribute('data-name', asset.name);
+        a.innerHTML = '<span><strong></strong><small></small></span><i class="fas fa-arrow-down" aria-hidden="true"></i>';
+        a.querySelector('strong').textContent = info.title;
+        a.querySelector('small').textContent = info.kind + ' · ' + mb(asset.size);
+        return a;
       }
 
-      function formatBytes(bytes) {
-        if (!bytes) return '';
-        var mb = bytes / (1024 * 1024);
-        return mb >= 1 ? mb.toFixed(1) + ' MB' : (bytes / 1024).toFixed(0) + ' KB';
-      }
+      fetchReleases().then(function (releases) {
+        if (!releases.length) return;
+        var latest = releases[0];
+        var date = new Date(latest.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
-      function inlineFormat(str) {
-        return escHtml(str)
-          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-          .replace(/`(.+?)`/g, '<code class="cl-code">$1</code>');
-      }
+        $('dl2-version').textContent = latest.tag_name;
+        $('dl2-date').textContent = '· Released ' + date;
+        $('dl2-news-version').textContent = ' in ' + latest.tag_name;
+        $('dl2-news-date').textContent = date;
+        $('dl2-news-link').href = latest.html_url;
 
-      function simpleMarkdown(text) {
-        var lines = text.split('\n');
-        var html  = '';
-        var inList = false;
-        lines.forEach(function (line) {
-          if (/^#{1,3}\s+/.test(line)) {
-            if (inList) { html += '</ul>'; inList = false; }
-            html += '<p class="cl-heading">' + inlineFormat(line.replace(/^#{1,3}\s+/, '')) + '</p>';
-          } else if (/^[-*]\s+/.test(line)) {
-            if (!inList) { html += '<ul class="cl-list">'; inList = true; }
-            html += '<li>' + inlineFormat(line.replace(/^[-*]\s+/, '')) + '</li>';
-          } else if (line.trim() === '') {
-            if (inList) { html += '</ul>'; inList = false; }
-          } else {
-            if (inList) { html += '</ul>'; inList = false; }
-            html += '<p class="cl-para">' + inlineFormat(line) + '</p>';
-          }
-        });
-        if (inList) html += '</ul>';
-        return html;
-      }
-
-      function classifyAsset(name) {
-        var n = name.toLowerCase();
-        if (n.endsWith('.exe') || n.endsWith('.msi'))
-          return { os: 'windows', icon: 'fab fa-windows' };
-        if (n.endsWith('.dmg'))
-          return { os: 'macos', icon: 'fab fa-apple' };
-        if (n.endsWith('.appimage'))
-          return { os: 'linux', icon: 'fab fa-linux' };
-        if (n.endsWith('.deb'))
-          return { os: 'linux', icon: 'fab fa-ubuntu' };
-        if (n.endsWith('.rpm'))
-          return { os: 'linux', icon: 'fab fa-fedora' };
-        if (n.endsWith('.tar.gz') || n.endsWith('.tar.xz') || n.endsWith('.tar.bz2'))
-          return { os: 'linux', icon: 'fab fa-linux' };
-        if (n.endsWith('.zip'))
-          return { os: 'other', icon: 'fas fa-file-archive' };
-        if (n.endsWith('.zsync'))
-          return { os: 'other', icon: 'fas fa-sync' };
-        if (n.endsWith('.sha256') || n.endsWith('.sha256sum') || n.endsWith('.sha512'))
-          return { os: 'other', icon: 'fas fa-shield-alt' };
-        return { os: 'other', icon: 'fas fa-file-download' };
-      }
-
-      function trackDownload(filename, platform) {
-        if (typeof gtag === 'function') {
-          gtag('event', 'file_download', { file_name: filename, platform: platform });
-        }
-      }
-
-      function triggerDownload(url, filename, platform) {
-        trackDownload(filename, platform);
-        var iframe = document.getElementById('dl-iframe');
-        if (!iframe) {
-          iframe = document.createElement('iframe');
-          iframe.id = 'dl-iframe';
-          iframe.style.display = 'none';
-          document.body.appendChild(iframe);
-        }
-        iframe.src = url;
-        return false;
-      }
-
-      function buildAssetRows(entries) {
-        return entries.map(function (e) {
-          var size = formatBytes(e.asset.size);
-          var dl   = e.asset.download_count || 0;
-          var meta = [size, dl ? dl.toLocaleString() + ' downloads' : ''].filter(Boolean).join(' · ');
-          var safeName = e.asset.name.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-          var safeUrl  = e.asset.browser_download_url.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-          return (
-            '<a href="' + escHtml(e.asset.browser_download_url) + '" class="asset-btn" onclick="return triggerDownload(\'' + safeUrl + '\',\'' + safeName + '\',\'' + e.info.os + '\')" aria-label="Download ' + escHtml(e.asset.name) + '">' +
-              '<span class="asset-icon"><i class="' + e.info.icon + '" aria-hidden="true"></i></span>' +
-              '<span class="asset-info">' +
-                '<span class="asset-name">' + escHtml(e.asset.name) + '</span>' +
-                (meta ? '<span class="asset-meta">' + escHtml(meta) + '</span>' : '') +
-              '</span>' +
-              '<i class="fas fa-arrow-down asset-dl-icon" aria-hidden="true"></i>' +
-            '</a>'
-          );
-        }).join('');
-      }
-
-      function releaseDownloadTotal(release) {
-        return (release.assets || []).reduce(function (sum, asset) {
-          return sum + (asset.download_count || 0);
+        var total = releases.reduce(function (sum, r) {
+          return sum + (r.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);
         }, 0);
-      }
+        if (total) { $('dl2-total').querySelector('span').textContent = total.toLocaleString('en-IN'); $('dl2-total').hidden = false; }
 
-      function formatDownloadLabel(count) {
-        return count.toLocaleString() + ' ' + (count === 1 ? 'download' : 'downloads');
-      }
-
-      // --- Fetch releases ---
-      fetchReleases()
-        .then(function (releases) {
-          var list = document.getElementById('releases-list');
-          var previousList = document.getElementById('previous-releases-list');
-          list.innerHTML = '';
-          previousList.innerHTML = '';
-
-          if (!releases.length) {
-            list.innerHTML = '<p class="text-center py-8" style="color:var(--text-muted)">No releases found.</p>';
-            return;
+        // Platform cards + hero button
+        var byOS = { windows: [], macos: [], linux: [] };
+        (latest.assets || []).forEach(function (asset) {
+          var info = describe(asset);
+          if (info) byOS[info.os].push({ asset: asset, info: info });
+        });
+        Object.keys(byOS).forEach(function (os) {
+          var list = byOS[os].sort(function (a, b) { return a.info.rank - b.info.rank; });
+          if (!list.length) return;
+          var box = document.querySelector('[data-files="' + os + '"]');
+          box.innerHTML = '';
+          list.forEach(function (e, i) { box.appendChild(fileLink(e.asset, e.info, i === 0)); });
+          if (os === userOS && list.length > 1) {
+            // Distro can't be detected: offer every build instead of guessing
+            var group = document.createElement('div');
+            group.className = 'dl2-hero-files';
+            list.forEach(function (e) { group.appendChild(fileLink(e.asset, e.info, false)); });
+            mainBtn.parentNode.replaceChild(group, mainBtn);
+            mainMeta.textContent = latest.tag_name + ' · Not sure which one? The AppImage runs on any 64-bit distro.';
+          } else if (os === userOS) {
+            var best = list[0];
+            mainBtn.href = best.asset.browser_download_url;
+            mainBtn.setAttribute('data-os', os);
+            mainBtn.setAttribute('data-name', best.asset.name);
+            mainMeta.textContent = latest.tag_name + ' · ' + best.info.kind + ' · ' + mb(best.asset.size);
           }
-
-          // ── Total downloads badge ──
-          var totalDownloads = releases.reduce(function (sum, r) {
-            return sum + releaseDownloadTotal(r);
-          }, 0);
-          if (totalDownloads > 0) {
-            document.getElementById('total-dl-stat').style.display = 'flex';
-            var el = document.getElementById('total-downloads');
-            var duration = 3000;
-            var start = null;
-            function step(ts) {
-              if (!start) start = ts;
-              var progress = Math.min((ts - start) / duration, 1);
-              var eased = 1 - Math.pow(1 - progress, 3);
-              el.textContent = Math.floor(eased * totalDownloads).toLocaleString();
-              if (progress < 1) requestAnimationFrame(step);
-              else el.textContent = totalDownloads.toLocaleString();
-            }
-            requestAnimationFrame(step);
-          }
-
-          // ── Latest release: downloads (left) + release notes (right) ──
-          var latest = releases[0];
-          var latestDate = new Date(latest.published_at).toLocaleDateString('en-US', {
-            year: 'numeric', month: 'long', day: 'numeric',
-          });
-
-          var windows = [], linux = [], macos = [], other = [];
-          (latest.assets || []).forEach(function (asset) {
-            var info  = classifyAsset(asset.name);
-            var entry = { asset: asset, info: info };
-            if (info.os === 'windows')    windows.push(entry);
-            else if (info.os === 'linux') linux.push(entry);
-            else if (info.os === 'macos') macos.push(entry);
-            else                          other.push(entry);
-          });
-
-          var downloadsHtml = '';
-          if (windows.length) {
-            downloadsHtml += '<div class="dl-os-section" id="dl-section-windows">';
-            downloadsHtml += '<p class="os-section-label"><i class="fab fa-windows mr-1" aria-hidden="true"></i> Windows</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(windows) + '</div></div>';
-          }
-          if (macos.length) {
-            downloadsHtml += '<div class="dl-os-section" id="dl-section-macos"' + (windows.length || linux.length ? ' style="margin-top:8px;"' : '') + '>';
-            downloadsHtml += '<p class="os-section-label"><i class="fab fa-apple mr-1" aria-hidden="true"></i> macOS</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(macos) + '</div></div>';
-          }
-          if (linux.length) {
-            downloadsHtml += '<div class="dl-os-section" id="dl-section-linux"' + (windows.length ? ' style="margin-top:8px;"' : '') + '>';
-            downloadsHtml += '<p class="os-section-label"><i class="fab fa-linux mr-1" aria-hidden="true"></i> Linux</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(linux) + '</div></div>';
-          }
-          if (other.length) {
-            downloadsHtml += '<p class="os-section-label" style="' + (windows.length || linux.length || macos.length ? 'padding-top:8px;' : '') + '">Other</p>';
-            downloadsHtml += '<div class="assets-grid">' + buildAssetRows(other) + '</div>';
-          }
-          if (!windows.length && !linux.length && !macos.length && !other.length) {
-            downloadsHtml = '<p class="no-assets">No downloadable assets for this release.</p>';
-          }
-
-          var notesHtml = latest.body
-            ? simpleMarkdown(latest.body)
-            : '<p class="cl-para" style="color:var(--text-muted);font-style:italic;">No release notes provided.</p>';
-
-          var latestCard = document.createElement('div');
-          latestCard.className = 'release-card';
-          latestCard.innerHTML =
-            '<div class="release-header">' +
-              '<div class="release-header-left">' +
-                '<span class="version-badge">' + escHtml(latest.tag_name) + '</span>' +
-                '<span class="latest-badge">Latest</span>' +
-                '<span class="release-title">' + escHtml(latest.name || latest.tag_name) + '</span>' +
-              '</div>' +
-              '<span class="release-date">' + latestDate + '</span>' +
-            '</div>' +
-            '<div class="latest-body">' +
-              '<div class="latest-downloads">' + downloadsHtml + '</div>' +
-              '<div class="latest-notes">' +
-                '<p class="latest-notes-title"><i class="fas fa-scroll mr-1" aria-hidden="true"></i> What\'s new</p>' +
-                '<div class="notes-content">' + notesHtml + '</div>' +
-                '<a href="' + escHtml(latest.html_url) + '" target="_blank" rel="noopener noreferrer" class="gh-link">' +
-                  'Full release on GitHub <i class="fas fa-external-link-alt" aria-hidden="true"></i>' +
-                '</a>' +
-              '</div>' +
-            '</div>';
-
-          list.appendChild(latestCard);
-
-          // ── Older releases: archive rows linking to GitHub ──
-          if (releases.length > 1) {
-            var archiveWrap = document.createElement('div');
-
-            var archiveHeading = document.createElement('h2');
-            archiveHeading.className = 'archive-section-heading';
-            archiveHeading.textContent = 'Previous Releases';
-            archiveWrap.appendChild(archiveHeading);
-
-            var archiveCard = document.createElement('div');
-            archiveCard.className = 'release-card';
-            archiveCard.style.overflow = 'visible';
-            archiveCard.innerHTML = releases.slice(1, 11).map(function (r) {
-              var date = new Date(r.published_at).toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric',
-              });
-              var releaseDownloads = releaseDownloadTotal(r);
-              return (
-                '<a href="' + escHtml(r.html_url) + '" target="_blank" rel="noopener noreferrer" class="archive-row">' +
-                  '<div class="archive-row-left">' +
-                    '<span class="version-badge">' + escHtml(r.tag_name) + '</span>' +
-                    '<span class="archive-title">' + escHtml(r.name || r.tag_name) + '</span>' +
-                  '</div>' +
-                  '<div class="archive-row-right">' +
-                    '<span class="archive-downloads"><i class="fas fa-download" aria-hidden="true"></i>' + escHtml(formatDownloadLabel(releaseDownloads)) + '</span>' +
-                    '<span class="release-date">' + date + '</span>' +
-                    '<i class="fab fa-github" aria-hidden="true"></i>' +
-                  '</div>' +
-                '</a>'
-              );
-            }).join('');
-
-            archiveWrap.appendChild(archiveCard);
-            previousList.appendChild(archiveWrap);
-          }
-        })
-        .catch(function () {
-          document.getElementById('previous-releases-list').innerHTML = '';
-          document.getElementById('releases-list').innerHTML =
-            '<p class="text-center py-8" style="color:var(--text-muted)">Could not load releases. ' +
-            '<a href="https://github.com/Anooppandikashala/invoiso/releases" target="_blank" rel="noopener noreferrer" class="primary-text underline">View on GitHub →</a></p>';
         });
 
-    });
-
-    window.addEventListener('scroll', function () {
-      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+        // What's new: intro sentence + feature headings
+        var lines = (latest.body || '').split('\n').map(function (l) { return l.trim(); });
+        var clean = function (s) { return s.replace(/\*\*|`/g, '').replace(/^[^A-Za-z0-9]+/, ''); };
+        var intro = lines.filter(function (l) { return l && !/^[#*>\-|]/.test(l); })[0];
+        var feats = lines.filter(function (l) { return /^###\s/.test(l); }).map(function (l) { return clean(l.replace(/^###\s+/, '')); })
+          .filter(function (f) { return f && !/^(download|install|checksum|full changelog|assets|notes?)\b/i.test(f); }).slice(0, 6);
+        if (intro) $('dl2-news-summary').textContent = clean(intro);
+        if (feats.length) {
+          var ul = $('dl2-news-list');
+          feats.forEach(function (f) {
+            var li = document.createElement('li');
+            li.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
+            li.appendChild(document.createTextNode(f));
+            ul.appendChild(li);
+          });
+          ul.hidden = false;
+        }
+      }).catch(function () { /* static GitHub links already work */ });
+    })();
     </script>
   </body>
 </html>
