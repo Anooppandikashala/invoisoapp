@@ -1251,6 +1251,97 @@ body {
     text-decoration: underline;
 }
 
+/* ── 10k milestone ── */
+.milestone-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(250,204,21,0.45);
+    background: linear-gradient(90deg, rgba(79,142,247,0.16), rgba(250,204,21,0.14));
+    color: var(--text);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.milestone-pill:hover { border-color: rgba(250,204,21,0.8); }
+@media (hover: hover) { .milestone-pill:hover { transform: translateY(-1px); } }
+.milestone-pill i { font-size: 0.72rem; }
+
+.milestone-dialog {
+    width: min(92vw, 560px);
+    max-height: 92vh;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    border: 1px solid transparent; /* visible in Windows High Contrast */
+    border-radius: 18px;
+    background: #0b1f4d;
+    overflow: auto;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.milestone-dialog[open] { animation: milestone-in 0.35s ease-out; }
+.milestone-dialog::backdrop { background: rgba(3,8,24,0.72); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.milestone-dialog img { display: block; width: 100%; height: auto; }
+
+.milestone-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.milestone-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 16px 18px;
+}
+
+.milestone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.milestone-cta--ghost { background: transparent; border: 1px solid rgba(255,255,255,0.35); }
+
+@keyframes milestone-in {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .milestone-dialog[open] { animation: none; }
+}
+
 .hero-featured-badges {
     grid-column: 1 / -1;
     justify-content: center !important;

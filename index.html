@@ -523,6 +523,14 @@
         <div class="stamp-hero" aria-hidden="true"><span class="stamp-badge stamp-badge--green">Free Forever</span></div>
         <div class="container mx-auto px-6 relative z-10 hero-premium-shell">
           <div class="fade-in-up hero-premium-copy">
+            <!-- 10k milestone pill: revealed by app.js once downloads >= 10,000 -->
+            <div id="milestone-pill-wrap" hidden>
+              <button type="button" class="milestone-pill" id="milestone-pill" aria-haspopup="dialog">
+                <span aria-hidden="true">🎉</span>
+                <span>We just crossed <strong>10,000 downloads</strong> — thank you!</span>
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
             <div class="hero-badge">
               <i class="fab fa-github" aria-hidden="true"></i>
               Open Source &nbsp;&middot;&nbsp; Free Forever &nbsp;&middot;&nbsp; Windows &amp; Linux &amp; macOS
@@ -1610,6 +1618,15 @@
         </div>
       </div>
     </footer>
+
+    <dialog class="milestone-dialog" id="milestone-dialog" aria-label="Invoiso crossed 10,000 downloads">
+      <button type="button" class="milestone-close" aria-label="Close">&times;</button>
+      <img src="assets/images/banner/invoiso_10k_downloads_banner.webp" alt="Invoiso Offline Edition just crossed 10,000 downloads — a free, open-source desktop billing app built by one developer" width="1023" height="946" loading="lazy" decoding="async" />
+      <div class="milestone-actions">
+        <a href="download.html" class="milestone-cta">Download free</a>
+        <a href="https://github.com/Anooppandikashala/invoiso" target="_blank" rel="noopener noreferrer" class="milestone-cta milestone-cta--ghost"><i class="fab fa-github" aria-hidden="true"></i> Star on GitHub</a>
+      </div>
+    </dialog>
 
     <script defer src="assets/js/gh-releases.js"></script>
     <script defer src="assets/js/app.js"></script>

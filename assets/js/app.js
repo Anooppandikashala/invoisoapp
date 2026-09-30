@@ -443,6 +443,7 @@ window.addEventListener('scroll', function () {
         return sum + (r.assets || []).reduce(function (s, a) { return s + (a.download_count || 0); }, 0);
       }, 0);
       if (!total) return;
+      if (total >= 10000) showMilestone();
       var duration = 1800;
       var start = null;
       function step(ts) {
@@ -457,6 +458,35 @@ window.addEventListener('scroll', function () {
     })
     .catch(function () { el.closest('.hero-stat').style.display = 'none'; });
 })();
+
+// ─── 10k downloads milestone (pill + banner dialog) ──────────────────────────
+// Pill always visible; dialog auto-opens once per visitor on desktop only
+// (auto popups on mobile risk Google's intrusive-interstitial demotion).
+function showMilestone() {
+  var wrap = document.getElementById('milestone-pill-wrap');
+  var dlg  = document.getElementById('milestone-dialog');
+  if (!wrap || !dlg || typeof dlg.showModal !== 'function') return;
+  var KEY = 'invoiso_10k_seen';
+
+  function open(source) {
+    if (dlg.open) return;
+    dlg.showModal();
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    if (typeof gtag === 'function') gtag('event', 'milestone_10k_open', { source: source });
+  }
+
+  wrap.hidden = false;
+  new Image().src = dlg.querySelector('img').src; // preload so banner is ready when dialog opens
+  document.getElementById('milestone-pill').addEventListener('click', function () { open('pill'); });
+  dlg.querySelector('.milestone-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); }); // backdrop
+
+  var seen = false;
+  try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (!seen && window.matchMedia('(min-width: 768px)').matches) {
+    setTimeout(function () { open('auto'); }, 1200);
+  }
+}
 
 // ─── Click-driven feature → invoice highlight (Task 3) ───────────────────────
 (function initFeatScroll() {
