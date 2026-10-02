@@ -1,12 +1,10 @@
 // ─── GitHub releases (shared by index.html + download.html) ──────────────────
 // Unauthenticated GitHub API = 60 req/hour per IP; shared carrier IPs (CGNAT)
-// hit that fast. Cache a trimmed copy for 1 hour and fall back to it on error.
+// hit that fast. Always fetch fresh; keep a trimmed copy to fall back to on error.
 function fetchReleases() {
   var KEY = 'invoiso_gh_releases';
-  var TTL = 3600000; // 1 hour
   var cached = null;
   try { cached = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
-  if (cached && Date.now() - cached.ts < TTL) return Promise.resolve(cached.data);
 
   // API returns max 100 releases per page; keep fetching until a short page
   function fetchPage(page, acc) {

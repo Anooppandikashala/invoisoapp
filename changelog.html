@@ -847,6 +847,86 @@
 
           <div class="timeline">
 
+            <!-- September 2026 -->
+            <div class="release-card fade-in-up">
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <div class="release-card-header">
+                <div class="release-card-header-left">
+                  <span class="version-badge">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    September 2026
+                  </span>
+                </div>
+                <span class="release-date">v4.4.4</span>
+              </div>
+
+              <div class="release-body">
+
+                <!-- New Features -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-features"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                    <span class="title-features">New Features</span>
+                  </div>
+                  <ul class="cl-list" aria-label="New features in September 2026">
+                    <li><span><strong>Custom fields on invoices</strong> — define your own invoice fields (e.g. Vehicle No, Delivery Note) in Invoice Settings with a live preview, fill them per invoice, and print them on every PDF template</span></li>
+                    <li><span><strong>Product details on the PDF</strong> — print storage location, batch/container no., expiry and manufacture date, manufacturer name, supplier, SKU and notes per line; values are frozen on the invoice. Available on all A4 templates</span></li>
+                    <li><span><strong>Charges &amp; Adjustments</strong> — the Additional Cost section is renamed and now accepts negative values (TDS deducted, advance adjustment, round off), with preset labels like freight, courier, packing and insurance</span></li>
+                    <li><span><strong>PDF export for reports</strong> — Revenue (with monthly breakdown), A/R Aging (with per-customer summary), Tax, Top Customers, Top Products and Invoice Status can be exported as PDF as well as CSV</span></li>
+                    <li><span><strong>Inventory valuation report</strong> — new Inventory tab in Reports with stock value, potential sale value, profit locked in stock, total units and a per-product breakdown</span></li>
+                    <li><span><strong>Clearer tax column</strong> — shows each item's tax amount and rate % for both global and per-item tax; CGST/SGST split (IGST for interstate) is now its own toggle</span></li>
+                    <li><span><strong>Settings &amp; FAQ search</strong> — new Help search screen to find any setting or FAQ answer, with highlighted matches</span></li>
+                    <li><span><strong>Full-page watermark</strong> — place the watermark behind the items table or centered across the whole page</span></li>
+                    <li><span><strong>Quick "New document" buttons</strong> — each management screen opens the create form with Invoice, Quotation or Receipt preselected</span></li>
+                    <li><span><strong>IGST support (India)</strong> — interstate flag switches CGST/SGST to a single IGST line on PDFs and thermal receipts</span></li>
+                    <li><span><strong>Bulk payment settlement</strong> — apply one payment across a customer's outstanding invoices</span></li>
+                    <li><span><strong>Per-line item descriptions</strong> — optional description on each invoice line, printed under the item name</span></li>
+                    <li><span><strong>Landscape PDFs</strong> with live preview; Grid Classic supports landscape on A4/A5/A6</span></li>
+                    <li><span><strong>Invoice column toggles</strong> (including a new Sl No column), a customer filter in Invoice Management, and customisable product list columns</span></li>
+                  </ul>
+                </div>
+
+                <!-- UI Improvements -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-ui"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
+                    <span class="title-ui">UI &amp; UX Improvements</span>
+                  </div>
+                  <ul class="cl-list" aria-label="UI improvements in September 2026">
+                    <li><span>UPI QR code on the PDF now appears only while a balance is still due</span></li>
+                    <li><span>Nepal businesses see "VAT Registration No."; the FSSAI field is shown only for India</span></li>
+                    <li><span>Onboarding: Skip button moved into the progress header, plus logo size guidance on the company step</span></li>
+                    <li><span>Reports now say "Tax Charged" (accrual basis) and show Taxable Amount, Gross and Realized Profit</span></li>
+                    <li><span>User Management guards against accidental user deletion and account-type changes</span></li>
+                    <li><span>Customer details block and date/time format on the PDF are now configurable</span></li>
+                    <li><span>Notice for users still on the classic Create Invoice layout, which will be retired in an upcoming release</span></li>
+                    <li><span>Translation updates across all supported languages and various layout fixes</span></li>
+                  </ul>
+                </div>
+
+                <!-- Bug Fixes — full width -->
+                <div class="cl-section" style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 20px;">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
+                    <span class="title-fixes">Bug Fixes</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Bug fixes in September 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                    <li><span>New invoices/quotations sometimes previewed a number from the wrong series</span></li>
+                    <li><span>Printing now uses the configured PDF page size</span></li>
+                    <li><span>Editing a customer's casing, spacing or address no longer creates a duplicate customer</span></li>
+                    <li><span>Saved PDFs on desktop always keep the .pdf extension</span></li>
+                    <li><span>Crash when using the app in Tibetan</span></li>
+                    <li><span>New invoice fields not added on some existing installs after updating</span></li>
+                    <li><span>Sl No column width on PDFs</span></li>
+                    <li><span>"Document directory not found" and backup path errors on Windows</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <!-- / September 2026 -->
+
             <!-- August 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
@@ -858,10 +938,15 @@
                     August 2026
                   </span>
                 </div>
-                <span class="release-date">v4.3.9</span>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="release-date">v4.3.9</span>
+                  <button class="cl-toggle-btn" data-target="august-body" aria-label="Toggle August 2026 release notes" aria-expanded="false">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
               </div>
 
-              <div class="release-body">
+              <div class="release-body cl-collapsed" id="august-body">
 
                 <!-- New Features -->
                 <div class="cl-section">

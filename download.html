@@ -132,7 +132,10 @@
       .dl2-news p { margin-top: 12px; color: var(--dl2-soft); line-height: 1.65; font-size: 0.93rem; }
       .dl2-news ul { margin-top: 14px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
       .dl2-news li { color: var(--text); font-size: 0.92rem; }
-      .dl2-news li i { color: var(--primary); margin-right: 8px; font-size: 0.8rem; }
+      .dl2-news ul li { position: relative; padding-left: 18px; }
+      .dl2-news ul li::before { content: "•"; position: absolute; left: 4px; color: var(--primary); font-weight: 700; }
+      .dl2-news h3 { margin-top: 18px; color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+      .dl2-news code { background: rgba(79,142,247,0.15); color: var(--primary); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
       .dl2-news-links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 0.88rem; }
       .dl2-news-links a { color: var(--primary); font-weight: 600; text-decoration: none; }
       .dl2-news-links a:hover { text-decoration: underline; }
@@ -473,8 +476,7 @@
               <h2 id="news-title">What's new<span id="dl2-news-version"></span></h2>
               <span class="dl2-news-date" id="dl2-news-date"></span>
             </div>
-            <p id="dl2-news-summary">Invoiso is updated regularly with new features and fixes.</p>
-            <ul id="dl2-news-list" hidden></ul>
+            <div id="dl2-news-body"><p>Invoiso is updated regularly with new features and fixes.</p></div>
             <div class="dl2-news-links">
               <a href="https://github.com/Anooppandikashala/invoiso/releases/latest" id="dl2-news-link" target="_blank" rel="noopener noreferrer">Full release notes <i class="fas fa-arrow-up-right-from-square" aria-hidden="true" style="font-size:0.7rem"></i></a>
               <a href="changelog.html">All updates</a>
@@ -744,6 +746,22 @@
         return a;
       }
 
+      function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+      function inline(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/`(.+?)`/g, '<code>$1</code>'); }
+      function notesHtml(text) {
+        var html = '', inList = false;
+        text.split('\n').forEach(function (line) {
+          line = line.trim();
+          var isItem = /^[-*]\s+/.test(line);
+          if (inList && !isItem) { html += '</ul>'; inList = false; }
+          if (!line || /^-{3,}$/.test(line)) return;
+          if (/^#{1,6}\s+/.test(line)) html += '<h3>' + inline(line.replace(/^#{1,6}\s+/, '')) + '</h3>';
+          else if (isItem) { if (!inList) { html += '<ul>'; inList = true; } html += '<li>' + inline(line.replace(/^[-*]\s+/, '')) + '</li>'; }
+          else html += '<p>' + inline(line.replace(/^>\s*/, '')) + '</p>';
+        });
+        return html + (inList ? '</ul>' : '');
+      }
+
       fetchReleases().then(function (releases) {
         if (!releases.length) return;
         var latest = releases[0];
@@ -788,23 +806,8 @@
           }
         });
 
-        // What's new: intro sentence + feature headings
-        var lines = (latest.body || '').split('\n').map(function (l) { return l.trim(); });
-        var clean = function (s) { return s.replace(/\*\*|`/g, '').replace(/^[^A-Za-z0-9]+/, ''); };
-        var intro = lines.filter(function (l) { return l && !/^[#*>\-|]/.test(l); })[0];
-        var feats = lines.filter(function (l) { return /^###\s/.test(l); }).map(function (l) { return clean(l.replace(/^###\s+/, '')); })
-          .filter(function (f) { return f && !/^(download|install|checksum|full changelog|assets|notes?)\b/i.test(f); }).slice(0, 6);
-        if (intro) $('dl2-news-summary').textContent = clean(intro);
-        if (feats.length) {
-          var ul = $('dl2-news-list');
-          feats.forEach(function (f) {
-            var li = document.createElement('li');
-            li.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>';
-            li.appendChild(document.createTextNode(f));
-            ul.appendChild(li);
-          });
-          ul.hidden = false;
-        }
+        // What's new: full release notes (minimal markdown → HTML)
+        if (latest.body) $('dl2-news-body').innerHTML = notesHtml(latest.body);
       }).catch(function () { /* static GitHub links already work */ });
     })();
     </script>
