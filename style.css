@@ -4503,6 +4503,95 @@ body {
     color: var(--text);
 }
 
+.testimonials-grid.collapsed {
+    max-height: 640px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent);
+    mask-image: linear-gradient(to bottom, #000 65%, transparent);
+}
+
+.testimonials-toggle {
+    margin-top: 8px;
+    padding: 10px 22px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.testimonials-toggle:hover { border-color: var(--primary); }
+
+.reviews-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    padding: 24px 28px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.reviews-score {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.reviews-avg {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text);
+}
+
+.reviews-score .testimonial-stars i { font-size: 1rem; }
+
+.reviews-count {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.reviews-bars {
+    flex: 1;
+    display: grid;
+    gap: 6px;
+}
+
+.reviews-bar-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 24px;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.reviews-bar-row i { color: #f59e0b; font-size: 0.7rem; }
+
+.reviews-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--border);
+    overflow: hidden;
+}
+
+.reviews-bar span {
+    display: block;
+    height: 100%;
+    background: #f59e0b;
+    border-radius: inherit;
+}
+
 /* =============================================
    Footer
    ============================================= */
@@ -6719,4 +6808,10 @@ footer a:hover {
   .testimonials-grid.double {
     columns: 1;
   }
+  .reviews-summary {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .reviews-score { justify-content: center; }
 }

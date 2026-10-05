@@ -115,6 +115,49 @@ var testimonials = [
       (t.text.length > 220 ? '<button type="button" class="testimonial-showmore">Show more</button>' : '');
     grid.appendChild(card);
   });
+
+  // Rating summary: average + per-star distribution
+  var summary = document.getElementById('reviews-summary');
+  if (summary) {
+    var counts = [0, 0, 0, 0, 0, 0];
+    var total = 0;
+    testimonials.forEach(function (t) { counts[t.stars]++; total += t.stars; });
+    var avg = (total / testimonials.length).toFixed(1);
+    var avgStars = '';
+    for (var s = 1; s <= 5; s++) {
+      avgStars += '<i class="' + (avg >= s - 0.25 ? 'fas fa-star' : avg >= s - 0.75 ? 'fas fa-star-half-stroke' : 'far fa-star') + '" aria-hidden="true"></i>';
+    }
+    var bars = '';
+    for (var r = 5; r >= 1; r--) {
+      bars +=
+        '<div class="reviews-bar-row">' +
+          '<span>' + r + ' <i class="fas fa-star" aria-hidden="true"></i></span>' +
+          '<span class="reviews-bar"><span style="width:' + (counts[r] / testimonials.length * 100) + '%"></span></span>' +
+          '<span>' + counts[r] + '</span>' +
+        '</div>';
+    }
+    summary.innerHTML =
+      '<div class="reviews-score">' +
+        '<span class="reviews-avg">' + avg + '</span>' +
+        '<div><div class="testimonial-stars" aria-label="' + avg + ' out of 5 stars">' + avgStars + '</div>' +
+        '<span class="reviews-count">Based on ' + testimonials.length + ' reviews</span></div>' +
+      '</div>' +
+      '<div class="reviews-bars">' + bars + '</div>';
+  }
+
+  // Collapse long walls behind a "Show all" toggle
+  var toggle = document.getElementById('testimonials-toggle');
+  if (toggle && testimonials.length > 6) {
+    var label = 'Show all ' + testimonials.length + ' reviews';
+    grid.classList.add('collapsed');
+    toggle.hidden = false;
+    toggle.textContent = label;
+    toggle.addEventListener('click', function () {
+      var collapsed = grid.classList.toggle('collapsed');
+      toggle.textContent = collapsed ? label : 'Show fewer reviews';
+      if (collapsed) document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 })();
 
 document.addEventListener('click', function (e) {
