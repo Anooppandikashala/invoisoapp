@@ -75,8 +75,9 @@
       .dl2-trust { margin: 28px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; list-style: none; padding: 0; color: var(--dl2-soft); font-size: 0.86rem; }
       .dl2-trust i { color: #22c55e; margin-right: 6px; }
       .dl2-shot { margin: 56px auto 0; max-width: 960px; padding: 0 20px; }
-      .dl2-shot-frame { border: 1px solid var(--dl2-line); border-bottom: 0; border-radius: 18px 18px 0 0; padding: 10px 10px 0; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)); box-shadow: 0 -20px 80px -30px rgba(79,142,247,0.45); }
+      .dl2-shot-frame { position: relative; border: 1px solid var(--dl2-line); border-bottom: 0; border-radius: 18px 18px 0 0; padding: 10px 10px 0; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01)); box-shadow: 0 -20px 80px -30px rgba(79,142,247,0.45); }
       .dl2-shot img { display: block; width: 100%; height: auto; border-radius: 10px 10px 0 0; }
+      .dl2-shot-frame > .iv-demo { inset: 10px 10px 0; border-radius: 10px 10px 0 0; }
 
       /* Platform cards */
       .dl2-platforms { border-top: 1px solid var(--dl2-line); }
@@ -349,7 +350,7 @@
         </div>
 
         <div class="dl2-shot">
-          <div class="dl2-shot-frame">
+          <div class="dl2-shot-frame" data-invoice-demo data-demo-theme="dark">
             <img src="assets/images/hero/dashboard_dark.webp" alt="Invoiso billing software dashboard showing revenue, outstanding invoices and recent activity" width="1920" height="1080" fetchpriority="high" decoding="async" />
           </div>
         </div>
@@ -598,6 +599,7 @@
     </dialog>
 
     <script src="assets/js/gh-releases.js"></script>
+    <script src="assets/js/invoice-demo.js" defer></script>
     <script>
     (function () {
       var RELEASES_URL = 'https://github.com/Anooppandikashala/invoiso/releases/latest';

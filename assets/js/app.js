@@ -424,6 +424,7 @@ window.addEventListener('scroll', function () {
     btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
     btn.setAttribute('aria-label', isDark ? 'Preview light mode dashboard' : 'Preview night mode dashboard');
     img.src = isDark ? img.dataset.darkSrc : img.dataset.lightSrc;
+    img.parentNode.setAttribute('data-demo-theme', isDark ? 'dark' : 'light');
   });
 })();
 
