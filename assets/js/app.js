@@ -73,6 +73,24 @@ var testimonials = [
     text: 'very helpful',
     stars: 5,
   },
+  {
+    name: 'Pandey Ayurvedic',
+    location: '',
+    text: 'good support',
+    stars: 3,
+  },
+  {
+    name: 'SAN Enterprises',
+    location: '',
+    text: 'Good app, using for FMCG billing, able to bill the item\'s will efficient product and billing details.',
+    stars: 5,
+  },
+  {
+    name: 'Gagandeep Kayara',
+    location: '',
+    text: 'free of cost , best , user-friendly , best app',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
