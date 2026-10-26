@@ -97,6 +97,12 @@ var testimonials = [
     text: 'I\'ve been looking for such an open source software for my shoe store for a few days.',
     stars: 5,
   },
+  {
+    name: 'Naveen Bale',
+    location: '',
+    text: 'improve the daily wise amount calculate',
+    stars: 4,
+  },
   // {
   //   name: '',
   //   location: '',
