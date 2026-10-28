@@ -103,6 +103,12 @@ var testimonials = [
     text: 'improve the daily wise amount calculate',
     stars: 4,
   },
+  {
+    name: 'Kunal Pahuja',
+    location: '',
+    text: 'Great app for Creating customer quotations and invoices.',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
