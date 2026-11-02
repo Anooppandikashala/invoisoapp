@@ -109,6 +109,12 @@ var testimonials = [
     text: 'Great app for Creating customer quotations and invoices.',
     stars: 5,
   },
+  {
+    name: 'Mohammad Akbar',
+    location: '',
+    text: 'Love the software. Please add the expense item and purchase report',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
