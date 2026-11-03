@@ -666,7 +666,7 @@
       "name": "Release Notes & Updates - Invoiso",
       "description": "Release notes and version history for Invoiso, including new features, improvements, and fixes for the free offline invoice software.",
       "inLanguage": "en",
-      "dateModified": "2026-07-31",
+      "dateModified": "2026-10-31",
       "publisher": {
         "@type": "Organization",
         "name": "Invoiso",
@@ -847,6 +847,88 @@
 
           <div class="timeline">
 
+            <!-- October 2026 -->
+            <div class="release-card fade-in-up">
+              <div class="timeline-dot" aria-hidden="true"></div>
+
+              <div class="release-card-header">
+                <div class="release-card-header-left">
+                  <span class="version-badge">
+                    <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                    October 2026
+                  </span>
+                </div>
+                <span class="release-date">v4.5.0</span>
+              </div>
+
+              <div class="release-body">
+
+                <!-- New Features -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-features"><i class="fas fa-bolt" aria-hidden="true"></i></span>
+                    <span class="title-features">New Features</span>
+                  </div>
+                  <ul class="cl-list" aria-label="New features in October 2026">
+                    <li><span><strong>Product returns &amp; credit notes</strong> — Return Items on any invoice or receipt prefills what's still returnable; tick To stock per line, then reduce the invoice balance, refund now (with a printable refund voucher) or keep it as customer credit. An optional advanced toggle adds Credit Note / Debit Note tabs, standalone notes and separate prefixes</span></li>
+                    <li><span><strong>Save Draft</strong> — save unfinished invoices, receipts, quotations and credit/debit notes; drafts take no number, don't touch stock and stay out of reports. Preview them as PDF, then Finalize to assign the number, take stock and record payment</span></li>
+                    <li><span><strong>Purchase bills &amp; suppliers</strong> — record supplier bills, update stock automatically, track supplier payments and outstanding balances, with drafts and a stock transaction history. Optional, with an admins-only setting</span></li>
+                    <li><span><strong>Multiple companies</strong> — run several businesses from one install, each with its own database, admin, data and backups; switch from the login screen or the nav-rail company chip</span></li>
+                    <li><span><strong>Quotation status &amp; convert to invoice</strong> — mark quotations Sent, Accepted or Declined and convert them to an invoice in one click; the link stays in sync if the invoice is later voided or deleted</span></li>
+                    <li><span><strong>Cancel / Void</strong> — void invoices and receipts with optional return of all items to stock; voided documents get a red stamp on the PDF and are excluded from totals and reports</span></li>
+                    <li><span><strong>Customer fields</strong> — optional Ship To address, Date of Birth (auto age), Gender and up to 5 custom customer fields, each with its own Print-on-PDF toggle, on every template including thermal</span></li>
+                    <li><span><strong>Cash / UPI exchange (optional)</strong> — for shops that exchange UPI ↔ cash for a fee: live Cash and UPI/Bank balances, expenses, withdrawals, deposits, receipts on demand and an admin change log</span></li>
+                    <li><span><strong>Number format</strong> — None (1234567.89), International (1,234,567.89) or Indian (12,34,567.89) for PDFs, receipts, thermal printing and in-app amounts</span></li>
+                    <li><span><strong>PDF text size</strong> — Small to Extra Large text on invoice PDFs, with optional per-section sizes for company name, title, table and totals</span></li>
+                    <li><span><strong>Thermal receipt upgrade</strong> — PDF and ESC/POS now match Grid Classic: extra discount, round off, amount in words, total quantity, HSN, units, customer address and company PAN/FSSAI/email/website</span></li>
+                    <li><span><strong>Percentage line discounts</strong>, payment status while creating an invoice, a UPI payment method and an order time field</span></li>
+                    <li><span><strong>New product while invoicing</strong> from Create Invoice and Purchase Bill, plus a stock check before saving that warns when an item would go below zero</span></li>
+                    <li><span><strong>Per-product low-stock limits</strong>, 14 more product units, selectable bank code labels (IFSC / Sort Code / Routing / BSB / SWIFT) with IBAN, and admins-only options for Reports, purchase price and stock editing</span></li>
+                  </ul>
+                </div>
+
+                <!-- UI Improvements -->
+                <div class="cl-section">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-ui"><i class="fas fa-paint-brush" aria-hidden="true"></i></span>
+                    <span class="title-ui">UI &amp; UX Improvements</span>
+                  </div>
+                  <ul class="cl-list" aria-label="UI improvements in October 2026">
+                    <li><span>Invoice, product and customer lists are much faster on large databases (database-side search and paging, new indexes)</span></li>
+                    <li><span>Backups are stored per company and include the company name in the filename</span></li>
+                    <li><span>Dashboard shows Recent Documents with document number and type</span></li>
+                    <li><span>Invoice list search also matches the invoice number</span></li>
+                    <li><span>Invoice details dialog shows line discounts, extra costs and Extra Discount so rows add up to the total</span></li>
+                    <li><span>Grid Classic PDF: customer details and table columns line up properly</span></li>
+                    <li><span>Smarter Help search, with new FAQs and settings-guide entries for every new feature</span></li>
+                    <li><span>The classic (v1) Create Invoice layout has been retired</span></li>
+                    <li><span>Translation updates across all supported languages</span></li>
+                  </ul>
+                </div>
+
+                <!-- Bug Fixes — full width -->
+                <div class="cl-section" style="grid-column: 1 / -1; border-top: 1px solid var(--border); padding-top: 20px;">
+                  <div class="cl-section-title">
+                    <span class="icon-wrap icon-fixes"><i class="fas fa-wrench" aria-hidden="true"></i></span>
+                    <span class="title-fixes">Bug Fixes</span>
+                  </div>
+                  <ul class="cl-list" aria-label="Bug fixes in October 2026" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px;">
+                    <li><span>Changing an invoice's date or bank account on edit now saves correctly</span></li>
+                    <li><span>Quotations no longer reduce stock; stock is taken only on conversion to an invoice</span></li>
+                    <li><span>Safer backup restore; backups from a newer app version are rejected with a clear message</span></li>
+                    <li><span>CSV exports no longer let cell values run as spreadsheet formulas</span></li>
+                    <li><span>Keyboard typing now resets the inactivity timer</span></li>
+                    <li><span>Clicking a product in the Create Invoice search dropdown adds it reliably</span></li>
+                    <li><span>Save error on new invoices when non-numeric invoice IDs existed</span></li>
+                    <li><span>Long amounts losing digits on ESC/POS thermal prints</span></li>
+                    <li><span>Bank account fields clipped on narrow layouts</span></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <!-- / October 2026 -->
+
             <!-- September 2026 -->
             <div class="release-card fade-in-up">
               <div class="timeline-dot" aria-hidden="true"></div>
@@ -858,10 +940,15 @@
                     September 2026
                   </span>
                 </div>
-                <span class="release-date">v4.4.4</span>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span class="release-date">v4.4.4</span>
+                  <button class="cl-toggle-btn" data-target="september-body" aria-label="Toggle September 2026 release notes" aria-expanded="false">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
               </div>
 
-              <div class="release-body">
+              <div class="release-body cl-collapsed" id="september-body">
 
                 <!-- New Features -->
                 <div class="cl-section">
