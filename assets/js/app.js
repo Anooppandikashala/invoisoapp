@@ -115,6 +115,12 @@ var testimonials = [
     text: 'Love the software. Please add the expense item and purchase report',
     stars: 5,
   },
+  {
+    name: 'Masoom',
+    location: '',
+    text: 'Its very useful',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
