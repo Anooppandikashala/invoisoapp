@@ -121,6 +121,12 @@ var testimonials = [
     text: 'Its very useful',
     stars: 5,
   },
+  {
+    name: 'Niladri',
+    location: '',
+    text: 'It\u2019s too good to use and I\u2019m loving it. Thanks a lot to the creator. MAY GOD BLESS',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
