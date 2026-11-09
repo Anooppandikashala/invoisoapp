@@ -7,8 +7,7 @@
     <meta name="referrer" content="no-referrer" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#06080f" />
-    <title>Pay via UPI | Invoiso</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+    <title>Pay via UPI</title>
     <style>
       * { box-sizing: border-box; }
       body {
@@ -55,8 +54,6 @@
       #qr img, #qr svg { background: #fff; padding: 8px; border-radius: 8px; width: 220px; height: 220px; }
       .error { color: #f87171; }
       .hidden { display: none; }
-      footer { margin-top: 20px; text-align: center; font-size: 12px; }
-      footer a { color: #9ca3af; }
     </style>
   </head>
   <body>
@@ -94,7 +91,6 @@
         <button class="btn secondary" id="copy" type="button">Copy UPI ID</button>
       </div>
 
-      <footer><a href="https://invoiso.co.in/" rel="noopener">Invoiso</a></footer>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
@@ -164,6 +160,7 @@
         });
 
         document.getElementById('pay').classList.remove('hidden');
+        if (isAndroid) location.href = upiUri;
       })();
     </script>
   </body>
