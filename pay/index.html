@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#06080f" />
+    <title>Pay via UPI | Invoiso</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg" />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background: #06080f;
+        color: #e5e7eb;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: #0f1420;
+        border: 1px solid #1f2937;
+        border-radius: 16px;
+        padding: 24px;
+      }
+      h1 { margin: 0 0 4px; font-size: 20px; }
+      .muted { color: #9ca3af; font-size: 14px; }
+      .amount { font-size: 36px; font-weight: 700; margin: 20px 0 4px; }
+      .row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #1f2937; font-size: 14px; }
+      .row span:last-child { text-align: right; word-break: break-all; font-weight: 600; }
+      .btn {
+        display: block;
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+        border: 0;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        background: #16a34a;
+        color: #fff;
+      }
+      .btn.secondary { background: #1f2937; color: #e5e7eb; }
+      #qr { display: flex; justify-content: center; margin-top: 16px; }
+      #qr img, #qr svg { background: #fff; padding: 8px; border-radius: 8px; width: 220px; height: 220px; }
+      .error { color: #f87171; }
+      .hidden { display: none; }
+      footer { margin-top: 20px; text-align: center; font-size: 12px; }
+      footer a { color: #9ca3af; }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div id="invalid" class="hidden">
+        <h1 class="error">Invalid payment link</h1>
+        <p class="muted">This link is missing a valid UPI ID. Please use the QR code on the invoice.</p>
+      </div>
+
+      <div id="pay" class="hidden">
+        <h1>Pay via UPI</h1>
+        <div class="muted">Check the payee details before paying.</div>
+
+        <div class="amount" id="amount"></div>
+        <div class="row"><span class="muted">Pay to</span><span id="name"></span></div>
+        <div class="row"><span class="muted">UPI ID</span><span id="vpa"></span></div>
+        <div class="row" id="note-row"><span class="muted">Note</span><span id="note"></span></div>
+
+        <div id="android" class="hidden">
+          <a class="btn" id="open-upi">Open UPI app</a>
+        </div>
+
+        <div id="ios" class="hidden">
+          <a class="btn" data-scheme="tez://upi/pay">Google Pay</a>
+          <a class="btn" data-scheme="phonepe://pay">PhonePe</a>
+          <a class="btn" data-scheme="paytmmp://pay">Paytm</a>
+          <a class="btn secondary" data-scheme="upi://pay">Other UPI app</a>
+        </div>
+
+        <div id="desktop" class="hidden">
+          <p class="muted">Scan this QR code with any UPI app on your phone.</p>
+          <div id="qr"></div>
+        </div>
+
+        <button class="btn secondary" id="copy" type="button">Copy UPI ID</button>
+      </div>
+
+      <footer><a href="https://invoiso.co.in/" rel="noopener">Invoiso</a></footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script>
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var pa = (q.get('pa') || '').trim();
+        var pn = (q.get('pn') || '').trim().slice(0, 100);
+        var am = (q.get('am') || '').trim();
+        var cu = (q.get('cu') || 'INR').trim().toUpperCase();
+        var tn = (q.get('tn') || '').trim().slice(0, 80);
+
+        if (!/^[A-Za-z0-9._-]{2,256}@[A-Za-z0-9]{2,64}$/.test(pa)) {
+          document.getElementById('invalid').classList.remove('hidden');
+          return;
+        }
+        if (!/^\d{1,9}(\.\d{1,2})?$/.test(am) || Number(am) <= 0) am = '';
+        if (!/^[A-Z]{3}$/.test(cu)) cu = 'INR';
+
+        var params = 'pa=' + pa;
+        if (pn) params += '&pn=' + encodeURIComponent(pn);
+        if (am) params += '&am=' + am;
+        params += '&cu=' + cu;
+        if (tn) params += '&tn=' + encodeURIComponent(tn);
+        var upiUri = 'upi://pay?' + params;
+
+        document.getElementById('amount').textContent = am
+          ? (cu === 'INR' ? '₹' : cu + ' ') + Number(am).toFixed(2)
+          : 'Enter amount in app';
+        document.getElementById('name').textContent = pn || pa;
+        document.getElementById('vpa').textContent = pa;
+        if (tn) document.getElementById('note').textContent = tn;
+        else document.getElementById('note-row').classList.add('hidden');
+
+        var ua = navigator.userAgent;
+        var isIos = /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var isAndroid = /Android/i.test(ua);
+
+        if (isAndroid) {
+          document.getElementById('open-upi').href = upiUri;
+          document.getElementById('android').classList.remove('hidden');
+        } else if (isIos) {
+          var links = document.querySelectorAll('#ios [data-scheme]');
+          for (var i = 0; i < links.length; i++) {
+            links[i].href = links[i].getAttribute('data-scheme') + '?' + params;
+          }
+          document.getElementById('ios').classList.remove('hidden');
+        } else {
+          document.getElementById('desktop').classList.remove('hidden');
+          if (window.qrcode) {
+            var qr = qrcode(0, 'M');
+            qr.addData(upiUri);
+            qr.make();
+            document.getElementById('qr').innerHTML = qr.createSvgTag({ scalable: true });
+          }
+        }
+
+        var copyBtn = document.getElementById('copy');
+        copyBtn.addEventListener('click', function () {
+          var done = function () { copyBtn.textContent = 'UPI ID copied'; };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(pa).then(done, function () { prompt('Copy UPI ID', pa); });
+          } else {
+            prompt('Copy UPI ID', pa);
+          }
+        });
+
+        document.getElementById('pay').classList.remove('hidden');
+      })();
+    </script>
+  </body>
+</html>
