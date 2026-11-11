@@ -133,6 +133,12 @@ var testimonials = [
     text: 'Smooth to use, best for small users',
     stars: 5,
   },
+  {
+    name: 'Nlight Design Media',
+    location: '',
+    text: 'good Billing thanku u my small business',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
