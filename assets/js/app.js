@@ -675,3 +675,48 @@ function showMilestone() {
     statEls.forEach(animateCount);
   }
 })();
+
+// ─── How-it-works video stepper ───────────────────────────────────────────────
+// Cards stay as the no-JS / reduced-motion fallback; .is-motion turns them into tabs synced to the
+// walkthrough video (data-start = seconds). Video loads/plays only while the section is on screen.
+(function howtoStepper() {
+  var root = document.querySelector('.howto-layout');
+  if (!root || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var video = root.querySelector('.howto-video');
+  var cards = Array.prototype.slice.call(root.querySelectorAll('.invoice-step-card'));
+  var starts = cards.map(function (c) { return +c.getAttribute('data-start'); });
+  var cur = -1, raf = 0;
+  root.classList.add('is-motion');
+
+  function sync() {
+    var t = video.currentTime, i = 0;
+    while (i + 1 < starts.length && t >= starts[i + 1]) i++;
+    var end = i + 1 < starts.length ? starts[i + 1] : (video.duration || t);
+    if (i !== cur) {
+      cards.forEach(function (c, k) {
+        c.classList.toggle('is-active', k === i);
+        if (k === i) c.setAttribute('aria-current', 'step'); else c.removeAttribute('aria-current');
+      });
+      cur = i;
+    }
+    cards[i].style.setProperty('--p', Math.min((t - starts[i]) / ((end - starts[i]) || 1), 1));
+    raf = video.paused ? 0 : requestAnimationFrame(sync);
+  }
+  function play() { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+
+  video.addEventListener('play', function () { if (!raf) raf = requestAnimationFrame(sync); });
+  video.addEventListener('seeked', sync);
+  cards.forEach(function (c, k) {
+    c.setAttribute('tabindex', '0');
+    c.setAttribute('role', 'button');
+    function go() { video.currentTime = starts[k]; play(); }
+    c.addEventListener('click', go);
+    c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+  sync();
+
+  new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) play(); else video.pause();
+  }, { threshold: 0.35 }).observe(video);
+})();
