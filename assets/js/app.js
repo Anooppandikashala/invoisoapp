@@ -139,6 +139,18 @@ var testimonials = [
     text: 'good Billing thanku u my small business',
     stars: 5,
   },
+  {
+    name: 'Priya',
+    location: '',
+    text: 'is good to use and so help ful',
+    stars: 4,
+  },
+  {
+    name: 'Rahul',
+    location: '',
+    text: 'Very very useful for my business !! So much user friendly !! Thank you so much bro !! Love you lotss',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
