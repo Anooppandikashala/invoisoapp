@@ -151,6 +151,12 @@ var testimonials = [
     text: 'Very very useful for my business !! So much user friendly !! Thank you so much bro !! Love you lotss',
     stars: 5,
   },
+  {
+    name: 'Vikash',
+    location: '',
+    text: 'Working good',
+    stars: 5,
+  },
   // {
   //   name: '',
   //   location: '',
