@@ -852,6 +852,32 @@ body {
     background: rgba(79,142,247,0.14);
 }
 
+/* Small laptops: drop Demo from the desktop menu to make room (still in the mobile menu) */
+@media (max-width: 1180px) {
+    .nav-links .nav-hide-md {
+        display: none;
+    }
+}
+
+/* Templates marketplace link: stands out in the menus */
+.nav-links a.nav-highlight,
+.mob-nav-link.nav-highlight {
+    color: #9cc0ff;
+}
+
+.nav-new {
+    margin-left: 6px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
 .mob-nav-ctas {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -933,15 +959,40 @@ body {
         padding-inline: 10px;
     }
 
+    .nav-links .nav-new {
+        display: none;
+    }
+
     .nav-actions {
         gap: 6px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1100px) {
     .nav-links,
     .nav-actions {
         display: flex !important;
+    }
+}
+
+/* Tablets and small laptops: the full menu doesn't fit below 1100px, so use
+   the menu button there too (Tailwind's md: classes switch at 768px). */
+@media (max-width: 1099px) {
+    .nav-links,
+    .nav-actions {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex !important;
+    }
+
+    .mobile-menu:not(.hidden) {
+        display: block !important;
+    }
+
+    .nav-shell {
+        grid-template-columns: auto auto;
     }
 }
 

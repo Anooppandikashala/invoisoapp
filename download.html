@@ -131,6 +131,26 @@
       .dl2-steps .dl2-cmd { max-width: 560px; }
       .dl2-note { margin-top: 4px; padding: 12px 16px; border-radius: 10px; background: rgba(79,142,247,0.07); color: var(--dl2-soft); font-size: 0.85rem; line-height: 1.6; }
 
+      /* Invoice templates (cards built from the marketplace catalogue) */
+      .dl2-templates { border-bottom: 1px solid var(--dl2-line); }
+      .dl2-tpl-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .dl2-tpl-grid:empty { display: none; }
+      .dl2-tpl { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--dl2-line); border-radius: var(--dl2-radius); background: var(--card); color: var(--text); text-decoration: none; transition: border-color 0.2s; }
+      .dl2-tpl:hover { border-color: rgba(79,142,247,0.55); }
+      .dl2-tpl-img { display: flex; justify-content: center; padding: 22px; background: rgba(255,255,255,0.03); }
+      .dl2-tpl-img img { display: block; height: 240px; width: auto; max-width: 100%; background: #fff; }
+      .dl2-tpl-body { padding: 14px 16px 16px; }
+      .dl2-tpl-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+      .dl2-tpl h3 { color: #fff; font-size: 0.98rem; font-weight: 600; }
+      .dl2-tpl-price { flex-shrink: 0; color: #fff; font-size: 0.88rem; font-weight: 600; }
+      .dl2-tpl-price.is-free { color: #22c55e; }
+      .dl2-tpl small { display: block; margin-top: 4px; color: var(--text-muted); font-size: 0.8rem; }
+      .dl2-tpl-all { margin-top: 26px; text-align: center; font-size: 0.9rem; }
+      .dl2-tpl-all a { color: var(--primary); font-weight: 600; text-decoration: none; }
+      .dl2-tpl-all a:hover { text-decoration: underline; }
+      @media (max-width: 860px) { .dl2-tpl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 560px) { .dl2-tpl-grid { grid-template-columns: minmax(0, 1fr); max-width: 400px; margin-left: auto; margin-right: auto; } }
+
       /* What's new */
       .dl2-news { padding: 26px; border: 1px solid var(--dl2-line); border-radius: var(--dl2-radius); background: var(--card); }
       .dl2-news-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
@@ -277,6 +297,7 @@
           <li><a href="index.html#features" class="transition-colors duration-300">Features</a></li>
           <li><a href="faq.html" class="transition-colors duration-300">FAQ</a></li>
           <li><a href="changelog.html" class="transition-colors duration-300">Updates</a></li>
+          <li><a href="https://marketplace.invoiso.co.in/" class="nav-highlight transition-colors duration-300">Templates<span class="nav-new">New</span></a></li>
         </ul>
         <div class="nav-actions hidden md:flex">
           <a href="customization.html" class="nav-btn">Customization</a>
@@ -304,6 +325,7 @@
             <li><a href="index.html#features" class="mob-nav-link">Features</a></li>
             <li><a href="faq.html" class="mob-nav-link">FAQ</a></li>
             <li><a href="changelog.html" class="mob-nav-link">Updates</a></li>
+            <li><a href="https://marketplace.invoiso.co.in/" class="mob-nav-link nav-highlight">Templates<span class="nav-new">New</span></a></li>
           </ul>
           <div class="mob-nav-ctas">
             <a href="customization.html" class="mob-nav-btn-outline">Customization</a>
@@ -481,6 +503,16 @@
         </div>
       </section>
 
+      <!-- Invoice templates (cards filled from marketplace catalog.json) -->
+      <section class="dl2-templates" id="templates" aria-labelledby="templates-title">
+        <div class="dl2-wrap">
+          <h2 id="templates-title">Invoice templates</h2>
+          <p class="dl2-lead">More invoice designs for Invoiso, free and paid. They print with the GST settings, logo, signature and UPI QR you already set up in the app.</p>
+          <div class="dl2-tpl-grid" id="dl2-tpl-grid"></div>
+          <p class="dl2-tpl-all"><a href="https://marketplace.invoiso.co.in/">See all templates <i class="fas fa-arrow-right" aria-hidden="true" style="font-size:0.75rem"></i></a></p>
+        </div>
+      </section>
+
       <!-- What's new (filled from the latest GitHub release) -->
       <section id="whats-new" aria-labelledby="news-title">
         <div class="dl2-wrap dl2-narrow">
@@ -542,6 +574,7 @@
                 <li><a href="offline-billing-software.html" class="site-footer-link"><i class="fas fa-database" aria-hidden="true"></i>Offline billing</a></li>
                 <li><a href="index.html#features" class="site-footer-link"><i class="fas fa-layer-group" aria-hidden="true"></i>Features</a></li>
                 <li><a href="pricing.html" class="site-footer-link"><i class="fas fa-tag" aria-hidden="true"></i>Pricing</a></li>
+                <li><a href="https://marketplace.invoiso.co.in/" class="site-footer-link"><i class="fas fa-palette" aria-hidden="true"></i>Invoice templates</a></li>
               </ul>
             </div>
             <div>
@@ -823,6 +856,49 @@
         // What's new: full release notes (minimal markdown → HTML)
         if (latest.body) $('dl2-news-body').innerHTML = notesHtml(latest.body);
       }).catch(function () { /* static GitHub links already work */ });
+
+      // ── Invoice templates from the marketplace (status/prices stay in sync) ──
+      fetch('https://marketplace.invoiso.co.in/catalog.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (cat) {
+          var grid = $('dl2-tpl-grid');
+          if (!cat || !cat.templates || !grid) return;
+          cat.templates
+            .filter(function (t) { return t.status !== 'unavailable'; })
+            .slice(0, 3)
+            .forEach(function (t) {
+              var a = document.createElement('a');
+              a.className = 'dl2-tpl';
+              a.href = t.page;
+              var box = document.createElement('div');
+              box.className = 'dl2-tpl-img';
+              var img = document.createElement('img');
+              img.src = t.thumbnail;
+              img.alt = t.name + ' invoice template';
+              img.loading = 'lazy';
+              box.appendChild(img);
+              var body = document.createElement('div');
+              body.className = 'dl2-tpl-body';
+              var row = document.createElement('div');
+              row.className = 'dl2-tpl-row';
+              var h = document.createElement('h3');
+              h.textContent = t.name;
+              var price = document.createElement('span');
+              price.className = 'dl2-tpl-price' + (t.free ? ' is-free' : '');
+              price.textContent = t.free ? 'Free' : (t.price ? '₹' + t.price.INR + ' · $' + t.price.USD : '');
+              row.appendChild(h);
+              row.appendChild(price);
+              var meta = document.createElement('small');
+              meta.textContent = [t.category, (t.pageSizes || []).join(', '), t.status === 'coming-soon' ? 'Coming soon' : '']
+                .filter(Boolean).join(' · ');
+              body.appendChild(row);
+              body.appendChild(meta);
+              a.appendChild(box);
+              a.appendChild(body);
+              grid.appendChild(a);
+            });
+        })
+        .catch(function () { /* the "See all templates" link still works */ });
     })();
     </script>
   </body>
