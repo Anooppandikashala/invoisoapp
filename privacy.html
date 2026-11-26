@@ -135,7 +135,7 @@
               <p>
                 Invoiso is designed to keep your billing data under your control. The desktop app works offline, the online invoice maker runs in your browser, and we only receive information when you choose to send it through support, GitHub, email, or the customization form.
               </p>
-              <p class="privacy-updated">Last updated: <time datetime="2026-07-31">July 31, 2026</time></p>
+              <p class="privacy-updated">Last updated: <time datetime="2026-11-26">November 26, 2026</time></p>
             </div>
 
             <aside class="privacy-hero-panel" aria-label="Privacy summary">
@@ -167,6 +167,7 @@
               <a href="#summary">Summary</a>
               <a href="#desktop-app">Desktop app</a>
               <a href="#install-tracking">Anonymous install tracking</a>
+              <a href="#template-licences">Premium templates</a>
               <a href="#online-invoice-maker">Online invoice maker</a>
               <a href="#website">Website and downloads</a>
               <a href="#customization">Customization and support</a>
@@ -183,6 +184,7 @@
                 </div>
                 <p>Invoiso does not run a hosted billing account for you. We do not store your desktop app invoices, customer list, product list, PDFs, payment records, business settings, or backups on our servers.</p>
                 <p>The app does send a small anonymous install check-in (a hashed device ID, device operating system, and last login time) used only to count active installations.</p>
+                <p>Only if you use premium invoice templates, the app also contacts our licence server to activate and check your licence — see <a href="#template-licences" class="primary-text">Premium templates</a> below.</p>
                 <p>This policy explains what happens in the app, on the website, in the browser-based invoice maker, and when you contact us or use third-party services linked from the site.</p>
               </section>
 
@@ -203,6 +205,16 @@
                 </div>
                 <p>The desktop app sends a small anonymous check-in so we can count active installations. This includes a one-way hashed device ID, your device operating system, and the last login time. It does not include your name, email, business details, invoices, customers, products, or any other billing data.</p>
                 <p>The hashed ID cannot be reversed to identify your device or you personally, and is used only in aggregate to track how many installations of Invoiso are in use.</p>
+              </section>
+
+              <section class="privacy-card" id="template-licences">
+                <div class="privacy-card-heading">
+                  <i class="fas fa-key" aria-hidden="true"></i>
+                  <h2>Premium templates and licences</h2>
+                </div>
+                <p>Premium invoice templates are optional. If you never use them, none of this applies. When you activate a template licence in the app, it sends to our licence server: the licence key, the email the licence was issued to, an activation code (a one-way code derived from your computer, not the machine ID itself), the business name and tax ID (GSTIN, VAT, TRN…) set in Company Info, and the app version.</p>
+                <p>While a licence is active, the app checks it about once a day by sending the signed licence (the same details), and again when you deactivate it. Opening <em>Get more templates</em> downloads the public template list. Your invoices, customers, products and other billing data are never sent.</p>
+                <p>Purchase requests, licences and the template account are handled on <a href="https://marketplace.invoiso.co.in/privacy/" class="primary-text">marketplace.invoiso.co.in</a> (Supabase for sign-in and licences, Cloudflare Turnstile against abuse, Google Forms for purchase requests); its privacy page has the details.</p>
               </section>
 
               <section class="privacy-card" id="online-invoice-maker">
